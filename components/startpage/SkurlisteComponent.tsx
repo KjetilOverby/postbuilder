@@ -5,10 +5,13 @@ interface SkurlisteProps {
     map(arg0: (item: any) => JSX.Element): React.ReactNode;
     treslag: string;
   };
+  setSkurlisteInfo: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SkurlisteComponent = ({ skurliste }: SkurlisteProps) => {
-  const [statusColor, setStatusColor] = useState("");
+const SkurlisteComponent = ({
+  skurliste,
+  setSkurlisteInfo,
+}: SkurlisteProps) => {
   return (
     <>
       <div className="">
@@ -61,12 +64,20 @@ const SkurlisteComponent = ({ skurliste }: SkurlisteProps) => {
           </thead>
           {skurliste &&
             skurliste.map((item) => {
+              console.log(item.progress);
+              const skurlisteInfoHandler = () => {
+                setSkurlisteInfo(item);
+              };
               return (
-                <tbody className={`${item.progress}`} key={item._id}>
+                <tbody
+                  onClick={skurlisteInfoHandler}
+                  className={`hover:bg-green-100 cursor-pointer ${item.progress}`}
+                  key={item._id}
+                >
                   <td
                     className={`border border-slate-300 p-1.5 ${
                       item.treslag === "Furu"
-                        ? "text-orange-500"
+                        ? "text-orange-300"
                         : "text-green-500"
                     }`}
                   >
@@ -79,19 +90,19 @@ const SkurlisteComponent = ({ skurliste }: SkurlisteProps) => {
                   <td className="border border-slate-300 p-1.5">{item.m3}</td>
                   <td
                     className={`border border-slate-300 p-1.5 ${
-                      item.status == "tøm" ? "text-red-500" : "text-blue-600"
+                      item.status == "tøm" ? "text-green-400" : "text-red-600"
                     }`}
                   >
                     {item.status}
                   </td>
-                  <td className="border border-slate-300 p-1.5 post hover: cursor-pointer">
+                  <td className="border border-slate-300 p-1.5 post">
                     {item.post}x{item.breddePost}
                   </td>
                   <td className="border border-slate-300 p-1.5">{item.xLog}</td>
                   <td className="border border-slate-300 p-1.5">
                     {item.prosent}
                   </td>
-                  <td className="border border-slate-300 p-1.5 text-blue-300">
+                  <td className="border border-slate-300 p-1.5 text-teal-600">
                     {item.anm}
                   </td>
                   <td className="border border-slate-300 p-1.5">{item.vs66}</td>
@@ -119,6 +130,14 @@ const SkurlisteComponent = ({ skurliste }: SkurlisteProps) => {
           }
           .tom {
             color: blue;
+          }
+          .running {
+            background: #93c5fd;
+            color: #3b82f6;
+          }
+          .finished {
+            background: #94a3b8;
+            color: #64748b;
           }
         `}
       </style>

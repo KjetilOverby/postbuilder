@@ -141,7 +141,7 @@ const SearchModal = ({ close, poster }: SearchProps) => {
   }, [input, poster]);
   return (
     <>
-      <div className="h-screen pl-96 pr-96 pt-12 backdrop-blur-sm fixed left-0 top-0 w-screen overflow-scroll">
+      <div className="h-screen pl-96 pr-96 pt-12 backdrop-blur-sm fixed left-0 top-0 w-screen overflow-scroll z-10">
         <div className="w-96">
           <form>
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">
@@ -175,8 +175,12 @@ const SearchModal = ({ close, poster }: SearchProps) => {
               />
             </div>
           </form>
-          <p className="text-slate-50">Antall poster: {poster && poster.length}</p>
-          <p className="text-slate-50">Antall treff: {searchResult && searchResult.length}</p>
+          <p className="text-slate-50">
+            {`Antall poster: ${poster && poster.length}`}
+          </p>
+          <p className="text-slate-50">
+            Antall treff: {searchResult && searchResult.length}
+          </p>
           <button className="text-slate-100 mt-1" onClick={() => close(false)}>
             Close
           </button>

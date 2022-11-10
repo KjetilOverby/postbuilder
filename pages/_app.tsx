@@ -6,49 +6,41 @@ import React, { useState, useEffect } from "react";
 export default function App({ Component, pageProps }: AppProps) {
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
+  const [skurlisteInfo, setSkurlisteInfo] = useState();
   const api = axios.create({
     baseURL: process.env.api,
   });
 
   useEffect(() => {
-    const api = axios.create({
-      baseURL: process.env.api,
-    });
-
-    api
-      .get("/api/poster")
-      .then(function (response) {
-        // handle success
+    (async () => {
+      try {
+        const response = await api.get("/api/poster");
         setPoster(response.data.data);
-      })
-      .catch(function (error) {
-        // handle error
+      } catch (error) {
         console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(skurliste);
 
   useEffect(() => {
-    const api = axios.create({
-      baseURL: process.env.api,
-    });
-
-    api
-      .get("/api/skurliste")
-      .then(function (response) {
-        // handle success
+    (async () => {
+      try {
+        const response = await api.get("/api/skurliste");
         setSkurliste(response.data.data);
-      })
-      .catch(function (error) {
-        // handle error
+      } catch (error) {
         console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <Component {...pageProps} poster={poster} skurliste={skurliste} />;
+  return (
+    <Component
+      {...pageProps}
+      poster={poster}
+      skurliste={skurliste}
+      setSkurlisteInfo={setSkurlisteInfo}
+      skurlisteInfo={skurlisteInfo}
+    />
+  );
 }

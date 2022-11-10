@@ -9,7 +9,7 @@ const SearchPostoppsett = ({ searchResult }: any) => {
             <>
               <div className="result-container bg-amber-100 rounded-md p-5 mb-5">
                 <span>
-                  <p className="">{item.header}</p>
+                  <p className="text-amber-500 font-light">{item.header}</p>
                   <div className="allrings-container">
                     <div className="ring-container ">
                       {item.startRings.map(
@@ -18,7 +18,10 @@ const SearchPostoppsett = ({ searchResult }: any) => {
                           input: number | null | undefined;
                         }) => {
                           return (
-                            <div key={startRing._id} className="rings bg-sky-800 text-slate-50">
+                            <div
+                              key={startRing._id}
+                              className="rings bg-sky-800 text-slate-50"
+                            >
                               {startRing.input}
                             </div>
                           );
@@ -32,7 +35,10 @@ const SearchPostoppsett = ({ searchResult }: any) => {
                           input: number;
                         }) => {
                           return (
-                            <div key={rawRing._id} className="rings raw bg-blue-300">
+                            <div
+                              key={rawRing._id}
+                              className="rings raw bg-blue-300"
+                            >
                               <p className="rawInput">{rawRing.input}</p>
                               <p>{(rawRing.input + 1.4).toFixed(1)}</p>
                             </div>
@@ -58,7 +64,10 @@ const SearchPostoppsett = ({ searchResult }: any) => {
                             | undefined;
                         }) => {
                           return (
-                            <div key={endRing._id} className="rings bg-sky-800 text-slate-50">
+                            <div
+                              key={endRing._id}
+                              className="rings bg-sky-800 text-slate-50"
+                            >
                               {endRing.input}
                             </div>
                           );
@@ -73,8 +82,6 @@ const SearchPostoppsett = ({ searchResult }: any) => {
         })}
       <style jsx>
         {`
-         
-        
           .rings {
             width: 36px;
             height: 70px;
@@ -82,7 +89,7 @@ const SearchPostoppsett = ({ searchResult }: any) => {
             place-items: center;
             margin-right: 3px;
             border-radius: 3px;
-            border: 1px solid grey
+            border: 1px solid grey;
           }
           .ring-container {
             display: flex;
@@ -106,7 +113,7 @@ const SearchPostoppsett = ({ searchResult }: any) => {
             display: grid;
             place-items: center;
           }
-         
+
           @media only screen and (max-width: 756px) {
             .ring {
               width: 20px;

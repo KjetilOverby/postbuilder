@@ -134,9 +134,16 @@ interface SkurlisteProps {
       type: Date;
     };
   };
+  setSkurlisteInfo: React.Dispatch<React.SetStateAction<string>>;
+  skurlisteInfo: string;
 }
 
-export default function Home({ skurliste, poster }: SkurlisteProps) {
+export default function Home({
+  skurliste,
+  poster,
+  setSkurlisteInfo,
+  skurlisteInfo,
+}: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
   return (
     <div>
@@ -151,6 +158,9 @@ export default function Home({ skurliste, poster }: SkurlisteProps) {
       <StartPageComponent
         skurliste={skurliste}
         setOpenSearchModal={setOpenSearchModal}
+        setSkurlisteInfo={setSkurlisteInfo}
+        skurlisteInfo={skurlisteInfo}
+        poster={poster}
       />
     </div>
   );
