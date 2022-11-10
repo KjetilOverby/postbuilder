@@ -127,9 +127,10 @@ interface SearchProps {
       type: Date;
     };
   };
+  setPostInfo: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchModal = ({ close, poster }: SearchProps) => {
+const SearchModal = ({ close, poster, setPostInfo }: SearchProps) => {
   const [searchResult, setSearchResult] = useState<any>();
   const [input, setInput] = useState();
   useEffect(() => {
@@ -185,7 +186,10 @@ const SearchModal = ({ close, poster }: SearchProps) => {
             Close
           </button>
           <div className="mt-12">
-            <SearchPostoppsett searchResult={searchResult} />
+            <SearchPostoppsett
+              searchResult={searchResult}
+              setPostInfo={setPostInfo}
+            />
           </div>
         </div>
       </div>

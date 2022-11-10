@@ -7,9 +7,12 @@ export default function App({ Component, pageProps }: AppProps) {
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
   const [skurlisteInfo, setSkurlisteInfo] = useState();
+  const [postInfo, setPostInfo] = useState();
   const api = axios.create({
     baseURL: process.env.api,
   });
+
+  console.log(postInfo);
 
   useEffect(() => {
     (async () => {
@@ -41,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
       skurliste={skurliste}
       setSkurlisteInfo={setSkurlisteInfo}
       skurlisteInfo={skurlisteInfo}
+      setPostInfo={setPostInfo}
     />
   );
 }

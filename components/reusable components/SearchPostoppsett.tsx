@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 
-const SearchPostoppsett = ({ searchResult }: any) => {
+const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
   return (
     <>
       {searchResult &&
         searchResult.map((item: any) => {
+          const postInfoHandler = () => {
+            setPostInfo(item);
+          };
           return (
             <>
-              <div className="result-container bg-amber-100 rounded-md p-5 mb-5">
+              <div
+                onClick={postInfoHandler}
+                className="result-container bg-amber-100 rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
+              >
                 <span>
                   <p className="text-amber-500 font-light">{item.header}</p>
                   <div className="allrings-container">

@@ -135,6 +135,7 @@ interface SkurlisteProps {
       type: Date;
     };
   };
+  setPostInfo: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const StartPageComponent = ({
@@ -143,6 +144,7 @@ const StartPageComponent = ({
   setSkurlisteInfo,
   skurlisteInfo,
   poster,
+  setPostInfo,
 }: SkurlisteProps) => {
   const [searchString, setSearchString] = useState<string>();
   const [searchStringResult, setSearchStringResult] = useState();
@@ -201,6 +203,7 @@ const StartPageComponent = ({
             <SearchPostoppsett
               setSearchResultModal={setSearchResultModal}
               searchResult={searchStringResult}
+              setPostInfo={setPostInfo}
             />
           </div>
         )}

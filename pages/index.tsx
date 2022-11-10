@@ -136,6 +136,7 @@ interface SkurlisteProps {
   };
   setSkurlisteInfo: React.Dispatch<React.SetStateAction<string>>;
   skurlisteInfo: string;
+  setPostInfo: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function Home({
@@ -143,6 +144,7 @@ export default function Home({
   poster,
   setSkurlisteInfo,
   skurlisteInfo,
+  setPostInfo,
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
   return (
@@ -153,7 +155,11 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {openSearchModal && (
-        <SearchModal close={setOpenSearchModal} poster={poster} />
+        <SearchModal
+          close={setOpenSearchModal}
+          poster={poster}
+          setPostInfo={setPostInfo}
+        />
       )}
       <StartPageComponent
         skurliste={skurliste}
@@ -161,6 +167,7 @@ export default function Home({
         setSkurlisteInfo={setSkurlisteInfo}
         skurlisteInfo={skurlisteInfo}
         poster={poster}
+        setPostInfo={setPostInfo}
       />
     </div>
   );
