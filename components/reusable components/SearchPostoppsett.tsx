@@ -7,18 +7,18 @@ const SearchPostoppsett = ({ searchResult }: any) => {
         searchResult.map((item: any) => {
           return (
             <>
-              <div className="result-container skew">
+              <div className="result-container bg-amber-100 rounded-md p-5 mb-5">
                 <span>
-                  <p className="header">{item.header}</p>
+                  <p className="">{item.header}</p>
                   <div className="allrings-container">
-                    <div className="ring-container">
+                    <div className="ring-container ">
                       {item.startRings.map(
                         (startRing: {
                           _id: React.Key | null | undefined;
                           input: number | null | undefined;
                         }) => {
                           return (
-                            <div key={startRing._id} className="ring">
+                            <div key={startRing._id} className="rings bg-sky-800 text-slate-50">
                               {startRing.input}
                             </div>
                           );
@@ -32,7 +32,7 @@ const SearchPostoppsett = ({ searchResult }: any) => {
                           input: number;
                         }) => {
                           return (
-                            <div key={rawRing._id} className="ring raw">
+                            <div key={rawRing._id} className="rings raw bg-blue-300">
                               <p className="rawInput">{rawRing.input}</p>
                               <p>{(rawRing.input + 1.4).toFixed(1)}</p>
                             </div>
@@ -40,7 +40,7 @@ const SearchPostoppsett = ({ searchResult }: any) => {
                         }
                       )}
                     </div>
-                    <div className="ring-container">
+                    <div className="ring-container ">
                       {item.endRings.map(
                         (endRing: {
                           _id: React.Key | null | undefined;
@@ -58,7 +58,7 @@ const SearchPostoppsett = ({ searchResult }: any) => {
                             | undefined;
                         }) => {
                           return (
-                            <div key={endRing._id} className="ring">
+                            <div key={endRing._id} className="rings bg-sky-800 text-slate-50">
                               {endRing.input}
                             </div>
                           );
@@ -73,19 +73,16 @@ const SearchPostoppsett = ({ searchResult }: any) => {
         })}
       <style jsx>
         {`
-          .header {
-            color: var(--text-primary);
-          }
-          .ring {
-            border: 1px solid var(--text-primary);
+         
+        
+          .rings {
             width: 36px;
             height: 70px;
             display: grid;
             place-items: center;
-            margin-right: 5px;
-            color: var(--text-primary);
-            box-shadow: 0 0 13px rgba(17, 241, 255, 0.6) inset;
+            margin-right: 3px;
             border-radius: 3px;
+            border: 1px solid grey
           }
           .ring-container {
             display: flex;
@@ -94,7 +91,6 @@ const SearchPostoppsett = ({ searchResult }: any) => {
             font-size: 0.8rem;
           }
           .raw {
-            background: rgba(17, 241, 255, 0.3);
             position: relative;
           }
           .rawInput {
@@ -106,26 +102,11 @@ const SearchPostoppsett = ({ searchResult }: any) => {
             display: flex;
           }
           .result-container {
-            border: 1px solid var(--text-primary);
-            padding: 0.5rem;
-            margin-bottom: 0.5rem;
             width: 35rem;
             display: grid;
             place-items: center;
-            background: grey;
           }
-          .skew {
-            border: 1px solid transparent;
-            border-right-width: 2px;
-            border-image: linear-gradient(top left, #bbb 0%, #999 100%) 1;
-            animation: holox-pen 5.4s ease 1s infinite;
-            padding: 24px;
-            display: block;
-            transition: all 330ms linear;
-            border-image: linear-gradient(top left, #99fcff 0%, #00f7ff 100%) 1;
-            animation-name: holox-fed;
-            box-shadow: 0 0 13px rgba(17, 241, 255, 0.6) inset;
-          }
+         
           @media only screen and (max-width: 756px) {
             .ring {
               width: 20px;

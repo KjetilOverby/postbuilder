@@ -84,7 +84,7 @@ const SkurlisteComponent = ({ skurliste }: SkurlisteProps) => {
                   >
                     {item.status}
                   </td>
-                  <td className="border border-slate-300 p-1.5 post">
+                  <td className="border border-slate-300 p-1.5 post hover: cursor-pointer">
                     {item.post}x{item.breddePost}
                   </td>
                   <td className="border border-slate-300 p-1.5">{item.xLog}</td>
