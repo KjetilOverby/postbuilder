@@ -12,8 +12,6 @@ export default function App({ Component, pageProps }: AppProps) {
     baseURL: process.env.api,
   });
 
-  console.log(postInfo);
-
   useEffect(() => {
     (async () => {
       try {
