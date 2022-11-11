@@ -45,6 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
       setSkurlisteInfo={setSkurlisteInfo}
       skurlisteInfo={skurlisteInfo}
       setPostInfo={setPostInfo}
+      postInfo={postInfo}
     />
   );
 }

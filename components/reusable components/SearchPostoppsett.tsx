@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from 'next/link'
 
 const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
   return (
@@ -10,6 +11,8 @@ const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
           };
           return (
             <>
+            <Link href='/postoppsett'>
+            
               <div
                 onClick={postInfoHandler}
                 className="result-container bg-amber-100 rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
@@ -83,6 +86,7 @@ const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
                   </div>
                 </span>
               </div>
+              </Link>
             </>
           );
         })}
