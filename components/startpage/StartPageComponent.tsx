@@ -175,8 +175,6 @@ const StartPageComponent = ({
     setSearchResultModal(false);
   };
 
-  console.log(searchResultModal);
-
   return (
     <>
       <HeaderComponent open={setOpenSearchModal} />
