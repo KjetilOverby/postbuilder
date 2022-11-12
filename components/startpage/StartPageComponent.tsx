@@ -163,7 +163,6 @@ const StartPageComponent = ({
       setSearchStringResult(
         poster.filter((item: any) => item.header.includes(searchString))
       );
-      setSearchResultModal(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchString]);
@@ -176,14 +175,17 @@ const StartPageComponent = ({
     setSearchResultModal(false);
   };
 
+  console.log(searchResultModal);
+
   return (
     <>
       <HeaderComponent open={setOpenSearchModal} />
-      <div className="container mx-auto px-12 md:px-60 pt-12">
+      <div className="px-3 lg:px-60 pt-12">
         <h1 className="header text-2xl">Skurplan</h1>
         <SkurlisteComponent
           skurliste={skurliste}
           setSkurlisteInfo={setSkurlisteInfo}
+          setSearchResultModal={setSearchResultModal}
         />
 
         {searchResultModal && (

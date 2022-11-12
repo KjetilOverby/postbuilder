@@ -32,7 +32,7 @@ const PostOppsettComponent = ({ postInfo }: any) => {
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
-            <h1 className="top-20 text-slate-200">
+            <h1 className="text-slate-200 text-xl  md:text-1xl lg:text-4xl">
               {parsedPost && parsedPost.header}
             </h1>
           </div>
@@ -43,7 +43,7 @@ const PostOppsettComponent = ({ postInfo }: any) => {
                   parsedPost.startRings.map((item: any) => {
                     return (
                       <>
-                        <div className="outerRingContainer fillringcontainer">
+                        <div className="outerRingContainer fillringcontainer ">
                           <div
                             key={item._id}
                             className="ringcomponent fillrings"
@@ -207,6 +207,7 @@ const PostOppsettComponent = ({ postInfo }: any) => {
             align-items: center;
             bottom: -85px;
             height: 5rem;
+            font-size: 0.5rem;
           }
           .shims {
             color: black;
@@ -256,6 +257,98 @@ const PostOppsettComponent = ({ postInfo }: any) => {
             100% {
               -webkit-transform: scale3d(1, 1, 1);
               transform: scale3d(1, 1, 1);
+            }
+          }
+          @media only screen and (max-width: 1000px) {
+            .ringcomponent {
+              height: 6rem;
+              width: 2.8rem;
+
+              font-size: 0.8rem;
+            }
+
+            .outerRingContainer {
+              height: 6.5rem;
+              width: 3.3rem;
+              margin-right: 5px;
+            }
+            .sawBlade {
+              height: 15rem;
+              width: 0.2rem;
+              left: -5px;
+            }
+            .sawBlade2 {
+              height: 15rem;
+              width: 0.2rem;
+              top: -7.5rem;
+            }
+            .postoppsettHeader {
+              top: 15px;
+            }
+            .shims {
+              font-size: 10px;
+            }
+            .rawInput {
+              font-size: 10px;
+              color: lightgrey;
+              top: -15px;
+            }
+            .bladstamme {
+              font-size: 10px;
+              bottom: -15px;
+              left: -5px;
+            }
+            .sagsnitt {
+              font-size: 10px;
+              top: -14px;
+              left: -5px;
+            }
+          }
+          @media only screen and (max-width: 656px) {
+            .postoppsettHeader {
+              top: 150px;
+            }
+            .ringcomponent {
+              height: 4rem;
+              width: 2rem;
+
+              font-size: 0.8rem;
+            }
+
+            .outerRingContainer {
+              height: 4rem;
+              width: 2rem;
+              border: none;
+              margin-right: 1px;
+            }
+            .sawBlade {
+              height: 10rem;
+              width: 0.1rem;
+              left: -2px;
+            }
+            .sawBlade2 {
+              height: 10rem;
+              width: 0.1rem;
+              top: -5rem;
+              left: -2px;
+            }
+            .shims {
+              font-size: 7px;
+            }
+            .rawInput {
+              font-size: 7px;
+              color: lightgrey;
+              top: -15px;
+            }
+            .bladstamme {
+              font-size: 7px;
+              bottom: -12px;
+              left: -5px;
+            }
+            .sagsnitt {
+              font-size: 7px;
+              top: -10px;
+              left: -5px;
             }
           }
         `}
