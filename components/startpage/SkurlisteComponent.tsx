@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import dateFormat from "dateformat";
 
 interface SkurlisteProps {
   skurliste: {
@@ -78,13 +79,16 @@ const SkurlisteComponent = ({
                   key={item._id}
                 >
                   <td
-                    className={`border border-slate-300 lg:p-1.5 ${
+                    className={`border border-slate-300 lg:p-1.5 grid grid-cols-1 grid-rows-2 ${
                       item.treslag === "Furu"
-                        ? "text-orange-300"
+                        ? "text-orange-600"
                         : "text-green-500"
                     }`}
                   >
-                    {item.treslag}
+                    {item.treslag} {item.klType}
+                    <span className="span-text-date text-slate-800 italic">
+                      {dateFormat(item.date, "dd.mm.yyyy, HH:MM")}
+                    </span>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
                     {item.klasse}
@@ -155,11 +159,17 @@ const SkurlisteComponent = ({
           table {
             width: 100%;
           }
+          .span-text-date {
+            font-size: 0.6rem;
+          }
 
           @media only screen and (max-width: 1000px) {
             table {
               width: 100%;
               font-size: 12px;
+            }
+            .span-text-date {
+              font-size: 0.3rem;
             }
           }
           @media only screen and (max-width: 600px) {

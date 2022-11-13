@@ -3,7 +3,12 @@ import KlasseInfoComponent from "../components/postoppsett/KlasseInfoComponent";
 import PostOppsettComponent from "../components/postoppsett/PostOppsettComponent";
 import SkurlisteComponent from "../components/startpage/SkurlisteComponent";
 
-const postoppsett = ({ postInfo, skurlisteInfo, skurliste }: any) => {
+const postoppsett = ({
+  postInfo,
+  skurlisteInfo,
+  skurliste,
+  setSearchResultModal,
+}: any) => {
   return (
     <>
       <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid">
@@ -16,11 +21,7 @@ const postoppsett = ({ postInfo, skurlisteInfo, skurliste }: any) => {
           <SkurlisteComponent
             skurliste={skurliste}
             setSkurlisteInfo={skurlisteInfo}
-            setSearchResultModal={function (
-              value: React.SetStateAction<boolean>
-            ): void {
-              throw new Error("Function not implemented.");
-            }}
+            setSearchResultModal={setSearchResultModal}
           />
         </div>
       </div>

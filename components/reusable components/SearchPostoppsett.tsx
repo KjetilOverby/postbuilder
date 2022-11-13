@@ -13,7 +13,6 @@ const SearchPostoppsett = ({
           const postInfoHandler = () => {
             setPostInfo(item);
             localStorage.setItem("name", JSON.stringify(item));
-            setSearchResultModal(false);
           };
           return (
             <>
