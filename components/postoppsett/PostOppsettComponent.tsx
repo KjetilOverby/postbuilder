@@ -32,7 +32,7 @@ const PostOppsettComponent = ({ postInfo }: any) => {
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
-            <h1 className="text-slate-200 text-xl  md:text-1xl lg:text-4xl">
+            <h1 className="text-slate-400 text-xl  md:text-1xl lg:text-4xl">
               {parsedPost && parsedPost.header}
             </h1>
           </div>
@@ -159,14 +159,14 @@ const PostOppsettComponent = ({ postInfo }: any) => {
             display: grid;
             place-items: center;
             border-radius: 5px;
-            color: slategrey;
+            color: #333;
             font-size: 1.5rem;
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
           }
           .rawrings {
-            background-image: linear-gradient(45deg, #fb8122 0%, #e1e2e2 100%);
+            background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
           }
           .outerRingContainer {
             height: 11.5rem;

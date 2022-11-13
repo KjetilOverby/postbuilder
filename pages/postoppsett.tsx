@@ -6,7 +6,7 @@ import SkurlisteComponent from "../components/startpage/SkurlisteComponent";
 const postoppsett = ({ postInfo, skurlisteInfo, skurliste }: any) => {
   return (
     <>
-      <div className="bg-gradient-to-r from-cyan-900 via-cyan-700 to-cyan-900 grid">
+      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid">
         <PostOppsettComponent postInfo={postInfo} />
         <KlasseInfoComponent info={skurlisteInfo} />
         <div className="container px-3 lg:px-60 pt-12">

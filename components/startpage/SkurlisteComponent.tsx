@@ -155,6 +155,7 @@ const SkurlisteComponent = ({
           table {
             width: 100%;
           }
+
           @media only screen and (max-width: 1000px) {
             table {
               width: 100%;

@@ -5,7 +5,13 @@ interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HeaderComponent = ({ open }: HeaderProps) => {
+const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
+  const openPostoppsettHandler = () => {
+    setSkurlisteInfo(
+      localStorage.setItem("name", JSON.stringify("Ingen data"))
+    );
+    open(true);
+  };
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-slate-700 p-20">
@@ -29,7 +35,7 @@ const HeaderComponent = ({ open }: HeaderProps) => {
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
             <a
-              onClick={() => open(true)}
+              onClick={openPostoppsettHandler}
               href="#responsive-header"
               className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 uppercase"
             >

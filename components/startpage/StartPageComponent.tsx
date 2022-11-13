@@ -177,7 +177,10 @@ const StartPageComponent = ({
 
   return (
     <>
-      <HeaderComponent open={setOpenSearchModal} />
+      <HeaderComponent
+        open={setOpenSearchModal}
+        setSkurlisteInfo={setSkurlisteInfo}
+      />
       <div className="px-3 lg:px-60 pt-12">
         <h1 className="header text-2xl">Skurplan</h1>
         <SkurlisteComponent
