@@ -21,6 +21,9 @@ const KlasseInfoComponent = ({ info }: any) => {
               Post valgt fra skurliste:
             </p>
             <p className="text-slate-400 text-xs italic">
+              Uttak: {info && info.post}x{info && info.breddePost}
+            </p>
+            <p className="text-slate-400 text-xs italic">
               Klasse: {info && info.klasse} {info && info.treslag}{" "}
               {info && info.klType}
             </p>
