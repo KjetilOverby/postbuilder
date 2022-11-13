@@ -16,7 +16,7 @@ const SkurlisteComponent = ({
 }: SkurlisteProps) => {
   return (
     <>
-      <div className="skurliste-container mb-10">
+      <div className="skurliste-container mb-10 bg-white">
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
             <tr>

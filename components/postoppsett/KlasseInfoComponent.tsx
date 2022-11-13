@@ -13,20 +13,47 @@ const KlasseInfoComponent = ({ info }: any) => {
         </Link>
         {info && (
           <>
-            <h1 className="text-slate-400 text-3xl">
+            {/* <h1 className="text-slate-400 text-3xl font-thin">
               {info && info.post}x{info && info.breddePost}
               {" -"} {info && info.blad}
-            </h1>
-            <p className="text-slate-400 text-xs">
+            </h1> */}
+            <p className="text-slate-400 text-xs italic">
+              Post valgt fra skurliste:
+            </p>
+            <p className="text-slate-400 text-xs italic">
               Klasse: {info && info.klasse} {info && info.treslag}{" "}
               {info && info.klType}
             </p>
-            <p className="text-slate-400 text-xs">
-              Ant stokk: {info && info.ant} m3: {info && info.m3}
+            <p className="text-slate-400 text-xs italic">
+              Ant stokk: {info && info.ant}
             </p>
-            <p className="text-slate-400 text-xs">
+            <p className="text-slate-400 text-xs italic">
+              M3: {info && info.m3}
+            </p>
+            <p className="text-slate-400 text-xs italic">
               Anm: {info && info.anm} {info && info.anm2}
             </p>
+            <p className="text-slate-400 text-xs italic">
+              Status: {info && info.status}
+            </p>
+            <p className="text-slate-400 text-xs italic">
+              X-log: {info && info.xLog}
+            </p>
+
+            {info && info.vs66 ? (
+              <p className="text-slate-400 text-xs italic">
+                VS-66: {info.vs66}mm
+              </p>
+            ) : (
+              <p>VS-66: ingen bord</p>
+            )}
+            {info && info.mkvBord ? (
+              <p className="text-slate-400 text-xs italic">
+                MKV: {info.mkvBord}mm
+              </p>
+            ) : (
+              <p className="text-slate-400 text-xs italic">MKV: ingen bord</p>
+            )}
           </>
         )}
       </div>

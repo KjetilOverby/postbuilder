@@ -7,7 +7,10 @@ const postoppsett = ({ postInfo, skurlisteInfo, skurliste }: any) => {
   return (
     <>
       <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid">
-        <PostOppsettComponent postInfo={postInfo} />
+        <PostOppsettComponent
+          postInfo={postInfo}
+          skurlisteInfo={skurlisteInfo}
+        />
         <KlasseInfoComponent info={skurlisteInfo} />
         <div className="container px-3 lg:px-60 pt-12">
           <SkurlisteComponent

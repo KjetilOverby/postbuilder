@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import useComponentDidMount from "../customHooks/UseComponentDidMount";
+import dateFormat from "dateformat";
 
-const PostOppsettComponent = ({ postInfo }: any) => {
+const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
   const router = useRouter();
 
   const [localStargeItem, setLocalStargeItem] = useState<any>();
@@ -32,9 +33,16 @@ const PostOppsettComponent = ({ postInfo }: any) => {
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
-            <h1 className="text-slate-400 text-xl  md:text-1xl lg:text-4xl">
-              {parsedPost && parsedPost.header}
+            <h1 className="text-slate-400 text-xl  md:text-1xl lg:text-4xl font-thin">
+              {parsedPost && parsedPost.header}{" "}
+              {skurlisteInfo && ` • ${skurlisteInfo.breddePost}`}
             </h1>
+            <p className="text-slate-600 text-xs italic">
+              Post opprettet:{" "}
+              {parsedPost && parsedPost.date
+                ? dateFormat(parsedPost.date, "dd.mm.yyyy, HH:MM")
+                : "ukjent"}
+            </p>
           </div>
           <div>
             <div className="flex items-center animate-container">
