@@ -161,6 +161,7 @@ const PostOppsettComponent = ({ postInfo }: any) => {
             border-radius: 5px;
             color: #333;
             font-size: 1.5rem;
+            box-shadow: inset 1px 1px 15px grey;
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
@@ -169,12 +170,12 @@ const PostOppsettComponent = ({ postInfo }: any) => {
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
           }
           .outerRingContainer {
-            height: 11.5rem;
-            width: 5.5rem;
+            height: 11.4rem;
+            width: 5.4rem;
             border: 1px solid grey;
             display: grid;
             place-items: center;
-            margin-right: 5px;
+            margin-right: 4px;
             border-radius: 5px;
             position: relative;
           }
@@ -183,7 +184,6 @@ const PostOppsettComponent = ({ postInfo }: any) => {
             height: 30rem;
             width: 0.3rem;
             left: -5px;
-            border: 0.5px solid black;
             border: 0.5px solid lightgrey;
           }
           .sawBlade2 {

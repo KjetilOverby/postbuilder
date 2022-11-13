@@ -3,12 +3,13 @@ import React from "react";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
+  setSkurlisteInfo: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
   const openPostoppsettHandler = () => {
     setSkurlisteInfo(
-      localStorage.setItem("name", JSON.stringify("Ingen data"))
+      localStorage.setItem("name", JSON.stringify({ name: "Ingen data" }))
     );
     open(true);
   };
