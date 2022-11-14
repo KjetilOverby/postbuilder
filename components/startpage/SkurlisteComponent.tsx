@@ -67,7 +67,6 @@ const SkurlisteComponent = ({
           </thead>
           {skurliste &&
             skurliste.map((item) => {
-              console.log(item.progress);
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
                 setSearchResultModal(true);

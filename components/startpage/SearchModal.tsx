@@ -1,136 +1,12 @@
 import React, { useState, useEffect } from "react";
 import SearchPostoppsett from "../reusable components/SearchPostoppsett";
+import { SearchProps } from "../../tsmodules/SearchProps";
 
-interface SearchProps {
-  close: React.Dispatch<React.SetStateAction<boolean>>;
-  poster: {
-    length: {
-      filter(arg0: (item: any) => any): React.SetStateAction<undefined>;
-      startRings: [
-        {
-          input: {
-            type: number;
-          };
-        }
-      ];
-      rawInput: [
-        {
-          input: {
-            type: number;
-          };
-          ring: {
-            type: number;
-          };
-          shims: {
-            type: number;
-          };
-          shims2: {
-            type: number;
-          };
-          shims3: {
-            type: number;
-          };
-        }
-      ];
-      endRings: [
-        {
-          input: {
-            type: number;
-          };
-        }
-      ];
-      blades: {
-        bladStamme: {
-          type: number;
-        };
-      };
-      header: {
-        type: string;
-      };
-      prosent: {
-        type: string;
-      };
-      planker: {
-        type: string;
-      };
-      spes: {
-        type: string;
-      };
-      nameClass: {
-        type: string;
-      };
-      date: {
-        type: Date;
-      };
-      editDate: {
-        type: Date;
-      };
-    };
-    filter(arg0: (item: any) => any): React.SetStateAction<undefined>;
-    startRings: [
-      {
-        input: {
-          type: number;
-        };
-      }
-    ];
-    rawInput: [
-      {
-        input: {
-          type: number;
-        };
-        ring: {
-          type: number;
-        };
-        shims: {
-          type: number;
-        };
-        shims2: {
-          type: number;
-        };
-        shims3: {
-          type: number;
-        };
-      }
-    ];
-    endRings: [
-      {
-        input: {
-          type: number;
-        };
-      }
-    ];
-    blades: {
-      bladStamme: {
-        type: number;
-      };
-    };
-    header: {
-      type: string;
-    };
-    prosent: {
-      type: string;
-    };
-    planker: {
-      type: string;
-    };
-    spes: {
-      type: string;
-    };
-    nameClass: {
-      type: string;
-    };
-    date: {
-      type: Date;
-    };
-    editDate: {
-      type: Date;
-    };
-  };
-  setPostInfo: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const SearchModal = ({ close, poster, setPostInfo }: SearchProps) => {
+const SearchModal = ({
+  setOpenSearchModal,
+  poster,
+  setPostInfo,
+}: SearchProps) => {
   const [searchResult, setSearchResult] = useState<any>();
   const [input, setInput] = useState();
   useEffect(() => {
@@ -182,7 +58,10 @@ const SearchModal = ({ close, poster, setPostInfo }: SearchProps) => {
           <p className="text-slate-50">
             Antall treff: {searchResult && searchResult.length}
           </p>
-          <button className="text-slate-100 mt-1" onClick={() => close(false)}>
+          <button
+            className="text-slate-100 mt-1"
+            onClick={() => setOpenSearchModal(false)}
+          >
             Close
           </button>
           <div className="mt-12">

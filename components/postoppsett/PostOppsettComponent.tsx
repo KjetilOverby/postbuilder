@@ -20,7 +20,7 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
 
   useEffect(() => {
     setLocalStargeItem(localStorage.getItem("name"));
-  }, []);
+  }, [postInfo]);
 
   useEffect(() => {
     if (localStargeItem) {

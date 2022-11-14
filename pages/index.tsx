@@ -4,140 +4,7 @@ import SearchModal from "../components/startpage/SearchModal";
 import StartPageComponent from "../components/startpage/StartPageComponent";
 import styles from "../styles/Home.module.css";
 import React, { useState } from "react";
-
-interface SkurlisteProps {
-  skurliste: {
-    map(arg0: (item: any) => JSX.Element): React.ReactNode;
-    treslag: string;
-  };
-  poster: {
-    length: {
-      filter(arg0: (item: any) => any): React.SetStateAction<undefined>;
-      startRings: [
-        {
-          input: {
-            type: number;
-          };
-        }
-      ];
-      rawInput: [
-        {
-          input: {
-            type: number;
-          };
-          ring: {
-            type: number;
-          };
-          shims: {
-            type: number;
-          };
-          shims2: {
-            type: number;
-          };
-          shims3: {
-            type: number;
-          };
-        }
-      ];
-      endRings: [
-        {
-          input: {
-            type: number;
-          };
-        }
-      ];
-      blades: {
-        bladStamme: {
-          type: number;
-        };
-      };
-      header: {
-        type: string;
-      };
-      prosent: {
-        type: string;
-      };
-      planker: {
-        type: string;
-      };
-      spes: {
-        type: string;
-      };
-      nameClass: {
-        type: string;
-      };
-      date: {
-        type: Date;
-      };
-      editDate: {
-        type: Date;
-      };
-    };
-    filter(arg0: (item: any) => any): React.SetStateAction<undefined>;
-    startRings: [
-      {
-        input: {
-          type: number;
-        };
-      }
-    ];
-    rawInput: [
-      {
-        input: {
-          type: number;
-        };
-        ring: {
-          type: number;
-        };
-        shims: {
-          type: number;
-        };
-        shims2: {
-          type: number;
-        };
-        shims3: {
-          type: number;
-        };
-      }
-    ];
-    endRings: [
-      {
-        input: {
-          type: number;
-        };
-      }
-    ];
-    blades: {
-      bladStamme: {
-        type: number;
-      };
-    };
-    header: {
-      type: string;
-    };
-    prosent: {
-      type: string;
-    };
-    planker: {
-      type: string;
-    };
-    spes: {
-      type: string;
-    };
-    nameClass: {
-      type: string;
-    };
-    date: {
-      type: Date;
-    };
-    editDate: {
-      type: Date;
-    };
-  };
-  setSkurlisteInfo: React.Dispatch<React.SetStateAction<string>>;
-  skurlisteInfo: string;
-  setPostInfo: React.Dispatch<React.SetStateAction<string>>;
-}
+import { SkurlisteProps } from "../tsmodules/posterModule";
 
 export default function Home({
   skurliste,
@@ -157,9 +24,20 @@ export default function Home({
       </Head>
       {openSearchModal && (
         <SearchModal
-          close={setOpenSearchModal}
+          setOpenSearchModal={setOpenSearchModal}
           poster={poster}
           setPostInfo={setPostInfo}
+          setSkurlisteInfo={function (
+            value: React.SetStateAction<string>
+          ): void {
+            throw new Error("Function not implemented.");
+          }}
+          skurlisteInfo={undefined}
+          setSearchResultModal={function (
+            value: React.SetStateAction<boolean>
+          ): void {
+            throw new Error("Function not implemented.");
+          }}
         />
       )}
       <StartPageComponent

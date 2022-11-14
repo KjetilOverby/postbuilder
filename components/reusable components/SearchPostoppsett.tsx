@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const SearchPostoppsett = ({
-  searchResult,
-  setPostInfo,
-  setSearchResultModal,
-}: any) => {
+const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
   return (
     <>
       {searchResult &&
@@ -22,7 +18,7 @@ const SearchPostoppsett = ({
                   className="result-container bg-amber-100 rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
                 >
                   <span>
-                    <p className="text-amber-500 font-light">{item.header}</p>
+                    <p className="text-slate-600 font-light">{item.header}</p>
                     <div className="allrings-container">
                       <div className="ring-container ">
                         {item.startRings.map(
