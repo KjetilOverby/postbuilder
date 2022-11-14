@@ -1,5 +1,6 @@
 import { Header } from "next/dist/lib/load-custom-routes";
 import React, { useState } from "react";
+import Link from 'next/link'
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -54,12 +55,14 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             >
               Søk
             </a>
-            <a
-              href="#"
+            <Link href='/lister'>
+            <p
+           
               className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
             >
-              Ny post
-            </a>
+             Lister
+            </p>
+            </Link>
             <a
               href="#"
               className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white uppercase"
