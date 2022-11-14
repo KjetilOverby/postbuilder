@@ -25,7 +25,7 @@ const postoppsett = ({
           />
           <KlasseInfoComponent info={skurlisteInfo} />
         </div>
-        <div className="container px-3 lg:px-60 pt-12 relative min-h-screen">
+        <div className=" px-3 lg:px-60 pt-12 relative min-h-screen">
           <SkurlisteComponent
             skurliste={skurliste}
             setSkurlisteInfo={setSkurlisteInfo}

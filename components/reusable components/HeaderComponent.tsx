@@ -1,5 +1,5 @@
 import { Header } from "next/dist/lib/load-custom-routes";
-import React from "react";
+import React, { useState } from "react";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -7,22 +7,30 @@ interface HeaderProps {
 }
 
 const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
+  const [hidden, setHidden] = useState(false);
   const openPostoppsettHandler = () => {
     setSkurlisteInfo(
       localStorage.setItem("name", JSON.stringify({ name: "Ingen data" }))
     );
     open(true);
   };
+
+  const openMenu = () => {
+    setHidden(!hidden);
+  };
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap bg-slate-700 p-20">
+      <nav className="flex items-center justify-between flex-wrap bg-gradient-to-r from-stone-900 to-purple-600  p-5 lg:p-20">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <span className="font-semibold text-2xl tracking-tight">
             Postarkiv
           </span>
         </div>
         <div className="block lg:hidden">
-          <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+          <button
+            onClick={openMenu}
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+          >
             <svg
               className="fill-current h-3 w-3"
               viewBox="0 0 20 20"
@@ -33,24 +41,28 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             </svg>
           </button>
         </div>
-        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div
+          className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+            hidden === true ? "" : "hidden"
+          } lg-block`}
+        >
           <div className="text-sm lg:flex-grow">
             <a
               onClick={openPostoppsettHandler}
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 uppercase"
+              href="#"
+              className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
             >
               Søk
             </a>
             <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 uppercase"
+              href="#"
+              className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
             >
               Ny post
             </a>
             <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white uppercase"
+              href="#"
+              className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white uppercase"
             >
               Rediger
             </a>
@@ -58,7 +70,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
           <div>
             <a
               href="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+              className="block mt-4 lg:inline-block lg:mt-0 text-purple-900 hover:text-white"
             >
               Sign in
             </a>
