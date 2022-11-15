@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputComponent = ({ setListInputData }) => {
+const InputComponent = ({ setListInputData }:any) => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 p-5 bg-gradient-to-r rounded-md from-cyan-500 to-blue-500">
@@ -91,15 +91,30 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Antall</p>
-            <input type="number" className="w-12" />
+            <input onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  ant: e.target.value,
+                }))
+              } type="number" className="w-12" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">M3</p>
-            <input type="number" className="w-12" />
+            <input onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  m3: e.target.value,
+                }))
+              } type="number" className="w-12" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Status</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  status: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="tøm">tøm</option>
               <option value="stopp">stopp</option>
@@ -109,7 +124,12 @@ const InputComponent = ({ setListInputData }) => {
         <div className="w-36">
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Post</p>
-            <input type="text" className="w-12" />
+            <input onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  post: e.target.value,
+                }))
+              }  type="text" className="w-12" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Bredde</p>
@@ -157,7 +177,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">X-log</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  xLog: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="1X">1X</option>
               <option value="2X">2X</option>
@@ -171,7 +196,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Tørkeprosent</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  prosent: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="18">18</option>
               <option value="12">12</option>
@@ -182,17 +212,32 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Anm</p>
-            <input type="number" className="w-12" />
+            <input onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  anm: e.target.value,
+                }))
+              } type="text" className="w-12" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Anm 2</p>
-            <input type="number" className="w-12" />
+            <input onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  anm2: e.target.value,
+                }))
+              } type="text" className="w-12" />
           </div>
         </div>
         <div className="w-44">
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 ty</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="16">16</option>
               <option value="19">19</option>
@@ -203,7 +248,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 Br</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66Br: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="75">75</option>
               <option value="100">100</option>
@@ -220,7 +270,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 xtra ty</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66Xtra: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="16">16</option>
               <option value="19">19</option>
@@ -231,7 +286,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 xtra br</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                 vs66XtraBr: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="75">75</option>
               <option value="100">100</option>
@@ -248,7 +308,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">MKV ty</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  mkvBord: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="16">16</option>
               <option value="19">19</option>
@@ -259,7 +324,12 @@ const InputComponent = ({ setListInputData }) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">MKV br</p>
-            <select>
+            <select onChange={(e) =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  mkvBr: e.target.value,
+                }))
+              }>
               <option value="">Velg</option>
               <option value="75">75</option>
               <option value="100">100</option>

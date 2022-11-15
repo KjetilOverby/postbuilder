@@ -13,10 +13,7 @@ const KlasseInfoComponent = ({ info }: any) => {
         </Link>
         {info && (
           <>
-            {/* <h1 className="text-slate-400 text-3xl font-thin">
-              {info && info.post}x{info && info.breddePost}
-              {" -"} {info && info.blad}
-            </h1> */}
+           
             <p className="text-slate-400 text-xs italic">
               Post valgt fra skurliste:
             </p>
@@ -48,7 +45,7 @@ const KlasseInfoComponent = ({ info }: any) => {
                 VS-66: {info.vs66}mm
               </p>
             ) : (
-              <p>VS-66: ingen bord</p>
+              <p className="text-slate-400 text-xs italic">VS-66: ingen bord</p>
             )}
             {info && info.mkvBord ? (
               <p className="text-slate-400 text-xs italic">

@@ -1,11 +1,11 @@
 import React from "react";
 import ListerMainPage from "../components/lister/ListerMainPage";
 
-const CreateList = () => {
+const CreateList = ({skurliste, setSkurlisteInfo, skurlisteInfo}:any) => {
   return (
     <>
       <div className="p-10">
-        <ListerMainPage />
+        <ListerMainPage skurliste={skurliste} setSkurlisteInfo={setSkurlisteInfo} skurlisteInfo={skurlisteInfo}/>
       </div>
       <style jsx>
         {`

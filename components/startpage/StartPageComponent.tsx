@@ -17,7 +17,9 @@ const StartPageComponent = ({
   const [searchString, setSearchString] = useState<string>();
   const [searchStringResult, setSearchStringResult] = useState();
   const [searchResultModal, setSearchResultModal] = useState<boolean>(false);
-
+  
+  
+  
   return (
     <>
       <HeaderComponent
@@ -30,6 +32,7 @@ const StartPageComponent = ({
           skurliste={skurliste}
           setSkurlisteInfo={setSkurlisteInfo}
           setSearchResultModal={setSearchResultModal}
+          searchTrigger={true}
         />
 
         {searchResultModal && (

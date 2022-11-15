@@ -10,6 +10,10 @@ export default function App({ Component, pageProps }: AppProps) {
   const [postInfo, setPostInfo] = useState();
   const [searchResultModal, setSearchResultModal] = useState<boolean>(false);
 
+ 
+  
+  
+
   const api = axios.create({
     baseURL: process.env.api,
   });

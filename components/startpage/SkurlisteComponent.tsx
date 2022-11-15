@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
 import dateFormat from "dateformat";
 
-interface SkurlisteProps {
-  skurliste: {
-    map(arg0: (item: any) => JSX.Element): React.ReactNode;
-    treslag: string;
-  };
-  setSkurlisteInfo: React.Dispatch<React.SetStateAction<string>>;
-  setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
+
 
 const SkurlisteComponent = ({
   skurliste,
   setSkurlisteInfo,
   setSearchResultModal,
-}: SkurlisteProps) => {
+  searchTrigger
+}: any) => {
   return (
     <>
       <div className="skurliste-container mb-10 bg-white">
@@ -66,11 +60,14 @@ const SkurlisteComponent = ({
             </tr>
           </thead>
           {skurliste &&
-            skurliste.map((item) => {
+            skurliste.map((item:any) => {
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
-                setSearchResultModal(true);
+                if(searchTrigger) {
+                  setSearchResultModal(true);
+                }
               };
+              
               return (
                 <tbody
                   onClick={skurlisteInfoHandler}

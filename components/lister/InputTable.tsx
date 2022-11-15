@@ -1,18 +1,12 @@
 import React from "react";
+import {ListerProps} from '../../tsmodules/ListerPops'
 
-interface listInputProps {
-  listInputData: {
-    treslag: string;
-    klasse: string;
-    klType: string;
-    breddePost: string;
-  };
-}
 
-const InputTable = ({ listInputData }: listInputProps) => {
+
+const InputTable = ({ listInputData }: ListerProps) => {
   return (
     <>
-      <div className="skurliste-container mb-10">
+      <div className="skurliste-container mb-10 bg-orange-200">
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
             <tr>
@@ -65,30 +59,30 @@ const InputTable = ({ listInputData }: listInputProps) => {
             <td
               className={`border border-slate-300 lg:p-1.5 grid grid-cols-1 grid-rows-2 `}
             >
-              {listInputData.treslag}
+              {listInputData && listInputData.treslag}
               <span className="span-text-date text-slate-800 italic">
-                {listInputData.klType}
+                {listInputData && listInputData.klType}
               </span>
             </td>
             <td className="border border-slate-300 lg:p-1.5">
-              {listInputData.klasse}
+              {listInputData && listInputData.klasse}
             </td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.ant}</td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.m3}</td>
             <td
               className={`border border-slate-300 lg:p-1.5 
                     `}
-            ></td>
+            >{listInputData && listInputData.status}</td>
             <td className="border border-slate-300 lg:p-1.5 post">
-              x{listInputData.breddePost}
+            {listInputData && listInputData.post}x{listInputData && listInputData.breddePost}
             </td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
-            <td className="border border-slate-300 lg:p-1.5 text-teal-600"></td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.xLog}</td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.prosent}</td>
+            <td className="border border-slate-300 lg:p-1.5 text-teal-600">{listInputData && listInputData.anm}{listInputData && listInputData.anm2}</td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.vs66}  {listInputData && listInputData.vs66Xtra}</td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.vs66Br} {listInputData && listInputData.vs66XtraBr}</td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.mkvBord}</td>
+            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.mkvBr}</td>
             <td className="border border-slate-300 lg:p-1.5"></td>
           </tbody>
         </table>
