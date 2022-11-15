@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputComponent = ({ setListInputData }:any) => {
+const InputComponent = ({ setListInputData, resetListHandler, listInputData, createFieldHandler }:any) => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 p-5 bg-gradient-to-r rounded-md from-cyan-500 to-blue-500">
@@ -32,6 +32,7 @@ const InputComponent = ({ setListInputData }:any) => {
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Klasse</p>
             <select
+            value={listInputData.klasse}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -72,6 +73,7 @@ const InputComponent = ({ setListInputData }:any) => {
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Klassetype</p>
             <select
+            value={listInputData.klType}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -91,25 +93,25 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Antall</p>
-            <input onChange={(e) =>
+            <input value={listInputData.ant} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   ant: e.target.value,
                 }))
-              } type="number" className="w-12" />
+              } type="number" className="w-20" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">M3</p>
-            <input onChange={(e) =>
+            <input value={listInputData.m3} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   m3: e.target.value,
                 }))
-              } type="number" className="w-12" />
+              } type="number" className="w-20" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Status</p>
-            <select onChange={(e) =>
+            <select value={listInputData.status} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   status: e.target.value,
@@ -120,20 +122,26 @@ const InputComponent = ({ setListInputData }:any) => {
               <option value="stopp">stopp</option>
             </select>
           </div>
+          <div className="bg-stone-600 mt-5 rounded-md p-2">
+
+<button className="mr-5 text-slate-50" onClick={resetListHandler}>Nullstill</button>
+<button onClick={createFieldHandler} className="text-slate-50">Lagre</button>
+</div>
         </div>
         <div className="w-36">
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Post</p>
-            <input onChange={(e) =>
+            <input value={listInputData.post} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   post: e.target.value,
                 }))
-              }  type="text" className="w-12" />
+              }  type="text" className="w-20" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Bredde</p>
             <select
+            value={listInputData.breddePost}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -177,7 +185,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">X-log</p>
-            <select onChange={(e) =>
+            <select value={listInputData.xLog} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   xLog: e.target.value,
@@ -196,7 +204,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Tørkeprosent</p>
-            <select onChange={(e) =>
+            <select value={listInputData.prosent} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   prosent: e.target.value,
@@ -212,27 +220,27 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Anm</p>
-            <input onChange={(e) =>
+            <input value={listInputData.anm} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   anm: e.target.value,
                 }))
-              } type="text" className="w-12" />
+              } type="text" className="w-20" />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">Anm 2</p>
-            <input onChange={(e) =>
+            <input value={listInputData.anm2} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   anm2: e.target.value,
                 }))
-              } type="text" className="w-12" />
+              } type="text" className="w-20" />
           </div>
         </div>
         <div className="w-44">
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 ty</p>
-            <select onChange={(e) =>
+            <select value={listInputData.vs66} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66: e.target.value,
@@ -248,7 +256,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 Br</p>
-            <select onChange={(e) =>
+            <select value={listInputData.vs66Br} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66Br: e.target.value,
@@ -270,7 +278,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 xtra ty</p>
-            <select onChange={(e) =>
+            <select value={listInputData.vs66Xtra} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66Xtra: e.target.value,
@@ -286,7 +294,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">VS-66 xtra br</p>
-            <select onChange={(e) =>
+            <select value={listInputData.vs66XtraBr} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                  vs66XtraBr: e.target.value,
@@ -308,7 +316,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">MKV ty</p>
-            <select onChange={(e) =>
+            <select value={listInputData.mkvBord} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   mkvBord: e.target.value,
@@ -324,7 +332,7 @@ const InputComponent = ({ setListInputData }:any) => {
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
             <p className="text-slate-700 mb-3">MKV br</p>
-            <select onChange={(e) =>
+            <select value={listInputData.mkvBr} onChange={(e) =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   mkvBr: e.target.value,
@@ -343,9 +351,12 @@ const InputComponent = ({ setListInputData }:any) => {
               <option value="75, 100, 125, 150">75, 100, 125, 150</option>
               <option value="100, 125, 150, 175">100, 125, 150, 175</option>
             </select>
+            
           </div>
         </div>
+          
       </div>
+     
       <style jsx>
         {`
           .container {

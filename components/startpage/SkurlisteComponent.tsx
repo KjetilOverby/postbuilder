@@ -7,7 +7,8 @@ const SkurlisteComponent = ({
   skurliste,
   setSkurlisteInfo,
   setSearchResultModal,
-  searchTrigger
+  searchTrigger,
+  setListeBuffer
 }: any) => {
   return (
     <>
@@ -63,6 +64,7 @@ const SkurlisteComponent = ({
             skurliste.map((item:any) => {
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
+                setListeBuffer(true)
                 if(searchTrigger) {
                   setSearchResultModal(true);
                 }

@@ -6,7 +6,7 @@ import {ListerProps} from '../../tsmodules/ListerPops'
 const InputTable = ({ listInputData }: ListerProps) => {
   return (
     <>
-      <div className="skurliste-container mb-10 bg-orange-200">
+      <div className="skurliste-container mb-10 bg-green-200">
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
             <tr>
@@ -90,6 +90,7 @@ const InputTable = ({ listInputData }: ListerProps) => {
       <style jsx>
         {`
           .skurliste-container {
+            animation: fadeInDown .5s
           }
           .status-stopp {
             color: green;
@@ -111,6 +112,7 @@ const InputTable = ({ listInputData }: ListerProps) => {
           .span-text-date {
             font-size: 0.6rem;
           }
+          @-webkit-keyframes fadeInDown { 0% { opacity: 0; -webkit-transform: translate3d(0, -100%, 0); transform: translate3d(0, -100%, 0); } 100% { opacity: 1; -webkit-transform: none; transform: none; } } 
 
           @media only screen and (max-width: 1000px) {
             table {

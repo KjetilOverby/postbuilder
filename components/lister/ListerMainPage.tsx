@@ -2,8 +2,17 @@ import React, { useState, useEffect } from "react";
 import SkurlisteComponent from "../startpage/SkurlisteComponent";
 import InputComponent from "./InputComponent";
 import InputTable from "./InputTable";
+import axios from "axios";
 
-const ListerMainPage = ({skurliste, setSkurlisteInfo, skurlisteInfo}:any) => {
+
+const api = axios.create({
+  baseURL: process.env.api,
+});
+
+const ListerMainPage = ({skurliste, setSkurlisteInfo, skurlisteInfo, setUpdate, update}:any) => {
+  const [ListeBuffer, setListeBuffer] = useState(false)
+  const [editMode, setEditMode] = useState('')
+  
   const [listInputData, setListInputData] = useState<any>({
     treslag: "",
     klasse: "",
@@ -26,31 +35,81 @@ const ListerMainPage = ({skurliste, setSkurlisteInfo, skurlisteInfo}:any) => {
     mkvBr: "",
   });
 
- 
+  const copyHandler = () => {
+    setListInputData(skurlisteInfo)
+    setEditMode('Kopi til ny post')
+  
+  }
+  const resetListHandler = () => {
+    setListInputData('')
+    setEditMode('')
+    setListeBuffer(false)
+    
+  }
+
+  const editHandler = () => {
+    setEditMode(`Rediger klasse: ${skurlisteInfo.klasse}, antall: ${skurlisteInfo.ant}, m3: ${skurlisteInfo.m3}`)
+  }
+
+  const createFieldHandler = () => {
+
+    api
+    .post(`/api/skurlister/createField`, {
+      treslag: listInputData.treslag,
+      klasse: listInputData.klasse,
+      kltype: listInputData.klType,
+      ant: listInputData.ant,
+      m3: listInputData.m3,
+      status:listInputData.status,
+
+     post: listInputData.post,
+     breddePost: listInputData.breddePost,
+     prosent: listInputData.prosent
+    })
+    .then(function (response) {
+     console.log(response);
+     setUpdate(!update)
+     
+    });
+  }
+  
+
+
+  
   return (
     <>
 
       <div className="lister-container">
         <div>
-          <InputComponent setListInputData={setListInputData} />
+          <InputComponent listInputData={listInputData} setListInputData={setListInputData} resetListHandler={resetListHandler} createFieldHandler={createFieldHandler} />
+         
         </div>
         <div className="list-container">
+          <p className="text-red-400">{editMode}</p>
           <InputTable listInputData={listInputData} />
           <div>
-            <SkurlisteComponent skurliste={skurliste} setSkurlisteInfo={setSkurlisteInfo} />
+            <SkurlisteComponent setListeBuffer={setListeBuffer} skurliste={skurliste} setSkurlisteInfo={setSkurlisteInfo} />
           </div>
+          {ListeBuffer && (
           <div className="edit-container">
             <p className="mb-5">Valgt post</p>
           <InputTable listInputData={skurlisteInfo} />
+         
+
           <div className="grid grid-cols-4">
-            <button>Rediger</button>
-            <button>Kopier</button>
+            <button onClick={editHandler}>Rediger</button>
+            <button onClick={copyHandler}>Kopier</button>
             <button>Slett</button>
-            <button>Avbryt</button>
+            <button onClick={() => setListeBuffer(false)}>Avbryt</button>
           </div>
+
+         
           </div>
+            )}
         </div>
+      
       </div>
+      
       <style jsx>
         {`
           .lister-container {

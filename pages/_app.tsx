@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [skurlisteInfo, setSkurlisteInfo] = useState();
   const [postInfo, setPostInfo] = useState();
   const [searchResultModal, setSearchResultModal] = useState<boolean>(false);
+  const [update, setUpdate] = useState(false)
 
  
   
@@ -40,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [update]);
   return (
     <Component
       {...pageProps}
@@ -52,6 +53,8 @@ export default function App({ Component, pageProps }: AppProps) {
       postInfo={postInfo}
       setSearchResultModal={setSearchResultModal}
       searchResultModal={searchResultModal}
+      setUpdate={setUpdate}
+      update={update}
     />
   );
 }
