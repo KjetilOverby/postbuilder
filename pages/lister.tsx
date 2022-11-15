@@ -1,20 +1,20 @@
-import React from 'react'
-import ListerMainPage from '../components/lister/ListerMainPage'
-
+import React from "react";
+import ListerMainPage from "../components/lister/ListerMainPage";
 
 const CreateList = () => {
-return (
-<>
-<div className='container'>
-<ListerMainPage />
-</div>
-<style jsx>{`
-.container {
-}
-`}
-</style>
-</>
-)
-}
+  return (
+    <>
+      <div className="p-10">
+        <ListerMainPage />
+      </div>
+      <style jsx>
+        {`
+          .container {
+          }
+        `}
+      </style>
+    </>
+  );
+};
 
-export default CreateList
+export default CreateList;
