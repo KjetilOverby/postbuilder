@@ -8,7 +8,7 @@ const InputComponent = ({
 }: any) => {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 p-5 bg-gradient-to-r rounded-md from-cyan-500 to-blue-500">
+      <div className="grid grid-cols-1 md:grid-cols-3 p-5 bg-slate-500 rounded-md">
         <div className="w-36">
           <div className="grid grid-cols-2 place-items-center w-36 pt-8">
             <div

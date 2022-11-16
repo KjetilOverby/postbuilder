@@ -17,6 +17,7 @@ const ListerMainPage = ({
 }: any) => {
   const [ListeBuffer, setListeBuffer] = useState(false);
   const [editMode, setEditMode] = useState("");
+  const [sagblad, setSagblad] = useState<string>("");
 
   const [listInputData, setListInputData] = useState<any>({
     treslag: "",
@@ -56,19 +57,23 @@ const ListerMainPage = ({
       `Rediger klasse: ${skurlisteInfo.klasse}, antall: ${skurlisteInfo.ant}, m3: ${skurlisteInfo.m3}`
     );
   };
-
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const response = await api.get(
-  //         `/api/linck/deletedBlades?&month=${month}&month2=${month2}&yearRequest=${year}`
-  //       );
-  //       setLinckBladesDeleted(response.data.data);
-  //     } catch (error) {
-  //       console.log(error.response.body);
-  //     }
-  //   })();
-  // }, [linckUpdateDatabase]);
+  useEffect(() => {
+    if (listInputData.breddePost > 50 && listInputData.breddePost <= 130) {
+      setSagblad("4.0");
+    } else if (
+      listInputData.breddePost > 130 &&
+      listInputData.breddePost <= 160
+    ) {
+      setSagblad("4.2");
+    } else if (
+      listInputData.breddePost > 160 &&
+      listInputData.breddePost <= 175
+    ) {
+      setSagblad("4.4");
+    } else if (listInputData.breddePost > 175) {
+      setSagblad("4.6");
+    }
+  }, [listInputData]);
 
   const createFieldHandler = async () => {
     try {
@@ -90,7 +95,7 @@ const ListerMainPage = ({
           vs66Xtra: listInputData.vs66Xtra,
           vs66Br: listInputData.vs66Br,
           vs66XtraBr: listInputData.vs66XtraBr,
-          blad: listInputData.blad,
+          blad: sagblad,
           mkvBord: listInputData.mkvBord,
           mkvBr: listInputData.mkvBr,
           date: new Date(),
@@ -117,7 +122,7 @@ const ListerMainPage = ({
         <div className="list-container">
           <p className="text-red-400">{editMode}</p>
 
-          <InputTable listInputData={listInputData} />
+          <InputTable listInputData={listInputData} sagblad={sagblad} />
           <div>
             <h1>Skurplan</h1>
             <SkurlisteComponent

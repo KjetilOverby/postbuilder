@@ -1,15 +1,13 @@
 import React from "react";
-import {ListerProps} from '../../tsmodules/ListerPops'
+import { ListerProps } from "../../tsmodules/ListerPops";
 
-
-
-const InputTable = ({ listInputData }: ListerProps) => {
+const InputTable = ({ listInputData, sagblad }: ListerProps) => {
   return (
     <>
-      <div className="skurliste-container mb-10 bg-green-200">
+      <div className="skurliste-container mb-10 bg-slate-500">
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
-            <tr>
+            <tr className="text-white">
               <th className="border border-slate-300 lg:p-1.5 " scope="col">
                 Treslag
               </th>
@@ -55,7 +53,7 @@ const InputTable = ({ listInputData }: ListerProps) => {
             </tr>
           </thead>
 
-          <tbody className={`hover:bg-green-100 cursor-pointer `}>
+          <tbody className={`hover:bg-green-100 cursor-pointer text-slate-200`}>
             <td
               className={`border border-slate-300 lg:p-1.5 grid grid-cols-1 grid-rows-2 `}
             >
@@ -67,30 +65,54 @@ const InputTable = ({ listInputData }: ListerProps) => {
             <td className="border border-slate-300 lg:p-1.5">
               {listInputData && listInputData.klasse}
             </td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.ant}</td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.m3}</td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.ant}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.m3}
+            </td>
             <td
               className={`border border-slate-300 lg:p-1.5 
                     `}
-            >{listInputData && listInputData.status}</td>
-            <td className="border border-slate-300 lg:p-1.5 post">
-            {listInputData && listInputData.post}x{listInputData && listInputData.breddePost}
+            >
+              {listInputData && listInputData.status}
             </td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.xLog}</td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.prosent}</td>
-            <td className="border border-slate-300 lg:p-1.5 text-teal-600">{listInputData && listInputData.anm}{listInputData && listInputData.anm2}</td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.vs66}  {listInputData && listInputData.vs66Xtra}</td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.vs66Br} {listInputData && listInputData.vs66XtraBr}</td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.mkvBord}</td>
-            <td className="border border-slate-300 lg:p-1.5">{listInputData && listInputData.mkvBr}</td>
-            <td className="border border-slate-300 lg:p-1.5"></td>
+            <td className="border border-slate-300 lg:p-1.5 post">
+              {listInputData && listInputData.post}x
+              {listInputData && listInputData.breddePost}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.xLog}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.prosent}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5 text-teal-600">
+              {listInputData && listInputData.anm}
+              {listInputData && listInputData.anm2}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.vs66}{" "}
+              {listInputData && listInputData.vs66Xtra}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.vs66Br}{" "}
+              {listInputData && listInputData.vs66XtraBr}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.mkvBord}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">
+              {listInputData && listInputData.mkvBr}
+            </td>
+            <td className="border border-slate-300 lg:p-1.5">{sagblad}</td>
           </tbody>
         </table>
       </div>
       <style jsx>
         {`
           .skurliste-container {
-            animation: fadeInDown .5s
+            animation: fadeInDown 0.5s;
           }
           .status-stopp {
             color: green;
@@ -112,7 +134,18 @@ const InputTable = ({ listInputData }: ListerProps) => {
           .span-text-date {
             font-size: 0.6rem;
           }
-          @-webkit-keyframes fadeInDown { 0% { opacity: 0; -webkit-transform: translate3d(0, -100%, 0); transform: translate3d(0, -100%, 0); } 100% { opacity: 1; -webkit-transform: none; transform: none; } } 
+          @-webkit-keyframes fadeInDown {
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(0, -100%, 0);
+              transform: translate3d(0, -100%, 0);
+            }
+            100% {
+              opacity: 1;
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
 
           @media only screen and (max-width: 1000px) {
             table {
