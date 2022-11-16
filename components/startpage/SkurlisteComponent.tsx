@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import dateFormat from "dateformat";
 
-
-
 const SkurlisteComponent = ({
   skurliste,
   setSkurlisteInfo,
   setSearchResultModal,
   searchTrigger,
-  setListeBuffer
+  setListeBuffer,
+  listeBuffer,
 }: any) => {
   return (
     <>
@@ -61,15 +60,17 @@ const SkurlisteComponent = ({
             </tr>
           </thead>
           {skurliste &&
-            skurliste.map((item:any) => {
+            skurliste.map((item: any) => {
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
-                setListeBuffer(true)
-                if(searchTrigger) {
+                if (listeBuffer) {
+                  setListeBuffer(true);
+                }
+                if (searchTrigger) {
                   setSearchResultModal(true);
                 }
               };
-              
+
               return (
                 <tbody
                   onClick={skurlisteInfoHandler}
