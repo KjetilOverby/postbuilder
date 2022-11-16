@@ -64,9 +64,9 @@ const SkurlisteComponent = ({
             skurliste.map((item: any) => {
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
-                setFieldID(item._id)
                 if (listeBuffer) {
                   setListeBuffer(true);
+                  setFieldID(item._id)
                 }
                 if (searchTrigger) {
                   setSearchResultModal(true);
@@ -116,8 +116,12 @@ const SkurlisteComponent = ({
                   <td className="border border-slate-300 lg:p-1.5">
                     {item.prosent}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5 text-teal-600">
-                    {item.anm}
+                  <td className="border border-slate-300 lg:p-1.5 text-teal-600 ">
+                    <div className="two-input">
+<div>{item.anm}</div>
+                    
+                  <div>{item.anm2}</div>  
+                    </div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
                     {item.vs66}
@@ -162,6 +166,10 @@ const SkurlisteComponent = ({
           }
           .span-text-date {
             font-size: 0.6rem;
+          }
+          .two-input {
+            display: flex;
+            flex-direction: column;
           }
 
           @media only screen and (max-width: 1000px) {

@@ -20,6 +20,7 @@ const ListerMainPage = ({
   const [sagblad, setSagblad] = useState<string>("");
   const [fieldID, setFieldID] = useState()
   const [progress, setProgress] = useState()
+  const [updateMode, setUpdateMode] = useState<boolean>()
 
   const [disabled, setDisabled] = useState({text: 'disabledText',
 status:true
@@ -48,10 +49,18 @@ status:true
     mkvBr: "",
     date: "",
   });
+  const cancelHandler = () => {
+   setListeBuffer(false)
+   setEditMode('')
+   setUpdateMode(false)
+  }
 
   const copyHandler = () => {
     setListInputData(skurlisteInfo);
     setEditMode("Kopi til ny post");
+    setUpdateMode(false)
+    setListeBuffer(false)
+    
   };
   const resetListHandler = () => {
     setListInputData({treslag: "",
@@ -84,26 +93,28 @@ status:true
     setEditMode(
       `Rediger klasse: ${skurlisteInfo.klasse}, antall: ${skurlisteInfo.ant}, m3: ${skurlisteInfo.m3}`
     );
+    setUpdateMode(true)
+    setListInputData(skurlisteInfo);
   };
 
-  const updateFieldHandler = () => {
+  const updateFieldHandler = async () => {
 
-    api
+    const response = await api
     .patch(
       `/api/skurlister/updateField?ids=${fieldID}`,
       {
         treslag: listInputData.treslag,
         klasse: listInputData.klasse,
-        klgr: listInputData.klasseGrense,
-        klType: listInputData.klasseType,
+        klgr: listInputData.klgr,
+        klType: listInputData.klType,
         ant: listInputData.antall,
-        m3: listInputData.kubikk,
+        m3: listInputData.m3,
         status: listInputData.status,
         post: listInputData.post,
-        breddePost: listInputData.breddePlank,
+        breddePost: listInputData.breddePost,
         xLog: listInputData.xLog,
         prosent: listInputData.prosent,
-        anm: listInputData.anm1,
+        anm: listInputData.anm,
         anm2: listInputData.anm2,
         vs66: listInputData.vs66Ty,
         vs66Br: listInputData.vs66Br,
@@ -115,7 +126,14 @@ status:true
         date: new Date(),
         progress: progress,
       }
-    )
+    ).then(() => {
+
+      setUpdateMode(false)
+      setUpdate(!update)
+      setListeBuffer(false)
+      setEditMode("");
+    
+    })
   }
 
 
@@ -144,6 +162,63 @@ status:true
   },[listInputData])
 
 
+  const updateProgressFinished = async () => {
+
+    const response = await api
+    .patch(
+      `/api/skurlister/updateField?ids=${fieldID}`,
+      {
+        progress: 'finished',
+      }
+      ).then(() => {
+        setUpdate(!update)
+        setListeBuffer(false);
+      })
+      
+  }
+  const updateProgressRunning = async () => {
+ const response = await
+    api
+    .patch(
+      `/api/skurlister/updateField?ids=${fieldID}`,
+      {
+        progress: 'running',
+      }
+      ).then(() => {
+        setUpdate(!update)
+        setListeBuffer(false);
+      })
+      
+  }
+  const updateProgressNeutreal = async () => {
+const response = await
+    api
+    .patch(
+      `/api/skurlister/updateField?ids=${fieldID}`,
+      {
+        progress: '',
+      }
+      ).then(() => {
+        setUpdate(!update)
+        setListeBuffer(false);
+      })
+      
+  }
+
+
+ 
+
+  const deleteFieldHandler = async () => {
+    const response = await api
+      .delete(
+        `/api/skurlister/deleteField/?del=${fieldID}`
+      )
+      .then((res) => {
+         setUpdate(!update)
+         setListeBuffer(false)
+       setEditMode('')
+      });
+  };
   
 
   const createFieldHandler = async () => {
@@ -158,10 +233,10 @@ status:true
     } else {
       try {
         const response = await api
-          .post(`/api/skurlister/createField`, {
+          .post(`/api/skurlister/createField?ids=${fieldID}`, {
             treslag: listInputData.treslag,
             klasse: listInputData.klasse,
-            kltype: listInputData.klType,
+            klType: listInputData.klType,
             ant: listInputData.ant,
             m3: listInputData.m3,
             status: listInputData.status,
@@ -171,6 +246,7 @@ status:true
             xLog: listInputData.xLog,
             prosent: listInputData.prosent,
             anm: listInputData.anm,
+            anm2: listInputData.anm2,
             vs66: listInputData.vs66,
             vs66Xtra: listInputData.vs66Xtra,
             vs66Br: listInputData.vs66Br,
@@ -188,6 +264,7 @@ status:true
               m3: ''
             })
             setUpdate(!update)
+            setListeBuffer(false)
           });
       } catch (error: any) {
         console.log(error.response.body);
@@ -206,6 +283,8 @@ status:true
             resetListHandler={resetListHandler}
             createFieldHandler={createFieldHandler}
             disabled={disabled}
+            updateFieldHandler={updateFieldHandler}
+            updateMode={updateMode}
           />
         </div>
         <div className="list-container">
@@ -229,20 +308,20 @@ status:true
 
               <div className="grid grid-cols-10">
                 <form className="grid place-items-center grid-cols-3 w-20 mb-3">
-                  <label className="w-5 h-5 bg-white grid place-content-center rounded-full">
-                    <input name="progress" type="radio" />
-                  </label>
-                  <label className="w-5 h-5 bg-green-500 grid place-content-center rounded-full">
-                    <input name="progress" type="radio" />
-                  </label>
-                  <label className="w-5 h-5 bg-red-400 grid place-content-center rounded-full">
-                    <input name="progress" type="radio" />
-                  </label>
+                  <div onClick={updateProgressNeutreal} className="w-5 h-5 bg-white grid place-content-center rounded-full">
+                    
+                  </div>
+                  <div onClick={updateProgressRunning} className="w-5 h-5 bg-green-500 grid place-content-center rounded-full">
+                    
+                  </div>
+                  <div onClick={updateProgressFinished} className="w-5 h-5 bg-red-400 grid place-content-center rounded-full">
+                    
+                  </div>
                 </form>
                 <button onClick={editHandler}>Rediger</button>
                 <button onClick={copyHandler}>Kopier</button>
-                <button>Slett</button>
-                <button onClick={() => setListeBuffer(false)}>Avbryt</button>
+                <button onClick={deleteFieldHandler}>Slett</button>
+                <button onClick={cancelHandler}>Avbryt</button>
               </div>
             </div>
           )}
