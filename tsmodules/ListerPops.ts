@@ -20,5 +20,6 @@ export interface ListerProps {
     mkvBr:string;
     blad: string
   }
+  sagblad?: string
  
   };

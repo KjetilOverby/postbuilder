@@ -8,6 +8,7 @@ const SkurlisteComponent = ({
   searchTrigger,
   setListeBuffer,
   listeBuffer,
+  setFieldID
 }: any) => {
   return (
     <>
@@ -63,6 +64,7 @@ const SkurlisteComponent = ({
             skurliste.map((item: any) => {
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
+                setFieldID(item._id)
                 if (listeBuffer) {
                   setListeBuffer(true);
                 }

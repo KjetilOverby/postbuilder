@@ -18,6 +18,13 @@ const ListerMainPage = ({
   const [ListeBuffer, setListeBuffer] = useState(false);
   const [editMode, setEditMode] = useState("");
   const [sagblad, setSagblad] = useState<string>("");
+  const [fieldID, setFieldID] = useState()
+  const [progress, setProgress] = useState()
+
+  const [disabled, setDisabled] = useState({text: 'disabledText',
+status:true
+})
+
 
   const [listInputData, setListInputData] = useState<any>({
     treslag: "",
@@ -47,9 +54,30 @@ const ListerMainPage = ({
     setEditMode("Kopi til ny post");
   };
   const resetListHandler = () => {
-    setListInputData("");
+    setListInputData({treslag: "",
+    klasse: "",
+    klType: "",
+    ant: 0,
+    m3: 0,
+    status: "",
+    post: "",
+    breddePost: "",
+    xLog: "",
+    prosent: "",
+    anm: "",
+    anm2: "",
+    vs66: "",
+    vs66Br: "",
+    vs66Xtra: "",
+    vs66XtraBr: "",
+    blad: "",
+    mkvBord: "",
+    mkvBr: "",
+    date: "",});
     setEditMode("");
     setListeBuffer(false);
+    setDisabled({text: 'disabledText', status: true})
+    
   };
 
   const editHandler = () => {
@@ -57,6 +85,40 @@ const ListerMainPage = ({
       `Rediger klasse: ${skurlisteInfo.klasse}, antall: ${skurlisteInfo.ant}, m3: ${skurlisteInfo.m3}`
     );
   };
+
+  const updateFieldHandler = () => {
+
+    api
+    .patch(
+      `/api/skurlister/updateField?ids=${fieldID}`,
+      {
+        treslag: listInputData.treslag,
+        klasse: listInputData.klasse,
+        klgr: listInputData.klasseGrense,
+        klType: listInputData.klasseType,
+        ant: listInputData.antall,
+        m3: listInputData.kubikk,
+        status: listInputData.status,
+        post: listInputData.post,
+        breddePost: listInputData.breddePlank,
+        xLog: listInputData.xLog,
+        prosent: listInputData.prosent,
+        anm: listInputData.anm1,
+        anm2: listInputData.anm2,
+        vs66: listInputData.vs66Ty,
+        vs66Br: listInputData.vs66Br,
+        vs66Xtra: listInputData.vs66xtraTy,
+        vs66XtraBr: listInputData.vs66XtraBr,
+        blad: listInputData.sagblad,
+        mkvBord: listInputData.mkvTy,
+        mkvBr: listInputData.mkvBr,
+        date: new Date(),
+        progress: progress,
+      }
+    )
+  }
+
+
   useEffect(() => {
     if (listInputData.breddePost > 50 && listInputData.breddePost <= 130) {
       setSagblad("4.0");
@@ -75,37 +137,63 @@ const ListerMainPage = ({
     }
   }, [listInputData]);
 
-  const createFieldHandler = async () => {
-    try {
-      const response = await api
-        .post(`/api/skurlister/createField`, {
-          treslag: listInputData.treslag,
-          klasse: listInputData.klasse,
-          kltype: listInputData.klType,
-          ant: listInputData.ant,
-          m3: listInputData.m3,
-          status: listInputData.status,
+  useEffect(() => {
+     if (listInputData.post && listInputData.breddePost && listInputData.prosent && listInputData.klasse) {
+      setDisabled({text: '', status: false})
+     }
+  },[listInputData])
 
-          post: listInputData.post,
-          breddePost: listInputData.breddePost,
-          xLog: listInputData.xLog,
-          prosent: listInputData.prosent,
-          anm: listInputData.anm,
-          vs66: listInputData.vs66,
-          vs66Xtra: listInputData.vs66Xtra,
-          vs66Br: listInputData.vs66Br,
-          vs66XtraBr: listInputData.vs66XtraBr,
-          blad: sagblad,
-          mkvBord: listInputData.mkvBord,
-          mkvBr: listInputData.mkvBr,
-          date: new Date(),
-        })
-        .then(() => {
-          setUpdate(!update);
-        });
-    } catch (error: any) {
-      console.log(error.response.body);
+
+  
+
+  const createFieldHandler = async () => {
+
+    if(!listInputData.post.includes("1x") &&
+    !listInputData.post.includes("2x") &&
+    !listInputData.post.includes("3x") &&
+    !listInputData.post.includes("4x") &&
+    !listInputData.post.includes("5x") &&
+    !listInputData.post.includes("6x")) {
+      alert("Postuttak må begynne med 1-6x, bruk liten x")
+    } else {
+      try {
+        const response = await api
+          .post(`/api/skurlister/createField`, {
+            treslag: listInputData.treslag,
+            klasse: listInputData.klasse,
+            kltype: listInputData.klType,
+            ant: listInputData.ant,
+            m3: listInputData.m3,
+            status: listInputData.status,
+  
+            post: listInputData.post,
+            breddePost: listInputData.breddePost,
+            xLog: listInputData.xLog,
+            prosent: listInputData.prosent,
+            anm: listInputData.anm,
+            vs66: listInputData.vs66,
+            vs66Xtra: listInputData.vs66Xtra,
+            vs66Br: listInputData.vs66Br,
+            vs66XtraBr: listInputData.vs66XtraBr,
+            blad: sagblad,
+            mkvBord: listInputData.mkvBord,
+            mkvBr: listInputData.mkvBr,
+            date: new Date(),
+          })
+          .then(() => {
+            setDisabled({text: 'disabledText', status: true})
+            setListInputData({...listInputData,
+              klasse: '',
+              ant: '',
+              m3: ''
+            })
+            setUpdate(!update)
+          });
+      } catch (error: any) {
+        console.log(error.response.body);
+      }
     }
+   
   };
 
   return (
@@ -117,6 +205,7 @@ const ListerMainPage = ({
             setListInputData={setListInputData}
             resetListHandler={resetListHandler}
             createFieldHandler={createFieldHandler}
+            disabled={disabled}
           />
         </div>
         <div className="list-container">
@@ -130,6 +219,7 @@ const ListerMainPage = ({
               setListeBuffer={setListeBuffer}
               skurliste={skurliste}
               setSkurlisteInfo={setSkurlisteInfo}
+              setFieldID={setFieldID}
             />
           </div>
           {ListeBuffer && (
