@@ -10,9 +10,7 @@ const AuthWrapper = ({ children }: AuthProps) => {
 
   return (
     <>
-      <div className="container">
-        {user && user.sub === process.env.USER_SUB && children}
-      </div>
+      <div>{user && user.sub === process.env.USER_SUB && children}</div>
       <style jsx>
         {`
           .container {
