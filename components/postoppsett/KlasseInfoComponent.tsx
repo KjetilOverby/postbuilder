@@ -2,18 +2,18 @@ import React from "react";
 import { BsBackspace } from "react-icons/bs";
 import Link from "next/link";
 
-const KlasseInfoComponent = ({ info }: any) => {
+const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
   return (
     <>
       <div className="absolute top-4 left-4">
         <Link href="/">
           <BsBackspace
+            onClick={() => setSearchResultModal(false)}
             style={{ color: "grey", fontSize: "2rem", marginBottom: "2rem" }}
           />
         </Link>
         {info && (
           <>
-           
             <p className="text-slate-400 text-xs italic">
               Post valgt fra skurliste:
             </p>

@@ -7,7 +7,7 @@ const InputComponent = ({
   createFieldHandler,
   disabled,
   updateFieldHandler,
-  updateMode
+  updateMode,
 }: any) => {
   return (
     <>
@@ -147,12 +147,20 @@ const InputComponent = ({
             <button className="mr-5 text-slate-50" onClick={resetListHandler}>
               Nullstill
             </button>
-           
-            {
-              updateMode ? <button onClick={updateFieldHandler} className="text-slate-50">Oppdater</button> :  <button disabled={disabled.status}  onClick={createFieldHandler} className={`text-slate-50 ${disabled.text}`}>
-              Lagre
-            </button>
-            }
+
+            {updateMode ? (
+              <button onClick={updateFieldHandler} className="text-slate-50">
+                Oppdater
+              </button>
+            ) : (
+              <button
+                disabled={disabled.status}
+                onClick={createFieldHandler}
+                className={`text-slate-50 ${disabled.text}`}
+              >
+                Lagre
+              </button>
+            )}
           </div>
         </div>
         <div className="w-36">
@@ -423,9 +431,9 @@ const InputComponent = ({
 
       <style jsx>
         {`
-           .disabledText {
-            opacity: .2
-           }
+          .disabledText {
+            opacity: 0.2;
+          }
         `}
       </style>
     </>

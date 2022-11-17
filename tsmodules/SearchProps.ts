@@ -128,9 +128,9 @@ export interface SearchProps {
           type: Date;
         };
       };
+      setOpenSearchModal?: any;
       setPostInfo: React.Dispatch<React.SetStateAction<string>>;
       setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
-      setOpenSearchModal?: any;
 
       
 }

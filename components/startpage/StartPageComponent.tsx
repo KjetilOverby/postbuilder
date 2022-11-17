@@ -13,13 +13,9 @@ const StartPageComponent = ({
   skurlisteInfo,
   poster,
   setPostInfo,
+  searchResultModal,
+  setSearchResultModal,
 }: SkurlisteProps) => {
-  const [searchString, setSearchString] = useState<string>();
-  const [searchStringResult, setSearchStringResult] = useState();
-  const [searchResultModal, setSearchResultModal] = useState<boolean>(false);
-  
-  
-  
   return (
     <>
       <HeaderComponent

@@ -12,6 +12,8 @@ export default function Home({
   setSkurlisteInfo,
   skurlisteInfo,
   setPostInfo,
+  searchResultModal,
+  setSearchResultModal,
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
 
@@ -27,11 +29,7 @@ export default function Home({
           setOpenSearchModal={setOpenSearchModal}
           poster={poster}
           setPostInfo={setPostInfo}
-          setSkurlisteInfo={function (
-            value: React.SetStateAction<string>
-          ): void {
-            throw new Error("Function not implemented.");
-          }}
+          setSkurlisteInfo={setSkurlisteInfo}
           skurlisteInfo={undefined}
           setSearchResultModal={function (
             value: React.SetStateAction<boolean>
@@ -47,6 +45,8 @@ export default function Home({
         skurlisteInfo={skurlisteInfo}
         poster={poster}
         setPostInfo={setPostInfo}
+        setSearchResultModal={setSearchResultModal}
+        searchResultModal={searchResultModal}
       />
     </div>
   );

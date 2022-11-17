@@ -8,12 +8,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [skurliste, setSkurliste] = useState();
   const [skurlisteInfo, setSkurlisteInfo] = useState();
   const [postInfo, setPostInfo] = useState();
-  const [searchResultModal, setSearchResultModal] = useState<boolean>(false);
-  const [update, setUpdate] = useState(false)
-
- 
-  
-  
+  const [searchResultModal, setSearchResultModal] = useState(false);
+  const [update, setUpdate] = useState(false);
 
   const api = axios.create({
     baseURL: process.env.api,

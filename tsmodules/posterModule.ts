@@ -132,5 +132,7 @@ export interface SkurlisteProps {
         };
       };
       setPostInfo: React.Dispatch<React.SetStateAction<string>>;
+      setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
+      searchResultModal: boolean
       
 }

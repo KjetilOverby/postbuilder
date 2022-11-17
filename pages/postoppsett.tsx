@@ -23,13 +23,17 @@ const postoppsett = ({
             postInfo={postInfo}
             skurlisteInfo={skurlisteInfo}
           />
-          <KlasseInfoComponent info={skurlisteInfo} />
+          <KlasseInfoComponent
+            info={skurlisteInfo}
+            setSearchResultModal={setSearchResultModal}
+          />
         </div>
         <div className=" px-3 lg:px-60 pt-12 relative min-h-screen">
           <SkurlisteComponent
             skurliste={skurliste}
             setSkurlisteInfo={setSkurlisteInfo}
             setSearchResultModal={setSearchResultModal}
+            searchTrigger={true}
           />
           {searchResultModal && (
             <SearchFromListComponent
