@@ -143,25 +143,7 @@ const InputComponent = ({
               <option value="stopp">stopp</option>
             </select>
           </div>
-          <div className="bg-stone-600 mt-5 rounded-md p-2">
-            <button className="mr-5 text-slate-50" onClick={resetListHandler}>
-              Nullstill
-            </button>
-
-            {updateMode ? (
-              <button onClick={updateFieldHandler} className="text-slate-50">
-                Oppdater
-              </button>
-            ) : (
-              <button
-                disabled={disabled.status}
-                onClick={createFieldHandler}
-                className={`text-slate-50 ${disabled.text}`}
-              >
-                Lagre
-              </button>
-            )}
-          </div>
+         
         </div>
         <div className="w-36">
           <div className="p-2 bg-slate-300 mt-5 rounded-md">
@@ -425,6 +407,25 @@ const InputComponent = ({
               <option value="75, 100, 125, 150">75, 100, 125, 150</option>
               <option value="100, 125, 150, 175">100, 125, 150, 175</option>
             </select>
+          </div>
+          <div className="bg-stone-600 mt-5 rounded-md p-2">
+            <button className="mr-5 text-slate-50" onClick={resetListHandler}>
+              Nullstill
+            </button>
+
+            {updateMode ? (
+              <button onClick={updateFieldHandler} className="text-slate-50">
+                Oppdater
+              </button>
+            ) : (
+              <button
+                disabled={disabled.status}
+                onClick={createFieldHandler}
+                className={`text-slate-50 ${disabled.text}`}
+              >
+                Lagre
+              </button>
+            )}
           </div>
         </div>
       </div>

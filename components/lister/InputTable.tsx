@@ -53,7 +53,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             </tr>
           </thead>
 
-          <tbody className={`hover:bg-green-100 cursor-pointer text-slate-200`}>
+          <tbody className={` text-slate-200`}>
             <td
               className={`border border-slate-300 lg:p-1.5 grid grid-cols-1 grid-rows-2 `}
             >
@@ -87,7 +87,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             <td className="border border-slate-300 lg:p-1.5">
               {listInputData && listInputData.prosent}
             </td>
-            <td className="border border-slate-300 lg:p-1.5 text-teal-600">
+            <td className="border border-slate-300 lg:p-1.5 text-slate-300">
               {listInputData && listInputData.anm}
               {listInputData && listInputData.anm2}
             </td>

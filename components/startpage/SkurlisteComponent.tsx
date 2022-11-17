@@ -120,7 +120,7 @@ const SkurlisteComponent = ({
                   </td>
                   <td className="border border-slate-300 lg:p-1.5 text-teal-600 ">
                     <div className="two-input">
-<div>{item.anm}</div>
+                   <div>{item.anm}</div>
                     
                   <div>{item.anm2}</div>  
                     </div>

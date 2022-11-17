@@ -376,6 +376,7 @@ const response = await
             updateMode={updateMode}
           />
           <div className="mt-5">
+            <h1>Bufrede klasser</h1>
             {buffer1 && buffer1.map((item) => {
                const getBufferHandler = () => {
                 setSkurlisteInfo(item)
@@ -384,10 +385,13 @@ const response = await
                 setFieldID(item._id)
               }
               return (
-                <div onClick={getBufferHandler} className="grid grid-cols-6 bg-slate-500 mb-3 p-2">
-                  <p>{item.treslag}</p>
-                  <p>{item.klasse}</p>
-                  <p>{item.post}x{item.breddePost}</p>
+                <div onClick={getBufferHandler} className="flex bg-slate-500 mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100">
+                  <p className="mr-2">{item.treslag}</p>
+                  <p className="mr-2">{item.klasse}</p>
+                  <p className="mr-2">{item.post}x{item.breddePost}-{item.prosent}</p>
+                  <p className="mr-2">ant: {item.ant}</p>
+                  <p className="mr-2">m3: {item.m3}</p>
+                  {item.anm && <p className="mr-2">anm: {item.anm}</p>}
                   
                 </div>
               )
@@ -415,7 +419,7 @@ const response = await
               <InputTable listInputData={skurlisteInfo} />
 
               <div className="grid grid-cols-10">
-                <form className="grid place-items-center grid-cols-3 w-20 mb-3">
+               {chosen === 'skurliste' ?  <form className="grid place-items-center grid-cols-3 w-20 mb-3">
                   <div onClick={updateProgressNeutreal} className="w-5 h-5 bg-white grid place-content-center rounded-full">
                     
                   </div>
@@ -425,7 +429,7 @@ const response = await
                   <div onClick={updateProgressFinished} className="w-5 h-5 bg-red-400 grid place-content-center rounded-full">
                     
                   </div>
-                </form>
+                </form> : ''}
                 <button onClick={editHandler}>Rediger</button>
                 <button onClick={copyHandler}>Kopier</button>
                 {chosen === 'buffer' ? <button onClick={deleteFieldBufferHandler}>Slett fra buffer</button> : <button onClick={deleteFieldHandler}>Slett fra skurliste</button>}
