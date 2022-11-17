@@ -8,7 +8,8 @@ const SkurlisteComponent = ({
   searchTrigger,
   setListeBuffer,
   listeBuffer,
-  setFieldID
+  setFieldID,
+  setChosen
 }: any) => {
   return (
     <>
@@ -67,6 +68,7 @@ const SkurlisteComponent = ({
                 if (listeBuffer) {
                   setListeBuffer(true);
                   setFieldID(item._id)
+                  setChosen('skurliste')
                 }
                 if (searchTrigger) {
                   setSearchResultModal(true);

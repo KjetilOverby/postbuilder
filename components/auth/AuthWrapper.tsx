@@ -7,10 +7,10 @@ interface AuthProps {
 
 const AuthWrapper = ({ children }: AuthProps) => {
   const { user, isAuthenticated } = useAuth0();
-
+ 
   return (
     <>
-      <div>{user && user.sub === process.env.USER_SUB && children}</div>
+      <div>{/* user && user.sub === process.env.USER_SUB && */ children}</div>
       <style jsx>
         {`
           .container {

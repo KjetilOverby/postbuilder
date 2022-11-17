@@ -8,6 +8,8 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
+
+
 const ListerMainPage = ({
   skurliste,
   setSkurlisteInfo,
@@ -21,10 +23,25 @@ const ListerMainPage = ({
   const [fieldID, setFieldID] = useState()
   const [progress, setProgress] = useState()
   const [updateMode, setUpdateMode] = useState<boolean>()
+  const [chosen, setChosen] = useState('')
 
   const [disabled, setDisabled] = useState({text: 'disabledText',
 status:true
 })
+
+const [buffer1, setBuffer1] = useState([])
+
+useEffect(() => {
+  (async () => {
+    try {
+      const response = await api.get("/api/skurlister/fieldBuffer");
+      setBuffer1(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [update]);
 
 
   const [listInputData, setListInputData] = useState<any>({
@@ -62,6 +79,9 @@ status:true
     setListeBuffer(false)
     
   };
+
+  
+ 
   const resetListHandler = () => {
     setListInputData({treslag: "",
     klasse: "",
@@ -209,15 +229,25 @@ const response = await
  
 
   const deleteFieldHandler = async () => {
-    const response = await api
-      .delete(
-        `/api/skurlister/deleteField/?del=${fieldID}`
-      )
-      .then((res) => {
-         setUpdate(!update)
-         setListeBuffer(false)
-       setEditMode('')
-      });
+
+     try {
+       const response = await api
+         .delete(
+           `/api/skurlister/deleteField/?del=${fieldID}`)
+            
+         
+         .then((res) => {
+         
+            setUpdate(!update)
+            setListeBuffer(false)
+          setEditMode('')
+         });
+         
+      
+     } catch (error) {
+      console.log(error);
+      
+     }
   };
   
 
@@ -270,10 +300,69 @@ const response = await
         console.log(error.response.body);
       }
     }
+
    
   };
+  
+  const createFieldBufferHandler = async ()=> {
 
-  return (
+    try {
+      
+      const response = await api
+      .post(`/api/skurlister/createFieldBuffer`, {
+        treslag: skurlisteInfo.treslag,
+        klasse: skurlisteInfo.klasse,
+        klType: skurlisteInfo.klType,
+        ant: skurlisteInfo.ant,
+        m3: skurlisteInfo.m3,
+        status: skurlisteInfo.status,
+  
+        post: skurlisteInfo.post,
+        breddePost: skurlisteInfo.breddePost,
+        xLog: skurlisteInfo.xLog,
+        prosent: skurlisteInfo.prosent,
+        anm: skurlisteInfo.anm,
+        anm2: skurlisteInfo.anm2,
+        vs66: skurlisteInfo.vs66,
+        vs66Xtra: skurlisteInfo.vs66Xtra,
+        vs66Br: skurlisteInfo.vs66Br,
+        vs66XtraBr: skurlisteInfo.vs66XtraBr,
+        blad: sagblad,
+        mkvBord: skurlisteInfo.mkvBord,
+        mkvBr: skurlisteInfo.mkvBr,
+        date: new Date(),
+      }).then(() => {
+        setUpdate(!update)
+      })
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
+ const deleteFieldBufferHandler = async () => {
+  try {
+    const response = await api
+      .delete(
+        `/api/skurlister/deleteFieldBuffer/?del=${fieldID}`)
+         
+      
+      .then((res) => {
+      
+         setUpdate(!update)
+         setListeBuffer(false)
+       setEditMode('')
+      });
+      
+   
+  } catch (error) {
+   console.log(error);
+   
+  }
+ }
+
+
+   return (
     <>
       <div className="lister-container">
         <div>
@@ -286,6 +375,24 @@ const response = await
             updateFieldHandler={updateFieldHandler}
             updateMode={updateMode}
           />
+          <div className="mt-5">
+            {buffer1 && buffer1.map((item) => {
+               const getBufferHandler = () => {
+                setSkurlisteInfo(item)
+                setListeBuffer(true)
+                setChosen('buffer')
+                setFieldID(item._id)
+              }
+              return (
+                <div onClick={getBufferHandler} className="grid grid-cols-6 bg-slate-500 mb-3 p-2">
+                  <p>{item.treslag}</p>
+                  <p>{item.klasse}</p>
+                  <p>{item.post}x{item.breddePost}</p>
+                  
+                </div>
+              )
+            })}
+          </div>
         </div>
         <div className="list-container">
           <p className="text-red-400">{editMode}</p>
@@ -299,11 +406,12 @@ const response = await
               skurliste={skurliste}
               setSkurlisteInfo={setSkurlisteInfo}
               setFieldID={setFieldID}
+              setChosen={setChosen}
             />
           </div>
           {ListeBuffer && (
             <div className="edit-container">
-              <p className="mb-5">Valgt post fra skurplan</p>
+              <p className="mb-5">Valgt post fra {chosen}</p>
               <InputTable listInputData={skurlisteInfo} />
 
               <div className="grid grid-cols-10">
@@ -320,8 +428,11 @@ const response = await
                 </form>
                 <button onClick={editHandler}>Rediger</button>
                 <button onClick={copyHandler}>Kopier</button>
-                <button onClick={deleteFieldHandler}>Slett</button>
+                {chosen === 'buffer' ? <button onClick={deleteFieldBufferHandler}>Slett fra buffer</button> : <button onClick={deleteFieldHandler}>Slett fra skurliste</button>}
+               
                 <button onClick={cancelHandler}>Avbryt</button>
+                {chosen === 'skurliste' ?  <button onClick={createFieldBufferHandler}>Til buffer</button> : ''}
+               
               </div>
             </div>
           )}
