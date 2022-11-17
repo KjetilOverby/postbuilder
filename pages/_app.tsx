@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [poster, setPoster] = useState();
@@ -14,6 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const api = axios.create({
     baseURL: process.env.api,
   });
+
+  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
   useEffect(() => {
     (async () => {
@@ -39,18 +43,27 @@ export default function App({ Component, pageProps }: AppProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update]);
   return (
-    <Component
-      {...pageProps}
-      poster={poster}
-      skurliste={skurliste}
-      setSkurlisteInfo={setSkurlisteInfo}
-      skurlisteInfo={skurlisteInfo}
-      setPostInfo={setPostInfo}
-      postInfo={postInfo}
-      setSearchResultModal={setSearchResultModal}
-      searchResultModal={searchResultModal}
-      setUpdate={setUpdate}
-      update={update}
-    />
+    <Auth0Provider
+      // @ts-ignore
+      domain={domain}
+      // @ts-ignore
+      clientId={clientId}
+      // @ts-ignore
+      redirectUri={typeof window !== "undefined" && window.location.origin}
+    >
+      <Component
+        {...pageProps}
+        poster={poster}
+        skurliste={skurliste}
+        setSkurlisteInfo={setSkurlisteInfo}
+        skurlisteInfo={skurlisteInfo}
+        setPostInfo={setPostInfo}
+        postInfo={postInfo}
+        setSearchResultModal={setSearchResultModal}
+        searchResultModal={searchResultModal}
+        setUpdate={setUpdate}
+        update={update}
+      />
+    </Auth0Provider>
   );
 }

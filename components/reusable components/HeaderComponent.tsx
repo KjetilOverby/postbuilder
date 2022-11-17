@@ -1,6 +1,9 @@
 import { Header } from "next/dist/lib/load-custom-routes";
 import React, { useState } from "react";
-import Link from 'next/link'
+import Link from "next/link";
+import LoginButton from "../auth/LoginButton";
+import LogoutButton from "../auth/LogoutButton";
+import AuthWrapper from "../auth/AuthWrapper";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -47,36 +50,35 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             hidden === true ? "" : "hidden"
           } lg-block`}
         >
-          <div className="text-sm lg:flex-grow">
-            <a
-              onClick={openPostoppsettHandler}
-              href="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
-            >
-              Søk
-            </a>
-            <Link href='/lister'>
-            <p
-           
-              className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
-            >
-             Lister
-            </p>
-            </Link>
-            <a
-              href="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white uppercase"
-            >
-              Rediger
-            </a>
+          <div className="text-sm lg:grid grid-cols-2 ">
+            <div>
+              <a
+                onClick={openPostoppsettHandler}
+                href="#"
+                className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
+              >
+                Søk
+              </a>
+            </div>
+            <div>
+              <AuthWrapper>
+                <Link href="/lister">
+                  <p className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase">
+                    Lister
+                  </p>
+                </Link>
+              </AuthWrapper>
+            </div>
           </div>
           <div>
-            <a
+            {/* <a
               href="#"
               className="block mt-4 lg:inline-block lg:mt-0 text-purple-900 hover:text-white"
             >
               Sign in
-            </a>
+            </a> */}
+            <LoginButton />
+            <LogoutButton />
           </div>
         </div>
       </nav>

@@ -5,6 +5,7 @@ import SearchPostoppsett from "../reusable components/SearchPostoppsett";
 import SearchModal from "./SearchModal";
 import SkurlisteComponent from "./SkurlisteComponent";
 import { SkurlisteProps } from "../../tsmodules/posterModule";
+import AuthWrapper from "../auth/AuthWrapper";
 
 const StartPageComponent = ({
   skurliste,
@@ -24,6 +25,7 @@ const StartPageComponent = ({
       />
       <div className="px-3 lg:px-60 pt-12">
         <h1 className="header text-2xl">Skurplan</h1>
+
         <SkurlisteComponent
           skurliste={skurliste}
           setSkurlisteInfo={setSkurlisteInfo}
