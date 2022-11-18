@@ -3,6 +3,7 @@ import Skurlistebuffer from "../../../models/Skurlistebuffer";
 
 dbConnect();
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req:any, res:any) => {
   const { method } = req;
   switch (method) {
@@ -12,8 +13,7 @@ export default async (req:any, res:any) => {
           const skurliste = await Skurlistebuffer.deleteOne({
             _id: req.query.del,
           });
-          if (!skurliste) return res.status(404).send();
-          res.send(skurliste);
+          if (!skurliste) return res.send(skurliste);
 
           // res.status(200).json({ success: true, data: blade });
         } catch (error) {
