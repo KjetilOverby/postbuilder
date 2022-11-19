@@ -71,12 +71,6 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             </div>
           </div>
           <div>
-            {/* <a
-              href="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-purple-900 hover:text-white"
-            >
-              Sign in
-            </a> */}
             <LoginButton />
             <LogoutButton />
           </div>
