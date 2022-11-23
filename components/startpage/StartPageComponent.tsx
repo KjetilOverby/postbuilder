@@ -16,6 +16,7 @@ const StartPageComponent = ({
   setPostInfo,
   searchResultModal,
   setSearchResultModal,
+  setFinalSkurlisteInfo
 }: SkurlisteProps) => {
   return (
     <>
@@ -40,6 +41,7 @@ const StartPageComponent = ({
             skurlisteInfo={skurlisteInfo}
             poster={poster}
             setSkurlisteInfo={setSkurlisteInfo}
+            setFinalSkurlisteInfo={setFinalSkurlisteInfo}
           />
         )}
       </div>

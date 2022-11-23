@@ -15,21 +15,36 @@ const postoppsett = ({
   setSkurlisteInfo,
   poster,
   setOpenSearchModal,
+  finalSkurlisteInfo,
+  setFinalSkurlisteInfo
 }: any) => {
   return (
     <>
-      <div className=" h-screen bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid relative overflow:hidden">
+      <div className=" h-screen bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid relative overflow:hidden main-container">
         <div className="">
           <PostOppsettComponent
             postInfo={postInfo}
-            skurlisteInfo={skurlisteInfo}
+            skurlisteInfo={finalSkurlisteInfo}
           />
           <KlasseInfoComponent
-            info={skurlisteInfo}
+            info={finalSkurlisteInfo}
             setSearchResultModal={setSearchResultModal}
           />
         </div>
-          <SkurlistePostoppsett skurliste={skurliste}/>
+          <SkurlistePostoppsett 
+          skurliste={skurliste}
+            setSkurlisteInfo={setSkurlisteInfo}
+            setSearchResultModal={setSearchResultModal}
+            searchTrigger={true}/>
+
+          {searchResultModal && <SearchFromListComponent
+              setPostInfo={setPostInfo}
+              setSearchResultModal={setSearchResultModal}
+              skurlisteInfo={skurlisteInfo}
+              poster={poster}
+              setSkurlisteInfo={setSkurlisteInfo}
+              setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+            />}
           
      {/*    <div className=" px-3 lg:px-60 pt-12 relative min-h-screen">
           <SkurlisteComponent
@@ -49,7 +64,13 @@ const postoppsett = ({
           )}
         </div> */}
       </div>
-      <style jsx>{``}</style>
+      <style jsx>{`
+      .main-container {
+        overflow: hidden;
+}
+      } 
+      
+      `}</style>
     </>
   );
 };

@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
   const [skurlisteInfo, setSkurlisteInfo] = useState();
+  const [finalSkurlisteInfo, setFinalSkurlisteInfo] = useState();
   const [postInfo, setPostInfo] = useState();
   const [searchResultModal, setSearchResultModal] = useState(false);
   const [update, setUpdate] = useState(false);
@@ -18,6 +19,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
+ 
 
   useEffect(() => {
     (async () => {
@@ -63,6 +66,8 @@ export default function App({ Component, pageProps }: AppProps) {
         searchResultModal={searchResultModal}
         setUpdate={setUpdate}
         update={update}
+        finalSkurlisteInfo={finalSkurlisteInfo}
+        setFinalSkurlisteInfo={setFinalSkurlisteInfo}
       />
     </Auth0Provider>
   );

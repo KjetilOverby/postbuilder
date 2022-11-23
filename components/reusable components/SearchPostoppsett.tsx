@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
+const SearchPostoppsett = ({ searchResult, setPostInfo, setFinalSkurlisteInfo, skurlisteInfo, closeModal }: any) => {
+ 
+  
   return (
     <>
       {searchResult &&
@@ -9,6 +11,8 @@ const SearchPostoppsett = ({ searchResult, setPostInfo }: any) => {
           const postInfoHandler = () => {
             setPostInfo(item);
             localStorage.setItem("name", JSON.stringify(item));
+            setFinalSkurlisteInfo(skurlisteInfo)
+            closeModal()
           };
           return (
             <>

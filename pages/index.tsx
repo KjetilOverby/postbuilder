@@ -14,6 +14,7 @@ export default function Home({
   setPostInfo,
   searchResultModal,
   setSearchResultModal,
+  setFinalSkurlisteInfo
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
 
@@ -47,6 +48,7 @@ export default function Home({
         setPostInfo={setPostInfo}
         setSearchResultModal={setSearchResultModal}
         searchResultModal={searchResultModal}
+        setFinalSkurlisteInfo={setFinalSkurlisteInfo}
       />
     </div>
   );

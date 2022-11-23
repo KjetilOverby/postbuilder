@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const SkurlistePostoppsett = ({skurliste}) => {
+const SkurlistePostoppsett = ({skurliste, setSkurlisteInfo, searchTrigger, setSearchResultModal}:any) => {
 return (
 <>
 <div className="skurliste-container absolute">
@@ -52,11 +52,7 @@ return (
             skurliste.map((item: any) => {
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
-                if (listeBuffer) {
-                  setListeBuffer(true);
-                  setFieldID(item._id)
-                  setChosen('skurliste')
-                }
+             
                 if (searchTrigger) {
                   setSearchResultModal(true);
                 }
@@ -65,7 +61,7 @@ return (
               return (
                 <tbody
                   onClick={skurlisteInfoHandler}
-                  className={`hover:bg-stone-800 cursor-pointer ${item.progress}`}
+                  className={`hover:bg-stone-700 cursor-pointer ${item.progress}`}
                   key={item._id}
                 >
                   <td
@@ -103,7 +99,7 @@ return (
                   <td className="border border-slate-700 text-xs text-slate-400">
                     {item.prosent}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400 text-teal-600 ">
+                  <td className="border border-slate-700 text-xs text-slate-400 ">
                     <div className="two-input">
                    <div>{item.anm}</div>
                     
@@ -130,6 +126,12 @@ return (
 .skurliste-container {
   bottom: 10px;
   right: 10px
+}
+.finished {
+  background: rgba(136, 8, 8, .3);
+}
+.running {
+  background: rgba(124,252,0, .3);
 }
 `}
 </style>
