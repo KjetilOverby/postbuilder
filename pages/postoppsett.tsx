@@ -45,24 +45,7 @@ const postoppsett = ({
               setSkurlisteInfo={setSkurlisteInfo}
               setFinalSkurlisteInfo={setFinalSkurlisteInfo}
             />}
-          
-     {/*    <div className=" px-3 lg:px-60 pt-12 relative min-h-screen">
-          <SkurlisteComponent
-            skurliste={skurliste}
-            setSkurlisteInfo={setSkurlisteInfo}
-            setSearchResultModal={setSearchResultModal}
-            searchTrigger={true}
-          />
-          {searchResultModal && (
-            <SearchFromListComponent
-              setPostInfo={setPostInfo}
-              setSearchResultModal={setSearchResultModal}
-              skurlisteInfo={skurlisteInfo}
-              poster={poster}
-              setSkurlisteInfo={setSkurlisteInfo}
-            />
-          )}
-        </div> */}
+  
       </div>
       <style jsx>{`
       .main-container {
