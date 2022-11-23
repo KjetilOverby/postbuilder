@@ -53,7 +53,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             </tr>
           </thead>
 
-          <tbody className={` text-slate-200`}>
+          <tbody className={`text-slate-200`}>
             <td
               className={`border border-slate-300 lg:p-1.5 grid grid-cols-1 grid-rows-2 `}
             >
