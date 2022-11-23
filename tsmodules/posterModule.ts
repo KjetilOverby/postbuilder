@@ -134,6 +134,6 @@ export interface SkurlisteProps {
       setPostInfo: React.Dispatch<React.SetStateAction<string>>;
       setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
       searchResultModal: boolean;
-      setFinalSkurlisteInfo: React.Dispatch<React.SetStateAction<string>>;
+      setFinalSkurlisteInfo: React.Dispatch<React.SetStateAction<{}>>;
       
 }

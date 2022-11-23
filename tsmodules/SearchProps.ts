@@ -131,7 +131,7 @@ export interface SearchProps {
       setOpenSearchModal?: any;
       setPostInfo: React.Dispatch<React.SetStateAction<string>>;
       setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
-      setFinalSkurlisteInfo:  React.Dispatch<React.SetStateAction<{}>>;
+      setFinalSkurlisteInfo?:  React.Dispatch<React.SetStateAction<{}>>;
 
       
 }
