@@ -1,6 +1,7 @@
 import React from "react";
 import KlasseInfoComponent from "../components/postoppsett/KlasseInfoComponent";
 import PostOppsettComponent from "../components/postoppsett/PostOppsettComponent";
+import SkurlistePostoppsett from "../components/postoppsett/SkurlistePostoppsett";
 import SearchFromListComponent from "../components/reusable components/SearchFromListComponent";
 import SkurlisteComponent from "../components/startpage/SkurlisteComponent";
 
@@ -17,8 +18,8 @@ const postoppsett = ({
 }: any) => {
   return (
     <>
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid">
-        <div className="min-h-screen">
+      <div className=" h-screen bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid relative overflow:hidden">
+        <div className="">
           <PostOppsettComponent
             postInfo={postInfo}
             skurlisteInfo={skurlisteInfo}
@@ -28,7 +29,9 @@ const postoppsett = ({
             setSearchResultModal={setSearchResultModal}
           />
         </div>
-        <div className=" px-3 lg:px-60 pt-12 relative min-h-screen">
+          <SkurlistePostoppsett skurliste={skurliste}/>
+          
+     {/*    <div className=" px-3 lg:px-60 pt-12 relative min-h-screen">
           <SkurlisteComponent
             skurliste={skurliste}
             setSkurlisteInfo={setSkurlisteInfo}
@@ -44,7 +47,7 @@ const postoppsett = ({
               setSkurlisteInfo={setSkurlisteInfo}
             />
           )}
-        </div>
+        </div> */}
       </div>
       <style jsx>{``}</style>
     </>
