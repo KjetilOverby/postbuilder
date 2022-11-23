@@ -1,4 +1,5 @@
 import React from "react";
+import { TiDeleteOutline } from 'react-icons/ti';
 
 const InputComponent = ({
   setListInputData,
@@ -37,7 +38,11 @@ const InputComponent = ({
               <p>Furu</p>
             </div>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({klasse: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Klasse</p>
             <select
               value={listInputData.klasse}
@@ -78,7 +83,11 @@ const InputComponent = ({
               <option value="26">26</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+            <div onClick={() => setListInputData({klType: ''})} className="hover: cursor-pointer">
+
+            <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+            </div>
             <p className="text-slate-700 mb-3">Klassetype</p>
             <select
               value={listInputData.klType}
@@ -99,7 +108,11 @@ const InputComponent = ({
               <option value="Krok">Krok</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({ant: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Antall</p>
             <input
               value={listInputData.ant}
@@ -113,7 +126,11 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({m3: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">M3</p>
             <input
               value={listInputData.m3}
@@ -127,7 +144,11 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({status: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Status</p>
             <select
               value={listInputData.status}
@@ -146,7 +167,11 @@ const InputComponent = ({
          
         </div>
         <div className="w-36">
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({post: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Post</p>
             <input
               value={listInputData.post}
@@ -160,7 +185,11 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({breddePost: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Bredde</p>
             <select
               value={listInputData.breddePost}
@@ -206,7 +235,11 @@ const InputComponent = ({
               <option value="225 ">225</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({xLog: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">X-log</p>
             <select
               value={listInputData.xLog}
@@ -228,7 +261,11 @@ const InputComponent = ({
               <option value="3X/OS">3X/OS</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({prosent: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Tørkeprosent</p>
             <select
               value={listInputData.prosent}
@@ -247,7 +284,11 @@ const InputComponent = ({
               <option value="16">16</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({anm: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Anm</p>
             <input
               value={listInputData.anm}
@@ -261,7 +302,11 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({anm2: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">Anm 2</p>
             <input
               value={listInputData.anm2}
@@ -277,7 +322,11 @@ const InputComponent = ({
           </div>
         </div>
         <div className="w-44">
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({vs66: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">VS-66 ty</p>
             <select
               value={listInputData.vs66}
@@ -296,7 +345,11 @@ const InputComponent = ({
               <option value="32">32</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({vs66Br: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">VS-66 Br</p>
             <select
               value={listInputData.vs66Br}
@@ -321,7 +374,11 @@ const InputComponent = ({
               <option value="100, 125, 150, 175">100, 125, 150, 175</option>
             </select>
           </div>
-          <div className="p-2 bg-orange-300 mt-5 rounded-md">
+          <div className="p-2 bg-orange-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({vs66Xtra: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">VS-66 xtra ty</p>
             <select
               value={listInputData.vs66Xtra}
@@ -340,7 +397,11 @@ const InputComponent = ({
               <option value="32">32</option>
             </select>
           </div>
-          <div className="p-2 bg-orange-300 mt-5 rounded-md">
+          <div className="p-2 bg-orange-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({vs66XtraBr: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">VS-66 xtra br</p>
             <select
               value={listInputData.vs66XtraBr}
@@ -365,7 +426,11 @@ const InputComponent = ({
               <option value="100, 125, 150, 175">100, 125, 150, 175</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({mkvBord: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">MKV ty</p>
             <select
               value={listInputData.mkvBord}
@@ -384,7 +449,11 @@ const InputComponent = ({
               <option value="32">32</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md">
+          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div onClick={() => setListInputData({mkvBr: ''})} className="hover: cursor-pointer">
+
+<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+</div>
             <p className="text-slate-700 mb-3">MKV br</p>
             <select
               value={listInputData.mkvBr}
