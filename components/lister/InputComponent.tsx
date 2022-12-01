@@ -39,7 +39,13 @@ const InputComponent = ({
             </div>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({klasse: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  klasse: "",
+                }))}
+            className="hover: cursor-pointer"
+            >
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -84,7 +90,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-            <div onClick={() => setListInputData({klType: ''})} className="hover: cursor-pointer">
+            <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  klType: "",
+                }))} className="hover: cursor-pointer">
 
             <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
             </div>
@@ -109,7 +119,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({ant: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  ant: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -127,7 +141,11 @@ const InputComponent = ({
             />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({m3: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  m3: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -145,7 +163,11 @@ const InputComponent = ({
             />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({status: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  status: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -168,7 +190,11 @@ const InputComponent = ({
         </div>
         <div className="w-36">
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({post: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  post: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -186,7 +212,11 @@ const InputComponent = ({
             />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({breddePost: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  breddePost: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -236,7 +266,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({xLog: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  xLog: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -262,7 +296,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({prosent: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  prosent: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -285,7 +323,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({anm: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  anm: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -303,7 +345,11 @@ const InputComponent = ({
             />
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({anm2: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  anm2: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -323,7 +369,11 @@ const InputComponent = ({
         </div>
         <div className="w-44">
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({vs66: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -346,7 +396,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({vs66Br: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66Br: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -375,7 +429,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({vs66Xtra: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66Xtra: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -398,7 +456,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({vs66XtraBr: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  vs66XtraBr: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -427,7 +489,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({mkvBord: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  mkvBord: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
@@ -450,7 +516,11 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
-          <div onClick={() => setListInputData({mkvBr: ''})} className="hover: cursor-pointer">
+          <div onClick={() =>
+                setListInputData((prevState: any) => ({
+                  ...prevState,
+                  mkvBr: "",
+                }))} className="hover: cursor-pointer">
 
 <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
 </div>
