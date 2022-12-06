@@ -16,7 +16,9 @@ const postoppsett = ({
   poster,
   setOpenSearchModal,
   finalSkurlisteInfo,
-  setFinalSkurlisteInfo
+  setFinalSkurlisteInfo,
+  update,
+  setUpdate,
 }: any) => {
   return (
     <>
@@ -25,34 +27,36 @@ const postoppsett = ({
           <PostOppsettComponent
             postInfo={postInfo}
             skurlisteInfo={finalSkurlisteInfo}
+            setUpdate={setUpdate}
+            update={update}
           />
           <KlasseInfoComponent
             info={finalSkurlisteInfo}
             setSearchResultModal={setSearchResultModal}
           />
         </div>
-          <SkurlistePostoppsett 
+        <SkurlistePostoppsett
           skurliste={skurliste}
-            setSkurlisteInfo={setSkurlisteInfo}
-            setSearchResultModal={setSearchResultModal}
-            searchTrigger={true}/>
+          setSkurlisteInfo={setSkurlisteInfo}
+          setSearchResultModal={setSearchResultModal}
+          searchTrigger={true}
+        />
 
-          {searchResultModal && <SearchFromListComponent
-              setPostInfo={setPostInfo}
-              setSearchResultModal={setSearchResultModal}
-              skurlisteInfo={skurlisteInfo}
-              poster={poster}
-              setSkurlisteInfo={setSkurlisteInfo}
-              setFinalSkurlisteInfo={setFinalSkurlisteInfo}
-            />}
-  
+        {searchResultModal && (
+          <SearchFromListComponent
+            setPostInfo={setPostInfo}
+            setSearchResultModal={setSearchResultModal}
+            skurlisteInfo={skurlisteInfo}
+            poster={poster}
+            setSkurlisteInfo={setSkurlisteInfo}
+            setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+          />
+        )}
       </div>
       <style jsx>{`
-      .main-container {
-        overflow: hidden;
-}
-      } 
-      
+        .main-container {
+          overflow: hidden;
+        }
       `}</style>
     </>
   );

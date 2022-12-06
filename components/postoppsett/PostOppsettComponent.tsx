@@ -2,14 +2,92 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import useComponentDidMount from "../customHooks/UseComponentDidMount";
 import dateFormat from "dateformat";
+import OpenEditComponent from "./OpenEditComponent";
+import { FaUserEdit } from "react-icons/fa";
+import { RiDeleteBinLine } from "react-icons/ri";
 
-const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
+const PostOppsettComponent = ({
+  postInfo,
+  skurlisteInfo,
+  update,
+  setUpdate,
+}: any) => {
   const router = useRouter();
 
   const [localStargeItem, setLocalStargeItem] = useState<any>();
   const [parsedPost, setParsedPost] = useState<any>();
+  const [rawRingsCalc, setRawRingsCalc] = useState<any>();
+  const [bladesCalc, setBladesCalc] = useState<any>();
+  const [bladStamme, setBladStamme] = useState<any>();
+  const [antallBlades, setAntallBlades] = useState<any>();
+  const [postCalc, setPostCalc] = useState<any>();
+  const [vigg, setVigg] = useState<any>();
+  const [utfyllingForan, setUtfyllingForan] = useState<any>();
+  const [utfyllingBak, setUtfyllingBak] = useState<any>();
+  const [openEdit, setOpenEdit] = useState(false);
 
   const isComponentMounted = useComponentDidMount();
+
+  const [updatePostCalc, setUpdatePostCalc] = useState(false);
+  const [updateUtfylling, setUpdateUtfylling] = useState(false);
+
+  useEffect(() => {
+    if (postInfo) {
+      setVigg(postInfo.rawInput.length * 1.4);
+    }
+  }, [postInfo]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setAntallBlades(postInfo.rawInput.length + 1);
+    }
+  }, [postInfo]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setBladStamme(postInfo.blades.bladStamme);
+    }
+  }, [postInfo]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setRawRingsCalc(
+        postInfo.rawInput.reduce(
+          (num: number, { input }: any) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+  }, [postInfo, update]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setBladesCalc(antallBlades * bladStamme + vigg);
+      setUpdatePostCalc(!updatePostCalc);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bladStamme]);
+
+  useEffect(() => {
+    if (bladesCalc) {
+      setPostCalc(Number(bladesCalc) + Number(rawRingsCalc));
+      setUpdateUtfylling(!updateUtfylling);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updatePostCalc]);
+
+  useEffect(() => {
+    if (bladesCalc) {
+      setUtfyllingForan(200 - postCalc / 2);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updateUtfylling]);
+  useEffect(() => {
+    if (bladesCalc) {
+      setUtfyllingBak(217.2 - postCalc / 2);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updateUtfylling]);
 
   useEffect(() => {
     if (isComponentMounted) {
@@ -44,14 +122,24 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
                 : "ukjent"}
             </p>
           </div>
-          <div>
+          <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">
-              <div className="flex">
+              <div className="flex relative">
                 {parsedPost &&
                   parsedPost.startRings.map((item: any) => {
                     return (
                       <>
                         <div className="outerRingContainer fillringcontainer ">
+                          <OpenEditComponent openEdit={openEdit}>
+                            <RiDeleteBinLine
+                              style={{
+                                position: "absolute",
+                                bottom: "8rem",
+                                fontSize: "1.5rem",
+                                color: "indianred",
+                              }}
+                            />
+                          </OpenEditComponent>
                           <div
                             key={item._id}
                             className="ringcomponent fillrings"
@@ -62,6 +150,14 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
                       </>
                     );
                   })}
+                <OpenEditComponent openEdit={openEdit}>
+                  {/* ********************** under line front ************************ */}
+                  <div className="calculate-line all-length-line">
+                    <p className="postcalc-number">
+                      {utfyllingForan && utfyllingForan.toFixed(2)}
+                    </p>
+                  </div>
+                </OpenEditComponent>
               </div>
               <div className="flex relative">
                 {parsedPost &&
@@ -69,6 +165,16 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
                     return (
                       <>
                         <div className="outerRingContainer centerringcontainer">
+                          <OpenEditComponent openEdit={openEdit}>
+                            <RiDeleteBinLine
+                              style={{
+                                position: "absolute",
+                                bottom: "8rem",
+                                fontSize: "1.5rem",
+                                color: "indianred",
+                              }}
+                            />
+                          </OpenEditComponent>
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
@@ -112,6 +218,14 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
                             </p>
                           </div>
                         </div>
+                        <OpenEditComponent openEdit={openEdit}>
+                          {/* ********************** under line center ************************ */}
+                          <div className="calculate-line all-length-line">
+                            <p className="postcalc-number">
+                              {postCalc && postCalc.toFixed(2)}
+                            </p>
+                          </div>
+                        </OpenEditComponent>
                       </>
                     );
                   })}
@@ -128,12 +242,22 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
                 </div>
               </div>
 
-              <div className="flex">
+              <div className="flex relative">
                 {parsedPost &&
                   parsedPost.endRings.map((item: any) => {
                     return (
                       <>
                         <div className="outerRingContainer">
+                          <OpenEditComponent openEdit={openEdit}>
+                            <RiDeleteBinLine
+                              style={{
+                                position: "absolute",
+                                bottom: "8rem",
+                                fontSize: "1.5rem",
+                                color: "indianred",
+                              }}
+                            />
+                          </OpenEditComponent>
                           <div
                             key={item._id}
                             className="ringcomponent fillrings"
@@ -144,8 +268,27 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
                       </>
                     );
                   })}
+                <OpenEditComponent openEdit={openEdit}>
+                  {/* ********************** under line end ************************ */}
+                  <div className="calculate-line all-length-line">
+                    <p className="postcalc-number">
+                      {utfyllingBak && utfyllingBak.toFixed(2)}
+                    </p>
+                  </div>
+                </OpenEditComponent>
               </div>
             </div>
+          </div>
+          <div
+            onClick={() => setOpenEdit(!openEdit)}
+            className="icon-container"
+          >
+            <FaUserEdit
+              style={{
+                fontSize: "2rem",
+                color: "grey",
+              }}
+            />
           </div>
         </div>
       </div>
@@ -235,6 +378,56 @@ const PostOppsettComponent = ({ postInfo, skurlisteInfo }: any) => {
             font-size: 0.8rem;
             right: -8px;
             color: lightgrey;
+          }
+          .icon-container {
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+          }
+          .icon-container:hover {
+            cursor: pointer;
+          }
+
+          // underlines
+
+          .all-length-line {
+            width: 100%;
+            height: 2px;
+            background: white;
+            position: absolute;
+            top: 24rem;
+          }
+          .calculate-line {
+            width: 100%;
+            height: 2px;
+            background: white;
+            position: absolute;
+          }
+          .calculate-line::before {
+            content: "";
+            width: 1px;
+            height: 15px;
+            background: white;
+            position: absolute;
+            top: -7px;
+            padding: 0 2px;
+          }
+          .calculate-line::after {
+            content: "";
+            width: 1px;
+            height: 15px;
+            background: white;
+            position: absolute;
+            top: -7px;
+            right: 0px;
+            padding: 0 2px;
+          }
+          .postcalc-number {
+            position: absolute;
+            color: white;
+            left: 50%;
+            top: -30px;
+            font-weight: 100;
           }
 
           @keyframes rubberBand {
