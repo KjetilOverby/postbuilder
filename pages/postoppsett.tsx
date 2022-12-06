@@ -29,6 +29,7 @@ const postoppsett = ({
             skurlisteInfo={finalSkurlisteInfo}
             setUpdate={setUpdate}
             update={update}
+            setPostInfo={setPostInfo}
           />
           <KlasseInfoComponent
             info={finalSkurlisteInfo}

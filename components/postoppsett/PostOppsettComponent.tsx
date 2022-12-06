@@ -11,6 +11,7 @@ const PostOppsettComponent = ({
   skurlisteInfo,
   update,
   setUpdate,
+  setPostInfo,
 }: any) => {
   const router = useRouter();
 
@@ -36,6 +37,10 @@ const PostOppsettComponent = ({
       setVigg(postInfo.rawInput.length * 1.4);
     }
   }, [postInfo]);
+
+  // const testHeader = () => {
+  //   setPostInfo({ ...postInfo, header: "this is awesome stuff!!!" });
+  // };
 
   useEffect(() => {
     if (postInfo) {
