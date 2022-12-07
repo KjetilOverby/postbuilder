@@ -107,7 +107,13 @@ return (
                     </div>
                   </td>
                   <td className="border border-slate-700 text-xs text-slate-400">
+                    <div>
+
                     {item.vs66}
+                    </div>
+                    <div className="text-red-600">
+                      {item.vs66Xtra}
+                    </div>
                   </td>
                   
                   <td className="border border-slate-700 text-xs text-slate-400">

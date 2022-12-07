@@ -126,10 +126,22 @@ const SkurlisteComponent = ({
                     </div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
+                    <div>
                     {item.vs66}
+                    </div>
+                    <div className="text-red-600">
+                    {item.vs66Xtra}
+                    </div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
+                    <div>
+
                     {item.vs66Br}
+                    </div>
+                    <div  className="text-red-600">
+                    {item.vs66XtraBr}
+
+                    </div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
                     {item.mkvBord}
