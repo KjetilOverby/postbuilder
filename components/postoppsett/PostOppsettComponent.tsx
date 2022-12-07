@@ -5,6 +5,8 @@ import dateFormat from "dateformat";
 import OpenEditComponent from "./OpenEditComponent";
 import { FaUserEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
+import LeftSidepanelEdit from "./LeftSidepanelEdit";
 
 const PostOppsettComponent = ({
   postInfo,
@@ -38,9 +40,7 @@ const PostOppsettComponent = ({
     }
   }, [postInfo]);
 
-  // const testHeader = () => {
-  //   setPostInfo({ ...postInfo, header: "this is awesome stuff!!!" });
-  // };
+
 
   useEffect(() => {
     if (postInfo) {
@@ -111,8 +111,44 @@ const PostOppsettComponent = ({
     }
   }, [localStargeItem]);
 
+// *********************** Delete from postinfo *************************
+
+
+    // const testHeader = () => {
+  //   setPostInfo({ ...postInfo, header: "this is awesome stuff!!!" });
+  // };
+
+  const [ringID, setRingID] = useState()
+  const [ringType, setRingType] = useState<string>('')
+console.log(ringType);
+
+  useEffect(() => {
+    if(postInfo ) {
+      if(ringType === 'startRings') {
+
+        const newList = postInfo.startRings.filter((item:any) => item._id !== ringID);
+        setPostInfo({...postInfo, startRings: newList})
+      } else if (ringType === 'endRings') {
+        const newList = postInfo.endRings.filter((item:any) => item._id !== ringID);
+        setPostInfo({...postInfo, endRings: newList})
+      } else if (ringType === 'rawInput') {
+        const newList = postInfo.rawInput.filter((item:any) => item._id !== ringID);
+        setPostInfo({...postInfo, rawInput: newList})
+      }
+
+    
+
+    }
+  }, [ringID])
+
+
+  
   return (
     <>
+    <OpenEditComponent openEdit={openEdit}>
+
+    <LeftSidepanelEdit />
+    </OpenEditComponent>
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
@@ -132,11 +168,16 @@ const PostOppsettComponent = ({
               <div className="flex relative">
                 {parsedPost &&
                   parsedPost.startRings.map((item: any) => {
+                    const startRingsHandler = () => {
+                      setRingID(item._id)
+                      setRingType('startRings')
+                    }
                     return (
                       <>
                         <div className="outerRingContainer fillringcontainer ">
                           <OpenEditComponent openEdit={openEdit}>
                             <RiDeleteBinLine
+                            onClick={startRingsHandler}
                               style={{
                                 position: "absolute",
                                 bottom: "8rem",
@@ -167,11 +208,16 @@ const PostOppsettComponent = ({
               <div className="flex relative">
                 {parsedPost &&
                   parsedPost.rawInput.map((item: any) => {
+                    const rawInputHandler = () => {
+                      setRingID(item._id)
+                      setRingType('rawInput')
+                    }
                     return (
                       <>
                         <div className="outerRingContainer centerringcontainer">
                           <OpenEditComponent openEdit={openEdit}>
                             <RiDeleteBinLine
+                            onClick={rawInputHandler}
                               style={{
                                 position: "absolute",
                                 bottom: "8rem",
@@ -185,6 +231,16 @@ const PostOppsettComponent = ({
                             key={item._id}
                             className="ringcomponent rawrings"
                           >
+                             <OpenEditComponent openEdit={openEdit}>
+                            <BiAddToQueue
+                              style={{
+                                position: "absolute",
+                                top: "8rem",
+                                fontSize: "1.5rem",
+                                color: "green",
+                              }}
+                            />
+                          </OpenEditComponent>
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -223,6 +279,7 @@ const PostOppsettComponent = ({
                             </p>
                           </div>
                         </div>
+                        
                         <OpenEditComponent openEdit={openEdit}>
                           {/* ********************** under line center ************************ */}
                           <div className="calculate-line all-length-line">
@@ -250,11 +307,16 @@ const PostOppsettComponent = ({
               <div className="flex relative">
                 {parsedPost &&
                   parsedPost.endRings.map((item: any) => {
+                    const endRingsHandler = () => {
+                      setRingID(item._id)
+                      setRingType('endRings')
+                    }
                     return (
                       <>
                         <div className="outerRingContainer">
                           <OpenEditComponent openEdit={openEdit}>
                             <RiDeleteBinLine
+                            onClick={endRingsHandler}
                               style={{
                                 position: "absolute",
                                 bottom: "8rem",
@@ -269,6 +331,7 @@ const PostOppsettComponent = ({
                           >
                             {item.input}
                           </div>
+                         
                         </div>
                       </>
                     );
@@ -388,6 +451,7 @@ const PostOppsettComponent = ({
             position: absolute;
             left: 15px;
             bottom: 15px;
+            z-index: 100;
           }
           .icon-container:hover {
             cursor: pointer;
