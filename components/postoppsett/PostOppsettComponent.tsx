@@ -40,8 +40,6 @@ const PostOppsettComponent = ({
     }
   }, [postInfo]);
 
-
-
   useEffect(() => {
     if (postInfo) {
       setAntallBlades(postInfo.rawInput.length + 1);
@@ -111,44 +109,43 @@ const PostOppsettComponent = ({
     }
   }, [localStargeItem]);
 
-// *********************** Delete from postinfo *************************
+  // *********************** Delete from postinfo *************************
 
-
-    // const testHeader = () => {
+  // const testHeader = () => {
   //   setPostInfo({ ...postInfo, header: "this is awesome stuff!!!" });
   // };
 
-  const [ringID, setRingID] = useState()
-  const [ringType, setRingType] = useState<string>('')
-console.log(ringType);
+  const [ringID, setRingID] = useState();
+  const [ringType, setRingType] = useState<string>("");
+  console.log(ringType);
 
   useEffect(() => {
-    if(postInfo ) {
-      if(ringType === 'startRings') {
-
-        const newList = postInfo.startRings.filter((item:any) => item._id !== ringID);
-        setPostInfo({...postInfo, startRings: newList})
-      } else if (ringType === 'endRings') {
-        const newList = postInfo.endRings.filter((item:any) => item._id !== ringID);
-        setPostInfo({...postInfo, endRings: newList})
-      } else if (ringType === 'rawInput') {
-        const newList = postInfo.rawInput.filter((item:any) => item._id !== ringID);
-        setPostInfo({...postInfo, rawInput: newList})
+    if (postInfo) {
+      if (ringType === "startRings") {
+        const newList = postInfo.startRings.filter(
+          (item: any) => item._id !== ringID
+        );
+        setPostInfo({ ...postInfo, startRings: newList });
+      } else if (ringType === "endRings") {
+        const newList = postInfo.endRings.filter(
+          (item: any) => item._id !== ringID
+        );
+        setPostInfo({ ...postInfo, endRings: newList });
+      } else if (ringType === "rawInput") {
+        const newList = postInfo.rawInput.filter(
+          (item: any) => item._id !== ringID
+        );
+        setPostInfo({ ...postInfo, rawInput: newList });
       }
-
-    
-
     }
-  }, [ringID])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ringID]);
 
-
-  
   return (
     <>
-    <OpenEditComponent openEdit={openEdit}>
-
-    <LeftSidepanelEdit />
-    </OpenEditComponent>
+      <OpenEditComponent openEdit={openEdit}>
+        <LeftSidepanelEdit />
+      </OpenEditComponent>
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
@@ -169,15 +166,15 @@ console.log(ringType);
                 {parsedPost &&
                   parsedPost.startRings.map((item: any) => {
                     const startRingsHandler = () => {
-                      setRingID(item._id)
-                      setRingType('startRings')
-                    }
+                      setRingID(item._id);
+                      setRingType("startRings");
+                    };
                     return (
                       <>
                         <div className="outerRingContainer fillringcontainer ">
                           <OpenEditComponent openEdit={openEdit}>
                             <RiDeleteBinLine
-                            onClick={startRingsHandler}
+                              onClick={startRingsHandler}
                               style={{
                                 position: "absolute",
                                 bottom: "8rem",
@@ -209,15 +206,15 @@ console.log(ringType);
                 {parsedPost &&
                   parsedPost.rawInput.map((item: any) => {
                     const rawInputHandler = () => {
-                      setRingID(item._id)
-                      setRingType('rawInput')
-                    }
+                      setRingID(item._id);
+                      setRingType("rawInput");
+                    };
                     return (
                       <>
                         <div className="outerRingContainer centerringcontainer">
                           <OpenEditComponent openEdit={openEdit}>
                             <RiDeleteBinLine
-                            onClick={rawInputHandler}
+                              onClick={rawInputHandler}
                               style={{
                                 position: "absolute",
                                 bottom: "8rem",
@@ -231,16 +228,16 @@ console.log(ringType);
                             key={item._id}
                             className="ringcomponent rawrings"
                           >
-                             <OpenEditComponent openEdit={openEdit}>
-                            <BiAddToQueue
-                              style={{
-                                position: "absolute",
-                                top: "8rem",
-                                fontSize: "1.5rem",
-                                color: "green",
-                              }}
-                            />
-                          </OpenEditComponent>
+                            <OpenEditComponent openEdit={openEdit}>
+                              <BiAddToQueue
+                                style={{
+                                  position: "absolute",
+                                  top: "8rem",
+                                  fontSize: "1.5rem",
+                                  color: "green",
+                                }}
+                              />
+                            </OpenEditComponent>
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -279,7 +276,7 @@ console.log(ringType);
                             </p>
                           </div>
                         </div>
-                        
+
                         <OpenEditComponent openEdit={openEdit}>
                           {/* ********************** under line center ************************ */}
                           <div className="calculate-line all-length-line">
@@ -308,15 +305,15 @@ console.log(ringType);
                 {parsedPost &&
                   parsedPost.endRings.map((item: any) => {
                     const endRingsHandler = () => {
-                      setRingID(item._id)
-                      setRingType('endRings')
-                    }
+                      setRingID(item._id);
+                      setRingType("endRings");
+                    };
                     return (
                       <>
                         <div className="outerRingContainer">
                           <OpenEditComponent openEdit={openEdit}>
                             <RiDeleteBinLine
-                            onClick={endRingsHandler}
+                              onClick={endRingsHandler}
                               style={{
                                 position: "absolute",
                                 bottom: "8rem",
@@ -331,7 +328,6 @@ console.log(ringType);
                           >
                             {item.input}
                           </div>
-                         
                         </div>
                       </>
                     );
