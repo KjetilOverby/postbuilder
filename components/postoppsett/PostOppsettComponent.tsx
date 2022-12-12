@@ -34,6 +34,15 @@ const PostOppsettComponent = ({
   const [updatePostCalc, setUpdatePostCalc] = useState(false);
   const [updateUtfylling, setUpdateUtfylling] = useState(false);
 
+  const [ringID, setRingID] = useState();
+  const [ringType, setRingType] = useState<string>("");
+  const [cancelEditPost, setCancelEditPost] = useState()
+ const [editBlink, setEditBlink] = useState<any>({
+  startRings: '',
+  rawInput: '',
+  endRings: '',
+ })
+
   useEffect(() => {
     if (postInfo) {
       setVigg(postInfo.rawInput.length * 1.4);
@@ -69,7 +78,7 @@ const PostOppsettComponent = ({
       setUpdatePostCalc(!updatePostCalc);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bladStamme]);
+  }, [bladStamme, ringID]);
 
   useEffect(() => {
     if (bladesCalc) {
@@ -115,9 +124,8 @@ const PostOppsettComponent = ({
   //   setPostInfo({ ...postInfo, header: "this is awesome stuff!!!" });
   // };
 
-  const [ringID, setRingID] = useState();
-  const [ringType, setRingType] = useState<string>("");
-  console.log(ringType);
+  
+
 
   useEffect(() => {
     if (postInfo) {
@@ -131,6 +139,7 @@ const PostOppsettComponent = ({
           (item: any) => item._id !== ringID
         );
         setPostInfo({ ...postInfo, endRings: newList });
+        
       } else if (ringType === "rawInput") {
         const newList = postInfo.rawInput.filter(
           (item: any) => item._id !== ringID
@@ -138,13 +147,44 @@ const PostOppsettComponent = ({
         setPostInfo({ ...postInfo, rawInput: newList });
       }
     }
+   
+      
+      
+ 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringID]);
+
+  const openEditHandler = () => {
+    setOpenEdit(true)
+    setCancelEditPost(postInfo)
+  }
+
+  const cancelEditMode = () => {
+     setOpenEdit(false)
+     setPostInfo(cancelEditPost)
+     setEditBlink({startRings: ''})
+  }
+
+  const editModeStartRings = () => {
+    setEditBlink({startRings: 'editModeStartRings'})
+  }
+  const editModeEndringsHandler = () => {
+    setEditBlink({endRings: 'editModeEndRings'})
+  }
+
+  const editModeRawinputHandler = () => {
+    setEditBlink({rawInput: 'editModeRawInput'})
+  }
+
+ 
+
+  
+  
 
   return (
     <>
       <OpenEditComponent openEdit={openEdit}>
-        <LeftSidepanelEdit />
+        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} />
       </OpenEditComponent>
       <div className="">
         <div className="grid place-items-center h-screen">
@@ -171,8 +211,11 @@ const PostOppsettComponent = ({
                     };
                     return (
                       <>
-                        <div className="outerRingContainer fillringcontainer ">
+                        <div onClick={openEdit ? editModeStartRings : undefined} className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
                           <OpenEditComponent openEdit={openEdit}>
+                            <>
+                            {editBlink.startRings === 'editModeStartRings' && 
+                            
                             <RiDeleteBinLine
                               onClick={startRingsHandler}
                               style={{
@@ -182,6 +225,8 @@ const PostOppsettComponent = ({
                                 color: "indianred",
                               }}
                             />
+                            }
+                            </>
                           </OpenEditComponent>
                           <div
                             key={item._id}
@@ -211,8 +256,11 @@ const PostOppsettComponent = ({
                     };
                     return (
                       <>
-                        <div className="outerRingContainer centerringcontainer">
+                        <div onClick={openEdit ? editModeRawinputHandler : undefined} className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
                           <OpenEditComponent openEdit={openEdit}>
+                            <>
+                            {editBlink.rawInput === 'editModeRawInput' &&
+                            
                             <RiDeleteBinLine
                               onClick={rawInputHandler}
                               style={{
@@ -222,6 +270,8 @@ const PostOppsettComponent = ({
                                 color: "indianred",
                               }}
                             />
+                            }
+                            </>
                           </OpenEditComponent>
                           <p className="absolute rawInput">{item.input}</p>
                           <div
@@ -310,8 +360,11 @@ const PostOppsettComponent = ({
                     };
                     return (
                       <>
-                        <div className="outerRingContainer">
+                        <div onClick={openEdit ? editModeEndringsHandler : undefined} className={`outerRingContainer ${editBlink.endRings}`}>
                           <OpenEditComponent openEdit={openEdit}>
+                            <>
+                            {editBlink.endRings === 'editModeEndRings' && 
+                            
                             <RiDeleteBinLine
                               onClick={endRingsHandler}
                               style={{
@@ -319,8 +372,11 @@ const PostOppsettComponent = ({
                                 bottom: "8rem",
                                 fontSize: "1.5rem",
                                 color: "indianred",
+                                zIndex: '1000'
                               }}
                             />
+                            }
+                            </>
                           </OpenEditComponent>
                           <div
                             key={item._id}
@@ -344,7 +400,7 @@ const PostOppsettComponent = ({
             </div>
           </div>
           <div
-            onClick={() => setOpenEdit(!openEdit)}
+            onClick={openEditHandler}
             className="icon-container"
           >
             <FaUserEdit
@@ -617,6 +673,28 @@ const PostOppsettComponent = ({
               left: -5px;
             }
           }
+          .editModeStartRings {
+            animation: blink 2s infinite;
+          }
+          .editModeEndRings {
+            animation: blink 2s infinite;
+          }
+          .editModeRawInput {
+            animation: blink 2s infinite;
+          }
+
+          @keyframes blink {
+            0% {
+              background: red
+            }
+            50% {
+              background: yellow
+            }
+            100% {
+              background: red
+            }
+          } 
+
         `}
       </style>
     </>
