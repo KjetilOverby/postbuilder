@@ -16,7 +16,7 @@ const StartPageComponent = ({
   setPostInfo,
   searchResultModal,
   setSearchResultModal,
-  setFinalSkurlisteInfo
+  setFinalSkurlisteInfo,
 }: SkurlisteProps) => {
   return (
     <>
@@ -24,7 +24,7 @@ const StartPageComponent = ({
         open={setOpenSearchModal}
         setSkurlisteInfo={setSkurlisteInfo}
       />
-      <div className="px-3 lg:px-60 pt-12">
+      <div className="px-3 lg:px-60 pt-12 ">
         <h1 className="header text-2xl">Skurplan</h1>
 
         <SkurlisteComponent

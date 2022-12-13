@@ -9,7 +9,7 @@ const SkurlisteComponent = ({
   setListeBuffer,
   listeBuffer,
   setFieldID,
-  setChosen
+  setChosen,
 }: any) => {
   return (
     <>
@@ -67,8 +67,8 @@ const SkurlisteComponent = ({
                 setSkurlisteInfo(item);
                 if (listeBuffer) {
                   setListeBuffer(true);
-                  setFieldID(item._id)
-                  setChosen('skurliste')
+                  setFieldID(item._id);
+                  setChosen("skurliste");
                 }
                 if (searchTrigger) {
                   setSearchResultModal(true);
@@ -120,28 +120,18 @@ const SkurlisteComponent = ({
                   </td>
                   <td className="border border-slate-300 lg:p-1.5 text-teal-600 ">
                     <div className="two-input">
-                   <div>{item.anm}</div>
-                    
-                  <div>{item.anm2}</div>  
+                      <div>{item.anm}</div>
+
+                      <div>{item.anm2}</div>
                     </div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
-                    <div>
-                    {item.vs66}
-                    </div>
-                    <div className="text-red-600">
-                    {item.vs66Xtra}
-                    </div>
+                    <div>{item.vs66}</div>
+                    <div className="text-red-600">{item.vs66Xtra}</div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
-                    <div>
-
-                    {item.vs66Br}
-                    </div>
-                    <div  className="text-red-600">
-                    {item.vs66XtraBr}
-
-                    </div>
+                    <div>{item.vs66Br}</div>
+                    <div className="text-red-600">{item.vs66XtraBr}</div>
                   </td>
                   <td className="border border-slate-300 lg:p-1.5">
                     {item.mkvBord}
