@@ -1,6 +1,8 @@
 import React from 'react'
 import RingPanelComponent from './RingPanelComponent'
 import ringlist from '../../data/ringList'
+import rawInputList from '../../data/rawinputList'
+import RawInputPanel from './RawInputPanel'
 
 
 
@@ -28,6 +30,12 @@ return (
     { editBlink.endRings === 'editModeEndRings'  &&
     <div>
         <RingPanelComponent list={ringlist} />
+    </div>
+
+    }
+    { editBlink.rawInput === 'editModeRawInput'  &&
+    <div>
+        <RawInputPanel raw={rawInputList} />
     </div>
 
     }
