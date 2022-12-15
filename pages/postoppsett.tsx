@@ -51,6 +51,8 @@ const postoppsett = ({
             poster={poster}
             setSkurlisteInfo={setSkurlisteInfo}
             setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+            update={update}
+            setUpdate={setUpdate}
           />
         )}
       </div>

@@ -47,19 +47,19 @@ const PostOppsettComponent = ({
     if (postInfo) {
       setVigg(postInfo.rawInput.length * 1.4);
     }
-  }, [postInfo]);
+  }, [postInfo, update]);
 
   useEffect(() => {
     if (postInfo) {
       setAntallBlades(postInfo.rawInput.length + 1);
     }
-  }, [postInfo]);
+  }, [postInfo, update]);
 
   useEffect(() => {
     if (postInfo) {
       setBladStamme(postInfo.blades.bladStamme);
     }
-  }, [postInfo]);
+  }, [postInfo, update]);
 
   useEffect(() => {
     if (postInfo) {
@@ -70,15 +70,38 @@ const PostOppsettComponent = ({
         )
       );
     }
+    
   }, [postInfo, update]);
 
+  const [startRingsCalc, setStartRingsCalc] = useState()
+  const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState()
+
+
+  useEffect(() => {
+    if (postInfo) {
+      setStartRingsCalc(
+        postInfo.startRings.reduce(
+          (num: number, { input }: any) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+
+   
+  }, [postInfo, update]);
+
+  useEffect(() => {
+  setStartRingsMinusRwinput(utfyllingForan - startRingsCalc)
+  });
+
+  
   useEffect(() => {
     if (postInfo) {
       setBladesCalc(antallBlades * bladStamme + vigg);
       setUpdatePostCalc(!updatePostCalc);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bladStamme, ringID]);
+  }, [bladStamme, ringID, update]);
 
   useEffect(() => {
     if (bladesCalc) {
@@ -86,42 +109,42 @@ const PostOppsettComponent = ({
       setUpdateUtfylling(!updateUtfylling);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updatePostCalc]);
+  }, [updatePostCalc, update]);
 
   useEffect(() => {
     if (bladesCalc) {
       setUtfyllingForan(200 - postCalc / 2);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateUtfylling]);
+  }, [updateUtfylling, update]);
   useEffect(() => {
     if (bladesCalc) {
       setUtfyllingBak(217.2 - postCalc / 2);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateUtfylling]);
+  }, [updateUtfylling, update]);
 
   useEffect(() => {
     if (isComponentMounted) {
       localStorage.setItem("name", JSON.stringify(postInfo));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postInfo]);
+  }, [postInfo, update]);
 
   useEffect(() => {
     setLocalStargeItem(localStorage.getItem("name"));
-  }, [postInfo]);
+  }, [postInfo, update]);
 
   useEffect(() => {
     if (localStargeItem) {
       setParsedPost(JSON.parse(localStargeItem));
     }
-  }, [localStargeItem]);
+  }, [localStargeItem, update]);
 
   // *********************** Delete from postinfo *************************
 
   // const testHeader = () => {
-  //   setPostInfo({ ...postInfo, header: "this is awesome stuff!!!" });
+  //   setPostInfo({ ...postInfo, header: "this is!" });
   // };
 
   
@@ -177,14 +200,15 @@ const PostOppsettComponent = ({
   }
 
  
-
+const [ringPanelNumber, setRingPanelNumber] = useState()
   
+
   
 
   return (
     <>
       <OpenEditComponent openEdit={openEdit}>
-        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} />
+        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}/>
       </OpenEditComponent>
       <div className="">
         <div className="grid place-items-center h-screen">
@@ -202,12 +226,14 @@ const PostOppsettComponent = ({
           </div>
           <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">
-              <div className="flex relative">
+              <div className="flex relative fillrings-container">
+                <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p>
                 {parsedPost &&
                   parsedPost.startRings.map((item: any) => {
                     const startRingsHandler = () => {
                       setRingID(item._id);
                       setRingType("startRings");
+                      setUpdate(!update)
                     };
                     return (
                       <>
@@ -351,7 +377,7 @@ const PostOppsettComponent = ({
                 </div>
               </div>
 
-              <div className="flex relative">
+              <div className="flex relative fillrings-container">
                 {parsedPost &&
                   parsedPost.endRings.map((item: any) => {
                     const endRingsHandler = () => {
@@ -436,6 +462,9 @@ const PostOppsettComponent = ({
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
+          }
+          .fillrings-container {
+            min-width: 10rem
           }
           .rawrings {
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);

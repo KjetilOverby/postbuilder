@@ -7,6 +7,8 @@ const SearchPostoppsett = ({
   setFinalSkurlisteInfo,
   skurlisteInfo,
   closeModal,
+  update, 
+  setUpdate
 }: any) => {
   return (
     <>
@@ -19,6 +21,7 @@ const SearchPostoppsett = ({
               setFinalSkurlisteInfo(skurlisteInfo);
               closeModal();
             }
+            setUpdate(!update)
           };
           return (
             <>

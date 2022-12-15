@@ -7,7 +7,9 @@ const SearchFromListComponent = ({
   skurlisteInfo,
   setSearchResultModal,
   poster,
-  setFinalSkurlisteInfo
+  setFinalSkurlisteInfo,
+  update,
+  setUpdate
 }: SearchProps) => {
   const [searchString, setSearchString] = useState<string>();
   const [searchStringResult, setSearchStringResult] = useState();
@@ -59,6 +61,8 @@ const SearchFromListComponent = ({
             skurlisteInfo={skurlisteInfo}
             setFinalSkurlisteInfo={setFinalSkurlisteInfo}
             closeModal={closeModal}
+            update={update}
+            setUpdate={setUpdate}
           />
         </div>
       </div>

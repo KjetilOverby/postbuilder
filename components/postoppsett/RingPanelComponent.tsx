@@ -1,14 +1,21 @@
 import React from 'react'
 
 
-const RingPanelComponent = ({list}) => {
+const RingPanelComponent = ({list, setRingPanelNumber, setUpdate, update, postInfo, setPostInfo}:any) => {
+
+   
 return (
 <>
     <p className='text-teal-100'>Små ringer</p>
 <div className='ringlist-container'>
-   {list.small.map((item) => {
+   {list.small.map((item:any) => {
+    
+       const smallRingsHandler = () => {
+        setPostInfo({ ...postInfo, startRings: [ ...postInfo.startRings,{input: item}] });
+        setUpdate(!update)
+       }
     return (
-        <div className='ringvalue-container'>
+        <div onClick={smallRingsHandler} className='ringvalue-container'>
             <p className='text-teal-100'>{item}</p>
         </div>
     )
@@ -16,9 +23,9 @@ return (
 </div>
     <p className='text-teal-100'>Store ringer</p>
 <div className='ringlist-container'>
-   {list.big.map((item) => {
+   {list.big.map((item:any) => {
     return (
-        <div className='ringvalue-container'>
+        <div onClick={() => setRingPanelNumber(item)} className='ringvalue-container'>
             <p className='text-teal-100'>{item}</p>
         </div>
     )
@@ -26,9 +33,9 @@ return (
 </div>
     <p className='text-teal-100'>Skims</p>
 <div className='ringlist-container'>
-   {list.shims.map((item) => {
+   {list.shims.map((item:any) => {
     return (
-        <div className='ringvalue-container'>
+        <div onClick={() => setRingPanelNumber(item)} className='ringvalue-container'>
             <p className='text-teal-100'>{item}</p>
         </div>
     )
