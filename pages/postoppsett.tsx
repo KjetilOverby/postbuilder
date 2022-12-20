@@ -31,6 +31,7 @@ const postoppsett = ({
     const response = await api
       .patch(`/api/poster/posterEdit?ids=${postInfo._id}`, {
         startRings:postInfo.startRings,
+        endRings: postInfo.endRings
       })
       .then(() => {
       setUpdate(!update)

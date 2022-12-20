@@ -13,6 +13,7 @@ export default async (req:any, res:any) => {
             { _id: req.query.ids },
             {
               startRings: req.body.startRings,
+              endRings: req.body.endRings
               
              
             },

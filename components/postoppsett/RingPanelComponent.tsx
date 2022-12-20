@@ -15,7 +15,7 @@ return (
         setUpdate(!update)
        }
     return (
-        <div onClick={smallRingsHandler} className='ringvalue-container'>
+        <div onClick={() => setRingPanelNumber(item)} className='ringvalue-container'>
             <p className='text-teal-100'>{item}</p>
         </div>
     )

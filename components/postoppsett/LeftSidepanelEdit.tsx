@@ -7,7 +7,7 @@ import RawInputPanel from './RawInputPanel'
 
 
 
-const LeftSidepanelEdit = ({cancel, editModeStartRings, editModeEndRings, editModeRawInput, editBlink, setRingPanelNumber, setUpdate, update, postInfo, setPostInfo, updatePostHandler }: any) => {
+const LeftSidepanelEdit = ({cancel, editModeStartRings, editModeEndRings, editModeRawInput, editBlink, setRingPanelNumber, setUpdate, update, postInfo, setPostInfo, updatePostHandler,  }: any) => {
 return (
 <>
 <div className='sidepanel-container p-5'>

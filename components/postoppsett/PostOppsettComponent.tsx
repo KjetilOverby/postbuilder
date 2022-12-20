@@ -191,13 +191,16 @@ const PostOppsettComponent = ({
 
   const editModeStartRings = () => {
     setEditBlink({startRings: 'editModeStartRings'})
+    setRingType('startRings')
   }
   const editModeEndringsHandler = () => {
     setEditBlink({endRings: 'editModeEndRings'})
+    setRingType('endRings')
   }
 
   const editModeRawinputHandler = () => {
     setEditBlink({rawInput: 'editModeRawInput'})
+    setRingType('rawInput')
   }
 
  
@@ -205,15 +208,22 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
   
 
   useEffect(() => {
-    setPostInfo({ ...postInfo, startRings: [ ...postInfo.startRings,{input: ringPanelNumber}] });
-  }, [ringPanelNumber])
+    if(ringPanelNumber && ringType === "startRings") {
+
+      setPostInfo({ ...postInfo, startRings: [ ...postInfo.startRings,{input: ringPanelNumber}] });
+    } else if(ringPanelNumber && ringType === "endRings") {
+      setPostInfo({ ...postInfo, endRings: [ ...postInfo.endRings,{input: ringPanelNumber}] });
+    }
+  }, [ringType, ringPanelNumber])
   
+console.log(ringType);
 
   return (
     <>
       <OpenEditComponent openEdit={openEdit}>
         <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}
         updatePostHandler={updatePostHandler}
+    
         />
       </OpenEditComponent>
       <div className="">
