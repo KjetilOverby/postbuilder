@@ -4,6 +4,11 @@ import PostOppsettComponent from "../components/postoppsett/PostOppsettComponent
 import SkurlistePostoppsett from "../components/postoppsett/SkurlistePostoppsett";
 import SearchFromListComponent from "../components/reusable components/SearchFromListComponent";
 import SkurlisteComponent from "../components/startpage/SkurlisteComponent";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: process.env.api,
+});
 
 const postoppsett = ({
   postInfo,
@@ -20,6 +25,18 @@ const postoppsett = ({
   update,
   setUpdate,
 }: any) => {
+
+
+  const updatePostHandler = async () => {
+    const response = await api
+      .patch(`/api/poster/posterEdit?ids=${postInfo._id}`, {
+        startRings:postInfo.startRings,
+      })
+      .then(() => {
+      setUpdate(!update)
+      });
+  };
+
   return (
     <>
       <div className=" h-screen bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid relative overflow:hidden main-container">
@@ -30,6 +47,7 @@ const postoppsett = ({
             setUpdate={setUpdate}
             update={update}
             setPostInfo={setPostInfo}
+            updatePostHandler={updatePostHandler}
           />
           <KlasseInfoComponent
             info={finalSkurlisteInfo}

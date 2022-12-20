@@ -17,6 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
     baseURL: process.env.api,
   });
 
+  console.log(postInfo);
+  
+
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
@@ -45,6 +48,22 @@ export default function App({ Component, pageProps }: AppProps) {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update]);
+
+   // ************ Edit Post *************
+
+   useEffect(() => {
+    (async () => {
+      try {
+        const response = await api.patch("/api/poster/posterEdit");
+        setSkurliste(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [update]);
+
+
   return (
     <Auth0Provider
       // @ts-ignore

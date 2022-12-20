@@ -7,7 +7,7 @@ import RawInputPanel from './RawInputPanel'
 
 
 
-const LeftSidepanelEdit = ({cancel, editModeStartRings, editModeEndRings, editModeRawInput, editBlink, setRingPanelNumber, setUpdate, update, postInfo, setPostInfo }: any) => {
+const LeftSidepanelEdit = ({cancel, editModeStartRings, editModeEndRings, editModeRawInput, editBlink, setRingPanelNumber, setUpdate, update, postInfo, setPostInfo, updatePostHandler }: any) => {
 return (
 <>
 <div className='sidepanel-container p-5'>
@@ -29,17 +29,18 @@ return (
     }
     { editBlink.endRings === 'editModeEndRings'  &&
     <div>
-        <RingPanelComponent list={ringlist} />
+        <RingPanelComponent list={ringlist} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} postInfo={postInfo} setPostInfo={setPostInfo} />
     </div>
 
     }
     { editBlink.rawInput === 'editModeRawInput'  &&
     <div>
-        <RawInputPanel raw={rawInputList} />
+        <RawInputPanel raw={rawInputList} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} postInfo={postInfo} setPostInfo={setPostInfo} />
     </div>
 
     }
     <div>
+        <p className='text-teal-100' onClick={updatePostHandler}>Lagre endringer</p>
 
   <p className='text-teal-100' onClick={cancel}>AVBRYT</p>
     </div>

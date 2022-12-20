@@ -14,6 +14,7 @@ const PostOppsettComponent = ({
   update,
   setUpdate,
   setPostInfo,
+  updatePostHandler
 }: any) => {
   const router = useRouter();
 
@@ -203,12 +204,17 @@ const PostOppsettComponent = ({
 const [ringPanelNumber, setRingPanelNumber] = useState()
   
 
+  useEffect(() => {
+    setPostInfo({ ...postInfo, startRings: [ ...postInfo.startRings,{input: ringPanelNumber}] });
+  }, [ringPanelNumber])
   
 
   return (
     <>
       <OpenEditComponent openEdit={openEdit}>
-        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}/>
+        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}
+        updatePostHandler={updatePostHandler}
+        />
       </OpenEditComponent>
       <div className="">
         <div className="grid place-items-center h-screen">
