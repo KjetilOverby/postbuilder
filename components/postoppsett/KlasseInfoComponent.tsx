@@ -17,8 +17,8 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
             <p className="text-slate-400 text-xs italic">
               Post valgt fra skurliste:
             </p>
-            <p className="text-slate-400 text-xs italic">
-              Uttak: {info && info.post}x{info && info.breddePost}
+            <p className="text-slate-400 text-xs italic uttak">
+               {info && info.post}x{info && info.breddePost}
             </p>
             <p className="text-slate-400 text-xs italic">
               Klasse: {info && info.klasse} {info && info.treslag}{" "}
@@ -59,7 +59,10 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
       </div>
       <style jsx>
         {`
-          .container {
+          .uttak {
+            color: var(--center);
+            font-size: 2rem;
+            padding: 1rem 0
           }
         `}
       </style>

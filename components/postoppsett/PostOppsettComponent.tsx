@@ -229,9 +229,9 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
-            <h1 className="text-slate-400 text-xl  md:text-1xl lg:text-4xl font-thin">
+            <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
               {parsedPost && parsedPost.header}{" "}
-              {skurlisteInfo && ` • ${skurlisteInfo.breddePost}`}
+             
             </h1>
             <p className="text-slate-600 text-xs italic">
               Post opprettet:{" "}
@@ -461,6 +461,9 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
             left: 50%;
             top: 5rem;
             font-size: 2rem;
+          }
+          .post-header {
+            color: var(--center)
           }
           .animate-container {
             animation: rubberBand 1.2s;
