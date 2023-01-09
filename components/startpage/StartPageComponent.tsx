@@ -25,7 +25,7 @@ const StartPageComponent = ({
         setSkurlisteInfo={setSkurlisteInfo}
       />
       <div className="px-3 lg:px-60 pt-12 ">
-        <h1 className="header text-2xl">Skurplan</h1>
+        <h1 className="sk-header header text-2xl">Skurplan</h1>
 
         <SkurlisteComponent
           skurliste={skurliste}
@@ -41,11 +41,17 @@ const StartPageComponent = ({
             skurlisteInfo={skurlisteInfo}
             poster={poster}
             setSkurlisteInfo={setSkurlisteInfo}
-            setFinalSkurlisteInfo={setFinalSkurlisteInfo}
-          />
+            setFinalSkurlisteInfo={setFinalSkurlisteInfo} update={false} setUpdate={function (value: React.SetStateAction<boolean>): void {
+              throw new Error("Function not implemented.");
+            } }          />
         )}
       </div>
-      <style jsx>{``}</style>
+      <style jsx>
+        {`
+      .sk-header {
+        color: var(--primary-text)
+          }
+      `}</style>
     </>
   );
 };

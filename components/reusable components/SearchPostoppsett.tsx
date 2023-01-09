@@ -28,7 +28,7 @@ const SearchPostoppsett = ({
               <Link href="/postoppsett">
                 <div
                   onClick={postInfoHandler}
-                  className="result-container bg-amber-100 rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
+                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
                 >
                   <span>
                     <p className="text-slate-600 font-light">{item.header}</p>
@@ -105,6 +105,12 @@ const SearchPostoppsett = ({
         })}
       <style jsx>
         {`
+        .post-container {
+          background: var(--center)
+        }
+        .post-container:hover {
+          background: var(--outer)
+        }
           .rings {
             width: 36px;
             height: 70px;

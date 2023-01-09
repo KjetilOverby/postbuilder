@@ -40,7 +40,7 @@ const postoppsett = ({
 
   return (
     <>
-      <div className=" h-screen bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 grid relative overflow:hidden main-container">
+      <div className=" h-screen grid relative overflow:hidden main-container">
         <div className="">
           <PostOppsettComponent
             postInfo={postInfo}
@@ -78,6 +78,7 @@ const postoppsett = ({
       <style jsx>{`
         .main-container {
           overflow: hidden;
+          background: var(--primary)
         }
       `}</style>
     </>

@@ -334,7 +334,7 @@ const ListerMainPage = ({
             updateMode={updateMode}
           />
           <div className="mt-5">
-            <h1>Bufrede klasser</h1>
+            <h1 className="lister-text">Bufrede klasser</h1>
             {buffer1 &&
               buffer1.map((item: any) => {
                 const getBufferHandler = () => {
@@ -367,7 +367,7 @@ const ListerMainPage = ({
 
           <InputTable listInputData={listInputData} sagblad={sagblad} />
           <div>
-            <h1>Skurplan</h1>
+            <h1 className="lister-text">Skurplan</h1>
             <SkurlisteComponent
               listeBuffer={true}
               setListeBuffer={setListeBuffer}
@@ -459,6 +459,9 @@ const ListerMainPage = ({
             content: "";
             position: absolute;
             display: none;
+          }
+          .lister-text {
+            color: var(--primary-text)
           }
         `}
       </style>

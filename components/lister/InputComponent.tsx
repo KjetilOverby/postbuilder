@@ -12,7 +12,7 @@ const InputComponent = ({
 }: any) => {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 p-5 bg-slate-500 rounded-md">
+      <div className="input-container grid grid-cols-1 md:grid-cols-3 p-5 rounded-md">
         <div className="w-36">
           <div className="grid grid-cols-2 place-items-center w-36 pt-8">
             <div
@@ -38,7 +38,7 @@ const InputComponent = ({
               <p>Furu</p>
             </div>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -89,7 +89,7 @@ const InputComponent = ({
               <option value="26">26</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
             <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -118,7 +118,7 @@ const InputComponent = ({
               <option value="Krok">Krok</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -140,7 +140,7 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -162,7 +162,7 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -189,7 +189,7 @@ const InputComponent = ({
          
         </div>
         <div className="w-36">
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -211,7 +211,7 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -269,7 +269,7 @@ const InputComponent = ({
               <option value="225 ">225</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -300,7 +300,7 @@ const InputComponent = ({
               <option value="5X/OS">5X/OS</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -327,7 +327,7 @@ const InputComponent = ({
               <option value="16">16</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -349,7 +349,7 @@ const InputComponent = ({
               className="w-20"
             />
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -373,7 +373,7 @@ const InputComponent = ({
           </div>
         </div>
         <div className="w-44">
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -400,7 +400,7 @@ const InputComponent = ({
               <option value="32">32</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -497,7 +497,7 @@ const InputComponent = ({
               <option value="100, 125, 150, 175">100, 125, 150, 175</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -524,7 +524,7 @@ const InputComponent = ({
               <option value="32">32</option>
             </select>
           </div>
-          <div className="p-2 bg-slate-300 mt-5 rounded-md relative">
+          <div className="input-cont p-2 mt-5 rounded-md relative">
           <div onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
@@ -585,6 +585,12 @@ const InputComponent = ({
         {`
           .disabledText {
             opacity: 0.2;
+          }
+          .input-container {
+            background: var(--table-bg)
+          }
+          .input-cont {
+            background: var(--primary-text)
           }
         `}
       </style>

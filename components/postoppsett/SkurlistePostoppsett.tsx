@@ -134,10 +134,10 @@ return (
   right: 10px
 }
 .finished {
-  background: rgba(136, 8, 8, .3);
+  background: rgba(143, 143, 143, 0.2);
 }
 .running {
-  background: rgba(124,252,0, .3);
+  background: rgba(89, 226, 102, 0.3);
 }
 `}
 </style>

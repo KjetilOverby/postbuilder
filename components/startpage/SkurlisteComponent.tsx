@@ -13,50 +13,50 @@ const SkurlisteComponent = ({
 }: any) => {
   return (
     <>
-      <div className="skurliste-container mb-10 bg-white">
+      <div className="skurliste-container mb-10">
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
             <tr>
-              <th className="border border-slate-300 lg:p-1.5 " scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5 " scope="col">
                 Treslag
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Kl
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Ant
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 m3
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Status
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Post
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 X-log
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 %
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Anm
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Vs66
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Vs66 bredder
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Mkv bord
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Mkv bredder
               </th>
-              <th className="border border-slate-300 lg:p-1.5" scope="col">
+              <th className="table-text border border-slate-300 lg:p-1.5" scope="col">
                 Blad
               </th>
             </tr>
@@ -78,7 +78,7 @@ const SkurlisteComponent = ({
               return (
                 <tbody
                   onClick={skurlisteInfoHandler}
-                  className={`hover:bg-green-100 cursor-pointer ${item.progress}`}
+                  className={`table-rows cursor-pointer ${item.progress}`}
                   key={item._id}
                 >
                   <td
@@ -93,13 +93,13 @@ const SkurlisteComponent = ({
                       {dateFormat(item.date, "dd.mm.yyyy, HH:MM")}
                     </span>
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.klasse}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.ant}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.m3}
                   </td>
                   <td
@@ -109,37 +109,37 @@ const SkurlisteComponent = ({
                   >
                     {item.status}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5 post">
+                  <td className="table-text border border-slate-300 lg:p-1.5 post">
                     {item.post}x{item.breddePost}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.xLog}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.prosent}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5 text-teal-600 ">
+                  <td className="table-text border border-slate-300 lg:p-1.5 text-teal-600 ">
                     <div className="two-input">
                       <div>{item.anm}</div>
 
                       <div>{item.anm2}</div>
                     </div>
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     <div>{item.vs66}</div>
                     <div className="text-red-600">{item.vs66Xtra}</div>
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     <div>{item.vs66Br}</div>
                     <div className="text-red-600">{item.vs66XtraBr}</div>
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.mkvBord}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.mkvBr}
                   </td>
-                  <td className="border border-slate-300 lg:p-1.5">
+                  <td className="table-text border border-slate-300 lg:p-1.5">
                     {item.blad}
                   </td>
                 </tbody>
@@ -150,6 +150,7 @@ const SkurlisteComponent = ({
       <style jsx>
         {`
           .skurliste-container {
+            background: var(--table-bg)
           }
           .status-stopp {
             color: green;
@@ -157,19 +158,25 @@ const SkurlisteComponent = ({
           .tom {
             color: blue;
           }
+          .table-rows:hover {
+            background: var(--hover)
+          }
           .running {
-            background: #93c5fd;
-            color: #3b82f6;
+            background: var(--running);
+          
           }
           .finished {
-            background: #94a3b8;
-            color: #64748b;
+            background: var(--finish);
+           
           }
           table {
             width: 100%;
           }
           .span-text-date {
             font-size: 0.6rem;
+          }
+          .table-text {
+           color: var(--primary-text)
           }
           .two-input {
             display: flex;

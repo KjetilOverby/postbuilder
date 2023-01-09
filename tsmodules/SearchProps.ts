@@ -132,6 +132,8 @@ export interface SearchProps {
       setPostInfo: React.Dispatch<React.SetStateAction<string>>;
       setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
       setFinalSkurlisteInfo?:  React.Dispatch<React.SetStateAction<{}>>;
+      update: boolean;
+      setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
 
       
 }

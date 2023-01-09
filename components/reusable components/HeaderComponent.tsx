@@ -24,7 +24,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
   };
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap bg-gradient-to-r from-stone-900 to-purple-600  p-5 lg:p-20">
+      <nav className="flex items-center justify-between flex-wrap p-5 lg:p-20 header-container">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <span className="font-semibold text-2xl tracking-tight">
             Postarkiv
@@ -79,7 +79,9 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
 
       <style jsx>
         {`
-          .container {
+          .header-container {
+            background: var(--primary);
+            margin: 0 10rem
           }
         `}
       </style>

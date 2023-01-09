@@ -91,9 +91,9 @@ const PostOppsettComponent = ({
    
   }, [postInfo, update]);
 
-  useEffect(() => {
+  /* useEffect(() => {
   setStartRingsMinusRwinput(utfyllingForan - startRingsCalc)
-  });
+  }); */
 
   
   useEffect(() => {
@@ -216,16 +216,16 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
     }
   }, [ringType, ringPanelNumber])
   
-console.log(ringType);
+
 
   return (
     <>
-      <OpenEditComponent openEdit={openEdit}>
+      {/* <OpenEditComponent openEdit={openEdit}>
         <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}
         updatePostHandler={updatePostHandler}
     
         />
-      </OpenEditComponent>
+      </OpenEditComponent> */}
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
@@ -243,7 +243,7 @@ console.log(ringType);
           <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
-                <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p>
+               {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
                 {parsedPost &&
                   parsedPost.startRings.map((item: any) => {
                     const startRingsHandler = () => {
@@ -441,7 +441,7 @@ console.log(ringType);
               </div>
             </div>
           </div>
-          <div
+        {/*   <div
             onClick={openEditHandler}
             className="icon-container"
           >
@@ -451,7 +451,7 @@ console.log(ringType);
                 color: "grey",
               }}
             />
-          </div>
+          </div> */}
         </div>
       </div>
       <style jsx>
@@ -474,16 +474,19 @@ console.log(ringType);
             border-radius: 5px;
             color: #333;
             font-size: 1.5rem;
-            box-shadow: inset 1px 1px 15px grey;
+           
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
+            background: var(--outer)
           }
           .fillrings-container {
             min-width: 10rem
+            
           }
           .rawrings {
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
+            background: var(--center)
           }
           .outerRingContainer {
             height: 11.4rem;
