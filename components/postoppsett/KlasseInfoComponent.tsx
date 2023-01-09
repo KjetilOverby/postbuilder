@@ -17,7 +17,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
             <p className="text-slate-400 text-xs italic">
               Post valgt fra skurliste:
             </p>
-            <p className="text-slate-400 text-xs italic uttak">
+            <p className="text-slate-400 text-xs uttak">
                {info && info.post}x{info && info.breddePost}
             </p>
             <p className="text-slate-400 text-xs italic">

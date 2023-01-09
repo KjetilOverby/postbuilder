@@ -481,7 +481,8 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
-            background: var(--outer)
+            background: var(--outer);
+            color: var(--outer-text)
           }
           .fillrings-container {
             min-width: 10rem
@@ -489,7 +490,8 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
           }
           .rawrings {
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
-            background: var(--center)
+            background: var(--center);
+            color: var(--center-text)
           }
           .outerRingContainer {
             height: 11.4rem;
@@ -500,6 +502,7 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
             margin-right: 4px;
             border-radius: 5px;
             position: relative;
+           
           }
           .sawBlade {
             position: absolute;

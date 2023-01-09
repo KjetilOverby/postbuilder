@@ -24,7 +24,7 @@ const StartPageComponent = ({
         open={setOpenSearchModal}
         setSkurlisteInfo={setSkurlisteInfo}
       />
-      <div className="px-3 lg:px-60 pt-12 ">
+      <div className="px-3 lg:px-60 pt-12">
         <h1 className="sk-header header text-2xl">Skurplan</h1>
 
         <SkurlisteComponent
@@ -51,6 +51,7 @@ const StartPageComponent = ({
       .sk-header {
         color: var(--primary-text)
           }
+         
       `}</style>
     </>
   );

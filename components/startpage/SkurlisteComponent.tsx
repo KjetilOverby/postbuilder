@@ -90,7 +90,7 @@ const SkurlisteComponent = ({
                   >
                     <div>{item.treslag} {item.klType}</div>
                     <div>
-                    <span className="span-text-date text-slate-800 italic">
+                    <span className="span-text-date italic">
                       {dateFormat(item.date, "dd.mm.yyyy, HH:MM")}
                     </span>
                     </div>
@@ -107,7 +107,7 @@ const SkurlisteComponent = ({
                   </td>
                   <td
                     className={`border-class lg:p-1.5 ${
-                      item.status == "tøm" ? "text-green-400" : "text-red-600"
+                      item.status == "tøm" ? "text-green-400" : "text-red-400"
                     }`}
                   >
                     {item.status}
@@ -169,19 +169,19 @@ const SkurlisteComponent = ({
           
           }
           .finished {
-            background: var(--finish);
+            background: var(--primary);
            
           }
           table {
             width: 100%;
           }
           .treslag {
-            display: flex;
-            flex-direction: column;
+          
           
           }
           .span-text-date {
             font-size: 0.6rem;
+            color: var(--text)
            
           }
           .table-text {

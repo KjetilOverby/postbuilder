@@ -51,6 +51,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Klasse</p>
             <select
+            className="input-field"
               value={listInputData.klasse}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -100,6 +101,8 @@ const InputComponent = ({
             </div>
             <p className="text-slate-700 mb-3">Klassetype</p>
             <select
+            
+              className="input-field"
               value={listInputData.klType}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -129,6 +132,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Antall</p>
             <input
+            
               value={listInputData.ant}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -137,7 +141,7 @@ const InputComponent = ({
                 }))
               }
               type="number"
-              className="w-20"
+              className="w-20 input-field"
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
@@ -151,6 +155,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">M3</p>
             <input
+            
               value={listInputData.m3}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -159,7 +164,7 @@ const InputComponent = ({
                 }))
               }
               type="number"
-              className="w-20"
+              className="w-20 input-field"
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
@@ -173,6 +178,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Status</p>
             <select
+            className="input-field"
               value={listInputData.status}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -200,6 +206,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Post</p>
             <input
+           
               value={listInputData.post}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -208,7 +215,7 @@ const InputComponent = ({
                 }))
               }
               type="text"
-              className="w-20"
+              className="w-20 input-field"
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
@@ -222,6 +229,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Bredde</p>
             <select
+            className="input-field"
               value={listInputData.breddePost}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -280,6 +288,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">X-log</p>
             <select
+            className="input-field"
               value={listInputData.xLog}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -311,6 +320,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Tørkeprosent</p>
             <select
+            className="input-field"
               value={listInputData.prosent}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -338,6 +348,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Anm</p>
             <input
+            
               value={listInputData.anm}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -346,7 +357,7 @@ const InputComponent = ({
                 }))
               }
               type="text"
-              className="w-20"
+              className="w-20 input-field"
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
@@ -360,6 +371,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">Anm 2</p>
             <input
+            
               value={listInputData.anm2}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -368,7 +380,7 @@ const InputComponent = ({
                 }))
               }
               type="text"
-              className="w-20"
+              className="w-20 input-field"
             />
           </div>
         </div>
@@ -384,6 +396,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">VS-66 ty</p>
             <select
+            className="input-field"
               value={listInputData.vs66}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -411,6 +424,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">VS-66 Br</p>
             <select
+            className="input-field"
               value={listInputData.vs66Br}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -446,6 +460,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">VS-66 xtra ty</p>
             <select
+            className="input-field"
               value={listInputData.vs66Xtra}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -473,6 +488,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">VS-66 xtra br</p>
             <select
+            className="input-field"
               value={listInputData.vs66XtraBr}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -508,6 +524,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">MKV ty</p>
             <select
+            className="input-field"
               value={listInputData.mkvBord}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -535,6 +552,7 @@ const InputComponent = ({
 </div>
             <p className="text-slate-700 mb-3">MKV br</p>
             <select
+            className="input-field"
               value={listInputData.mkvBr}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -591,6 +609,12 @@ const InputComponent = ({
           }
           .input-cont {
             background: var(--primary-text)
+          }
+          .input-field {
+            background: var(--table-bg);
+            border-radius: 5px;
+            padding:2px;
+            color: white
           }
         `}
       </style>

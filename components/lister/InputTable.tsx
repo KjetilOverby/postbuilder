@@ -4,7 +4,7 @@ import { ListerProps } from "../../tsmodules/ListerPops";
 const InputTable = ({ listInputData, sagblad }: ListerProps) => {
   return (
     <>
-      <div className="skurliste-container mb-10 bg-slate-500">
+      <div className="skurliste-container mb-10">
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
             <tr className="text-white">
@@ -113,6 +113,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
         {`
           .skurliste-container {
             animation: fadeInDown 0.5s;
+            background: var(--primary)
           }
           .status-stopp {
             color: green;

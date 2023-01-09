@@ -31,7 +31,7 @@ const SearchPostoppsett = ({
                   className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
                 >
                   <span>
-                    <p className="text-slate-600 font-light">{item.header}</p>
+                    <p className="post-header font-light">{item.header}</p>
                     <div className="allrings-container">
                       <div className="ring-container ">
                         {item.startRings.map(
@@ -42,7 +42,7 @@ const SearchPostoppsett = ({
                             return (
                               <div
                                 key={startRing._id}
-                                className="rings bg-sky-800 text-slate-50"
+                                className="rings outer text-slate-50"
                               >
                                 {startRing.input}
                               </div>
@@ -59,7 +59,7 @@ const SearchPostoppsett = ({
                             return (
                               <div
                                 key={rawRing._id}
-                                className="rings raw bg-blue-300"
+                                className="rings raw"
                               >
                                 <p className="rawInput">{rawRing.input}</p>
                                 <p>{(rawRing.input + 1.4).toFixed(1)}</p>
@@ -88,7 +88,7 @@ const SearchPostoppsett = ({
                             return (
                               <div
                                 key={endRing._id}
-                                className="rings bg-sky-800 text-slate-50"
+                                className="rings outer text-slate-50"
                               >
                                 {endRing.input}
                               </div>
@@ -106,10 +106,13 @@ const SearchPostoppsett = ({
       <style jsx>
         {`
         .post-container {
-          background: var(--center)
+          background: var(--finish-text)
+        }
+        .post-header {
+          color: var(--center)
         }
         .post-container:hover {
-          background: var(--outer)
+          background: var(--hover)
         }
           .rings {
             width: 36px;
@@ -128,11 +131,16 @@ const SearchPostoppsett = ({
           }
           .raw {
             position: relative;
+            background: var(--center)
           }
           .rawInput {
             position: absolute;
             top: -18px;
             font-size: 0.7rem;
+            color: white
+          }
+          .outer {
+            background: var(--outer)
           }
           .allrings-container {
             display: flex;

@@ -347,7 +347,7 @@ const ListerMainPage = ({
                   <div
                     key={item._id}
                     onClick={getBufferHandler}
-                    className="flex bg-slate-500 mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
+                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
                   >
                     <p className="mr-2">{item.treslag}</p>
                     <p className="mr-2">{item.klasse}</p>
@@ -432,6 +432,9 @@ const ListerMainPage = ({
 
       <style jsx>
         {`
+        .buffer-item {
+          background: var(--hover)
+        }
           .lister-container {
             display: grid;
             grid-template-columns: 35rem 1fr;
@@ -442,7 +445,7 @@ const ListerMainPage = ({
             background: green;
           }
           .edit-container {
-            background: lightgrey;
+            background: var(--table-bg);
             padding: 1rem;
             widht: 100%;
             left: 0;
