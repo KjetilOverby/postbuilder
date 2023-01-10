@@ -50,7 +50,8 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             hidden === true ? "" : "hidden"
           } lg-block`}
         >
-          <div className="text-sm lg:grid grid-cols-2 ">
+          <div className="text-sm lg:grid grid-cols-2 tab-container">
+         
             <div>
               <a
                 onClick={openPostoppsettHandler}
@@ -87,6 +88,8 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             position: absolute;
             width: 100vw;
           }
+        
+      
           @media only screen and (max-width: 1000px) {
             .header-container {
               padding: 0.5rem 1rem;

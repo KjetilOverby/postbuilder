@@ -2,7 +2,10 @@ import React from "react";
 import { BsBackspace } from "react-icons/bs";
 import Link from "next/link";
 
-const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
+const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => 
+{
+
+  
   return (
     <>
       <div className="absolute top-4 left-4">
@@ -18,7 +21,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
               Post valgt fra skurliste:
             </p>
             <p className="text-slate-400 text-xs uttak">
-               {info && info.post}x{info && info.breddePost}
+               {info && info.post}x{info && info.breddePost} <span style={{color: 'var(--outer)'}}>{info.blad}</span>
             </p>
             <p className="text-slate-400 text-xs italic">
               Klasse: {info && info.klasse} {info && info.treslag}{" "}

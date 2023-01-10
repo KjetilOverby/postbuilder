@@ -218,6 +218,7 @@ const PostOppsettComponent = ({
       </OpenEditComponent> */}
 
       <div className="">
+        
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
             <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
