@@ -14,7 +14,7 @@ const PostOppsettComponent = ({
   update,
   setUpdate,
   setPostInfo,
-  updatePostHandler
+  updatePostHandler,
 }: any) => {
   const router = useRouter();
 
@@ -37,12 +37,12 @@ const PostOppsettComponent = ({
 
   const [ringID, setRingID] = useState();
   const [ringType, setRingType] = useState<string>("");
-  const [cancelEditPost, setCancelEditPost] = useState()
- const [editBlink, setEditBlink] = useState<any>({
-  startRings: '',
-  rawInput: '',
-  endRings: '',
- })
+  const [cancelEditPost, setCancelEditPost] = useState();
+  const [editBlink, setEditBlink] = useState<any>({
+    startRings: "",
+    rawInput: "",
+    endRings: "",
+  });
 
   useEffect(() => {
     if (postInfo) {
@@ -71,12 +71,10 @@ const PostOppsettComponent = ({
         )
       );
     }
-    
   }, [postInfo, update]);
 
-  const [startRingsCalc, setStartRingsCalc] = useState()
-  const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState()
-
+  const [startRingsCalc, setStartRingsCalc] = useState();
+  const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState();
 
   useEffect(() => {
     if (postInfo) {
@@ -87,15 +85,12 @@ const PostOppsettComponent = ({
         )
       );
     }
-
-   
   }, [postInfo, update]);
 
   /* useEffect(() => {
   setStartRingsMinusRwinput(utfyllingForan - startRingsCalc)
   }); */
 
-  
   useEffect(() => {
     if (postInfo) {
       setBladesCalc(antallBlades * bladStamme + vigg);
@@ -148,9 +143,6 @@ const PostOppsettComponent = ({
   //   setPostInfo({ ...postInfo, header: "this is!" });
   // };
 
-  
-
-
   useEffect(() => {
     if (postInfo) {
       if (ringType === "startRings") {
@@ -163,7 +155,6 @@ const PostOppsettComponent = ({
           (item: any) => item._id !== ringID
         );
         setPostInfo({ ...postInfo, endRings: newList });
-        
       } else if (ringType === "rawInput") {
         const newList = postInfo.rawInput.filter(
           (item: any) => item._id !== ringID
@@ -171,52 +162,51 @@ const PostOppsettComponent = ({
         setPostInfo({ ...postInfo, rawInput: newList });
       }
     }
-   
-      
-      
- 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringID]);
 
   const openEditHandler = () => {
-    setOpenEdit(true)
-    setCancelEditPost(postInfo)
-  }
+    setOpenEdit(true);
+    setCancelEditPost(postInfo);
+  };
 
   const cancelEditMode = () => {
-     setOpenEdit(false)
-     setPostInfo(cancelEditPost)
-     setEditBlink({startRings: ''})
-  }
+    setOpenEdit(false);
+    setPostInfo(cancelEditPost);
+    setEditBlink({ startRings: "" });
+  };
 
   const editModeStartRings = () => {
-    setEditBlink({startRings: 'editModeStartRings'})
-    setRingType('startRings')
-  }
+    setEditBlink({ startRings: "editModeStartRings" });
+    setRingType("startRings");
+  };
   const editModeEndringsHandler = () => {
-    setEditBlink({endRings: 'editModeEndRings'})
-    setRingType('endRings')
-  }
+    setEditBlink({ endRings: "editModeEndRings" });
+    setRingType("endRings");
+  };
 
   const editModeRawinputHandler = () => {
-    setEditBlink({rawInput: 'editModeRawInput'})
-    setRingType('rawInput')
-  }
+    setEditBlink({ rawInput: "editModeRawInput" });
+    setRingType("rawInput");
+  };
 
- 
-const [ringPanelNumber, setRingPanelNumber] = useState()
-  
+  const [ringPanelNumber, setRingPanelNumber] = useState();
 
   useEffect(() => {
-    if(ringPanelNumber && ringType === "startRings") {
-
-      setPostInfo({ ...postInfo, startRings: [ ...postInfo.startRings,{input: ringPanelNumber}] });
-    } else if(ringPanelNumber && ringType === "endRings") {
-      setPostInfo({ ...postInfo, endRings: [ ...postInfo.endRings,{input: ringPanelNumber}] });
+    if (ringPanelNumber && ringType === "startRings") {
+      setPostInfo({
+        ...postInfo,
+        startRings: [...postInfo.startRings, { input: ringPanelNumber }],
+      });
+    } else if (ringPanelNumber && ringType === "endRings") {
+      setPostInfo({
+        ...postInfo,
+        endRings: [...postInfo.endRings, { input: ringPanelNumber }],
+      });
     }
-  }, [ringType, ringPanelNumber])
-  
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ringType, ringPanelNumber]);
 
   return (
     <>
@@ -226,12 +216,12 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
     
         />
       </OpenEditComponent> */}
+
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
             <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
               {parsedPost && parsedPost.header}{" "}
-             
             </h1>
             <p className="text-slate-600 text-xs italic">
               Post opprettet:{" "}
@@ -243,31 +233,34 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
           <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
-               {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
+                {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
                 {parsedPost &&
                   parsedPost.startRings.map((item: any) => {
                     const startRingsHandler = () => {
                       setRingID(item._id);
                       setRingType("startRings");
-                      setUpdate(!update)
+                      setUpdate(!update);
                     };
                     return (
                       <>
-                        <div onClick={openEdit ? editModeStartRings : undefined} className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
+                        <div
+                          onClick={openEdit ? editModeStartRings : undefined}
+                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
+                        >
                           <OpenEditComponent openEdit={openEdit}>
                             <>
-                            {editBlink.startRings === 'editModeStartRings' && 
-                            
-                            <RiDeleteBinLine
-                              onClick={startRingsHandler}
-                              style={{
-                                position: "absolute",
-                                bottom: "8rem",
-                                fontSize: "1.5rem",
-                                color: "indianred",
-                              }}
-                            />
-                            }
+                              {editBlink.startRings ===
+                                "editModeStartRings" && (
+                                <RiDeleteBinLine
+                                  onClick={startRingsHandler}
+                                  style={{
+                                    position: "absolute",
+                                    bottom: "8rem",
+                                    fontSize: "1.5rem",
+                                    color: "indianred",
+                                  }}
+                                />
+                              )}
                             </>
                           </OpenEditComponent>
                           <div
@@ -298,21 +291,25 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
                     };
                     return (
                       <>
-                        <div onClick={openEdit ? editModeRawinputHandler : undefined} className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
+                        <div
+                          onClick={
+                            openEdit ? editModeRawinputHandler : undefined
+                          }
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
+                        >
                           <OpenEditComponent openEdit={openEdit}>
                             <>
-                            {editBlink.rawInput === 'editModeRawInput' &&
-                            
-                            <RiDeleteBinLine
-                              onClick={rawInputHandler}
-                              style={{
-                                position: "absolute",
-                                bottom: "8rem",
-                                fontSize: "1.5rem",
-                                color: "indianred",
-                              }}
-                            />
-                            }
+                              {editBlink.rawInput === "editModeRawInput" && (
+                                <RiDeleteBinLine
+                                  onClick={rawInputHandler}
+                                  style={{
+                                    position: "absolute",
+                                    bottom: "8rem",
+                                    fontSize: "1.5rem",
+                                    color: "indianred",
+                                  }}
+                                />
+                              )}
                             </>
                           </OpenEditComponent>
                           <p className="absolute rawInput">{item.input}</p>
@@ -402,22 +399,26 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
                     };
                     return (
                       <>
-                        <div onClick={openEdit ? editModeEndringsHandler : undefined} className={`outerRingContainer ${editBlink.endRings}`}>
+                        <div
+                          onClick={
+                            openEdit ? editModeEndringsHandler : undefined
+                          }
+                          className={`outerRingContainer ${editBlink.endRings}`}
+                        >
                           <OpenEditComponent openEdit={openEdit}>
                             <>
-                            {editBlink.endRings === 'editModeEndRings' && 
-                            
-                            <RiDeleteBinLine
-                              onClick={endRingsHandler}
-                              style={{
-                                position: "absolute",
-                                bottom: "8rem",
-                                fontSize: "1.5rem",
-                                color: "indianred",
-                                zIndex: '1000'
-                              }}
-                            />
-                            }
+                              {editBlink.endRings === "editModeEndRings" && (
+                                <RiDeleteBinLine
+                                  onClick={endRingsHandler}
+                                  style={{
+                                    position: "absolute",
+                                    bottom: "8rem",
+                                    fontSize: "1.5rem",
+                                    color: "indianred",
+                                    zIndex: "1000",
+                                  }}
+                                />
+                              )}
                             </>
                           </OpenEditComponent>
                           <div
@@ -441,7 +442,7 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
               </div>
             </div>
           </div>
-        {/*   <div
+          {/*   <div
             onClick={openEditHandler}
             className="icon-container"
           >
@@ -463,7 +464,7 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
             font-size: 2rem;
           }
           .post-header {
-            color: var(--center)
+            color: var(--center);
           }
           .animate-container {
             animation: rubberBand 1.2s;
@@ -477,21 +478,19 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
             border-radius: 5px;
             color: #333;
             font-size: 1.5rem;
-           
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
             background: var(--outer);
-            color: var(--outer-text)
+            color: var(--outer-text);
           }
           .fillrings-container {
-            min-width: 10rem
-            
+            min-width: 10rem;
           }
           .rawrings {
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
             background: var(--center);
-            color: var(--center-text)
+            color: var(--center-text);
           }
           .outerRingContainer {
             height: 11.4rem;
@@ -502,7 +501,6 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
             margin-right: 4px;
             border-radius: 5px;
             position: relative;
-           
           }
           .sawBlade {
             position: absolute;
@@ -739,16 +737,15 @@ const [ringPanelNumber, setRingPanelNumber] = useState()
 
           @keyframes blink {
             0% {
-              background: red
+              background: red;
             }
             50% {
-              background: yellow
+              background: yellow;
             }
             100% {
-              background: red
+              background: red;
             }
-          } 
-
+          }
         `}
       </style>
     </>

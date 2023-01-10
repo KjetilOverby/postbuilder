@@ -88,13 +88,14 @@ const SkurlisteComponent = ({
                         : "text-green-500"
                     }`}
                   >
-                    <div>{item.treslag} {item.klType}</div>
                     <div>
-                    <span className="span-text-date italic">
-                      {dateFormat(item.date, "dd.mm.yyyy, HH:MM")}
-                    </span>
+                      {item.treslag} {item.klType}
                     </div>
-                    
+                    <div>
+                      <span className="span-text-date italic">
+                        {dateFormat(item.date, "dd.mm.yyyy, HH:MM")}
+                      </span>
+                    </div>
                   </td>
                   <td className="table-text border-class lg:p-1.5">
                     {item.klasse}
@@ -153,7 +154,7 @@ const SkurlisteComponent = ({
       <style jsx>
         {`
           .skurliste-container {
-            background: var(--table-bg)
+            background: var(--table-bg);
           }
           .status-stopp {
             color: green;
@@ -162,40 +163,35 @@ const SkurlisteComponent = ({
             color: blue;
           }
           .table-rows:hover {
-            background: var(--hover)
+            background: var(--hover);
           }
           .running {
             background: var(--running);
-          
           }
           .finished {
             background: var(--primary);
-           
           }
           table {
             width: 100%;
           }
           .treslag {
-          
-          
           }
           .span-text-date {
             font-size: 0.6rem;
-            color: var(--text)
-           
+            color: var(--text);
           }
           .table-text {
-           color: var(--primary-text)
+            color: var(--primary-text);
           }
           .table-text-top {
-           color: var(--center);
+            color: var(--center);
           }
           .two-input {
             display: flex;
             flex-direction: column;
           }
           .border-class {
-            border: 1px solid var(--hover)
+            border: 1px solid var(--hover);
           }
 
           @media only screen and (max-width: 1000px) {

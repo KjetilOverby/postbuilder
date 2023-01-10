@@ -25,16 +25,14 @@ const postoppsett = ({
   update,
   setUpdate,
 }: any) => {
-
-
   const updatePostHandler = async () => {
     const response = await api
       .patch(`/api/poster/posterEdit?ids=${postInfo._id}`, {
-        startRings:postInfo.startRings,
-        endRings: postInfo.endRings
+        startRings: postInfo.startRings,
+        endRings: postInfo.endRings,
       })
       .then(() => {
-      setUpdate(!update)
+        setUpdate(!update);
       });
   };
 
@@ -78,7 +76,7 @@ const postoppsett = ({
       <style jsx>{`
         .main-container {
           overflow: hidden;
-          background: var(--primary)
+          background: var(--primary);
         }
       `}</style>
     </>

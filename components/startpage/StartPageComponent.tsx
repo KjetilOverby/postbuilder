@@ -41,18 +41,22 @@ const StartPageComponent = ({
             skurlisteInfo={skurlisteInfo}
             poster={poster}
             setSkurlisteInfo={setSkurlisteInfo}
-            setFinalSkurlisteInfo={setFinalSkurlisteInfo} update={false} setUpdate={function (value: React.SetStateAction<boolean>): void {
+            setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+            update={false}
+            setUpdate={function (value: React.SetStateAction<boolean>): void {
               throw new Error("Function not implemented.");
-            } }          />
+            }}
+          />
         )}
       </div>
       <style jsx>
         {`
-      .sk-header {
-        color: var(--primary-text)
+          .sk-header {
+            color: var(--primary-text);
+            margin-top: 7rem;
           }
-         
-      `}</style>
+        `}
+      </style>
     </>
   );
 };

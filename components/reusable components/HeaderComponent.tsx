@@ -81,17 +81,17 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
         {`
           .header-container {
             background: var(--primary);
-            padding: .5rem 15rem;
+            padding: 0.5rem 15rem;
             background: var(--table-bg);
-            margin-bottom: 5rem
-          
+
+            position: absolute;
+            width: 100vw;
           }
           @media only screen and (max-width: 1000px) {
-           .header-container {
-            padding: .5rem 1rem
-           }
+            .header-container {
+              padding: 0.5rem 1rem;
+            }
           }
-         
         `}
       </style>
     </>
