@@ -7,14 +7,14 @@ const create = () => {
         postInfo,
         setPostInfo
       } = useContext(ContextAppData);
-      console.log(postInfo);
       
+    
 
 return (
 <>
 <div className='create-container'>
    <h1>{postInfo && postInfo.header}</h1>
-   <p>{postInfo._id}</p>
+   <p>{postInfo && postInfo._id}</p>
    {!postInfo && <p>Ingen data fra valgt post</p>}
 
 </div>
