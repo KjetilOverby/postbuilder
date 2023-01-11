@@ -1,5 +1,6 @@
 import React from "react";
 import { BsBackspace } from "react-icons/bs";
+import  { MdSettings } from "react-icons/md";
 import Link from "next/link";
 
 const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => 
@@ -15,6 +16,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) =>
             style={{ color: "grey", fontSize: "2rem", marginBottom: "2rem" }}
           />
         </Link>
+      
         {info && (
           <>
             <p className="text-slate-400 text-xs italic">
@@ -59,6 +61,9 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) =>
             )}
           </>
         )}
+          <Link href="/create">
+           <MdSettings  style={{ color: "grey", fontSize: "2rem", marginTop: "2rem" }} />
+        </Link>
       </div>
       <style jsx>
         {`

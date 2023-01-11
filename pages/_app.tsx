@@ -1,10 +1,12 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { ContextAppData } from '../data/context/ContextAppData'
 
 export default function App({ Component, pageProps }: AppProps) {
+  
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
   const [skurlisteInfo, setSkurlisteInfo] = useState();
@@ -16,9 +18,6 @@ export default function App({ Component, pageProps }: AppProps) {
   const api = axios.create({
     baseURL: process.env.api,
   });
-
-  console.log(postInfo);
-  
 
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -63,7 +62,7 @@ export default function App({ Component, pageProps }: AppProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update]);
 
-
+ 
   return (
     <Auth0Provider
       // @ts-ignore
@@ -73,6 +72,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       redirectUri={typeof window !== "undefined" && window.location.origin}
     >
+      <ContextAppData.Provider value={{postInfo, setPostInfo}}>
       <Component
         {...pageProps}
         poster={poster}
@@ -88,6 +88,7 @@ export default function App({ Component, pageProps }: AppProps) {
         finalSkurlisteInfo={finalSkurlisteInfo}
         setFinalSkurlisteInfo={setFinalSkurlisteInfo}
       />
+      </ContextAppData.Provider>
     </Auth0Provider>
   );
 }

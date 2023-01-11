@@ -119,6 +119,7 @@ const InputComponent = ({
               <option value="Malm">Malm</option>
               <option value="X-ray">X-ray</option>
               <option value="Krok">Krok</option>
+              <option value="Decker">Decker</option>
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
