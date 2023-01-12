@@ -3,10 +3,9 @@ import type { AppProps } from "next/app";
 import axios from "axios";
 import React, { useState, useEffect, createContext } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { ContextAppData } from '../data/context/ContextAppData'
+import { ContextAppData } from "../data/context/ContextAppData";
 
 export default function App({ Component, pageProps }: AppProps) {
-  
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
   const [skurlisteInfo, setSkurlisteInfo] = useState();
@@ -14,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [postInfo, setPostInfo] = useState();
   const [searchResultModal, setSearchResultModal] = useState(false);
   const [update, setUpdate] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
 
   const api = axios.create({
     baseURL: process.env.api,
@@ -21,8 +21,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-
- 
 
   useEffect(() => {
     (async () => {
@@ -48,9 +46,9 @@ export default function App({ Component, pageProps }: AppProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update]);
 
-   // ************ Edit Post *************
+  // ************ Edit Post *************
 
-   useEffect(() => {
+  useEffect(() => {
     (async () => {
       try {
         const response = await api.patch("/api/poster/posterEdit");
@@ -62,7 +60,6 @@ export default function App({ Component, pageProps }: AppProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update]);
 
- 
   return (
     <Auth0Provider
       // @ts-ignore
@@ -70,24 +67,24 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}
-    >
-      <ContextAppData.Provider value={{postInfo, setPostInfo}}>
-      <Component
-        {...pageProps}
-        poster={poster}
-        skurliste={skurliste}
-        setSkurlisteInfo={setSkurlisteInfo}
-        skurlisteInfo={skurlisteInfo}
-        setPostInfo={setPostInfo}
-        postInfo={postInfo}
-        setSearchResultModal={setSearchResultModal}
-        searchResultModal={searchResultModal}
-        setUpdate={setUpdate}
-        update={update}
-        finalSkurlisteInfo={finalSkurlisteInfo}
-        setFinalSkurlisteInfo={setFinalSkurlisteInfo}
-      />
+      redirectUri={typeof window !== "undefined" && window.location.origin}>
+      <ContextAppData.Provider
+        value={{ postInfo, setPostInfo, openEdit, setOpenEdit }}>
+        <Component
+          {...pageProps}
+          poster={poster}
+          skurliste={skurliste}
+          setSkurlisteInfo={setSkurlisteInfo}
+          skurlisteInfo={skurlisteInfo}
+          setPostInfo={setPostInfo}
+          postInfo={postInfo}
+          setSearchResultModal={setSearchResultModal}
+          searchResultModal={searchResultModal}
+          setUpdate={setUpdate}
+          update={update}
+          finalSkurlisteInfo={finalSkurlisteInfo}
+          setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+        />
       </ContextAppData.Provider>
     </Auth0Provider>
   );

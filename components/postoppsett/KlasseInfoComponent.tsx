@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsBackspace } from "react-icons/bs";
-import  { MdSettings } from "react-icons/md";
+import { MdSettings } from "react-icons/md";
 import Link from "next/link";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
-const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => 
-{
-
-  
+const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
+  const { openEdit, setOpenEdit } = useContext(ContextAppData);
   return (
     <>
       <div className="absolute top-4 left-4">
@@ -16,14 +15,15 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) =>
             style={{ color: "grey", fontSize: "2rem", marginBottom: "2rem" }}
           />
         </Link>
-      
+
         {info && (
           <>
             <p className="text-slate-400 text-xs italic">
               Post valgt fra skurliste:
             </p>
             <p className="text-slate-400 text-xs uttak">
-               {info && info.post}x{info && info.breddePost} <span style={{color: 'var(--outer)'}}>{info.blad}</span>
+              {info && info.post}x{info && info.breddePost}{" "}
+              <span style={{ color: "var(--outer)" }}>{info.blad}</span>
             </p>
             <p className="text-slate-400 text-xs italic">
               Klasse: {info && info.klasse} {info && info.treslag}{" "}
@@ -61,8 +61,11 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) =>
             )}
           </>
         )}
-          <Link href="/create">
-           <MdSettings  style={{ color: "grey", fontSize: "2rem", marginTop: "2rem" }} />
+        <Link href="/create">
+          <MdSettings
+            onClick={() => setOpenEdit(true)}
+            style={{ color: "grey", fontSize: "2rem", marginTop: "2rem" }}
+          />
         </Link>
       </div>
       <style jsx>
@@ -70,7 +73,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) =>
           .uttak {
             color: var(--center);
             font-size: 2rem;
-            padding: 1rem 0
+            padding: 1rem 0;
           }
         `}
       </style>

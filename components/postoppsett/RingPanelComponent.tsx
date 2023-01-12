@@ -24,8 +24,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -38,8 +37,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -52,8 +50,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -65,12 +62,18 @@ const RingPanelComponent = ({
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
             grid-gap: 5px;
+            margin: 1rem 0;
           }
           .ringvalue-container {
-            border: 1px solid blue;
+            border: 1px solid var(--table-bg);
             display: grid;
             place-items: center;
             width: 3rem;
+            font-size: 0.8rem;
+          }
+          .ringvalue-container:hover {
+            background: var(--table-bg);
+            cursor: pointer;
           }
         `}
       </style>
