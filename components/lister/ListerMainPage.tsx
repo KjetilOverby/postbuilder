@@ -129,12 +129,12 @@ const ListerMainPage = ({
         prosent: listInputData.prosent,
         anm: listInputData.anm,
         anm2: listInputData.anm2,
-        vs66: listInputData.vs66Ty,
+        vs66: listInputData.vs66,
         vs66Br: listInputData.vs66Br,
-        vs66Xtra: listInputData.vs66xtraTy,
+        vs66Xtra: listInputData.vs66xtra,
         vs66XtraBr: listInputData.vs66XtraBr,
         blad: listInputData.sagblad,
-        mkvBord: listInputData.mkvTy,
+        mkvBord: listInputData.mkvBord,
         mkvBr: listInputData.mkvBr,
         date: new Date(),
         progress: progress,
@@ -347,8 +347,7 @@ const ListerMainPage = ({
                   <div
                     key={item._id}
                     onClick={getBufferHandler}
-                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
-                  >
+                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100">
                     <p className="mr-2">{item.treslag}</p>
                     <p className="mr-2">{item.klasse}</p>
                     <p className="mr-2">
@@ -387,16 +386,13 @@ const ListerMainPage = ({
                   <form className="grid place-items-center grid-cols-3 w-20 mb-3">
                     <div
                       onClick={updateProgressNeutreal}
-                      className="w-5 h-5 bg-white grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-white grid place-content-center rounded-full"></div>
                     <div
                       onClick={updateProgressRunning}
-                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"></div>
                     <div
                       onClick={updateProgressFinished}
-                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"></div>
                   </form>
                 ) : (
                   ""
@@ -432,9 +428,9 @@ const ListerMainPage = ({
 
       <style jsx>
         {`
-        .buffer-item {
-          background: var(--hover)
-        }
+          .buffer-item {
+            background: var(--hover);
+          }
           .lister-container {
             display: grid;
             grid-template-columns: 35rem 1fr;
@@ -464,7 +460,7 @@ const ListerMainPage = ({
             display: none;
           }
           .lister-text {
-            color: var(--primary-text)
+            color: var(--primary-text);
           }
         `}
       </style>
