@@ -61,12 +61,12 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
             )}
           </>
         )}
-        <Link href="/create">
+        {/* <Link href="/create">
           <MdSettings
             onClick={() => setOpenEdit(true)}
             style={{ color: "grey", fontSize: "2rem", marginTop: "2rem" }}
           />
-        </Link>
+        </Link> */}
       </div>
       <style jsx>
         {`
