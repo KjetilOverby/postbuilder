@@ -5,7 +5,8 @@ import CreatePostContainer from "../components/create/CreatePostContainer";
 import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 
 const create = () => {
-  const { postInfo, setPostInfo } = useContext(ContextAppData);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { postInfo } = useContext(ContextAppData);
 
   return (
     <>
