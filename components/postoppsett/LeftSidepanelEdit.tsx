@@ -4,14 +4,27 @@ import ringlist from "../../data/ringList";
 import rawInputList from "../../data/rawinputList";
 import RawInputPanel from "./RawInputPanel";
 
-const LeftSidepanelEdit = ({}: any) => {
+const LeftSidepanelEdit = ({
+  setPostCopy,
+  postCopy,
+  update,
+  setUpdate,
+}: any) => {
+  /*   const test = () => {
+    setPostCopy({
+      ...postCopy,
+      startRings: [...postCopy.startRings, { input: 11.1 }],
+    });
+  }; */
   return (
     <>
       <div className="sidepanel-container p-5">
         <div>
           <h1 className="text-teal-100 edit-header">Redigering</h1>
           <div>
-            <p className="text-teal-100 tab">Utfylling foran</p>
+            <p onClick={test} className="text-teal-100 tab">
+              Utfylling foran
+            </p>
             <p className="text-teal-100 tab">Utfylling bak</p>
             <p className="text-teal-100 tab">Råmål</p>
           </div>
@@ -19,7 +32,13 @@ const LeftSidepanelEdit = ({}: any) => {
         </div>
 
         <div>
-          <RingPanelComponent list={ringlist} />
+          <RingPanelComponent
+            list={ringlist}
+            postInfo={postCopy}
+            setPostCopy={setPostCopy}
+            setUpdate={setUpdate}
+            update={update}
+          />
         </div>
 
         <div>

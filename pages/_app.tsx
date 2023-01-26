@@ -69,7 +69,14 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       redirectUri={typeof window !== "undefined" && window.location.origin}>
       <ContextAppData.Provider
-        value={{ postInfo, setPostInfo, openEdit, setOpenEdit }}>
+        value={{
+          postInfo,
+          setPostInfo,
+          openEdit,
+          setOpenEdit,
+          setUpdate,
+          update,
+        }}>
         <Component
           {...pageProps}
           poster={poster}

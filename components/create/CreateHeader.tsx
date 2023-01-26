@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { IoMenuSharp } from "react-icons/io5";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import { MdSecurityUpdate } from "react-icons/md";
 
 const HeaderComponent = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -13,7 +14,13 @@ const HeaderComponent = () => {
     setHideSidebar(true);
     setOpenSidebar(!openSidebar);
   };
-  const { setOpenEdit } = useContext(ContextAppData);
+  const { setOpenEdit, update, setUpdate } = useContext(ContextAppData);
+
+  const cancelHandler = () => {
+    setUpdate(!update);
+    setOpenEdit(false);
+  };
+
   return (
     <>
       <div className="head-container">
@@ -73,9 +80,7 @@ const HeaderComponent = () => {
                     <p className="menu-box-tab">Nullstill alle verdier</p>
                     <p className="menu-box-tab">Slett post</p>
                     <Link href="postoppsett">
-                      <p
-                        onClick={() => setOpenEdit(false)}
-                        className="menu-box-tab">
+                      <p onClick={cancelHandler} className="menu-box-tab">
                         Avbryt
                       </p>
                     </Link>
