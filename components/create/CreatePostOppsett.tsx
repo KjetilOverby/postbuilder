@@ -125,23 +125,6 @@ const CreatePostOppsett = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateUtfylling, update]);
 
-  useEffect(() => {
-    if (isComponentMounted) {
-      localStorage.setItem("name", JSON.stringify(postInfo));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postInfo, update]);
-
-  useEffect(() => {
-    setLocalStargeItem(localStorage.getItem("name"));
-  }, [postInfo, update]);
-
-  useEffect(() => {
-    if (localStargeItem) {
-      setParsedPost(JSON.parse(localStargeItem));
-    }
-  }, [localStargeItem, update]);
-
   // *********************** Delete from postinfo *************************
 
   // const testHeader = () => {
@@ -212,12 +195,12 @@ const CreatePostOppsett = ({
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
             <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
-              {parsedPost && parsedPost.header}{" "}
+              {postInfo && postInfo.header}{" "}
             </h1>
             <p className="text-slate-600 text-xs italic">
               Post opprettet:{" "}
-              {parsedPost && parsedPost.date
-                ? dateFormat(parsedPost.date, "dd.mm.yyyy, HH:MM")
+              {postInfo && postInfo.date
+                ? dateFormat(postInfo.date, "dd.mm.yyyy, HH:MM")
                 : "ukjent"}
             </p>
           </div>
@@ -225,8 +208,8 @@ const CreatePostOppsett = ({
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
                 {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
-                {parsedPost &&
-                  parsedPost.startRings.map((item: any) => {
+                {postInfo &&
+                  postInfo.startRings.map((item: any) => {
                     const startRingsHandler = () => {
                       setRingID(item._id);
                       setRingType("startRings");
@@ -271,8 +254,8 @@ const CreatePostOppsett = ({
                 </div>
               </div>
               <div className="flex relative">
-                {parsedPost &&
-                  parsedPost.rawInput.map((item: any) => {
+                {postInfo &&
+                  postInfo.rawInput.map((item: any) => {
                     const rawInputHandler = () => {
                       setRingID(item._id);
                       setRingType("rawInput");
@@ -339,11 +322,11 @@ const CreatePostOppsett = ({
                           )}
                           <div className="sawBlade bg-slate-500">
                             <p className="bladstamme">
-                              {parsedPost.blades.bladStamme.toFixed(1)}
+                              {postInfo.blades.bladStamme.toFixed(1)}
                             </p>
                             <p className="sagsnitt">
-                              {parsedPost &&
-                                (parsedPost.blades.bladStamme + 1.4).toFixed(1)}
+                              {postInfo &&
+                                (postInfo.blades.bladStamme + 1.4).toFixed(1)}
                             </p>
                           </div>
                         </div>
@@ -361,18 +344,17 @@ const CreatePostOppsett = ({
               <div className="relative">
                 <div className="sawBlade2 bg-slate-500">
                   <p className="bladstamme">
-                    {parsedPost && parsedPost.blades.bladStamme.toFixed(1)}
+                    {postInfo && postInfo.blades.bladStamme.toFixed(1)}
                   </p>
                   <p className="sagsnitt">
-                    {parsedPost &&
-                      (parsedPost.blades.bladStamme + 1.4).toFixed(1)}
+                    {postInfo && (postInfo.blades.bladStamme + 1.4).toFixed(1)}
                   </p>
                 </div>
               </div>
 
               <div className="flex relative fillrings-container">
-                {parsedPost &&
-                  parsedPost.endRings.map((item: any) => {
+                {postInfo &&
+                  postInfo.endRings.map((item: any) => {
                     const endRingsHandler = () => {
                       setRingID(item._id);
                       setRingType("endRings");
@@ -457,16 +439,16 @@ const CreatePostOppsett = ({
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
-            background: var(--outer);
-            color: var(--outer-text);
+            background: var(--outer2);
+            color: var(--outer-text2);
           }
           .fillrings-container {
             min-width: 10rem;
           }
           .rawrings {
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
-            background: var(--center);
-            color: var(--center-text);
+            background: var(--center2);
+            color: var(--center-text2);
           }
           .outerRingContainer {
             height: 11.4rem;

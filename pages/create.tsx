@@ -3,12 +3,13 @@ import { ContextAppData } from "../data/context/ContextAppData";
 import CreateHeader from "../components/create/CreateHeader";
 import CreatePostContainer from "../components/create/CreatePostContainer";
 import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
+import { v4 as uuidv4, v4 } from "uuid";
 
 const Create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { postInfo, update, setUpdate } = useContext(ContextAppData);
 
-  const [postCopy, setPostCopy] = useState();
+  const [postCopy, setPostCopy] = useState<any>();
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
   const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
   const [rawOpen, setRawOpen] = useState(false);
@@ -51,7 +52,10 @@ const Create = () => {
     if (postCopy) {
       setPostCopy({
         ...postCopy,
-        startRings: [...postCopy.startRings, { input: ringPanelNumber }],
+        startRings: [
+          ...postCopy.startRings,
+          { input: ringPanelNumber, _id: v4() },
+        ],
       });
     }
   }, [ringPanelNumber]);

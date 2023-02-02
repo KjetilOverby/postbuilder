@@ -1,1 +1,1 @@
-slette ringer fra startRings. uuid?
+Har lagt inn uuid på startrings

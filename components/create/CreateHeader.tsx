@@ -4,10 +4,8 @@ import { IoMenuSharp } from "react-icons/io5";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import { MdSecurityUpdate } from "react-icons/md";
-import { useRouter } from "next/router";
 
 const HeaderComponent = () => {
-  const router = useRouter();
   const [openSidebar, setOpenSidebar] = useState(false);
   const [hideSidebar, setHideSidebar] = useState(false);
   const [fileOpen, setFileopen] = useState(false);
@@ -19,7 +17,6 @@ const HeaderComponent = () => {
   const { setOpenEdit, update, setUpdate } = useContext(ContextAppData);
 
   const cancelHandler = () => {
-    router.push("/");
     setOpenEdit(false);
   };
 
