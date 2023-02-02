@@ -19,6 +19,8 @@ const create = () => {
     endRings: "",
   });
 
+  const [ringPanelNumber, setRingPanelNumber] = useState();
+
   useEffect(() => {
     setPostCopy(postInfo);
   }, []);
@@ -63,6 +65,7 @@ const create = () => {
           utfyllingForanOpenHandler={utfyllingForanOpenHandler}
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
           rawOpenHandler={rawOpenHandler}
+          setRingPanelNumber={setRingPanelNumber}
         />
         <CreatePostContainer
           postCopy={postCopy}

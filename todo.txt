@@ -1,3 +1,1 @@
-app.js
-ListerMainPage
-postoppsett
+Driver med setRinPanelNumber. Får tak i nummeret når man klikker på tallene.

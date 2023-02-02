@@ -15,6 +15,7 @@ const LeftSidepanelEdit = ({
   utfyllingForanOpenHandler,
   utfyllingBakOpenHandler,
   rawOpenHandler,
+  setRingPanelNumber,
 }: any) => {
   /*   const test = () => {
     setPostCopy({
@@ -51,6 +52,7 @@ const LeftSidepanelEdit = ({
               setPostCopy={setPostCopy}
               setUpdate={setUpdate}
               update={update}
+              setRingPanelNumber={setRingPanelNumber}
             />
           </div>
         )}
