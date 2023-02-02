@@ -13,6 +13,18 @@ const CreatePostOppsett = ({
   setUpdate,
   setPostInfo,
   updatePostHandler,
+  rawOpen,
+  setRawOpen,
+  utfyllingBakOpen,
+  setUtfyllingBakOpen,
+  utfyllingForanOpen,
+  setUtfyllingForanOpen,
+  ringType,
+  editBlink,
+  utfyllingForanOpenHandler,
+  utfyllingBakOpenHandler,
+  rawOpenHandler,
+  setRingType,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
@@ -34,13 +46,8 @@ const CreatePostOppsett = ({
   const [updateUtfylling, setUpdateUtfylling] = useState(false);
 
   const [ringID, setRingID] = useState();
-  const [ringType, setRingType] = useState<string>("");
+
   const [cancelEditPost, setCancelEditPost] = useState();
-  const [editBlink, setEditBlink] = useState<any>({
-    startRings: "",
-    rawInput: "",
-    endRings: "",
-  });
 
   useEffect(() => {
     if (postInfo) {
@@ -172,21 +179,7 @@ const CreatePostOppsett = ({
   const cancelEditMode = () => {
     setOpenEdit(false);
     setPostInfo(cancelEditPost);
-    setEditBlink({ startRings: "" });
-  };
-
-  const editModeStartRings = () => {
-    setEditBlink({ startRings: "editModeStartRings" });
-    setRingType("startRings");
-  };
-  const editModeEndringsHandler = () => {
-    setEditBlink({ endRings: "editModeEndRings" });
-    setRingType("endRings");
-  };
-
-  const editModeRawinputHandler = () => {
-    setEditBlink({ rawInput: "editModeRawInput" });
-    setRingType("rawInput");
+    //setEditBlink({ startRings: "" });
   };
 
   const [ringPanelNumber, setRingPanelNumber] = useState();
@@ -242,7 +235,9 @@ const CreatePostOppsett = ({
                     return (
                       <>
                         <div
-                          onClick={openEdit ? editModeStartRings : undefined}
+                          onClick={
+                            openEdit ? utfyllingForanOpenHandler : undefined
+                          }
                           className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
                           <>
                             {editBlink.startRings === "editModeStartRings" && (
@@ -285,9 +280,7 @@ const CreatePostOppsett = ({
                     return (
                       <>
                         <div
-                          onClick={
-                            openEdit ? editModeRawinputHandler : undefined
-                          }
+                          onClick={openEdit ? rawOpenHandler : undefined}
                           className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
                           <>
                             {editBlink.rawInput === "editModeRawInput" && (
@@ -388,7 +381,7 @@ const CreatePostOppsett = ({
                       <>
                         <div
                           onClick={
-                            openEdit ? editModeEndringsHandler : undefined
+                            openEdit ? utfyllingBakOpenHandler : undefined
                           }
                           className={`outerRingContainer ${editBlink.endRings}`}>
                           <>

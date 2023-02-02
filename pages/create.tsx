@@ -9,10 +9,41 @@ const create = () => {
   const { postInfo, update, setUpdate } = useContext(ContextAppData);
 
   const [postCopy, setPostCopy] = useState();
+  const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
+  const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
+  const [rawOpen, setRawOpen] = useState(false);
+  const [ringType, setRingType] = useState<string>("");
+  const [editBlink, setEditBlink] = useState<any>({
+    startRings: "",
+    rawInput: "",
+    endRings: "",
+  });
 
   useEffect(() => {
     setPostCopy(postInfo);
   }, []);
+
+  const utfyllingForanOpenHandler = () => {
+    setRawOpen(false);
+    setUtfyllingBakOpen(false);
+    setUtfyllingForanOpen(true);
+    setEditBlink({ startRings: "editModeStartRings" });
+    setRingType("startRings");
+  };
+  const utfyllingBakOpenHandler = () => {
+    setRawOpen(false);
+    setUtfyllingBakOpen(true);
+    setUtfyllingForanOpen(false);
+    setEditBlink({ endRings: "editModeEndRings" });
+    setRingType("endRings");
+  };
+  const rawOpenHandler = () => {
+    setRawOpen(true);
+    setUtfyllingBakOpen(false);
+    setUtfyllingForanOpen(false);
+    setEditBlink({ rawInput: "editModeRawInput" });
+    setRingType("rawInput");
+  };
 
   return (
     <>
@@ -23,12 +54,33 @@ const create = () => {
           postCopy={postCopy}
           setUpdate={setUpdate}
           update={update}
+          utfyllingForanOpen={utfyllingForanOpen}
+          setUtfyllingForanOpen={setUtfyllingForanOpen}
+          utfyllingBakOpen={utfyllingBakOpen}
+          setUtfyllingBakOpen={setUtfyllingBakOpen}
+          rawOpen={rawOpen}
+          setRawOpen={setRawOpen}
+          utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+          utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+          rawOpenHandler={rawOpenHandler}
         />
         <CreatePostContainer
           postCopy={postCopy}
           setPostCopy={setPostCopy}
           setUpdate={setUpdate}
           update={update}
+          utfyllingForanOpen={utfyllingForanOpen}
+          setUtfyllingForanOpen={setUtfyllingForanOpen}
+          utfyllingBakOpen={utfyllingBakOpen}
+          setUtfyllingBakOpen={setUtfyllingBakOpen}
+          rawOpen={rawOpen}
+          setRawOpen={setRawOpen}
+          ringType={ringType}
+          editBlink={editBlink}
+          utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+          utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+          rawOpenHandler={rawOpenHandler}
+          setRingType={setRingType}
         />
       </div>
       <style jsx>

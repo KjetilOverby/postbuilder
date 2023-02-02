@@ -9,6 +9,12 @@ const LeftSidepanelEdit = ({
   postCopy,
   update,
   setUpdate,
+  rawOpen,
+  utfyllingBakOpen,
+  utfyllingForanOpen,
+  utfyllingForanOpenHandler,
+  utfyllingBakOpenHandler,
+  rawOpenHandler,
 }: any) => {
   /*   const test = () => {
     setPostCopy({
@@ -16,44 +22,48 @@ const LeftSidepanelEdit = ({
       startRings: [...postCopy.startRings, { input: 11.1 }],
     });
   }; */
+
   return (
     <>
       <div className="sidepanel-container p-5">
         <div>
           <h1 className="text-teal-100 edit-header">Redigering</h1>
           <div>
-            <p onClick={test} className="text-teal-100 tab">
+            <p
+              onClick={utfyllingForanOpenHandler}
+              className="text-teal-100 tab">
               Utfylling foran
             </p>
-            <p className="text-teal-100 tab">Utfylling bak</p>
-            <p className="text-teal-100 tab">Råmål</p>
+            <p onClick={utfyllingBakOpenHandler} className="text-teal-100 tab">
+              Utfylling bak
+            </p>
+            <p onClick={rawOpenHandler} className="text-teal-100 tab">
+              Råmål
+            </p>
           </div>
           <hr />
         </div>
-
-        <div>
-          <RingPanelComponent
-            list={ringlist}
-            postInfo={postCopy}
-            setPostCopy={setPostCopy}
-            setUpdate={setUpdate}
-            update={update}
-          />
-        </div>
-
-        <div>
-          <RingPanelComponent list={ringlist} />
-        </div>
-
-        <div>
-          <RawInputPanel raw={rawInputList} />
-        </div>
-
-        <div>
-          <p className="text-teal-100">Lagre endringer</p>
-
-          <p className="text-teal-100">AVBRYT</p>
-        </div>
+        {utfyllingForanOpen && (
+          <div>
+            <RingPanelComponent
+              list={ringlist}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+            />
+          </div>
+        )}
+        {utfyllingBakOpen && (
+          <div>
+            <RingPanelComponent list={ringlist} />
+          </div>
+        )}
+        {rawOpen && (
+          <div>
+            <RawInputPanel raw={rawInputList} />
+          </div>
+        )}
       </div>
       <style jsx>
         {`

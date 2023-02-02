@@ -7,6 +7,18 @@ const CreatePostContainer = ({
   setPostCopy,
   update,
   setUpdate,
+  rawOpen,
+  setRawOpen,
+  utfyllingBakOpen,
+  setUtfyllingBakOpen,
+  utfyllingForanOpen,
+  setUtfyllingForanOpen,
+  ringType,
+  editBlink,
+  utfyllingForanOpenHandler,
+  utfyllingBakOpenHandler,
+  rawOpenHandler,
+  setRingType,
 }: any) => {
   return (
     <>
@@ -17,6 +29,18 @@ const CreatePostContainer = ({
           postInfo={postCopy}
           setUpdate={setUpdate}
           update={update}
+          utfyllingForanOpen={utfyllingForanOpen}
+          setUtfyllingForanOpen={setUtfyllingForanOpen}
+          utfyllingBakOpen={utfyllingBakOpen}
+          setUtfyllingBakOpen={setUtfyllingBakOpen}
+          rawOpen={rawOpen}
+          setRawOpen={setRawOpen}
+          ringType={ringType}
+          editBlink={editBlink}
+          utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+          utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+          rawOpenHandler={rawOpenHandler}
+          setRingType={setRingType}
         />
       </div>
       <style jsx>{``}</style>
