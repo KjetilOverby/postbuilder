@@ -1,1 +1,1 @@
-Driver med setRinPanelNumber. Får tak i nummeret når man klikker på tallene.
+slette ringer fra startRings. uuid?

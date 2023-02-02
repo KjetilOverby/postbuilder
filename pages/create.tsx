@@ -4,7 +4,7 @@ import CreateHeader from "../components/create/CreateHeader";
 import CreatePostContainer from "../components/create/CreatePostContainer";
 import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 
-const create = () => {
+const Create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { postInfo, update, setUpdate } = useContext(ContextAppData);
 
@@ -46,6 +46,15 @@ const create = () => {
     setEditBlink({ rawInput: "editModeRawInput" });
     setRingType("rawInput");
   };
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        startRings: [...postCopy.startRings, { input: ringPanelNumber }],
+      });
+    }
+  }, [ringPanelNumber]);
 
   return (
     <>
@@ -98,4 +107,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;
