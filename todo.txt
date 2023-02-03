@@ -1,1 +1,1 @@
-setRingPanelNumberBak må settes inn i panel Bak.
+Starte med center ringer på postCopy

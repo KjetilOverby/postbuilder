@@ -264,7 +264,9 @@ const CreatePostOppsett = ({
                 <div className="calculate-line all-length-line">
                   <div
                     className={`fill-calculate-box ${
-                      startRingsCalc && utfyllingForan - startRingsCalc == 0
+                      startRingsCalc &&
+                      utfyllingForan - startRingsCalc < 0.05 &&
+                      utfyllingForan - startRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
                     }`}>
@@ -425,7 +427,9 @@ const CreatePostOppsett = ({
                 <div className="calculate-line all-length-line">
                   <div
                     className={`fill-calculate-box fill-bak-box ${
-                      endRingsCalc && utfyllingBak - endRingsCalc == 0
+                      endRingsCalc &&
+                      utfyllingBak - endRingsCalc < 0.05 &&
+                      utfyllingBak - endRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
                     }`}>

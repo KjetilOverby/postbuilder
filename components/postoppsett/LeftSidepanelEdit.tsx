@@ -23,7 +23,7 @@ const LeftSidepanelEdit = ({
       ...postCopy,
       startRings: [...postCopy.startRings, { input: 11.1 }],
     });
-    
+
   }; */
 
   return (
@@ -32,17 +32,23 @@ const LeftSidepanelEdit = ({
         <div>
           <h1 className="text-teal-100 edit-header">Redigering</h1>
           <div>
-            <p
+            <button
               onClick={utfyllingForanOpenHandler}
-              className="text-teal-100 tab">
-              Utfylling foran
-            </p>
-            <p onClick={utfyllingBakOpenHandler} className="text-teal-100 tab">
-              Utfylling bak
-            </p>
-            <p onClick={rawOpenHandler} className="text-teal-100 tab">
-              Råmål
-            </p>
+              className="btn btn-fill">
+              <p className="text-teal-100 tab">Utfylling foran</p>
+            </button>
+            <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
+              <p
+                onClick={utfyllingBakOpenHandler}
+                className="text-teal-100 tab">
+                Utfylling bak
+              </p>
+            </button>
+            <button onClick={rawOpenHandler} className="btn btn-raw">
+              <p onClick={rawOpenHandler} className="text-teal-100 tab">
+                Råmål
+              </p>
+            </button>
           </div>
           <hr />
         </div>
@@ -78,11 +84,25 @@ const LeftSidepanelEdit = ({
       </div>
       <style jsx>
         {`
+          .btn {
+            margin-bottom: 0.5rem;
+            display: flex;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            height: 3rem;
+          }
+          .btn-fill {
+            background: var(--outer2);
+          }
+          .btn-raw {
+            background: var(--center2);
+          }
           .sidepanel-container {
             position: absolute;
             top: 0;
             left: 0;
-            min-height: 100vh;
+            mint: 100vh;
             background: var(--primary);
             width: 20rem;
             z-index: 10;
@@ -93,9 +113,7 @@ const LeftSidepanelEdit = ({
             margin-bottom: 1rem;
             font-weight: bold;
           }
-          .tab {
-            margin-bottom: 1rem;
-          }
+
           .tab:hover {
             cursor: pointer;
           }
