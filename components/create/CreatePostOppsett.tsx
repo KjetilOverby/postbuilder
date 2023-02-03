@@ -179,22 +179,23 @@ const CreatePostOppsett = ({
     //setEditBlink({ startRings: "" });
   };
 
-  const [ringPanelNumber, setRingPanelNumber] = useState();
+  // OLD CODE?
 
-  useEffect(() => {
-    if (ringPanelNumber && ringType === "startRings") {
-      setPostInfo({
-        ...postInfo,
-        startRings: [...postInfo.startRings, { input: ringPanelNumber }],
-      });
-    } else if (ringPanelNumber && ringType === "endRings") {
-      setPostInfo({
-        ...postInfo,
-        endRings: [...postInfo.endRings, { input: ringPanelNumber }],
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ringType, ringPanelNumber]);
+  //const [ringPanelNumber, setRingPanelNumber] = useState();
+  // useEffect(() => {
+  //   if (ringPanelNumber && ringType === "startRings") {
+  //     setPostInfo({
+  //       ...postInfo,
+  //       startRings: [...postInfo.startRings, { input: ringPanelNumber }],
+  //     });
+  //   } else if (ringPanelNumber && ringType === "endRings") {
+  //     setPostInfo({
+  //       ...postInfo,
+  //       endRings: [...postInfo.endRings, { input: ringPanelNumber }],
+  //     });
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [ringType, ringPanelNumber]);
 
   return (
     <>
@@ -235,7 +236,8 @@ const CreatePostOppsett = ({
                           onClick={
                             openEdit ? utfyllingForanOpenHandler : undefined
                           }
-                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
+                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
+                        >
                           <>
                             {editBlink.startRings === "editModeStartRings" && (
                               <RiDeleteBinLine
@@ -252,7 +254,8 @@ const CreatePostOppsett = ({
 
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -269,7 +272,8 @@ const CreatePostOppsett = ({
                       utfyllingForan - startRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
-                    }`}>
+                    }`}
+                  >
                     <h4>
                       Sum: {Number(startRingsCalc && startRingsCalc).toFixed(2)}
                     </h4>
@@ -291,12 +295,14 @@ const CreatePostOppsett = ({
                     const rawInputHandler = () => {
                       setRingID(item._id);
                       setRingType("rawInput");
+                      setUpdate(!update);
                     };
                     return (
                       <>
                         <div
                           onClick={openEdit ? rawOpenHandler : undefined}
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
+                        >
                           <>
                             {editBlink.rawInput === "editModeRawInput" && (
                               <RiDeleteBinLine
@@ -314,7 +320,8 @@ const CreatePostOppsett = ({
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings">
+                            className="ringcomponent rawrings"
+                          >
                             <BiAddToQueue
                               style={{
                                 position: "absolute",
@@ -366,7 +373,7 @@ const CreatePostOppsett = ({
                         {/* ********************** under line center ************************ */}
                         <div className="calculate-line all-length-line">
                           <p className="postcalc-number">
-                            {postCalc && postCalc.toFixed(2)}
+                            {/* {postCalc && postCalc.toFixed(2)} */}
                           </p>
                         </div>
                       </>
@@ -397,7 +404,8 @@ const CreatePostOppsett = ({
                           onClick={
                             openEdit ? utfyllingBakOpenHandler : undefined
                           }
-                          className={`outerRingContainer ${editBlink.endRings}`}>
+                          className={`outerRingContainer ${editBlink.endRings}`}
+                        >
                           <>
                             {editBlink.endRings === "editModeEndRings" && (
                               <RiDeleteBinLine
@@ -415,7 +423,8 @@ const CreatePostOppsett = ({
 
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -432,7 +441,8 @@ const CreatePostOppsett = ({
                       utfyllingBak - endRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
-                    }`}>
+                    }`}
+                  >
                     <h4>
                       Sum: {Number(endRingsCalc && endRingsCalc).toFixed(2)}
                     </h4>
@@ -516,6 +526,8 @@ const CreatePostOppsett = ({
             background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
             background: var(--center2);
             color: var(--center-text2);
+            display: flex;
+            justify-content: center;
           }
           .outerRingContainer {
             height: 11.4rem;

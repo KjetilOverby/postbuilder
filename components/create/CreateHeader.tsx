@@ -35,7 +35,8 @@ const HeaderComponent = () => {
                 <div
                   className={`sidebar-container ${
                     openSidebar ? "sidebar-open" : "sidebar-close"
-                  }`}>
+                  }`}
+                >
                   <Link href="/">
                     <p className="tabs-mobile">Fil</p>
                   </Link>
@@ -57,7 +58,8 @@ const HeaderComponent = () => {
                     position: "absolute",
                     top: "0",
                     left: "0",
-                  }}></div>
+                  }}
+                ></div>
               )}
             </>
           ) : (
@@ -66,14 +68,16 @@ const HeaderComponent = () => {
                 <p
                   onMouseOver={() => setFileopen(true)}
                   onMouseLeave={() => setFileopen(false)}
-                  className="tabs">
+                  className="tabs"
+                >
                   Fil
                 </p>
                 {fileOpen && (
                   <div
                     className="menu-box"
                     onMouseOver={() => setFileopen(true)}
-                    onMouseLeave={() => setFileopen(false)}>
+                    onMouseLeave={() => setFileopen(false)}
+                  >
                     <p className="menu-box-tab">Oppdater endringer</p>
                     <p className="menu-box-tab">Lagre som ny post</p>
                     <p className="menu-box-tab">Nullstill alle verdier</p>

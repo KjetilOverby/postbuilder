@@ -23,9 +23,12 @@ const Create = () => {
 
   const [ringPanelNumber, setRingPanelNumber] = useState();
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
+  const [rawPanelValue, setRawPanelValue] = useState();
+  console.log(rawPanelValue);
 
   useEffect(() => {
     setPostCopy(postInfo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const utfyllingForanOpenHandler = () => {
@@ -61,6 +64,7 @@ const Create = () => {
       });
     }
     setUpdate(!update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringPanelNumber]);
 
   useEffect(() => {
@@ -74,7 +78,19 @@ const Create = () => {
       });
     }
     setUpdate(!update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringPanelNumberBak]);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        rawInput: [...postCopy.rawInput, { input: rawPanelValue, _id: v4() }],
+      });
+    }
+    setUpdate(!update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rawPanelValue]);
 
   return (
     <>
@@ -96,6 +112,7 @@ const Create = () => {
           rawOpenHandler={rawOpenHandler}
           setRingPanelNumber={setRingPanelNumber}
           setRingPanelNumberBak={setRingPanelNumberBak}
+          setRawPanelValue={setRawPanelValue}
         />
         <CreatePostContainer
           postCopy={postCopy}

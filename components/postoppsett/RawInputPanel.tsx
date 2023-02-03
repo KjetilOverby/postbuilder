@@ -1,6 +1,6 @@
 import React from "react";
 
-const RawInputPanel = ({ raw }: any) => {
+const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
   return (
     <>
       <div>
@@ -25,7 +25,7 @@ const RawInputPanel = ({ raw }: any) => {
                 {raw.map((item: any) => {
                   return (
                     <p
-                      /* onClick={getRawRings} */
+                      onClick={() => setRawPanelValue(item.r18)}
                       key={item.id}
                       className="nom nom18"
                     >
@@ -38,7 +38,7 @@ const RawInputPanel = ({ raw }: any) => {
                 {raw.map((item: any) => {
                   return (
                     <p
-                      /* onClick={getRawRings} */
+                      onClick={() => setRawPanelValue(item.r12)}
                       key={item.id}
                       className="nom nom12"
                     >
@@ -51,7 +51,7 @@ const RawInputPanel = ({ raw }: any) => {
                 {raw.map((item: any) => {
                   return (
                     <p
-                      /* onClick={getRawRings} */
+                      onClick={() => setRawPanelValue(item.r12s)}
                       key={item.id}
                       className="nom nom12"
                     >
@@ -64,7 +64,7 @@ const RawInputPanel = ({ raw }: any) => {
                 {raw.map((item: any) => {
                   return (
                     <p
-                      /* onClick={getRawRings} */
+                      onClick={() => setRawPanelValue(item.r12s1)}
                       key={item.id}
                       className="nom nom12"
                     >
@@ -88,17 +88,21 @@ const RawInputPanel = ({ raw }: any) => {
             cursor: pointer;
           }
           .nominell {
-            color: indianred;
+            color: finish-text;
           }
           .nom12 {
-            color: red;
+            color: var(--text);
           }
           .nom18 {
-            color: seagreen;
+            color: var(--outer-text);
           }
           td {
             border: 0.5px solid #333;
             padding: 2px;
+          }
+          table {
+            width: 100%;
+            background: var(--running);
           }
         `}
       </style>

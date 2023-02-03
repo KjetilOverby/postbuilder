@@ -17,6 +17,7 @@ const LeftSidepanelEdit = ({
   rawOpenHandler,
   setRingPanelNumber,
   setRingPanelNumberBak,
+  setRawPanelValue,
 }: any) => {
   /*   const test = () => {
     setPostCopy({
@@ -34,13 +35,15 @@ const LeftSidepanelEdit = ({
           <div>
             <button
               onClick={utfyllingForanOpenHandler}
-              className="btn btn-fill">
+              className="btn btn-fill"
+            >
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
               <p
                 onClick={utfyllingBakOpenHandler}
-                className="text-teal-100 tab">
+                className="text-teal-100 tab"
+              >
                 Utfylling bak
               </p>
             </button>
@@ -54,6 +57,7 @@ const LeftSidepanelEdit = ({
         </div>
         {utfyllingForanOpen && (
           <div>
+            <h4 className="header">Legg til utfylling foran:</h4>
             <RingPanelComponent
               list={ringlist}
               postInfo={postCopy}
@@ -66,6 +70,7 @@ const LeftSidepanelEdit = ({
         )}
         {utfyllingBakOpen && (
           <div>
+            <h4 className="header">Legg til utfylling bak:</h4>
             <RingPanelComponent
               list={ringlist}
               postInfo={postCopy}
@@ -78,7 +83,16 @@ const LeftSidepanelEdit = ({
         )}
         {rawOpen && (
           <div>
-            <RawInputPanel raw={rawInputList} />
+            <h4 className="header">Legg til råmål:</h4>
+            <input className="input" type="number" />
+            <RawInputPanel
+              raw={rawInputList}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+              setRawPanelValue={setRawPanelValue}
+            />
           </div>
         )}
       </div>
@@ -98,13 +112,19 @@ const LeftSidepanelEdit = ({
           .btn-raw {
             background: var(--center2);
           }
+          .header {
+            margin: 1rem 0;
+          }
+          .input {
+            background: var(--primary-text);
+            margin-bottom: 1rem;
+          }
           .sidepanel-container {
             position: absolute;
             top: 0;
             left: 0;
-            mint: 100vh;
             background: var(--primary);
-            width: 20rem;
+            width: 17rem;
             z-index: 10;
             animation: fadeInLeft 0.3s;
             margin-top: 2rem;
