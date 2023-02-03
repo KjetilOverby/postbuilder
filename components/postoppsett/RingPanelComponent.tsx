@@ -3,6 +3,8 @@ import React from "react";
 const RingPanelComponent = ({
   list,
   setRingPanelNumber,
+  setRingPanelNumberBak,
+
   setUpdate,
   update,
   postInfo,
@@ -13,13 +15,6 @@ const RingPanelComponent = ({
       <p className="text-teal-100">Små ringer</p>
       <div className="ringlist-container">
         {list.small.map((item: any) => {
-          const smallRingsHandler = () => {
-            setPostInfo({
-              ...postInfo,
-              startRings: [...postInfo.startRings, { input: item }],
-            });
-            setUpdate(!update);
-          };
           return (
             <div
               key={item._id}

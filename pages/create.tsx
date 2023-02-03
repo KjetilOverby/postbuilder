@@ -21,6 +21,7 @@ const Create = () => {
   });
 
   const [ringPanelNumber, setRingPanelNumber] = useState();
+  const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
 
   useEffect(() => {
     setPostCopy(postInfo);
@@ -58,7 +59,18 @@ const Create = () => {
         ],
       });
     }
+    setUpdate(!update);
   }, [ringPanelNumber]);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        endRings: [...postCopy.endRings, { input: ringPanelNumber, _id: v4() }],
+      });
+    }
+    setUpdate(!update);
+  }, [ringPanelNumberBak]);
 
   return (
     <>
@@ -79,6 +91,7 @@ const Create = () => {
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
           rawOpenHandler={rawOpenHandler}
           setRingPanelNumber={setRingPanelNumber}
+          setRingPanelNumberBak={setRingPanelNumberBak}
         />
         <CreatePostContainer
           postCopy={postCopy}

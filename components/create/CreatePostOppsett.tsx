@@ -5,6 +5,7 @@ import dateFormat from "dateformat";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import { log } from "console";
 
 const CreatePostOppsett = ({
   postInfo,
@@ -85,6 +86,19 @@ const CreatePostOppsett = ({
     if (postInfo) {
       setStartRingsCalc(
         postInfo.startRings.reduce(
+          (num: number, { input }: any) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+  }, [postInfo, update]);
+
+  const [endRingsCalc, setEndRingsCalc] = useState();
+
+  useEffect(() => {
+    if (postInfo) {
+      setEndRingsCalc(
+        postInfo.endRings.reduce(
           (num: number, { input }: any) => Number(num) + Number(input),
           0
         )
@@ -248,6 +262,22 @@ const CreatePostOppsett = ({
 
                 {/* ********************** under line front ************************ */}
                 <div className="calculate-line all-length-line">
+                  <div
+                    className={`fill-calculate-box ${
+                      startRingsCalc && utfyllingForan - startRingsCalc == 0
+                        ? "fill-ok"
+                        : "fill-not-ok"
+                    }`}>
+                    <h4>
+                      Sum: {Number(startRingsCalc && startRingsCalc).toFixed(2)}
+                    </h4>
+                    <h4>
+                      Diff:{" "}
+                      {startRingsCalc &&
+                        Number(utfyllingForan - startRingsCalc).toFixed(2)}
+                    </h4>
+                  </div>
+
                   <p className="postcalc-number">
                     {utfyllingForan && utfyllingForan.toFixed(2)}
                   </p>
@@ -393,6 +423,21 @@ const CreatePostOppsett = ({
 
                 {/* ********************** under line end ************************ */}
                 <div className="calculate-line all-length-line">
+                  <div
+                    className={`fill-calculate-box fill-bak-box ${
+                      endRingsCalc && utfyllingBak - endRingsCalc == 0
+                        ? "fill-ok"
+                        : "fill-not-ok"
+                    }`}>
+                    <h4>
+                      Sum: {Number(endRingsCalc && endRingsCalc).toFixed(2)}
+                    </h4>
+                    <h4>
+                      Diff:{" "}
+                      {endRingsCalc &&
+                        Number(utfyllingBak - endRingsCalc).toFixed(2)}
+                    </h4>
+                  </div>
                   <p className="postcalc-number">
                     {utfyllingBak && utfyllingBak.toFixed(2)}
                   </p>
@@ -436,6 +481,24 @@ const CreatePostOppsett = ({
             border-radius: 5px;
             color: #333;
             font-size: 1.5rem;
+          }
+          .fill-ok {
+            background: seagreen;
+            padding: 0.5rem;
+            border-radius: 5px;
+          }
+          .fill-not-ok {
+            background: red;
+            padding: 0.5rem;
+            border-radius: 5px;
+          }
+          .fill-bak-box {
+            right: 0;
+          }
+          .fill-calculate-box {
+            position: absolute;
+            bottom: 6rem;
+            color: white;
           }
           .fillrings {
             background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);

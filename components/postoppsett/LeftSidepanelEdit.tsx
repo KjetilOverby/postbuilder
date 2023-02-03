@@ -16,6 +16,7 @@ const LeftSidepanelEdit = ({
   utfyllingBakOpenHandler,
   rawOpenHandler,
   setRingPanelNumber,
+  setRingPanelNumberBak,
 }: any) => {
   /*   const test = () => {
     setPostCopy({
@@ -58,7 +59,14 @@ const LeftSidepanelEdit = ({
         )}
         {utfyllingBakOpen && (
           <div>
-            <RingPanelComponent list={ringlist} />
+            <RingPanelComponent
+              list={ringlist}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+              setRingPanelNumberBak={setRingPanelNumberBak}
+            />
           </div>
         )}
         {rawOpen && (

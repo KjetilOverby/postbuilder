@@ -1,1 +1,1 @@
-Har lagt inn uuid på startrings
+setRingPanelNumberBak må settes inn i panel Bak.
