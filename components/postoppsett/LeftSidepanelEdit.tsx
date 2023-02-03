@@ -23,6 +23,7 @@ const LeftSidepanelEdit = ({
       ...postCopy,
       startRings: [...postCopy.startRings, { input: 11.1 }],
     });
+    
   }; */
 
   return (
@@ -65,7 +66,7 @@ const LeftSidepanelEdit = ({
               setPostCopy={setPostCopy}
               setUpdate={setUpdate}
               update={update}
-              setRingPanelNumberBak={setRingPanelNumberBak}
+              setRingPanelNumber={setRingPanelNumberBak}
             />
           </div>
         )}

@@ -3,8 +3,6 @@ import React from "react";
 const RingPanelComponent = ({
   list,
   setRingPanelNumber,
-  setRingPanelNumberBak,
-
   setUpdate,
   update,
   postInfo,
