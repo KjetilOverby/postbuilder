@@ -25,6 +25,7 @@ const CreatePostOppsett = ({
   utfyllingBakOpenHandler,
   rawOpenHandler,
   setRingType,
+  detailsOpen,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
@@ -196,6 +197,11 @@ const CreatePostOppsett = ({
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [ringType, ringPanelNumber]);
 
+  console.log(postInfo);
+
+  const bladStammeFixed =
+    Number(postInfo && postInfo.blades.bladStamme) + Number(1.4);
+
   return (
     <>
       {/* <OpenEditComponent openEdit={openEdit}>
@@ -223,12 +229,12 @@ const CreatePostOppsett = ({
                 ? dateFormat(postInfo.date, "dd.mm.yyyy, HH:MM")
                 : "ukjent"}
             </p>
-            <div>
+            <div className={`${detailsOpen ? "mark" : ""}`}>
               <h1 className="post-header">
                 {postInfo && postInfo.rawInput.length}x
                 {postInfo && postInfo.planker}
                 {postInfo && postInfo.prosent}
-                {postInfo && (postInfo.blades.bladStamme + 1.4).toFixed(1)}
+                {postInfo && bladStammeFixed.toFixed(1)}
                 {postInfo && postInfo.spes}
               </h1>
             </div>
@@ -331,7 +337,13 @@ const CreatePostOppsett = ({
                             )}
                           </>
 
-                          <p className="absolute rawInput">{item.input}</p>
+                          <p
+                            className={`absolute rawInput ${
+                              rawOpen ? "mark" : ""
+                            }`}
+                          >
+                            {item.input}
+                          </p>
                           <div
                             key={item._id}
                             className="ringcomponent rawrings"
@@ -373,13 +385,24 @@ const CreatePostOppsett = ({
                               </p>
                             </div>
                           )}
-                          <div className="sawBlade bg-slate-500">
-                            <p className="bladstamme">
-                              {postInfo.blades.bladStamme.toFixed(1)}
+                          <div
+                            className={`sawBlade bg-slate-500 ${
+                              detailsOpen ? "sawblade-mark" : ""
+                            }`}
+                          >
+                            <p
+                              className={`bladstamme ${
+                                detailsOpen ? "mark" : ""
+                              }`}
+                            >
+                              {postInfo && postInfo.blades.bladStamme}
                             </p>
-                            <p className="sagsnitt">
-                              {postInfo &&
-                                (postInfo.blades.bladStamme + 1.4).toFixed(1)}
+                            <p
+                              className={`sagsnitt ${
+                                detailsOpen ? "mark" : ""
+                              }`}
+                            >
+                              {postInfo && bladStammeFixed.toFixed(1)}
                             </p>
                           </div>
                         </div>
@@ -395,12 +418,16 @@ const CreatePostOppsett = ({
                   })}
               </div>
               <div className="relative">
-                <div className="sawBlade2 bg-slate-500">
-                  <p className="bladstamme">
-                    {postInfo && postInfo.blades.bladStamme.toFixed(1)}
+                <div
+                  className={`sawBlade2 bg-slate-500 ${
+                    detailsOpen ? "sawblade-mark" : ""
+                  }`}
+                >
+                  <p className={`bladstamme ${detailsOpen ? "mark" : ""}`}>
+                    {postInfo && postInfo.blades.bladStamme}
                   </p>
-                  <p className="sagsnitt">
-                    {postInfo && (postInfo.blades.bladStamme + 1.4).toFixed(1)}
+                  <p className={`sagsnitt ${detailsOpen ? "mark" : ""}`}>
+                    {postInfo && bladStammeFixed.toFixed(1)}
                   </p>
                 </div>
               </div>
@@ -488,6 +515,10 @@ const CreatePostOppsett = ({
       </div>
       <style jsx>
         {`
+          .mark {
+            border: 2px solid var(--mark);
+            border-radius: 5px;
+          }
           .postoppsettHeader {
             transform: translateX(-50%);
             left: 50%;
@@ -560,6 +591,7 @@ const CreatePostOppsett = ({
             left: -5px;
             border: 0.5px solid lightgrey;
           }
+
           .sawBlade2 {
             height: 30rem;
             width: 0.3rem;
@@ -568,6 +600,9 @@ const CreatePostOppsett = ({
             top: -15rem;
             border: 0.5px solid lightgrey;
             z-index: 10;
+          }
+          .sawblade-mark {
+            border: 1px solid var(--mark);
           }
           .rawInput {
             top: -24px;
@@ -617,21 +652,20 @@ const CreatePostOppsett = ({
           .all-length-line {
             width: 100%;
             height: 2px;
-            background: white;
             position: absolute;
             top: 24rem;
           }
           .calculate-line {
             width: 100%;
             height: 2px;
-            background: white;
+            background: var(--mark);
             position: absolute;
           }
           .calculate-line::before {
             content: "";
             width: 1px;
             height: 15px;
-            background: white;
+            background: var(--mark);
             position: absolute;
             top: -7px;
             padding: 0 2px;
@@ -640,7 +674,7 @@ const CreatePostOppsett = ({
             content: "";
             width: 1px;
             height: 15px;
-            background: white;
+            background: var(--center2);
             position: absolute;
             top: -7px;
             right: 0px;

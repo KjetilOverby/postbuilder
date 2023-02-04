@@ -13,6 +13,7 @@ const Create = () => {
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
   const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
   const [rawOpen, setRawOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [ringType, setRingType] = useState<string>("");
   const [editBlink, setEditBlink] = useState<any>({
     startRings: "",
@@ -23,7 +24,8 @@ const Create = () => {
   const [ringPanelNumber, setRingPanelNumber] = useState();
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
-  console.log(rawPanelValue);
+
+  const [sawbladeSelect, setSawbladeSelect] = useState();
 
   useEffect(() => {
     setPostCopy(postInfo);
@@ -34,6 +36,7 @@ const Create = () => {
     setRawOpen(false);
     setUtfyllingBakOpen(false);
     setUtfyllingForanOpen(true);
+    setDetailsOpen(false);
     setEditBlink({ startRings: "editModeStartRings" });
     setRingType("startRings");
   };
@@ -41,6 +44,7 @@ const Create = () => {
     setRawOpen(false);
     setUtfyllingBakOpen(true);
     setUtfyllingForanOpen(false);
+    setDetailsOpen(false);
     setEditBlink({ endRings: "editModeEndRings" });
     setRingType("endRings");
   };
@@ -48,8 +52,17 @@ const Create = () => {
     setRawOpen(true);
     setUtfyllingBakOpen(false);
     setUtfyllingForanOpen(false);
+    setDetailsOpen(false);
     setEditBlink({ rawInput: "editModeRawInput" });
     setRingType("rawInput");
+  };
+  const detailsOpenHandler = () => {
+    setRawOpen(false);
+    setUtfyllingBakOpen(false);
+    setUtfyllingForanOpen(false);
+    setDetailsOpen(true);
+    setEditBlink({ rawInput: "" });
+    setRingType("");
   };
 
   useEffect(() => {
@@ -91,6 +104,15 @@ const Create = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawPanelValue]);
 
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        blades: { bladStamme: sawbladeSelect },
+      });
+    }
+  }, [sawbladeSelect]);
+
   return (
     <>
       <div className="create-container">
@@ -112,6 +134,11 @@ const Create = () => {
           setRingPanelNumber={setRingPanelNumber}
           setRingPanelNumberBak={setRingPanelNumberBak}
           setRawPanelValue={setRawPanelValue}
+          detailsOpen={detailsOpen}
+          setDetailsOpen={setDetailsOpen}
+          detailsOpenHandler={detailsOpenHandler}
+          setSawbladeSelect={setSawbladeSelect}
+          sawbladeSelect={sawbladeSelect}
         />
         <CreatePostContainer
           postCopy={postCopy}
@@ -130,6 +157,7 @@ const Create = () => {
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
           rawOpenHandler={rawOpenHandler}
           setRingType={setRingType}
+          detailsOpen={detailsOpen}
         />
       </div>
       <style jsx>

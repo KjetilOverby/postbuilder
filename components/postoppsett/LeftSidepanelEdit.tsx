@@ -3,6 +3,7 @@ import RingPanelComponent from "./RingPanelComponent";
 import ringlist from "../../data/ringList";
 import rawInputList from "../../data/rawinputList";
 import RawInputPanel from "./RawInputPanel";
+import DetailsInputComponent from "../create/DetailsInputComponent";
 
 const LeftSidepanelEdit = ({
   setPostCopy,
@@ -18,15 +19,10 @@ const LeftSidepanelEdit = ({
   setRingPanelNumber,
   setRingPanelNumberBak,
   setRawPanelValue,
+  detailsOpen,
+  detailsOpenHandler,
+  setSawbladeSelect,
 }: any) => {
-  /*   const test = () => {
-    setPostCopy({
-      ...postCopy,
-      startRings: [...postCopy.startRings, { input: 11.1 }],
-    });
-
-  }; */
-
   return (
     <>
       <div className="sidepanel-container p-5">
@@ -40,17 +36,15 @@ const LeftSidepanelEdit = ({
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
-              <p
-                onClick={utfyllingBakOpenHandler}
-                className="text-teal-100 tab"
-              >
-                Utfylling bak
-              </p>
+              <p className="text-teal-100 tab">Utfylling bak</p>
             </button>
-            <button onClick={rawOpenHandler} className="btn btn-raw">
+            <button className="btn btn-raw">
               <p onClick={rawOpenHandler} className="text-teal-100 tab">
                 Råmål
               </p>
+            </button>
+            <button onClick={detailsOpenHandler} className="btn btn-details">
+              <p className="text-teal-100 tab">Detaljer</p>
             </button>
           </div>
           <hr />
@@ -95,6 +89,16 @@ const LeftSidepanelEdit = ({
             />
           </div>
         )}
+        <div>
+          <h4 className="header">Legg til detaljer:</h4>
+          {detailsOpen && (
+            <DetailsInputComponent
+              setSawbladeSelect={setSawbladeSelect}
+              setUpdate={setUpdate}
+              update={update}
+            />
+          )}
+        </div>
       </div>
       <style jsx>
         {`
@@ -104,7 +108,7 @@ const LeftSidepanelEdit = ({
             width: 100%;
             display: grid;
             place-items: center;
-            height: 3rem;
+            height: 2rem;
           }
           .btn-fill {
             background: var(--outer2);
@@ -112,8 +116,12 @@ const LeftSidepanelEdit = ({
           .btn-raw {
             background: var(--center2);
           }
+          .btn-details {
+            background: var(--outer);
+          }
           .header {
             margin: 1rem 0;
+            color: var(--running);
           }
           .input {
             background: var(--primary-text);

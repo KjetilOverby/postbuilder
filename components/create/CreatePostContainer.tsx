@@ -19,6 +19,7 @@ const CreatePostContainer = ({
   utfyllingBakOpenHandler,
   rawOpenHandler,
   setRingType,
+  detailsOpen,
 }: any) => {
   return (
     <>
@@ -41,6 +42,7 @@ const CreatePostContainer = ({
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
           rawOpenHandler={rawOpenHandler}
           setRingType={setRingType}
+          detailsOpen={detailsOpen}
         />
       </div>
       <style jsx>{``}</style>
