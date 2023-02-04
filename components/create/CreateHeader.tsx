@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import { MdSecurityUpdate } from "react-icons/md";
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ saveEditedPostHandler }: any) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [hideSidebar, setHideSidebar] = useState(false);
   const [fileOpen, setFileopen] = useState(false);
@@ -78,7 +78,9 @@ const HeaderComponent = () => {
                     onMouseOver={() => setFileopen(true)}
                     onMouseLeave={() => setFileopen(false)}
                   >
-                    <p className="menu-box-tab">Oppdater endringer</p>
+                    <p onClick={saveEditedPostHandler} className="menu-box-tab">
+                      Oppdater endringer
+                    </p>
                     <p className="menu-box-tab">Lagre som ny post</p>
                     <p className="menu-box-tab">Nullstill alle verdier</p>
                     <p className="menu-box-tab">Slett post</p>

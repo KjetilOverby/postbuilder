@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [searchResultModal, setSearchResultModal] = useState(false);
   const [update, setUpdate] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [postID, setPostID] = useState();
 
   const api = axios.create({
     baseURL: process.env.api,
@@ -67,7 +68,8 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}>
+      redirectUri={typeof window !== "undefined" && window.location.origin}
+    >
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -76,7 +78,10 @@ export default function App({ Component, pageProps }: AppProps) {
           setOpenEdit,
           setUpdate,
           update,
-        }}>
+          setPostID,
+          postID,
+        }}
+      >
         <Component
           {...pageProps}
           poster={poster}

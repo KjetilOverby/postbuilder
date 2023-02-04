@@ -22,6 +22,9 @@ const LeftSidepanelEdit = ({
   detailsOpen,
   detailsOpenHandler,
   setSawbladeSelect,
+  setProsentSelect,
+  setPlankeInput,
+  setSpesInput,
 }: any) => {
   return (
     <>
@@ -96,6 +99,9 @@ const LeftSidepanelEdit = ({
               setSawbladeSelect={setSawbladeSelect}
               setUpdate={setUpdate}
               update={update}
+              setProsentSelect={setProsentSelect}
+              setPlankeInput={setPlankeInput}
+              setSpesInput={setSpesInput}
             />
           )}
         </div>

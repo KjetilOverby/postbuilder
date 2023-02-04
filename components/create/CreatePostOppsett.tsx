@@ -47,6 +47,7 @@ const CreatePostOppsett = ({
   const [updateUtfylling, setUpdateUtfylling] = useState(false);
 
   const [ringID, setRingID] = useState();
+  const [ringID2, setRingID2] = useState();
 
   const [cancelEditPost, setCancelEditPost] = useState();
 
@@ -168,6 +169,54 @@ const CreatePostOppsett = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringID]);
 
+  useEffect(() => {
+    if (postInfo) {
+      if (ringType === "startRings") {
+        const newList = postInfo.startRings.filter(
+          (item: any) => item.id !== ringID2
+        );
+        setPostInfo({ ...postInfo, startRings: newList });
+      } else if (ringType === "endRings") {
+        const newList = postInfo.endRings.filter(
+          (item: any) => item.id !== ringID2
+        );
+        setPostInfo({ ...postInfo, endRings: newList });
+      } else if (ringType === "rawInput") {
+        const newList = postInfo.rawInput.filter(
+          (item: any) => item.id !== ringID2
+        );
+        setPostInfo({ ...postInfo, rawInput: newList });
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ringID2]);
+
+  console.log(ringID);
+
+  // useEffect(() => {
+  //   if (postInfo) {
+  //     if (ringType === "startRings") {
+  //       const newList = postInfo.startRings.filter(
+  //         (item: any) => item.id && item.id !== ringID
+  //       );
+  //       setPostInfo({ ...postInfo, startRings: newList });
+  //     } else if (ringType === "endRings") {
+  //       const newList = postInfo.endRings.filter(
+  //         (item: any) => item.id && item.id !== ringID
+  //       );
+  //       setPostInfo({ ...postInfo, endRings: newList });
+  //     } else if (ringType === "rawInput") {
+  //       const newList = postInfo.rawInput.filter(
+  //         (item: any) => item.id && item.id !== ringID
+  //       );
+  //       setPostInfo({ ...postInfo, rawInput: newList });
+  //     }
+  //   }
+
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [ringID]);
+
   const openEditHandler = () => {
     setOpenEdit(true);
     setCancelEditPost(postInfo);
@@ -226,7 +275,7 @@ const CreatePostOppsett = ({
             <p className="text-slate-600 text-xs italic">
               Sist oppdatert:{" "}
               {postInfo && postInfo.editDate
-                ? dateFormat(postInfo.date, "dd.mm.yyyy, HH:MM")
+                ? dateFormat(postInfo.editDate, "dd.mm.yyyy, HH:MM")
                 : "ukjent"}
             </p>
             <div className={`${detailsOpen ? "mark" : ""}`}>
@@ -247,6 +296,7 @@ const CreatePostOppsett = ({
                   postInfo.startRings.map((item: any) => {
                     const startRingsHandler = () => {
                       setRingID(item._id);
+                      setRingID2(item.id);
                       setRingType("startRings");
                       setUpdate(!update);
                     };
@@ -314,6 +364,7 @@ const CreatePostOppsett = ({
                   postInfo.rawInput.map((item: any) => {
                     const rawInputHandler = () => {
                       setRingID(item._id);
+                      setRingID2(item.id);
                       setRingType("rawInput");
                       setUpdate(!update);
                     };
@@ -437,6 +488,7 @@ const CreatePostOppsett = ({
                   postInfo.endRings.map((item: any) => {
                     const endRingsHandler = () => {
                       setRingID(item._id);
+                      setRingID2(item.id);
                       setRingType("endRings");
                     };
                     return (

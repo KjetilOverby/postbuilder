@@ -1,7 +1,14 @@
 import React from "react";
 
-const DetailsInputComponent = ({ setUpdate, update, setSawbladeSelect }) => {
-  const sawbladeSelectHandler = (e) => {
+const DetailsInputComponent = ({
+  setUpdate,
+  update,
+  setSawbladeSelect,
+  setProsentSelect,
+  setPlankeInput,
+  setSpesInput,
+}: any) => {
+  const sawbladeSelectHandler = (e: any) => {
     setSawbladeSelect(e.target.value);
     setUpdate(!update);
   };
@@ -38,6 +45,7 @@ const DetailsInputComponent = ({ setUpdate, update, setSawbladeSelect }) => {
           <select
             className="select"
             //   onChange={(e) => setProsentValg(e.target.value)}
+            onChange={(e) => setProsentSelect(e.target.value)}
           >
             <option className="option" value="" selected disabled hidden>
               Velg prosent
@@ -58,16 +66,27 @@ const DetailsInputComponent = ({ setUpdate, update, setSawbladeSelect }) => {
         </div>
         <div className="field-box">
           <p className="input-text">Planketykkelse:</p>
-          <input type="text" placeholder="eks: 50/38" />
+          <input
+            onChange={(e) => setPlankeInput(e.target.value)}
+            className="input"
+            type="text"
+            placeholder="eks: 50/38"
+          />
         </div>
         <div className="field-box">
           <p className="input-text">Spes råmal i parantes:</p>
-          <input type="text" placeholder="eks: (52.2)" />
+          <input
+            onChange={(e) => setSpesInput(e.target.value)}
+            className="input"
+            type="text"
+            placeholder="eks: (52.2)"
+          />
         </div>
       </div>
       <style jsx>
         {`
-          .input-container {
+          .input {
+            background: var(--finish-text);
           }
           .field-box {
             margin-bottom: 1rem;
@@ -76,7 +95,11 @@ const DetailsInputComponent = ({ setUpdate, update, setSawbladeSelect }) => {
             border-radius: 5px;
           }
           .input-text {
-            color: var(--primary-text);
+            color: var(--center);
+          }
+          .select {
+            background: var(--finish-text);
+            color: var(--center);
           }
         `}
       </style>

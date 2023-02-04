@@ -4,10 +4,15 @@ import CreateHeader from "../components/create/CreateHeader";
 import CreatePostContainer from "../components/create/CreatePostContainer";
 import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 import { v4 as uuidv4, v4 } from "uuid";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: process.env.api,
+});
 
 const Create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { postInfo, update, setUpdate } = useContext(ContextAppData);
+  const { postInfo, update, setUpdate, postID } = useContext(ContextAppData);
 
   const [postCopy, setPostCopy] = useState<any>();
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
@@ -26,6 +31,9 @@ const Create = () => {
   const [rawPanelValue, setRawPanelValue] = useState();
 
   const [sawbladeSelect, setSawbladeSelect] = useState();
+  const [prosentSelect, setProsentSelect] = useState();
+  const [plankeInput, setPlankeInput] = useState();
+  const [spesInput, setSpesInput] = useState();
 
   useEffect(() => {
     setPostCopy(postInfo);
@@ -71,7 +79,7 @@ const Create = () => {
         ...postCopy,
         startRings: [
           ...postCopy.startRings,
-          { input: ringPanelNumber, _id: v4() },
+          { input: ringPanelNumber, id: v4() },
         ],
       });
     }
@@ -85,7 +93,7 @@ const Create = () => {
         ...postCopy,
         endRings: [
           ...postCopy.endRings,
-          { input: ringPanelNumberBak, _id: v4() },
+          { input: ringPanelNumberBak, id: v4() },
         ],
       });
     }
@@ -97,7 +105,7 @@ const Create = () => {
     if (postCopy) {
       setPostCopy({
         ...postCopy,
-        rawInput: [...postCopy.rawInput, { input: rawPanelValue, _id: v4() }],
+        rawInput: [...postCopy.rawInput, { input: rawPanelValue, id: v4() }],
       });
     }
     setUpdate(!update);
@@ -111,12 +119,66 @@ const Create = () => {
         blades: { bladStamme: sawbladeSelect },
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sawbladeSelect]);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        prosent: prosentSelect,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prosentSelect]);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        planker: plankeInput,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [plankeInput]);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        spes: spesInput,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [spesInput]);
+
+  // SAVE EDITED POST
+
+  const saveEditedPostHandler = () => {
+    api.patch(`api/poster/save_edited_post?ids=${postID}`, {
+      header: `${postCopy.planker.length}x${postCopy.planker}${
+        postCopy.prosent
+      }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
+        postCopy.spes === undefined ? "" : postCopy.spes
+      }`,
+      startRings: postCopy.startRings,
+      endRings: postCopy.endRings,
+      prosent: postCopy.prosent,
+      planker: postCopy.planker,
+      spes: postCopy.spes,
+      editDate: new Date(),
+      date: postCopy.date,
+    });
+    setTimeout(() => {
+      setUpdate(!update);
+    }, 1000);
+  };
+  console.log(postCopy);
 
   return (
     <>
       <div className="create-container">
-        <CreateHeader />
+        <CreateHeader saveEditedPostHandler={saveEditedPostHandler} />
         <LeftSidepanelEdit
           setPostCopy={setPostCopy}
           postCopy={postCopy}
@@ -139,6 +201,9 @@ const Create = () => {
           detailsOpenHandler={detailsOpenHandler}
           setSawbladeSelect={setSawbladeSelect}
           sawbladeSelect={sawbladeSelect}
+          setProsentSelect={setProsentSelect}
+          setPlankeInput={setPlankeInput}
+          setSpesInput={setSpesInput}
         />
         <CreatePostContainer
           postCopy={postCopy}

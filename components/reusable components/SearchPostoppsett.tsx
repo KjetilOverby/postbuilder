@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import dateFormat from "dateformat";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 const SearchPostoppsett = ({
   searchResult,
@@ -11,11 +12,14 @@ const SearchPostoppsett = ({
   update,
   setUpdate,
 }: any) => {
+  const { setPostID } = useContext(ContextAppData);
+
   return (
     <>
       {searchResult &&
         searchResult.map((item: any) => {
           const postInfoHandler = () => {
+            setPostID(item._id);
             setPostInfo(item);
             localStorage.setItem("name", JSON.stringify(item));
             if (skurlisteInfo) {
