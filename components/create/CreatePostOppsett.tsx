@@ -5,7 +5,6 @@ import dateFormat from "dateformat";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
 import { ContextAppData } from "../../data/context/ContextAppData";
-import { log } from "console";
 
 const CreatePostOppsett = ({
   postInfo,
@@ -209,7 +208,7 @@ const CreatePostOppsett = ({
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
-            <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
+            <h1 className="text-slate-600 text-xl  md:text-1xl lg:text-2xl font-thin">
               {postInfo && postInfo.header}{" "}
             </h1>
             <p className="text-slate-600 text-xs italic">
@@ -218,6 +217,21 @@ const CreatePostOppsett = ({
                 ? dateFormat(postInfo.date, "dd.mm.yyyy, HH:MM")
                 : "ukjent"}
             </p>
+            <p className="text-slate-600 text-xs italic">
+              Sist oppdatert:{" "}
+              {postInfo && postInfo.editDate
+                ? dateFormat(postInfo.date, "dd.mm.yyyy, HH:MM")
+                : "ukjent"}
+            </p>
+            <div>
+              <h1 className="post-header">
+                {postInfo && postInfo.rawInput.length}x
+                {postInfo && postInfo.planker}
+                {postInfo && postInfo.prosent}
+                {postInfo && (postInfo.blades.bladStamme + 1.4).toFixed(1)}
+                {postInfo && postInfo.spes}
+              </h1>
+            </div>
           </div>
           <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">

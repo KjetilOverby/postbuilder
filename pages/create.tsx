@@ -4,7 +4,6 @@ import CreateHeader from "../components/create/CreateHeader";
 import CreatePostContainer from "../components/create/CreatePostContainer";
 import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 import { v4 as uuidv4, v4 } from "uuid";
-import { log } from "console";
 
 const Create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks

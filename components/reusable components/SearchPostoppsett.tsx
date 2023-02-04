@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import dateFormat from "dateformat";
 
 const SearchPostoppsett = ({
   searchResult,
@@ -7,8 +8,8 @@ const SearchPostoppsett = ({
   setFinalSkurlisteInfo,
   skurlisteInfo,
   closeModal,
-  update, 
-  setUpdate
+  update,
+  setUpdate,
 }: any) => {
   return (
     <>
@@ -21,7 +22,6 @@ const SearchPostoppsett = ({
               setFinalSkurlisteInfo(skurlisteInfo);
               closeModal();
             }
-           
           };
           return (
             <>
@@ -57,10 +57,7 @@ const SearchPostoppsett = ({
                             input: number;
                           }) => {
                             return (
-                              <div
-                                key={rawRing._id}
-                                className="rings raw"
-                              >
+                              <div key={rawRing._id} className="rings raw">
                                 <p className="rawInput">{rawRing.input}</p>
                                 <p>{(rawRing.input + 1.4).toFixed(1)}</p>
                               </div>
@@ -98,6 +95,12 @@ const SearchPostoppsett = ({
                       </div>
                     </div>
                   </span>
+                  <p className="date">
+                    opprettelsesdato:{" "}
+                    {item.date
+                      ? dateFormat(item.date, "dd.mm.yyyy, HH:MM")
+                      : "ukjent"}
+                  </p>
                 </div>
               </Link>
             </>
@@ -105,15 +108,20 @@ const SearchPostoppsett = ({
         })}
       <style jsx>
         {`
-        .post-container {
-          background: var(--finish-text)
-        }
-        .post-header {
-          color: var(--center)
-        }
-        .post-container:hover {
-          background: var(--hover)
-        }
+          .date {
+            font-size: 0.7rem;
+            font-style: italic;
+            color: grey;
+          }
+          .post-container {
+            background: var(--finish-text);
+          }
+          .post-header {
+            color: var(--center);
+          }
+          .post-container:hover {
+            background: var(--hover);
+          }
           .rings {
             width: 36px;
             height: 70px;
@@ -131,16 +139,16 @@ const SearchPostoppsett = ({
           }
           .raw {
             position: relative;
-            background: var(--center)
+            background: var(--center);
           }
           .rawInput {
             position: absolute;
             top: -18px;
             font-size: 0.7rem;
-            color: white
+            color: white;
           }
           .outer {
-            background: var(--outer)
+            background: var(--outer);
           }
           .allrings-container {
             display: flex;
