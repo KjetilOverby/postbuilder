@@ -244,7 +244,8 @@ const PostOppsettComponent = ({
                       <>
                         <div
                           onClick={openEdit ? editModeStartRings : undefined}
-                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
+                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
+                        >
                           <OpenEditComponent openEdit={openEdit}>
                             <>
                               {editBlink.startRings ===
@@ -263,7 +264,8 @@ const PostOppsettComponent = ({
                           </OpenEditComponent>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -292,7 +294,8 @@ const PostOppsettComponent = ({
                           onClick={
                             openEdit ? editModeRawinputHandler : undefined
                           }
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
+                        >
                           <OpenEditComponent openEdit={openEdit}>
                             <>
                               {editBlink.rawInput === "editModeRawInput" && (
@@ -311,7 +314,8 @@ const PostOppsettComponent = ({
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings">
+                            className="ringcomponent rawrings"
+                          >
                             <OpenEditComponent openEdit={openEdit}>
                               <BiAddToQueue
                                 style={{
@@ -398,7 +402,8 @@ const PostOppsettComponent = ({
                           onClick={
                             openEdit ? editModeEndringsHandler : undefined
                           }
-                          className={`outerRingContainer ${editBlink.endRings}`}>
+                          className={`outerRingContainer ${editBlink.endRings}`}
+                        >
                           <OpenEditComponent openEdit={openEdit}>
                             <>
                               {editBlink.endRings === "editModeEndRings" && (
@@ -417,7 +422,8 @@ const PostOppsettComponent = ({
                           </OpenEditComponent>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>

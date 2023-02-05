@@ -30,7 +30,7 @@ const Create = () => {
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
 
-  const [sawbladeSelect, setSawbladeSelect] = useState();
+  const [sawbladeSelect, setSawbladeSelect] = useState<number>();
   const [prosentSelect, setProsentSelect] = useState();
   const [plankeInput, setPlankeInput] = useState();
   const [spesInput, setSpesInput] = useState();
@@ -155,23 +155,30 @@ const Create = () => {
   // SAVE EDITED POST
 
   const saveEditedPostHandler = () => {
-    api.patch(`api/poster/save_edited_post?ids=${postID}`, {
-      header: `${postCopy.planker.length}x${postCopy.planker}${
-        postCopy.prosent
-      }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
-        postCopy.spes === undefined ? "" : postCopy.spes
-      }`,
-      startRings: postCopy.startRings,
-      endRings: postCopy.endRings,
-      prosent: postCopy.prosent,
-      planker: postCopy.planker,
-      spes: postCopy.spes,
-      editDate: new Date(),
-      date: postCopy.date,
-    });
-    setTimeout(() => {
-      setUpdate(!update);
-    }, 1000);
+    api.patch(
+      `api/poster/save_edited_post?ids=${postID}`,
+      {
+        header: `${postCopy.planker.length}x${postCopy.planker}${
+          postCopy.prosent
+        }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
+          postCopy.spes === undefined ? "" : postCopy.spes
+        }`,
+        startRings: postCopy.startRings,
+        endRings: postCopy.endRings,
+        rawInput: postCopy.rawInput,
+        blades: postCopy.blades,
+        prosent: postCopy.prosent,
+        planker: postCopy.planker,
+        spes: postCopy.spes,
+        editDate: new Date(),
+        date: postCopy.date,
+      },
+      {
+        headers: {
+          header1: "teset",
+        },
+      }
+    );
   };
   console.log(postCopy);
 
