@@ -23,6 +23,7 @@ const Create = () => {
   const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
   const [rawOpen, setRawOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [shimsOpen, setShimsOpen] = useState(false);
   const [ringType, setRingType] = useState<string>("");
   const [editBlink, setEditBlink] = useState<any>({
     startRings: "",
@@ -54,6 +55,7 @@ const Create = () => {
     setUtfyllingBakOpen(false);
     setUtfyllingForanOpen(true);
     setDetailsOpen(false);
+    setShimsOpen(false);
     setEditBlink({ startRings: "editModeStartRings" });
     setRingType("startRings");
   };
@@ -62,6 +64,7 @@ const Create = () => {
     setUtfyllingBakOpen(true);
     setUtfyllingForanOpen(false);
     setDetailsOpen(false);
+    setShimsOpen(false);
     setEditBlink({ endRings: "editModeEndRings" });
     setRingType("endRings");
   };
@@ -70,6 +73,7 @@ const Create = () => {
     setUtfyllingBakOpen(false);
     setUtfyllingForanOpen(false);
     setDetailsOpen(false);
+    setShimsOpen(false);
     setEditBlink({ rawInput: "editModeRawInput" });
     setRingType("rawInput");
   };
@@ -78,8 +82,21 @@ const Create = () => {
     setUtfyllingBakOpen(false);
     setUtfyllingForanOpen(false);
     setDetailsOpen(true);
+    setShimsOpen(false);
     setEditBlink({ rawInput: "" });
     setRingType("");
+  };
+  const shimsOpenHandler = () => {
+    setUtfyllingBakOpen(false);
+    setUtfyllingForanOpen(false);
+    setDetailsOpen(false);
+    setEditBlink({ rawInput: "editModeRawInput" });
+    setRingType("rawInput");
+    console.log("testing shims");
+    setTimeout(() => {
+      setShimsOpen(true);
+      setRawOpen(false);
+    }, 100);
   };
 
   useEffect(() => {
@@ -258,6 +275,7 @@ const Create = () => {
           setProsentSelect={setProsentSelect}
           setPlankeInput={setPlankeInput}
           setSpesInput={setSpesInput}
+          shimsOpen={shimsOpen}
         />
         <CreatePostContainer
           postCopy={postCopy}
@@ -275,6 +293,7 @@ const Create = () => {
           utfyllingForanOpenHandler={utfyllingForanOpenHandler}
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
           rawOpenHandler={rawOpenHandler}
+          shimsOpenHandler={shimsOpenHandler}
           setRingType={setRingType}
           detailsOpen={detailsOpen}
           startRingsCalc={startRingsCalc}

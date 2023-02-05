@@ -25,6 +25,7 @@ const LeftSidepanelEdit = ({
   setProsentSelect,
   setPlankeInput,
   setSpesInput,
+  shimsOpen,
 }: any) => {
   return (
     <>
@@ -92,9 +93,9 @@ const LeftSidepanelEdit = ({
             />
           </div>
         )}
-        <div>
-          <h4 className="header">Legg til detaljer:</h4>
-          {detailsOpen && (
+        {detailsOpen && (
+          <div>
+            <h4 className="header">Legg til detaljer:</h4>
             <DetailsInputComponent
               setSawbladeSelect={setSawbladeSelect}
               setUpdate={setUpdate}
@@ -103,8 +104,13 @@ const LeftSidepanelEdit = ({
               setPlankeInput={setPlankeInput}
               setSpesInput={setSpesInput}
             />
-          )}
-        </div>
+          </div>
+        )}
+        {shimsOpen && (
+          <div>
+            <h4>Legg til skims</h4>
+          </div>
+        )}
       </div>
       <style jsx>
         {`

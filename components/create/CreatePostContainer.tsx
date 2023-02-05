@@ -18,6 +18,7 @@ const CreatePostContainer = ({
   utfyllingForanOpenHandler,
   utfyllingBakOpenHandler,
   rawOpenHandler,
+  shimsOpenHandler,
   setRingType,
   detailsOpen,
   startRingsCalc,
@@ -49,6 +50,7 @@ const CreatePostContainer = ({
           utfyllingForanOpenHandler={utfyllingForanOpenHandler}
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
           rawOpenHandler={rawOpenHandler}
+          shimsOpenHandler={shimsOpenHandler}
           setRingType={setRingType}
           detailsOpen={detailsOpen}
           startRingsCalc={startRingsCalc}

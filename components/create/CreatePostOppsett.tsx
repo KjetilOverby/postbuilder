@@ -24,6 +24,7 @@ const CreatePostOppsett = ({
   utfyllingForanOpenHandler,
   utfyllingBakOpenHandler,
   rawOpenHandler,
+  shimsOpenHandler,
   setRingType,
   detailsOpen,
   startRingsCalc,
@@ -339,14 +340,19 @@ const CreatePostOppsett = ({
                             key={item._id}
                             className="ringcomponent rawrings"
                           >
-                            <BiAddToQueue
-                              style={{
-                                position: "absolute",
-                                top: "8rem",
-                                fontSize: "1.5rem",
-                                color: "green",
-                              }}
-                            />
+                            {editBlink.rawInput === "editModeRawInput" && (
+                              <BiAddToQueue
+                                onClick={shimsOpenHandler}
+                                className="add-btn"
+                                style={{
+                                  position: "absolute",
+                                  top: "18rem",
+                                  fontSize: "1.5rem",
+                                  color: "green",
+                                  zIndex: "10000",
+                                }}
+                              />
+                            )}
 
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
@@ -496,6 +502,9 @@ const CreatePostOppsett = ({
       </div>
       <style jsx>
         {`
+          .add-btn:hover {
+            cursor: pointer;
+          }
           .mark {
             border: 2px solid var(--mark);
             border-radius: 5px;
