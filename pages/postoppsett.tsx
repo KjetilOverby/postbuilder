@@ -25,17 +25,6 @@ const postoppsett = ({
   update,
   setUpdate,
 }: any) => {
-  const updatePostHandler = async () => {
-    const response = await api
-      .patch(`/api/poster/posterEdit?ids=${postInfo._id}`, {
-        startRings: postInfo.startRings,
-        endRings: postInfo.endRings,
-      })
-      .then(() => {
-        setUpdate(!update);
-      });
-  };
-
   return (
     <>
       <div className=" h-screen grid relative overflow:hidden main-container">
@@ -46,7 +35,6 @@ const postoppsett = ({
             setUpdate={setUpdate}
             update={update}
             setPostInfo={setPostInfo}
-            updatePostHandler={updatePostHandler}
           />
           <KlasseInfoComponent
             info={finalSkurlisteInfo}

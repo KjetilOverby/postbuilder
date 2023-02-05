@@ -12,7 +12,8 @@ const api = axios.create({
 
 const Create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { postInfo, update, setUpdate, postID } = useContext(ContextAppData);
+  const { postInfo, setPostInfo, update, setUpdate, postID } =
+    useContext(ContextAppData);
 
   const [postCopy, setPostCopy] = useState<any>();
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
@@ -153,32 +154,37 @@ const Create = () => {
   }, [spesInput]);
 
   // SAVE EDITED POST
-
-  const saveEditedPostHandler = () => {
-    api.patch(
-      `api/poster/save_edited_post?ids=${postID}`,
-      {
-        header: `${postCopy.planker.length}x${postCopy.planker}${
-          postCopy.prosent
-        }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
-          postCopy.spes === undefined ? "" : postCopy.spes
-        }`,
-        startRings: postCopy.startRings,
-        endRings: postCopy.endRings,
-        rawInput: postCopy.rawInput,
-        blades: postCopy.blades,
-        prosent: postCopy.prosent,
-        planker: postCopy.planker,
-        spes: postCopy.spes,
-        editDate: new Date(),
-        date: postCopy.date,
-      },
-      {
-        headers: {
-          header1: "teset",
+  const auth = "4564";
+  const saveEditedPostHandler = async () => {
+    const reponse = await api
+      .patch(
+        `api/poster/save_edited_post?ids=${postID}`,
+        {
+          header: `${postCopy.planker.length}x${postCopy.planker}${
+            postCopy.prosent
+          }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
+            postCopy.spes === undefined ? "" : postCopy.spes
+          }`,
+          startRings: postCopy.startRings,
+          endRings: postCopy.endRings,
+          rawInput: postCopy.rawInput,
+          blades: postCopy.blades,
+          prosent: postCopy.prosent,
+          planker: postCopy.planker,
+          spes: postCopy.spes,
+          editDate: new Date(),
+          date: postCopy.date,
         },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${auth}`,
+          },
+        }
+      )
+      .then(() => {
+        console.log("success");
+        setUpdate(!update);
+      });
   };
   console.log(postCopy);
 

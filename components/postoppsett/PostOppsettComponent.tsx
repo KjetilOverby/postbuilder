@@ -13,7 +13,6 @@ const PostOppsettComponent = ({
   update,
   setUpdate,
   setPostInfo,
-  updatePostHandler,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
@@ -209,13 +208,6 @@ const PostOppsettComponent = ({
 
   return (
     <>
-      {/* <OpenEditComponent openEdit={openEdit}>
-        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}
-        updatePostHandler={updatePostHandler}
-    
-        />
-      </OpenEditComponent> */}
-
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
