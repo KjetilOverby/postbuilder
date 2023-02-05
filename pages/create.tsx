@@ -5,6 +5,7 @@ import CreatePostContainer from "../components/create/CreatePostContainer";
 import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 import { v4 as uuidv4, v4 } from "uuid";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -14,6 +15,8 @@ const Create = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { postInfo, setPostInfo, update, setUpdate, postID } =
     useContext(ContextAppData);
+
+  const router = useRouter();
 
   const [postCopy, setPostCopy] = useState<any>();
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
@@ -153,6 +156,20 @@ const Create = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spesInput]);
 
+  // useEffect(() => {
+  //   if (postCopy) {
+  //     setPostCopy({
+  //       ...postCopy,
+  //       header: `${postCopy.planker.length}x${postCopy.planker}${
+  //         postCopy.prosent
+  //       }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
+  //         postCopy.spes === undefined ? "" : postCopy.spes
+  //       }`,
+  //     });
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [spesInput, plankeInput, prosentSelect, sawbladeSelect]);
+
   // SAVE EDITED POST
   const auth = "4564";
   const saveEditedPostHandler = async () => {
@@ -182,8 +199,12 @@ const Create = () => {
         }
       )
       .then(() => {
-        console.log("success");
-        setUpdate(!update);
+        router.push("/postoppsett");
+        setPostInfo(postCopy);
+
+        setTimeout(() => {
+          setUpdate(!update);
+        }, 1000);
       });
   };
   console.log(postCopy);
