@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import useComponentDidMount from "../customHooks/UseComponentDidMount";
 import dateFormat from "dateformat";
-import OpenEditComponent from "./OpenEditComponent";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
 import { ContextAppData } from "../../data/context/ContextAppData";
 
 const PostOppsettComponent = ({
@@ -238,22 +235,6 @@ const PostOppsettComponent = ({
                           onClick={openEdit ? editModeStartRings : undefined}
                           className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
                         >
-                          <OpenEditComponent openEdit={openEdit}>
-                            <>
-                              {editBlink.startRings ===
-                                "editModeStartRings" && (
-                                <RiDeleteBinLine
-                                  onClick={startRingsHandler}
-                                  style={{
-                                    position: "absolute",
-                                    bottom: "8rem",
-                                    fontSize: "1.5rem",
-                                    color: "indianred",
-                                  }}
-                                />
-                              )}
-                            </>
-                          </OpenEditComponent>
                           <div
                             key={item._id}
                             className="ringcomponent fillrings"
@@ -264,14 +245,6 @@ const PostOppsettComponent = ({
                       </>
                     );
                   })}
-                <OpenEditComponent openEdit={openEdit}>
-                  {/* ********************** under line front ************************ */}
-                  <div className="calculate-line all-length-line">
-                    <p className="postcalc-number">
-                      {utfyllingForan && utfyllingForan.toFixed(2)}
-                    </p>
-                  </div>
-                </OpenEditComponent>
               </div>
               <div className="flex relative">
                 {parsedPost &&
@@ -288,36 +261,11 @@ const PostOppsettComponent = ({
                           }
                           className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
                         >
-                          <OpenEditComponent openEdit={openEdit}>
-                            <>
-                              {editBlink.rawInput === "editModeRawInput" && (
-                                <RiDeleteBinLine
-                                  onClick={rawInputHandler}
-                                  style={{
-                                    position: "absolute",
-                                    bottom: "8rem",
-                                    fontSize: "1.5rem",
-                                    color: "indianred",
-                                  }}
-                                />
-                              )}
-                            </>
-                          </OpenEditComponent>
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
                             className="ringcomponent rawrings"
                           >
-                            <OpenEditComponent openEdit={openEdit}>
-                              <BiAddToQueue
-                                style={{
-                                  position: "absolute",
-                                  top: "8rem",
-                                  fontSize: "1.5rem",
-                                  color: "green",
-                                }}
-                              />
-                            </OpenEditComponent>
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -356,15 +304,6 @@ const PostOppsettComponent = ({
                             </p>
                           </div>
                         </div>
-
-                        <OpenEditComponent openEdit={openEdit}>
-                          {/* ********************** under line center ************************ */}
-                          <div className="calculate-line all-length-line">
-                            <p className="postcalc-number">
-                              {postCalc && postCalc.toFixed(2)}
-                            </p>
-                          </div>
-                        </OpenEditComponent>
                       </>
                     );
                   })}
@@ -396,22 +335,6 @@ const PostOppsettComponent = ({
                           }
                           className={`outerRingContainer ${editBlink.endRings}`}
                         >
-                          <OpenEditComponent openEdit={openEdit}>
-                            <>
-                              {editBlink.endRings === "editModeEndRings" && (
-                                <RiDeleteBinLine
-                                  onClick={endRingsHandler}
-                                  style={{
-                                    position: "absolute",
-                                    bottom: "8rem",
-                                    fontSize: "1.5rem",
-                                    color: "indianred",
-                                    zIndex: "1000",
-                                  }}
-                                />
-                              )}
-                            </>
-                          </OpenEditComponent>
                           <div
                             key={item._id}
                             className="ringcomponent fillrings"
@@ -422,28 +345,9 @@ const PostOppsettComponent = ({
                       </>
                     );
                   })}
-                <OpenEditComponent openEdit={openEdit}>
-                  {/* ********************** under line end ************************ */}
-                  <div className="calculate-line all-length-line">
-                    <p className="postcalc-number">
-                      {utfyllingBak && utfyllingBak.toFixed(2)}
-                    </p>
-                  </div>
-                </OpenEditComponent>
               </div>
             </div>
           </div>
-          {/*   <div
-            onClick={openEditHandler}
-            className="icon-container"
-          >
-            <FaUserEdit
-              style={{
-                fontSize: "2rem",
-                color: "grey",
-              }}
-            />
-          </div> */}
         </div>
       </div>
       <style jsx>

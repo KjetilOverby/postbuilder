@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   --primary: #151a2c;
-  --primary-text: #29648A;
-  --table-bg: #2E9CCA;
-  --outer: #f66c6c; 
-  --center: #45A29E;
-  --text: #45A29E;
+  --primary-text: #29648a;
+  --table-bg: #2e9cca;
+  --outer: #f66c6c;
+  --center: #45a29e;
+  --text: #45a29e;
   --hover: #88bdbc;
-} */
+}
 :root {
   --primary: #222629;
   --primary-text: #81b094;

@@ -26,6 +26,14 @@ const CreatePostOppsett = ({
   rawOpenHandler,
   setRingType,
   detailsOpen,
+  startRingsCalc,
+  setStartRingsCalc,
+  utfyllingForan,
+  setUtfyllingForan,
+  utfyllingBak,
+  setUtfyllingBak,
+  endRingsCalc,
+  setEndRingsCalc,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
@@ -38,8 +46,6 @@ const CreatePostOppsett = ({
   const [antallBlades, setAntallBlades] = useState<any>();
   const [postCalc, setPostCalc] = useState<any>();
   const [vigg, setVigg] = useState<any>();
-  const [utfyllingForan, setUtfyllingForan] = useState<any>();
-  const [utfyllingBak, setUtfyllingBak] = useState<any>();
 
   const isComponentMounted = useComponentDidMount();
 
@@ -49,7 +55,7 @@ const CreatePostOppsett = ({
   const [ringID, setRingID] = useState();
   const [ringID2, setRingID2] = useState();
 
-  const [cancelEditPost, setCancelEditPost] = useState();
+  const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState();
 
   useEffect(() => {
     if (postInfo) {
@@ -80,9 +86,6 @@ const CreatePostOppsett = ({
     }
   }, [postInfo, update]);
 
-  const [startRingsCalc, setStartRingsCalc] = useState();
-  const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState();
-
   useEffect(() => {
     if (postInfo) {
       setStartRingsCalc(
@@ -92,9 +95,8 @@ const CreatePostOppsett = ({
         )
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postInfo, update]);
-
-  const [endRingsCalc, setEndRingsCalc] = useState();
 
   useEffect(() => {
     if (postInfo) {
@@ -105,6 +107,7 @@ const CreatePostOppsett = ({
         )
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postInfo, update]);
 
   /* useEffect(() => {
@@ -192,74 +195,11 @@ const CreatePostOppsett = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringID2]);
 
-  console.log(ringID);
-
-  // useEffect(() => {
-  //   if (postInfo) {
-  //     if (ringType === "startRings") {
-  //       const newList = postInfo.startRings.filter(
-  //         (item: any) => item.id && item.id !== ringID
-  //       );
-  //       setPostInfo({ ...postInfo, startRings: newList });
-  //     } else if (ringType === "endRings") {
-  //       const newList = postInfo.endRings.filter(
-  //         (item: any) => item.id && item.id !== ringID
-  //       );
-  //       setPostInfo({ ...postInfo, endRings: newList });
-  //     } else if (ringType === "rawInput") {
-  //       const newList = postInfo.rawInput.filter(
-  //         (item: any) => item.id && item.id !== ringID
-  //       );
-  //       setPostInfo({ ...postInfo, rawInput: newList });
-  //     }
-  //   }
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [ringID]);
-
-  const openEditHandler = () => {
-    setOpenEdit(true);
-    setCancelEditPost(postInfo);
-  };
-
-  const cancelEditMode = () => {
-    setOpenEdit(false);
-    setPostInfo(cancelEditPost);
-    //setEditBlink({ startRings: "" });
-  };
-
-  // OLD CODE?
-
-  //const [ringPanelNumber, setRingPanelNumber] = useState();
-  // useEffect(() => {
-  //   if (ringPanelNumber && ringType === "startRings") {
-  //     setPostInfo({
-  //       ...postInfo,
-  //       startRings: [...postInfo.startRings, { input: ringPanelNumber }],
-  //     });
-  //   } else if (ringPanelNumber && ringType === "endRings") {
-  //     setPostInfo({
-  //       ...postInfo,
-  //       endRings: [...postInfo.endRings, { input: ringPanelNumber }],
-  //     });
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [ringType, ringPanelNumber]);
-
-  console.log(postInfo);
-
   const bladStammeFixed =
     Number(postInfo && postInfo.blades.bladStamme) + Number(1.4);
 
   return (
     <>
-      {/* <OpenEditComponent openEdit={openEdit}>
-        <LeftSidepanelEdit cancel={cancelEditMode} editModeStartRings={editModeStartRings} editModeEndRings={editModeEndringsHandler} editModeRawInput={editModeRawinputHandler} editBlink={editBlink} setRingPanelNumber={setRingPanelNumber} setUpdate={setUpdate} update={update} setPostInfo={setPostInfo} postInfo={postInfo}
-        updatePostHandler={updatePostHandler}
-    
-        />
-      </OpenEditComponent> */}
-
       <div className="">
         <div className="grid place-items-center h-screen">
           <div className="absolute postoppsettHeader">
@@ -552,17 +492,6 @@ const CreatePostOppsett = ({
               </div>
             </div>
           </div>
-          {/*   <div
-            onClick={openEditHandler}
-            className="icon-container"
-          >
-            <FaUserEdit
-              style={{
-                fontSize: "2rem",
-                color: "grey",
-              }}
-            />
-          </div> */}
         </div>
       </div>
       <style jsx>
@@ -612,7 +541,6 @@ const CreatePostOppsett = ({
             color: white;
           }
           .fillrings {
-            background-image: linear-gradient(to top, #3fd2c7 0%, #99ddff 100%);
             background: var(--outer2);
             color: var(--outer-text2);
           }
@@ -620,7 +548,6 @@ const CreatePostOppsett = ({
             min-width: 10rem;
           }
           .rawrings {
-            background-image: linear-gradient(45deg, #de9e48 0%, #e1e2e2 100%);
             background: var(--center2);
             color: var(--center-text2);
             display: flex;

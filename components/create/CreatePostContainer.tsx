@@ -20,6 +20,14 @@ const CreatePostContainer = ({
   rawOpenHandler,
   setRingType,
   detailsOpen,
+  startRingsCalc,
+  setStartRingsCalc,
+  utfyllingForan,
+  setUtfyllingForan,
+  utfyllingBak,
+  setUtfyllingBak,
+  endRingsCalc,
+  setEndRingsCalc,
 }: any) => {
   return (
     <>
@@ -43,6 +51,14 @@ const CreatePostContainer = ({
           rawOpenHandler={rawOpenHandler}
           setRingType={setRingType}
           detailsOpen={detailsOpen}
+          startRingsCalc={startRingsCalc}
+          setStartRingsCalc={setStartRingsCalc}
+          utfyllingForan={utfyllingForan}
+          setUtfyllingForan={setUtfyllingForan}
+          utfyllingBak={utfyllingBak}
+          setUtfyllingBak={setUtfyllingBak}
+          endRingsCalc={endRingsCalc}
+          setEndRingsCalc={setEndRingsCalc}
         />
       </div>
       <style jsx>{``}</style>

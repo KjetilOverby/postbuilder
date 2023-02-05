@@ -39,6 +39,11 @@ const Create = () => {
   const [plankeInput, setPlankeInput] = useState();
   const [spesInput, setSpesInput] = useState();
 
+  const [startRingsCalc, setStartRingsCalc] = useState<any>();
+  const [utfyllingForan, setUtfyllingForan] = useState<any>();
+  const [utfyllingBak, setUtfyllingBak] = useState<any>();
+  const [endRingsCalc, setEndRingsCalc] = useState<any>();
+
   useEffect(() => {
     setPostCopy(postInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -171,41 +176,56 @@ const Create = () => {
   // }, [spesInput, plankeInput, prosentSelect, sawbladeSelect]);
 
   // SAVE EDITED POST
+
+  console.log(utfyllingForan - startRingsCalc);
+
   const auth = "4564";
   const saveEditedPostHandler = async () => {
-    const reponse = await api
-      .patch(
-        `api/poster/save_edited_post?ids=${postID}`,
-        {
-          header: `${postCopy.planker.length}x${postCopy.planker}${
-            postCopy.prosent
-          }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
-            postCopy.spes === undefined ? "" : postCopy.spes
-          }`,
-          startRings: postCopy.startRings,
-          endRings: postCopy.endRings,
-          rawInput: postCopy.rawInput,
-          blades: postCopy.blades,
-          prosent: postCopy.prosent,
-          planker: postCopy.planker,
-          spes: postCopy.spes,
-          editDate: new Date(),
-          date: postCopy.date,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${auth}`,
+    if (!postCopy.planker) {
+      alert("Du må legge inn planketykkelse!");
+    } else if (!postCopy.prosent) {
+      alert("Du må legge inn prosent!");
+    } else if (
+      utfyllingForan - startRingsCalc > 0.05 ||
+      utfyllingForan - startRingsCalc < -0.05
+    ) {
+      alert("Utfylling foran er ikke riktig");
+    } else if (
+      utfyllingBak - endRingsCalc > 0.05 ||
+      utfyllingBak - endRingsCalc < -0.05
+    ) {
+      alert("Utfylling bak er ikke riktig");
+    } else {
+      const reponse = await api
+        .patch(
+          `api/poster/save_edited_post?ids=${postID}`,
+          {
+            header: `${postCopy.planker.length}x${postCopy.planker}${
+              postCopy.prosent
+            }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
+              postCopy.spes === undefined ? "" : postCopy.spes
+            }`,
+            startRings: postCopy.startRings,
+            endRings: postCopy.endRings,
+            rawInput: postCopy.rawInput,
+            blades: postCopy.blades,
+            prosent: postCopy.prosent,
+            planker: postCopy.planker,
+            spes: postCopy.spes,
+            editDate: new Date(),
+            date: postCopy.date,
           },
-        }
-      )
-      .then(() => {
-        router.push("/postoppsett");
-        setPostInfo(postCopy);
-
-        setTimeout(() => {
+          {
+            headers: {
+              Authorization: `Bearer ${auth}`,
+            },
+          }
+        )
+        .then(() => {
+          router.push("/");
           setUpdate(!update);
-        }, 1000);
-      });
+        });
+    }
   };
   console.log(postCopy);
 
@@ -257,6 +277,14 @@ const Create = () => {
           rawOpenHandler={rawOpenHandler}
           setRingType={setRingType}
           detailsOpen={detailsOpen}
+          startRingsCalc={startRingsCalc}
+          setStartRingsCalc={setStartRingsCalc}
+          utfyllingForan={utfyllingForan}
+          setUtfyllingForan={setUtfyllingForan}
+          utfyllingBak={utfyllingBak}
+          setUtfyllingBak={setUtfyllingBak}
+          endRingsCalc={endRingsCalc}
+          setEndRingsCalc={setEndRingsCalc}
         />
       </div>
       <style jsx>

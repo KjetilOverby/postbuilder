@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [update]);
 
   useEffect(() => {
     (async () => {
