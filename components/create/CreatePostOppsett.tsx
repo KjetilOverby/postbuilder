@@ -35,6 +35,7 @@ const CreatePostOppsett = ({
   setUtfyllingBak,
   endRingsCalc,
   setEndRingsCalc,
+  setRawRingID,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
@@ -309,6 +310,12 @@ const CreatePostOppsett = ({
                       setRingType("rawInput");
                       setUpdate(!update);
                     };
+
+                    const openRawInputShimsHandler = () => {
+                      setRawRingID(item.input);
+                      shimsOpenHandler();
+                    };
+
                     return (
                       <>
                         <div
@@ -342,7 +349,7 @@ const CreatePostOppsett = ({
                           >
                             {editBlink.rawInput === "editModeRawInput" && (
                               <BiAddToQueue
-                                onClick={shimsOpenHandler}
+                                onClick={openRawInputShimsHandler}
                                 className="add-btn"
                                 style={{
                                   position: "absolute",
@@ -354,16 +361,17 @@ const CreatePostOppsett = ({
                               />
                             )}
 
-                            {(item.input && item.input + 1.4).toFixed(1)}
+                            {/* {(item.input && item.input + 1.4).toFixed(1)} */}
+                            {item.input && item.input + 1.4}
                           </div>
                           {item.ring && (
                             <div className="shims-container">
                               <p className="shims shims1">{item.ring}</p>
                               <p className="shims shims2">
                                 {(
-                                  item.input +
-                                  1.4 -
-                                  item.ring -
+                                  Number(item.input) +
+                                  Number(1.4) -
+                                  Number(item.ring) -
                                   Number(
                                     item.shims2 != undefined && item.shims2
                                   )

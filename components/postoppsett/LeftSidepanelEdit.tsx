@@ -26,6 +26,7 @@ const LeftSidepanelEdit = ({
   setPlankeInput,
   setSpesInput,
   shimsOpen,
+  setShimsValue,
 }: any) => {
   return (
     <>
@@ -108,7 +109,15 @@ const LeftSidepanelEdit = ({
         )}
         {shimsOpen && (
           <div>
-            <h4>Legg til skims</h4>
+            <h4 className="header">Legg til skims</h4>
+            <RingPanelComponent
+              list={ringlist}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+              setRingPanelNumber={setShimsValue}
+            />
           </div>
         )}
       </div>

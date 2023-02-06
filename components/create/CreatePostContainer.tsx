@@ -29,6 +29,7 @@ const CreatePostContainer = ({
   setUtfyllingBak,
   endRingsCalc,
   setEndRingsCalc,
+  setRawRingID,
 }: any) => {
   return (
     <>
@@ -61,6 +62,7 @@ const CreatePostContainer = ({
           setUtfyllingBak={setUtfyllingBak}
           endRingsCalc={endRingsCalc}
           setEndRingsCalc={setEndRingsCalc}
+          setRawRingID={setRawRingID}
         />
       </div>
       <style jsx>{``}</style>

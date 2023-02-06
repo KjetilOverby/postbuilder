@@ -34,6 +34,8 @@ const Create = () => {
   const [ringPanelNumber, setRingPanelNumber] = useState();
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
+  const [shimsValue, setShimsValue] = useState();
+  const [rawRingID, setRawRingID] = useState();
 
   const [sawbladeSelect, setSawbladeSelect] = useState<number>();
   const [prosentSelect, setProsentSelect] = useState();
@@ -178,6 +180,23 @@ const Create = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spesInput]);
 
+  const filteredData =
+    postCopy &&
+    postCopy.rawInput.filter((item: any) => item.input === rawRingID);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        rawInput: [...filteredData, filteredData.push({ input: 10 })],
+      });
+    }
+    setUpdate(!update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shimsValue]);
+  // PROBLEM
+  console.log(filteredData);
+
   // useEffect(() => {
   //   if (postCopy) {
   //     setPostCopy({
@@ -276,6 +295,7 @@ const Create = () => {
           setPlankeInput={setPlankeInput}
           setSpesInput={setSpesInput}
           shimsOpen={shimsOpen}
+          setShimsValue={setShimsValue}
         />
         <CreatePostContainer
           postCopy={postCopy}
@@ -304,6 +324,7 @@ const Create = () => {
           setUtfyllingBak={setUtfyllingBak}
           endRingsCalc={endRingsCalc}
           setEndRingsCalc={setEndRingsCalc}
+          setRawRingID={setRawRingID}
         />
       </div>
       <style jsx>
