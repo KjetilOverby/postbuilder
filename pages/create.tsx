@@ -6,6 +6,7 @@ import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 import { v4 as uuidv4, v4 } from "uuid";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { log } from "console";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -180,22 +181,41 @@ const Create = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spesInput]);
 
-  const filteredData =
-    postCopy &&
-    postCopy.rawInput.filter((item: any) => item.input === rawRingID);
+  const [filteredData, setFilterData] = useState<any>();
+  const [newArray, setNewArray] = useState<any>([]);
+  const [updataShims, setUpdateShims] = useState(false);
 
   useEffect(() => {
     if (postCopy) {
+      setFilterData(
+        postCopy.rawInput.filter((item: any) => item.input === rawRingID)
+      );
+    }
+  }, [rawRingID]);
+
+  useEffect(() => {
+    if (filteredData) {
+      filteredData.forEach((element: any) => {
+        newArray.push({ ...element, ring: shimsValue });
+      });
+    }
+    setUpdateShims(!updataShims);
+  }, [shimsValue]);
+
+  console.log(filteredData);
+
+  /*   useEffect(() => {
+    if (postCopy) {
       setPostCopy({
         ...postCopy,
-        rawInput: [...filteredData, filteredData.push({ input: 10 })],
+        rawInput: [...newArray],
       });
     }
     setUpdate(!update);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shimsValue]);
-  // PROBLEM
-  console.log(filteredData);
+  }, [updataShims]); */
+
+  console.log(newArray);
 
   // useEffect(() => {
   //   if (postCopy) {
