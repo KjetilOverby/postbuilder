@@ -185,7 +185,7 @@ const Create = () => {
 
   const [filteredData, setFilterData] = useState<any>();
   const [newArray, setNewArray] = useState<any>([]);
-  const [updataShims, setUpdateShims] = useState(false);
+  const [updateShims, setUpdateShims] = useState(false);
 
   useEffect(() => {
     if (postCopy) {
@@ -198,10 +198,13 @@ const Create = () => {
   useEffect(() => {
     if (filteredData) {
       filteredData.forEach((element: any) => {
-        newArray.push({ ...element, ring: shimsValue });
+        if (shimsValue) {
+          newArray.push({ ...element, ring: shimsValue });
+        }
       });
     }
-  }, [shimsValue]);
+    console.log(newArray);
+  }, [shimsValue, updateShims]);
 
   console.log(filteredData);
 
@@ -348,6 +351,10 @@ const Create = () => {
             filteredData={filteredData}
             ringList={ringList}
             setShimsValue={setShimsValue}
+            setOpenShims={setShimsOpen}
+            openShims={shimsOpen}
+            setUpdateShims={setUpdateShims}
+            updateShims={updateShims}
           />
         )}
       </div>
