@@ -7,6 +7,8 @@ import { v4 as uuidv4, v4 } from "uuid";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { log } from "console";
+import CreateShimsModal from "../components/create/CreateShimsModal";
+import ringList from "../data/ringList";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -95,7 +97,7 @@ const Create = () => {
     setDetailsOpen(false);
     setEditBlink({ rawInput: "editModeRawInput" });
     setRingType("rawInput");
-    console.log("testing shims");
+
     setTimeout(() => {
       setShimsOpen(true);
       setRawOpen(false);
@@ -199,7 +201,6 @@ const Create = () => {
         newArray.push({ ...element, ring: shimsValue });
       });
     }
-    setUpdateShims(!updataShims);
   }, [shimsValue]);
 
   console.log(filteredData);
@@ -214,8 +215,6 @@ const Create = () => {
     setUpdate(!update);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updataShims]); */
-
-  console.log(newArray);
 
   // useEffect(() => {
   //   if (postCopy) {
@@ -232,8 +231,6 @@ const Create = () => {
   // }, [spesInput, plankeInput, prosentSelect, sawbladeSelect]);
 
   // SAVE EDITED POST
-
-  console.log(utfyllingForan - startRingsCalc);
 
   const auth = "4564";
   const saveEditedPostHandler = async () => {
@@ -283,7 +280,6 @@ const Create = () => {
         });
     }
   };
-  console.log(postCopy);
 
   return (
     <>
@@ -346,6 +342,14 @@ const Create = () => {
           setEndRingsCalc={setEndRingsCalc}
           setRawRingID={setRawRingID}
         />
+        {shimsOpen && (
+          <CreateShimsModal
+            newArray={newArray}
+            filteredData={filteredData}
+            ringList={ringList}
+            setShimsValue={setShimsValue}
+          />
+        )}
       </div>
       <style jsx>
         {`
