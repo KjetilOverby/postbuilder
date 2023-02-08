@@ -233,6 +233,13 @@ const Create = () => {
       utfyllingBak - endRingsCalc < -0.05
     ) {
       alert("Utfylling bak er ikke riktig");
+    } else if (
+      postCopy.header ===
+      `${postCopy.rawInput.length}x${postCopy.planker}${postCopy.prosent}${(
+        Number(postCopy.blades.bladStamme) + Number(1.4)
+      ).toFixed(1)}${postCopy.spes === undefined ? "" : postCopy.spes}`
+    ) {
+      alert("Kan ikke lagre for denne postoverskriften finnes fra før");
     } else {
       const reponse = await api
         .post(
@@ -264,6 +271,7 @@ const Create = () => {
         .then(() => {
           router.push("/");
           setUpdate(!update);
+          alert("Posten ble lagret!");
         });
     }
   };
@@ -317,6 +325,7 @@ const Create = () => {
         .then(() => {
           router.push("/");
           setUpdate(!update);
+          alert("Posten er oppdatert!");
         });
     }
   };
@@ -338,6 +347,7 @@ const Create = () => {
         setOpenDeleteModal(false);
         setUpdate(!update);
         router.push("/");
+        alert("Posten ble slettet!");
       });
   };
 
