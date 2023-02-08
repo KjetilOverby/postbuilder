@@ -248,8 +248,7 @@ const CreatePostOppsett = ({
                           onClick={
                             openEdit ? utfyllingForanOpenHandler : undefined
                           }
-                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
-                        >
+                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
                           <>
                             {editBlink.startRings === "editModeStartRings" && (
                               <RiDeleteBinLine
@@ -266,8 +265,7 @@ const CreatePostOppsett = ({
 
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -284,8 +282,7 @@ const CreatePostOppsett = ({
                       utfyllingForan - startRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
-                    }`}
-                  >
+                    }`}>
                     <h4>
                       Sum: {Number(startRingsCalc && startRingsCalc).toFixed(2)}
                     </h4>
@@ -312,7 +309,7 @@ const CreatePostOppsett = ({
                     };
 
                     const openRawInputShimsHandler = () => {
-                      setRawRingID(item.input);
+                      setRawRingID(item._id ? item._id : item.id);
                       shimsOpenHandler();
                     };
 
@@ -320,8 +317,7 @@ const CreatePostOppsett = ({
                       <>
                         <div
                           onClick={openEdit ? rawOpenHandler : undefined}
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
-                        >
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
                           <>
                             {editBlink.rawInput === "editModeRawInput" && (
                               <RiDeleteBinLine
@@ -339,14 +335,12 @@ const CreatePostOppsett = ({
                           <p
                             className={`absolute rawInput ${
                               rawOpen ? "mark" : ""
-                            }`}
-                          >
+                            }`}>
                             {item.input}
                           </p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings"
-                          >
+                            className="ringcomponent rawrings">
                             {editBlink.rawInput === "editModeRawInput" && (
                               <BiAddToQueue
                                 onClick={openRawInputShimsHandler}
@@ -393,20 +387,17 @@ const CreatePostOppsett = ({
                           <div
                             className={`sawBlade bg-slate-500 ${
                               detailsOpen ? "sawblade-mark" : ""
-                            }`}
-                          >
+                            }`}>
                             <p
                               className={`bladstamme ${
                                 detailsOpen ? "mark" : ""
-                              }`}
-                            >
+                              }`}>
                               {postInfo && postInfo.blades.bladStamme}
                             </p>
                             <p
                               className={`sagsnitt ${
                                 detailsOpen ? "mark" : ""
-                              }`}
-                            >
+                              }`}>
                               {postInfo && bladStammeFixed.toFixed(1)}
                             </p>
                           </div>
@@ -426,8 +417,7 @@ const CreatePostOppsett = ({
                 <div
                   className={`sawBlade2 bg-slate-500 ${
                     detailsOpen ? "sawblade-mark" : ""
-                  }`}
-                >
+                  }`}>
                   <p className={`bladstamme ${detailsOpen ? "mark" : ""}`}>
                     {postInfo && postInfo.blades.bladStamme}
                   </p>
@@ -451,8 +441,7 @@ const CreatePostOppsett = ({
                           onClick={
                             openEdit ? utfyllingBakOpenHandler : undefined
                           }
-                          className={`outerRingContainer ${editBlink.endRings}`}
-                        >
+                          className={`outerRingContainer ${editBlink.endRings}`}>
                           <>
                             {editBlink.endRings === "editModeEndRings" && (
                               <RiDeleteBinLine
@@ -470,8 +459,7 @@ const CreatePostOppsett = ({
 
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -488,8 +476,7 @@ const CreatePostOppsett = ({
                       utfyllingBak - endRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
-                    }`}
-                  >
+                    }`}>
                     <h4>
                       Sum: {Number(endRingsCalc && endRingsCalc).toFixed(2)}
                     </h4>

@@ -189,18 +189,31 @@ const Create = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spesInput]);
 
-  const [filteredData, setFilterData] = useState<any>();
+  const [filteredData, setFilterData] = useState<any>({});
   const [newArray, setNewArray] = useState<any>([]);
   const [updateShims, setUpdateShims] = useState(false);
 
   useEffect(() => {
     if (postCopy) {
       setFilterData(
-        postCopy.rawInput.filter((item: any) => item.input === rawRingID)
+        postCopy.rawInput.filter(
+          (item: any) => item._id === rawRingID || item.id === rawRingID
+        )
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawRingID]);
+
+  console.log(rawRingID);
+  console.log(filteredData);
+
+  useEffect(() => {
+    if (filteredData) {
+      setFilterData({ ...filteredData, ring: shimsValue });
+    }
+    console.log(newArray);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shimsValue]);
 
   // useEffect(() => {
   //   if (filteredData) {
@@ -212,7 +225,7 @@ const Create = () => {
   //   }
   //   console.log(newArray);
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [shimsValue, updateShims]);
+  // }, [shimsValue]);
 
   console.log(filteredData);
 
@@ -349,10 +362,6 @@ const Create = () => {
         router.push("/");
         alert("Posten ble slettet!");
       });
-  };
-
-  const openDeleteModalHandler = () => {
-    setOpenDeleteModal(true);
   };
 
   return (

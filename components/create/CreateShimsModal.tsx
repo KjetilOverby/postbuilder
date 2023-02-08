@@ -12,25 +12,24 @@ const CreateShimsModal = ({
   return (
     <>
       <div className="main-container">
-        {/* <div className="ringpanel-container">
+        <div className="ringpanel-container">
           <RingPanelComponent
             list={ringList}
             setRingPanelNumber={setShimsValue}
-            setUpdateShims={setUpdateShims}
-            updateShims={updateShims}
           />
           <button
             onClick={() => setOpenShims(!openShims)}
             className="text-slate-200">
             Avbryt
           </button>
-        </div> */}
-        {/* <div className="ring-container">
-          <p className="text-slate-200">{filteredData[0].input}</p>
+        </div>
+        <div className="ring-container">
+          <p className="text-slate-200">{filteredData.input}</p>
           <p className="text-slate-300">
-            {newArray && newArray[0] !== undefined && newArray[0].ring}
+            {/* {newArray && newArray[0] !== undefined && newArray[0].ring} */}
+            {filteredData && filteredData.ring}
           </p>
-        </div> */}
+        </div>
       </div>
       <style jsx>
         {`
