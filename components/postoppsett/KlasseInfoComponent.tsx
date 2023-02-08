@@ -3,9 +3,11 @@ import { BsBackspace } from "react-icons/bs";
 import { MdSettings } from "react-icons/md";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import AuthWrapper from "../auth/AuthWrapper";
 
 const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
+
   return (
     <>
       <div className="absolute top-4 left-4">
@@ -61,12 +63,18 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
             )}
           </>
         )}
-        <Link href="/create">
-          <MdSettings
-            onClick={() => setOpenEdit(true)}
-            style={{ color: "grey", fontSize: "2rem", marginTop: "2rem" }}
-          />
-        </Link>
+        <AuthWrapper>
+          <Link href="/create">
+            <MdSettings
+              onClick={() => setOpenEdit(true)}
+              style={{
+                color: "var(--primary)",
+                fontSize: "2rem",
+                marginTop: "2rem",
+              }}
+            />
+          </Link>
+        </AuthWrapper>
       </div>
       <style jsx>
         {`

@@ -6,7 +6,6 @@ import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 import { v4 as uuidv4, v4 } from "uuid";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { log } from "console";
 import CreateShimsModal from "../components/create/CreateShimsModal";
 import ringList from "../data/ringList";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -247,8 +246,7 @@ const Create = () => {
             prosent: postCopy.prosent,
             planker: postCopy.planker,
             spes: postCopy.spes,
-            editDate: new Date(),
-            date: postCopy.date,
+            date: new Date(),
           },
           {
             headers: {
@@ -329,9 +327,9 @@ const Create = () => {
         console.log(error);
       })
       .then(() => {
-        router.push("/");
         setOpenDeleteModal(false);
         setUpdate(!update);
+        router.push("/");
       });
   };
 

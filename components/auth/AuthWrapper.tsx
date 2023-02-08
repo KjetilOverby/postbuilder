@@ -11,14 +11,16 @@ const AuthWrapper = ({ children }: AuthProps) => {
   const { user, isAuthenticated } = useAuth0();
   const homepage = "/";
   const router = useRouter();
+  console.log(user);
+
   return (
     <div>
       {user && user.sub === process.env.USER_SUB && children}
-      {!user && router.pathname !== homepage && (
+      {/* {!user && router.pathname !== homepage && (
         <div>
           <h1>Du er ikke innkogget!</h1> <LoginButton />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

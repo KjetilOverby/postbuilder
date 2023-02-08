@@ -7,25 +7,18 @@ const RingPanelComponent = ({
   update,
   postInfo,
   setPostInfo,
-  setUpdateShims,
-  updateShims,
 }: any) => {
   return (
     <>
       <p className="text-teal-100">Små ringer</p>
       <div className="ringlist-container">
         {list.small.map((item: any) => {
-          const testing = () => {
-            setRingPanelNumber(item);
-            setTimeout(() => {
-              setUpdateShims(!updateShims);
-            }, 200);
-          };
           return (
             <div
               key={item._id}
-              onClick={testing}
-              className="ringvalue-container">
+              onClick={() => setRingPanelNumber(item)}
+              className="ringvalue-container"
+            >
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -38,7 +31,8 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container">
+              className="ringvalue-container"
+            >
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -51,7 +45,8 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container">
+              className="ringvalue-container"
+            >
               <p className="text-teal-100">{item}</p>
             </div>
           );
