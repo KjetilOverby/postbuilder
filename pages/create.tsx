@@ -53,6 +53,9 @@ const Create = () => {
   const [utfyllingBak, setUtfyllingBak] = useState<any>();
   const [endRingsCalc, setEndRingsCalc] = useState<any>();
 
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [openEditSaveModal, setOpenEditSaveModal] = useState(false);
+
   useEffect(() => {
     setPostCopy(postInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -320,8 +323,6 @@ const Create = () => {
 
   //********** DELETE POSTS *************//
 
-  const [openDeleteModal, setOpenDeleteModal] = useState(false);
-
   const home = "/";
 
   const deletePostHandler = async () => {
@@ -349,16 +350,31 @@ const Create = () => {
       <div className="create-container">
         {openDeleteModal && (
           <Modal
-            title="Er du sikker på å slette denne posten?"
+            title="SLETT POST"
             actionBtnTitle="Slett"
             fn={deletePostHandler}
             cancelHandler={() => setOpenDeleteModal(false)}
+            description={`Er du sikker på å slette: ${
+              postCopy.rawInput.length
+            }x${postCopy.planker}${postCopy.prosent}${(
+              Number(postCopy.blades.bladStamme) + Number(1.4)
+            ).toFixed(1)}${postCopy.spes === undefined ? "" : postCopy.spes}?`}
+          />
+        )}
+
+        {openEditSaveModal && (
+          <Modal
+            title="OPPDATER POSTEN"
+            description="ADVARSEL: Ved og oppdatere overskriver du opprinnelige data for denne posten."
+            actionBtnTitle="OPPDATER"
+            fn={saveEditedPostHandler}
+            cancelHandler={() => setOpenEditSaveModal(false)}
           />
         )}
         <CreateHeader
-          saveEditedPostHandler={saveEditedPostHandler}
           deleteHandler={setOpenDeleteModal}
           saveCreatedPostHandler={saveCreatedPostHandler}
+          setOpenEditSaveModal={setOpenEditSaveModal}
         />
         <LeftSidepanelEdit
           setPostCopy={setPostCopy}
