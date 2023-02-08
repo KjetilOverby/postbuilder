@@ -10,6 +10,7 @@ import CreateShimsModal from "../components/create/CreateShimsModal";
 import ringList from "../data/ringList";
 import { useAuth0 } from "@auth0/auth0-react";
 import Modal from "../components/reusable components/Modal";
+import { log } from "console";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -234,7 +235,7 @@ const Create = () => {
         .post(
           `api/poster/save_created_post?user=${user.sub}`,
           {
-            header: `${postCopy.planker.length}x${postCopy.planker}${
+            header: `${postCopy.rawInput.length}x${postCopy.planker}${
               postCopy.prosent
             }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
               postCopy.spes === undefined ? "" : postCopy.spes
@@ -254,6 +255,9 @@ const Create = () => {
             },
           }
         )
+        .catch((error) => {
+          console.log(error);
+        })
         .then(() => {
           router.push("/");
           setUpdate(!update);
@@ -283,7 +287,7 @@ const Create = () => {
         .patch(
           `api/poster/save_edited_post?ids=${postID}`,
           {
-            header: `${postCopy.planker.length}x${postCopy.planker}${
+            header: `${postCopy.rawInput.length}x${postCopy.planker}${
               postCopy.prosent
             }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
               postCopy.spes === undefined ? "" : postCopy.spes
@@ -304,6 +308,9 @@ const Create = () => {
             },
           }
         )
+        .catch((error) => {
+          console.log(error);
+        })
         .then(() => {
           router.push("/");
           setUpdate(!update);
@@ -315,12 +322,12 @@ const Create = () => {
 
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
+  const home = "/";
+
   const deletePostHandler = async () => {
     const response = await api
       .delete(`/api/poster/deletepost/?del=${postID}&user=${user.sub}`)
       .then((res) => {
-        // setUpdate(Math.random());
-        router.push("/postarkiv");
         setOpenDeleteModal(false);
       })
       .catch((error) => {
