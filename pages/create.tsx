@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { log } from "console";
 import CreateShimsModal from "../components/create/CreateShimsModal";
 import ringList from "../data/ringList";
+import { useAuth0 } from "@auth0/auth0-react";
+import Modal from "../components/reusable components/Modal";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -20,6 +22,7 @@ const Create = () => {
     useContext(ContextAppData);
 
   const router = useRouter();
+  const { user, isAuthenticated } = useAuth0<any>();
 
   const [postCopy, setPostCopy] = useState<any>();
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
@@ -193,47 +196,73 @@ const Create = () => {
         postCopy.rawInput.filter((item: any) => item.input === rawRingID)
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawRingID]);
 
-  useEffect(() => {
-    if (filteredData) {
-      filteredData.forEach((element: any) => {
-        if (shimsValue) {
-          newArray.push({ ...element, ring: shimsValue });
-        }
-      });
-    }
-    console.log(newArray);
-  }, [shimsValue, updateShims]);
+  // useEffect(() => {
+  //   if (filteredData) {
+  //     filteredData.forEach((element: any) => {
+  //       if (shimsValue) {
+  //         newArray.push({ ...element, ring: shimsValue });
+  //       }
+  //     });
+  //   }
+  //   console.log(newArray);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [shimsValue, updateShims]);
 
   console.log(filteredData);
 
-  /*   useEffect(() => {
-    if (postCopy) {
-      setPostCopy({
-        ...postCopy,
-        rawInput: [...newArray],
-      });
+  //********  SAVE CREATED POSTS *************//
+
+  const saveCreatedPostHandler = async () => {
+    if (!postCopy.planker) {
+      alert("Du må legge inn planketykkelse!");
+    } else if (!postCopy.prosent) {
+      alert("Du må legge inn prosent!");
+    } else if (
+      utfyllingForan - startRingsCalc > 0.05 ||
+      utfyllingForan - startRingsCalc < -0.05
+    ) {
+      alert("Utfylling foran er ikke riktig");
+    } else if (
+      utfyllingBak - endRingsCalc > 0.05 ||
+      utfyllingBak - endRingsCalc < -0.05
+    ) {
+      alert("Utfylling bak er ikke riktig");
+    } else {
+      const reponse = await api
+        .post(
+          `api/poster/save_created_post?user=${user.sub}`,
+          {
+            header: `${postCopy.planker.length}x${postCopy.planker}${
+              postCopy.prosent
+            }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
+              postCopy.spes === undefined ? "" : postCopy.spes
+            }`,
+            startRings: postCopy.startRings,
+            endRings: postCopy.endRings,
+            rawInput: postCopy.rawInput,
+            blades: postCopy.blades,
+            prosent: postCopy.prosent,
+            planker: postCopy.planker,
+            spes: postCopy.spes,
+            editDate: new Date(),
+            date: postCopy.date,
+          },
+          {
+            headers: {
+              Authorization: `auth`,
+            },
+          }
+        )
+        .then(() => {
+          router.push("/");
+          setUpdate(!update);
+        });
     }
-    setUpdate(!update);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updataShims]); */
-
-  // useEffect(() => {
-  //   if (postCopy) {
-  //     setPostCopy({
-  //       ...postCopy,
-  //       header: `${postCopy.planker.length}x${postCopy.planker}${
-  //         postCopy.prosent
-  //       }${(Number(postCopy.blades.bladStamme) + Number(1.4)).toFixed(1)}${
-  //         postCopy.spes === undefined ? "" : postCopy.spes
-  //       }`,
-  //     });
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [spesInput, plankeInput, prosentSelect, sawbladeSelect]);
-
-  // SAVE EDITED POST
+  };
+  //********  EDIT && UPDATE POSTS *************//
 
   const auth = "4564";
   const saveEditedPostHandler = async () => {
@@ -284,10 +313,48 @@ const Create = () => {
     }
   };
 
+  //********** DELETE POSTS *************//
+
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+  const deletePostHandler = async () => {
+    const response = await api
+      .delete(`/api/poster/deletepost/?del=${postID}&user=${user.sub}`)
+      .then((res) => {
+        // setUpdate(Math.random());
+        router.push("/postarkiv");
+        setOpenDeleteModal(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .then(() => {
+        router.push("/");
+        setOpenDeleteModal(false);
+        setUpdate(!update);
+      });
+  };
+
+  const openDeleteModalHandler = () => {
+    setOpenDeleteModal(true);
+  };
+
   return (
     <>
       <div className="create-container">
-        <CreateHeader saveEditedPostHandler={saveEditedPostHandler} />
+        {openDeleteModal && (
+          <Modal
+            title="Er du sikker på å slette denne posten?"
+            actionBtnTitle="Slett"
+            fn={deletePostHandler}
+            cancelHandler={() => setOpenDeleteModal(false)}
+          />
+        )}
+        <CreateHeader
+          saveEditedPostHandler={saveEditedPostHandler}
+          deleteHandler={setOpenDeleteModal}
+          saveCreatedPostHandler={saveCreatedPostHandler}
+        />
         <LeftSidepanelEdit
           setPostCopy={setPostCopy}
           postCopy={postCopy}
