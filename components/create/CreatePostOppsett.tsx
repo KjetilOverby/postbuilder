@@ -310,8 +310,6 @@ const CreatePostOppsett = ({
 
                     const openRawInputShimsHandler = () => {
                       setRawRingID(item.input);
-                      /* setRawRingID(item._id ? item._id : item.id); */
-
                       shimsOpenHandler();
                     };
 
@@ -358,7 +356,8 @@ const CreatePostOppsett = ({
                             )}
 
                             {/* {(item.input && item.input + 1.4).toFixed(1)} */}
-                            {item.input && item.input + 1.4}
+                            {item.input &&
+                              (Number(item.input) + Number(1.4)).toFixed(1)}
                           </div>
                           {item.ring && (
                             <div className="shims-container">

@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import ringList from "../data/ringList";
 import { useAuth0 } from "@auth0/auth0-react";
 import Modal from "../components/reusable components/Modal";
-import { log } from "console";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -42,6 +41,8 @@ const Create = () => {
   const [ringPanelNumber, setRingPanelNumber] = useState();
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
+  const [rawManuallyInput, setRawManuallyInput] = useState();
+  const [rawManuallyInputSubmit, setRawManuallyInputSubmit] = useState();
   const [shimsValue, setShimsValue] = useState();
   const [shimsValue2, setShimsValue2] = useState();
   const [rawRingID, setRawRingID] = useState();
@@ -475,6 +476,7 @@ const Create = () => {
           setShimsValue={setShimsValue}
           setShimsValue2={setShimsValue2}
           deleteShimsRing={deleteShimsRing}
+          setRawManuallyInput={setRawManuallyInput}
         />
         <CreatePostContainer
           postCopy={postCopy}

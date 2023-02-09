@@ -32,6 +32,7 @@ const LeftSidepanelEdit = ({
   setShimsValue,
   setShimsValue2,
   deleteShimsRing,
+  setRawManuallyInput,
 }: any) => {
   const shims1openHandler = () => {
     setShims1open(true);
@@ -91,7 +92,12 @@ const LeftSidepanelEdit = ({
         {rawOpen && (
           <div>
             <h4 className="header">Legg til råmål:</h4>
-            <input className="input" type="number" />
+            <input
+              onChange={(e) => setRawManuallyInput(e.target.value)}
+              className="input"
+              type="number"
+            />
+            <button>Legg til</button>
             <RawInputPanel
               raw={rawInputList}
               postInfo={postCopy}
