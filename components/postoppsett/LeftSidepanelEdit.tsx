@@ -26,8 +26,17 @@ const LeftSidepanelEdit = ({
   setPlankeInput,
   setSpesInput,
   shimsOpen,
+  setShimsOpen,
+  setShims1open,
+  shims1open,
   setShimsValue,
+  setShimsValue2,
+  deleteShimsRing,
 }: any) => {
+  const shims1openHandler = () => {
+    setShims1open(true);
+    setShimsOpen(false);
+  };
   return (
     <>
       <div className="sidepanel-container p-5">
@@ -36,8 +45,7 @@ const LeftSidepanelEdit = ({
           <div>
             <button
               onClick={utfyllingForanOpenHandler}
-              className="btn btn-fill"
-            >
+              className="btn btn-fill">
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
@@ -109,7 +117,15 @@ const LeftSidepanelEdit = ({
         )}
         {shimsOpen && (
           <div>
-            <h4 className="header">Legg til skims</h4>
+            <h4 className="header">Legg til ring</h4>
+            <div className="button-box">
+              <button className="shims-btn" onClick={deleteShimsRing}>
+                Slett
+              </button>
+              <button onClick={shims1openHandler} className="shims-btn">
+                Ny shims
+              </button>
+            </div>
             <RingPanelComponent
               list={ringlist}
               postInfo={postCopy}
@@ -117,6 +133,24 @@ const LeftSidepanelEdit = ({
               setUpdate={setUpdate}
               update={update}
               setRingPanelNumber={setShimsValue}
+            />
+          </div>
+        )}
+        {shims1open && (
+          <div>
+            <h4 className="header">Legg til skims</h4>
+            <div className="button-box">
+              <button className="shims-btn" onClick={deleteShimsRing}>
+                Slett
+              </button>
+            </div>
+            <RingPanelComponent
+              list={ringlist}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+              setRingPanelNumber={setShimsValue2}
             />
           </div>
         )}
@@ -140,6 +174,10 @@ const LeftSidepanelEdit = ({
           .btn-details {
             background: var(--outer);
           }
+          .button-box {
+            display: flex;
+            flex-direction: column;
+          }
           .header {
             margin: 1rem 0;
             color: var(--running);
@@ -147,6 +185,10 @@ const LeftSidepanelEdit = ({
           .input {
             background: var(--primary-text);
             margin-bottom: 1rem;
+          }
+          .shims-btn {
+            background: var(--outer);
+            margin-bottom: 0.5rem;
           }
           .sidepanel-container {
             position: absolute;

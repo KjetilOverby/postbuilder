@@ -6,7 +6,6 @@ import LeftSidepanelEdit from "../components/postoppsett/LeftSidepanelEdit";
 import { v4 as uuidv4, v4 } from "uuid";
 import axios from "axios";
 import { useRouter } from "next/router";
-import CreateShimsModal from "../components/create/CreateShimsModal";
 import ringList from "../data/ringList";
 import { useAuth0 } from "@auth0/auth0-react";
 import Modal from "../components/reusable components/Modal";
@@ -29,7 +28,10 @@ const Create = () => {
   const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
   const [rawOpen, setRawOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
+
   const [shimsOpen, setShimsOpen] = useState(false);
+  const [shims1open, setShims1open] = useState(false);
+
   const [ringType, setRingType] = useState<string>("");
   const [editBlink, setEditBlink] = useState<any>({
     startRings: "",
@@ -41,6 +43,7 @@ const Create = () => {
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
   const [shimsValue, setShimsValue] = useState();
+  const [shimsValue2, setShimsValue2] = useState();
   const [rawRingID, setRawRingID] = useState();
 
   const [sawbladeSelect, setSawbladeSelect] = useState<number>();
@@ -101,13 +104,17 @@ const Create = () => {
     setUtfyllingBakOpen(false);
     setUtfyllingForanOpen(false);
     setDetailsOpen(false);
-    setEditBlink({ rawInput: "editModeRawInput" });
-    setRingType("rawInput");
+    setEditBlink({ rawInput: "" });
+    setRingType("");
 
     setTimeout(() => {
-      setShimsOpen(true);
       setRawOpen(false);
-    }, 100);
+      if (shims1open) {
+        setShimsOpen(false);
+      } else {
+        setShimsOpen(true);
+      }
+    }, 1);
   };
 
   useEffect(() => {
@@ -192,37 +199,81 @@ const Create = () => {
   //****************************************************************************** */
 
   const [filteredData, setFilterData] = useState<any>({});
-  const [newArray, setNewArray] = useState<any>([]);
-  const [updateShims, setUpdateShims] = useState(false);
 
-  // useEffect(() => {
-  //   if (postCopy) {
-  //     setFilterData(
-  //       postCopy.rawInput.filter(
-  //         (item: any) => item._id === rawRingID || item.id === rawRingID
-  //       )
-  //     );
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [rawRingID]);
+  useEffect(() => {
+    if (postCopy) {
+      setFilterData(
+        postCopy.rawInput.filter((item: any) => item.input === rawRingID)
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rawRingID]);
+
+  useEffect(() => {
+    if (filteredData[0] && filteredData[0] !== undefined) {
+      setFilterData((filteredData[0].ring = shimsValue));
+    }
+    if (filteredData[1] && filteredData[1] !== undefined) {
+      setFilterData((filteredData[1].ring = shimsValue));
+    }
+    if (filteredData[2] && filteredData[2] !== undefined) {
+      setFilterData((filteredData[2].ring = shimsValue));
+    }
+    if (filteredData[3] && filteredData[3] !== undefined) {
+      setFilterData((filteredData[3].ring = shimsValue));
+    }
+    if (filteredData[4] && filteredData[4] !== undefined) {
+      setFilterData((filteredData[4].ring = shimsValue));
+    }
+    setRawRingID(undefined);
+  }, [shimsValue]);
+
+  useEffect(() => {
+    if (filteredData[0] && filteredData[0] !== undefined) {
+      setFilterData((filteredData[0].shims2 = shimsValue2));
+    }
+    if (filteredData[1] && filteredData[1] !== undefined) {
+      setFilterData((filteredData[1].shims2 = shimsValue2));
+    }
+    if (filteredData[2] && filteredData[2] !== undefined) {
+      setFilterData((filteredData[2].shims2 = shimsValue2));
+    }
+    if (filteredData[3] && filteredData[3] !== undefined) {
+      setFilterData((filteredData[3].shims2 = shimsValue2));
+    }
+    if (filteredData[4] && filteredData[4] !== undefined) {
+      setFilterData((filteredData[4].shims2 = shimsValue2));
+    }
+    setRawRingID(undefined);
+  }, [shimsValue2]);
+
+  const deleteShimsRing = () => {
+    if (filteredData[0]) {
+      setFilterData((filteredData[0].ring = undefined));
+      setFilterData((filteredData[0].shims2 = undefined));
+    }
+    if (filteredData[1]) {
+      setFilterData((filteredData[1].ring = undefined));
+      setFilterData((filteredData[1].shims2 = undefined));
+    }
+    if (filteredData[2]) {
+      setFilterData((filteredData[2].ring = undefined));
+      setFilterData((filteredData[2].shims2 = undefined));
+    }
+    if (filteredData[3]) {
+      setFilterData((filteredData[3].ring = undefined));
+      setFilterData((filteredData[3].shims2 = undefined));
+    }
+    if (filteredData[4]) {
+      setFilterData((filteredData[4].ring = undefined));
+      setFilterData((filteredData[4].shims2 = undefined));
+    }
+    setFilterData([]);
+    setShims1open(false);
+    setShimsOpen(true);
+  };
 
   const [rawInputShimsData, setRawInputShimsData] = useState();
-
-  // useEffect(() => {
-  //   if (filteredData) {
-  //     setFilterData({ input: rawInputShimsData, ring: shimsValue });
-  //   }
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [shimsValue]);
-
-  const updateShimsRing = () => {
-    // setPostCopy({
-    //   ...postCopy,
-    //   rawInput: [postCopy.rawInput, filteredData],
-    // });
-    // setShimsOpen(false);
-  };
 
   //****************************************************************************** */
 
@@ -418,7 +469,12 @@ const Create = () => {
           setPlankeInput={setPlankeInput}
           setSpesInput={setSpesInput}
           shimsOpen={shimsOpen}
+          setShimsOpen={setShimsOpen}
+          shims1open={shims1open}
+          setShims1open={setShims1open}
           setShimsValue={setShimsValue}
+          setShimsValue2={setShimsValue2}
+          deleteShimsRing={deleteShimsRing}
         />
         <CreatePostContainer
           postCopy={postCopy}
@@ -449,20 +505,8 @@ const Create = () => {
           setEndRingsCalc={setEndRingsCalc}
           setRawRingID={setRawRingID}
           setRawInputShimsData={setRawInputShimsData}
+          shims1open={shims1open}
         />
-        {shimsOpen && (
-          <CreateShimsModal
-            newArray={newArray}
-            filteredData={filteredData}
-            ringList={ringList}
-            setShimsValue={setShimsValue}
-            setOpenShims={setShimsOpen}
-            openShims={shimsOpen}
-            setUpdateShims={setUpdateShims}
-            updateShims={updateShims}
-            updateShimsRing={updateShimsRing}
-          />
-        )}
       </div>
       <style jsx>
         {`
