@@ -8,6 +8,7 @@ const CreateShimsModal = ({
   setShimsValue,
   setOpenShims,
   openShims,
+  updateShimsRing,
 }: any) => {
   return (
     <>
@@ -19,8 +20,12 @@ const CreateShimsModal = ({
           />
           <button
             onClick={() => setOpenShims(!openShims)}
-            className="text-slate-200">
+            className="text-slate-200"
+          >
             Avbryt
+          </button>
+          <button onClick={updateShimsRing} className="text-slate-200">
+            Lagre
           </button>
         </div>
         <div className="ring-container">

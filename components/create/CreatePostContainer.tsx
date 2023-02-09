@@ -30,6 +30,7 @@ const CreatePostContainer = ({
   endRingsCalc,
   setEndRingsCalc,
   setRawRingID,
+  setRawInputShimsData,
 }: any) => {
   return (
     <>
@@ -63,6 +64,7 @@ const CreatePostContainer = ({
           endRingsCalc={endRingsCalc}
           setEndRingsCalc={setEndRingsCalc}
           setRawRingID={setRawRingID}
+          setRawInputShimsData={setRawInputShimsData}
         />
       </div>
       <style jsx>{``}</style>

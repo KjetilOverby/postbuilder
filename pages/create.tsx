@@ -189,45 +189,42 @@ const Create = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spesInput]);
 
+  //****************************************************************************** */
+
   const [filteredData, setFilterData] = useState<any>({});
   const [newArray, setNewArray] = useState<any>([]);
   const [updateShims, setUpdateShims] = useState(false);
 
-  useEffect(() => {
-    if (postCopy) {
-      setFilterData(
-        postCopy.rawInput.filter(
-          (item: any) => item._id === rawRingID || item.id === rawRingID
-        )
-      );
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rawRingID]);
+  // useEffect(() => {
+  //   if (postCopy) {
+  //     setFilterData(
+  //       postCopy.rawInput.filter(
+  //         (item: any) => item._id === rawRingID || item.id === rawRingID
+  //       )
+  //     );
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [rawRingID]);
 
-  console.log(rawRingID);
-  console.log(filteredData);
-
-  useEffect(() => {
-    if (filteredData) {
-      setFilterData({ ...filteredData, ring: shimsValue });
-    }
-    console.log(newArray);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shimsValue]);
+  const [rawInputShimsData, setRawInputShimsData] = useState();
 
   // useEffect(() => {
   //   if (filteredData) {
-  //     filteredData.forEach((element: any) => {
-  //       if (shimsValue) {
-  //         newArray.push({ ...element, ring: shimsValue });
-  //       }
-  //     });
+  //     setFilterData({ input: rawInputShimsData, ring: shimsValue });
   //   }
-  //   console.log(newArray);
+
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [shimsValue]);
 
-  console.log(filteredData);
+  const updateShimsRing = () => {
+    // setPostCopy({
+    //   ...postCopy,
+    //   rawInput: [postCopy.rawInput, filteredData],
+    // });
+    // setShimsOpen(false);
+  };
+
+  //****************************************************************************** */
 
   //********  SAVE CREATED POSTS *************//
 
@@ -451,6 +448,7 @@ const Create = () => {
           endRingsCalc={endRingsCalc}
           setEndRingsCalc={setEndRingsCalc}
           setRawRingID={setRawRingID}
+          setRawInputShimsData={setRawInputShimsData}
         />
         {shimsOpen && (
           <CreateShimsModal
@@ -462,6 +460,7 @@ const Create = () => {
             openShims={shimsOpen}
             setUpdateShims={setUpdateShims}
             updateShims={updateShims}
+            updateShimsRing={updateShimsRing}
           />
         )}
       </div>
