@@ -24,6 +24,7 @@ const postoppsett = ({
   setFinalSkurlisteInfo,
   update,
   setUpdate,
+  postCopy,
 }: any) => {
   return (
     <>
@@ -39,6 +40,7 @@ const postoppsett = ({
           <KlasseInfoComponent
             info={finalSkurlisteInfo}
             setSearchResultModal={setSearchResultModal}
+            postInfo={postInfo}
           />
         </div>
         <SkurlistePostoppsett

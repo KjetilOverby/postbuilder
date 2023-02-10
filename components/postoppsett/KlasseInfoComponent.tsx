@@ -5,8 +5,9 @@ import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import AuthWrapper from "../auth/AuthWrapper";
 
-const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
+const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
+  console.log(postInfo);
 
   return (
     <>
@@ -26,7 +27,11 @@ const KlasseInfoComponent = ({ info, setSearchResultModal }: any) => {
               </p>
               <p className="text-slate-400 text-xs uttak">
                 {info && info.post}x{info && info.breddePost}{" "}
-                <span style={{ color: "var(--outer)" }}>{info.blad}</span>
+                <span style={{ color: "var(--outer)" }}>
+                  {Number(
+                    Number(postInfo.blades.bladStamme) + Number(1.4)
+                  ).toFixed(1)}
+                </span>
               </p>
               <p className="text-slate-400 text-xs italic">
                 Klasse: {info && info.klasse} {info && info.treslag}{" "}

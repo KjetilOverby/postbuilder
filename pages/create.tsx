@@ -22,12 +22,11 @@ const Create = () => {
   const router = useRouter();
   const { user, isAuthenticated } = useAuth0<any>();
 
-  const [postCopy, setPostCopy] = useState<any>();
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
   const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
   const [rawOpen, setRawOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
-
+  const [postCopy, setPostCopy] = useState<any>();
   const [shimsOpen, setShimsOpen] = useState(false);
   const [shims1open, setShims1open] = useState(false);
 
