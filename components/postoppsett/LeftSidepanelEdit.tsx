@@ -33,6 +33,7 @@ const LeftSidepanelEdit = ({
   setShimsValue2,
   deleteShimsRing,
   setRawManuallyInput,
+  setToManuallyInputHandler,
 }: any) => {
   const shims1openHandler = () => {
     setShims1open(true);
@@ -46,7 +47,8 @@ const LeftSidepanelEdit = ({
           <div>
             <button
               onClick={utfyllingForanOpenHandler}
-              className="btn btn-fill">
+              className="btn btn-fill"
+            >
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
@@ -97,7 +99,7 @@ const LeftSidepanelEdit = ({
               className="input"
               type="number"
             />
-            <button>Legg til</button>
+            <button onClick={setToManuallyInputHandler}>Legg til</button>
             <RawInputPanel
               raw={rawInputList}
               postInfo={postCopy}

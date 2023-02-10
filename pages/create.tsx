@@ -43,6 +43,7 @@ const Create = () => {
   const [rawPanelValue, setRawPanelValue] = useState();
   const [rawManuallyInput, setRawManuallyInput] = useState();
   const [rawManuallyInputSubmit, setRawManuallyInputSubmit] = useState();
+  const [rawInputMupdate, setRawInputMupdate] = useState(false);
   const [shimsValue, setShimsValue] = useState();
   const [shimsValue2, setShimsValue2] = useState();
   const [rawRingID, setRawRingID] = useState();
@@ -71,6 +72,7 @@ const Create = () => {
     setUtfyllingForanOpen(true);
     setDetailsOpen(false);
     setShimsOpen(false);
+    setShims1open(false);
     setEditBlink({ startRings: "editModeStartRings" });
     setRingType("startRings");
   };
@@ -82,6 +84,7 @@ const Create = () => {
     setShimsOpen(false);
     setEditBlink({ endRings: "editModeEndRings" });
     setRingType("endRings");
+    setShims1open(false);
   };
   const rawOpenHandler = () => {
     setRawOpen(true);
@@ -91,6 +94,7 @@ const Create = () => {
     setShimsOpen(false);
     setEditBlink({ rawInput: "editModeRawInput" });
     setRingType("rawInput");
+    setShims1open(false);
   };
   const detailsOpenHandler = () => {
     setRawOpen(false);
@@ -100,6 +104,7 @@ const Create = () => {
     setShimsOpen(false);
     setEditBlink({ rawInput: "" });
     setRingType("");
+    setShims1open(false);
   };
   const shimsOpenHandler = () => {
     setUtfyllingBakOpen(false);
@@ -153,9 +158,28 @@ const Create = () => {
         rawInput: [...postCopy.rawInput, { input: rawPanelValue, id: v4() }],
       });
     }
+
     setUpdate(!update);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawPanelValue]);
+
+  const setToManuallyInputHandler = () => {
+    setRawManuallyInputSubmit(rawManuallyInput);
+    setRawInputMupdate(!rawInputMupdate);
+  };
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        rawInput: [
+          ...postCopy.rawInput,
+          { input: rawManuallyInputSubmit, id: v4() },
+        ],
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rawInputMupdate]);
 
   useEffect(() => {
     if (postCopy) {
@@ -227,6 +251,7 @@ const Create = () => {
       setFilterData((filteredData[4].ring = shimsValue));
     }
     setRawRingID(undefined);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shimsValue]);
 
   useEffect(() => {
@@ -246,6 +271,7 @@ const Create = () => {
       setFilterData((filteredData[4].shims2 = shimsValue2));
     }
     setRawRingID(undefined);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shimsValue2]);
 
   const deleteShimsRing = () => {
@@ -272,6 +298,7 @@ const Create = () => {
     setFilterData([]);
     setShims1open(false);
     setShimsOpen(true);
+    setRawOpen(false);
   };
 
   const [rawInputShimsData, setRawInputShimsData] = useState();
@@ -477,6 +504,8 @@ const Create = () => {
           setShimsValue2={setShimsValue2}
           deleteShimsRing={deleteShimsRing}
           setRawManuallyInput={setRawManuallyInput}
+          setToManuallyInputHandler={setToManuallyInputHandler}
+          setRawInputMupdate={setRawInputMupdate}
         />
         <CreatePostContainer
           postCopy={postCopy}
