@@ -418,7 +418,7 @@ const Create = () => {
     }
   };
 
-  //********** DELETE POSTS *************//
+  //********** DELETE POSTS *****************//
 
   const home = "/";
 
