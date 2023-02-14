@@ -120,7 +120,7 @@ const ListerMainPage = ({
         klasse: listInputData.klasse,
         klgr: listInputData.klgr,
         klType: listInputData.klType,
-        ant: listInputData.antall,
+        ant: listInputData.ant,
         m3: listInputData.m3,
         status: listInputData.status,
         post: listInputData.post,

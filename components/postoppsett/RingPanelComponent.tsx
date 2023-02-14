@@ -17,8 +17,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className={`ringvalue-container`}>
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -31,8 +30,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -45,8 +43,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="text-teal-100">{item}</p>
             </div>
           );
@@ -54,6 +51,9 @@ const RingPanelComponent = ({
       </div>
       <style jsx>
         {`
+          .both {
+            background: yellow;
+          }
           .ringlist-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
