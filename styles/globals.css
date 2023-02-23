@@ -31,6 +31,26 @@
   --center-text2: #3f2f29;
   --mark: #ea7a52;
 }
+:root {
+  --primary: #17252a;
+  --primary-text: #ceeeda;
+  --table-bg: #29424b;
+  --outer: #2b7a78;
+  --outer-text: #ceeeda;
+  --center: #def2f1;
+  --center-text: #436268;
+  --text: #45a29e;
+  --hover: #395352;
+  --running: #26706d;
+  --finish: #221f1f;
+  --finish-text: #394046;
+
+  --outer2: #5d5c61;
+  --outer-text2: #ceeeda;
+  --center2: #7395ae;
+  --center-text2: #3f2f29;
+  --mark: #ea7a52;
+}
 
 html,
 body {

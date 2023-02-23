@@ -18,12 +18,12 @@ const RingPanelComponent = ({
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
               className={`ringvalue-container`}>
-              <p className="text-teal-100">{item}</p>
+              <p className="text-teal-800">{item}</p>
             </div>
           );
         })}
       </div>
-      <p className="text-teal-100">Store ringer</p>
+      <p className="text-teal-800">Store ringer</p>
       <div className="ringlist-container">
         {list.big.map((item: any) => {
           return (
@@ -31,7 +31,7 @@ const RingPanelComponent = ({
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
               className="ringvalue-container">
-              <p className="text-teal-100">{item}</p>
+              <p className="text-teal-800">{item}</p>
             </div>
           );
         })}
@@ -44,7 +44,7 @@ const RingPanelComponent = ({
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
               className="ringvalue-container">
-              <p className="text-teal-100">{item}</p>
+              <p className="text-teal-800">{item}</p>
             </div>
           );
         })}
