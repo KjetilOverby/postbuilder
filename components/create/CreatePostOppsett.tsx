@@ -5,7 +5,6 @@ import dateFormat from "dateformat";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
 import { ContextAppData } from "../../data/context/ContextAppData";
-import { MdSwapHorizontalCircle } from "react-icons/md";
 
 const CreatePostOppsett = ({
   postInfo,
@@ -39,11 +38,11 @@ const CreatePostOppsett = ({
   setRawRingID,
   utfyllingBakOpenHandler2,
   utfyllingForanOpenHandler2,
+  originStartRings,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
 
-  const [originStartRings, setOriginStartRings] = useState(true);
   const [originEndRings, setOriginEndRings] = useState(true);
 
   const [localStargeItem, setLocalStargeItem] = useState<any>();
@@ -258,18 +257,7 @@ const CreatePostOppsett = ({
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
                 {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
-                {postInfo && postInfo.startRings2 && (
-                  <MdSwapHorizontalCircle
-                    style={{
-                      position: "absolute",
-                      top: "-10rem",
-                      left: "0",
-                      color: "grey",
-                      fontSize: "1.5rem",
-                    }}
-                    onClick={() => setOriginStartRings(!originStartRings)}
-                  />
-                )}
+
                 {postInfo &&
                   originStartRings &&
                   postInfo.startRings.map((item: any) => {
@@ -519,19 +507,6 @@ const CreatePostOppsett = ({
               </div>
 
               <div className="flex relative fillrings-container">
-                {postInfo && postInfo.startRings2 && (
-                  <MdSwapHorizontalCircle
-                    style={{
-                      position: "absolute",
-                      top: "-10rem",
-                      right: "0",
-                      color: "grey",
-                      fontSize: "1.5rem",
-                    }}
-                    onClick={() => setOriginEndRings(!originEndRings)}
-                  />
-                )}
-
                 {postInfo &&
                   originEndRings &&
                   postInfo.endRings.map((item: any) => {

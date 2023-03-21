@@ -39,7 +39,10 @@ const Create = () => {
     endRings: "",
   });
 
+  const [originStartRings, setOriginStartRings] = useState(true);
+
   const [ringPanelNumber, setRingPanelNumber] = useState();
+  const [ringPanelNumber2, setRingPanelNumber2] = useState();
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
   const [rawManuallyInput, setRawManuallyInput] = useState();
@@ -78,6 +81,7 @@ const Create = () => {
     setRingType("startRings");
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
+    setOriginStartRings(true);
   };
   const utfyllingForanOpenHandler2 = () => {
     setRawOpen(false);
@@ -90,6 +94,7 @@ const Create = () => {
     setRingType("startRings2");
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(true);
+    setOriginStartRings(false);
   };
   const utfyllingBakOpenHandler = () => {
     setRawOpen(false);
@@ -114,6 +119,7 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(true);
     setUtfyllingForanOpen2(false);
+    setOriginStartRings(true);
   };
   const rawOpenHandler = () => {
     setRawOpen(true);
@@ -171,6 +177,19 @@ const Create = () => {
     setUpdate(!update);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringPanelNumber]);
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        startRings2: [
+          ...postCopy.startRings2,
+          { input: ringPanelNumber2, id: v4() },
+        ],
+      });
+    }
+    setUpdate(!update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ringPanelNumber2]);
 
   useEffect(() => {
     if (postCopy) {
@@ -375,7 +394,9 @@ const Create = () => {
               postCopy.spes === undefined ? "" : postCopy.spes
             }`,
             startRings: postCopy.startRings,
+            startRings2: postCopy.startRings2,
             endRings: postCopy.endRings,
+            endRings2: postCopy.endRings2,
             rawInput: postCopy.rawInput,
             blades: postCopy.blades,
             prosent: postCopy.prosent,
@@ -428,7 +449,9 @@ const Create = () => {
               postCopy.spes === undefined ? "" : postCopy.spes
             }`,
             startRings: postCopy.startRings,
+            startRings2: postCopy.startRings2,
             endRings: postCopy.endRings,
+            endRings2: postCopy.endRings2,
             rawInput: postCopy.rawInput,
             blades: postCopy.blades,
             prosent: postCopy.prosent,
@@ -543,6 +566,8 @@ const Create = () => {
           setRawManuallyInput={setRawManuallyInput}
           setToManuallyInputHandler={setToManuallyInputHandler}
           setRawInputMupdate={setRawInputMupdate}
+          utfyllingForanOpen2={utfyllingForanOpen2}
+          setRingPanelNumber2={setRingPanelNumber2}
         />
         <CreatePostContainer
           postCopy={postCopy}
@@ -576,6 +601,7 @@ const Create = () => {
           setRawRingID={setRawRingID}
           setRawInputShimsData={setRawInputShimsData}
           shims1open={shims1open}
+          originStartRings={originStartRings}
         />
       </div>
       <style jsx>

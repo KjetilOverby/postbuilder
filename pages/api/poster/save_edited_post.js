@@ -17,7 +17,9 @@ export default async (req, res) => {
         {
           header: req.body.header,
           startRings: req.body.startRings,
+          startRings2: req.body.startRings2,
           endRings: req.body.endRings,
+          endRings2: req.body.endRings2,
           rawInput: req.body.rawInput,
           blades: req.body.blades,
           prosent: req.body.prosent,

@@ -36,6 +36,8 @@ const LeftSidepanelEdit = ({
   setToManuallyInputHandler,
   utfyllingBakOpenHandler2,
   utfyllingForanOpenHandler2,
+  utfyllingForanOpen2,
+  setRingPanelNumber2,
 }: any) => {
   const shims1openHandler = () => {
     setShims1open(true);
@@ -57,13 +59,13 @@ const LeftSidepanelEdit = ({
               onClick={utfyllingForanOpenHandler2}
               className="btn btn-fill"
             >
-              <p className="text-teal-400 tab">Utfylling foran Alt</p>
+              <p className="text-yellow-400 tab">Utfylling foran Alt</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
               <p className="text-teal-100 tab">Utfylling bak</p>
             </button>
             <button onClick={utfyllingBakOpenHandler2} className="btn btn-fill">
-              <p className="text-teal-400 tab">Utfylling bak Alt</p>
+              <p className="text-yellow-400 tab">Utfylling bak Alt</p>
             </button>
             <button className="btn btn-raw">
               <p onClick={rawOpenHandler} className="text-teal-100 tab">
@@ -86,6 +88,19 @@ const LeftSidepanelEdit = ({
               setUpdate={setUpdate}
               update={update}
               setRingPanelNumber={setRingPanelNumber}
+            />
+          </div>
+        )}
+        {utfyllingForanOpen2 && (
+          <div>
+            <h4 className="header-alt">Legg til utfylling foran Alt:</h4>
+            <RingPanelComponent
+              list={ringlist}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+              setRingPanelNumber={setRingPanelNumber2}
             />
           </div>
         )}
@@ -200,6 +215,10 @@ const LeftSidepanelEdit = ({
           .header {
             margin: 1rem 0;
             color: var(--running);
+          }
+          .header-alt {
+            color: yellow;
+            margin: 1rem 0;
           }
           .input {
             background: var(--primary-text);
