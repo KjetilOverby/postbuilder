@@ -5,6 +5,7 @@ import dateFormat from "dateformat";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import { MdSwapHorizontalCircle } from "react-icons/md";
 
 const CreatePostOppsett = ({
   postInfo,
@@ -39,6 +40,9 @@ const CreatePostOppsett = ({
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
+
+  const [originStartRings, setOriginStartRings] = useState(true);
+  const [originEndRings, setOriginEndRings] = useState(true);
 
   const [localStargeItem, setLocalStargeItem] = useState<any>();
   const [parsedPost, setParsedPost] = useState<any>();
@@ -147,10 +151,6 @@ const CreatePostOppsett = ({
 
   // *********************** Delete from postinfo *************************
 
-  // const testHeader = () => {
-  //   setPostInfo({ ...postInfo, header: "this is!" });
-  // };
-
   useEffect(() => {
     if (postInfo) {
       if (ringType === "startRings") {
@@ -168,6 +168,11 @@ const CreatePostOppsett = ({
           (item: any) => item._id !== ringID
         );
         setPostInfo({ ...postInfo, rawInput: newList });
+      } else if (ringType === "endRings2") {
+        const newList = postInfo.endRings2.filter(
+          (item: any) => item._id !== ringID
+        );
+        setPostInfo({ ...postInfo, endRings2: newList });
       }
     }
 
@@ -191,6 +196,11 @@ const CreatePostOppsett = ({
           (item: any) => item.id !== ringID2
         );
         setPostInfo({ ...postInfo, rawInput: newList });
+      } else if (ringType === "endRings2") {
+        const newList = postInfo.endRings2.filter(
+          (item: any) => item._id !== ringID
+        );
+        setPostInfo({ ...postInfo, endRings2: newList });
       }
     }
 
@@ -234,8 +244,61 @@ const CreatePostOppsett = ({
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
                 {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
+                {postInfo && postInfo.startRings2 && (
+                  <MdSwapHorizontalCircle
+                    style={{
+                      position: "absolute",
+                      top: "-10rem",
+                      left: "0",
+                      color: "grey",
+                      fontSize: "1.5rem",
+                    }}
+                    onClick={() => setOriginStartRings(!originStartRings)}
+                  />
+                )}
                 {postInfo &&
+                  originStartRings &&
                   postInfo.startRings.map((item: any) => {
+                    const startRingsHandler = () => {
+                      setRingID(item._id);
+                      setRingID2(item.id);
+                      setRingType("startRings");
+                      setUpdate(!update);
+                    };
+                    return (
+                      <>
+                        <div
+                          onClick={
+                            openEdit ? utfyllingForanOpenHandler : undefined
+                          }
+                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
+                          <>
+                            {editBlink.startRings === "editModeStartRings" && (
+                              <RiDeleteBinLine
+                                onClick={startRingsHandler}
+                                style={{
+                                  position: "absolute",
+                                  bottom: "8rem",
+                                  fontSize: "1.5rem",
+                                  color: "indianred",
+                                }}
+                              />
+                            )}
+                          </>
+
+                          <div
+                            key={item._id}
+                            className="ringcomponent fillrings">
+                            {item.input}
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                {/* ********************** Alternative ************************ */}
+                {postInfo &&
+                  !originStartRings &&
+                  postInfo.startRings2.map((item: any) => {
                     const startRingsHandler = () => {
                       setRingID(item._id);
                       setRingID2(item.id);
@@ -429,7 +492,21 @@ const CreatePostOppsett = ({
               </div>
 
               <div className="flex relative fillrings-container">
+                {postInfo && postInfo.startRings2 && (
+                  <MdSwapHorizontalCircle
+                    style={{
+                      position: "absolute",
+                      top: "-10rem",
+                      right: "0",
+                      color: "grey",
+                      fontSize: "1.5rem",
+                    }}
+                    onClick={() => setOriginEndRings(!originEndRings)}
+                  />
+                )}
+
                 {postInfo &&
+                  originEndRings &&
                   postInfo.endRings.map((item: any) => {
                     const endRingsHandler = () => {
                       setRingID(item._id);
@@ -452,6 +529,47 @@ const CreatePostOppsett = ({
                                   bottom: "8rem",
                                   fontSize: "1.5rem",
                                   color: "indianred",
+                                  zIndex: "1000",
+                                }}
+                              />
+                            )}
+                          </>
+
+                          <div
+                            key={item._id}
+                            className="ringcomponent fillrings">
+                            {item.input}
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                {/* ********************** Alternative EndRings ************************ */}
+
+                {postInfo &&
+                  !originEndRings &&
+                  postInfo.endRings2.map((item: any) => {
+                    const endRingsHandler2 = () => {
+                      setRingID(item._id);
+                      setRingID2(item.id);
+                      setRingType("endRings2");
+                    };
+                    return (
+                      <>
+                        <div
+                          onClick={
+                            openEdit ? utfyllingBakOpenHandler : undefined
+                          }
+                          className={`outerRingContainer ${editBlink.endRings}`}>
+                          <>
+                            {editBlink.endRings === "editModeEndRings" && (
+                              <RiDeleteBinLine
+                                onClick={endRingsHandler2}
+                                style={{
+                                  position: "absolute",
+                                  bottom: "8rem",
+                                  fontSize: "1.5rem",
+                                  color: "yellow",
                                   zIndex: "1000",
                                 }}
                               />

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import useComponentDidMount from "../customHooks/UseComponentDidMount";
 import dateFormat from "dateformat";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import { MdSwapHorizontalCircle } from "react-icons/md";
 
 const PostOppsettComponent = ({
   postInfo,
@@ -29,6 +30,8 @@ const PostOppsettComponent = ({
 
   const [updatePostCalc, setUpdatePostCalc] = useState(false);
   const [updateUtfylling, setUpdateUtfylling] = useState(false);
+  const [originEndrings, setOriginEndrings] = useState(true);
+  const [originStartrings, setOriginStartrings] = useState(true);
 
   const [ringID, setRingID] = useState();
   const [ringType, setRingType] = useState<string>("");
@@ -222,23 +225,42 @@ const PostOppsettComponent = ({
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
                 {/*  <p style={{position: 'absolute', top: '15rem', fontSize: '2rem', color: 'orange'}}>{startRingsMinusRawinput && startRingsMinusRawinput.toFixed(2)}</p> */}
+                {parsedPost && parsedPost.startRings2 && (
+                  <MdSwapHorizontalCircle
+                    style={{
+                      position: "absolute",
+                      top: "-10rem",
+                      left: "0",
+                      color: "grey",
+                      fontSize: "1.5rem",
+                    }}
+                    onClick={() => setOriginStartrings(!originStartrings)}
+                  />
+                )}
                 {parsedPost &&
+                  originStartrings &&
                   parsedPost.startRings.map((item: any) => {
-                    const startRingsHandler = () => {
-                      setRingID(item._id);
-                      setRingType("startRings");
-                      setUpdate(!update);
-                    };
                     return (
                       <>
-                        <div
-                          onClick={openEdit ? editModeStartRings : undefined}
-                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
-                        >
+                        <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
+                            {item.input}
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                {parsedPost &&
+                  !originStartrings &&
+                  parsedPost.startRings2.map((item: any) => {
+                    return (
+                      <>
+                        <div className={`outerRingContainer fillringcontainer`}>
+                          <div
+                            key={item._id}
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -259,13 +281,11 @@ const PostOppsettComponent = ({
                           onClick={
                             openEdit ? editModeRawinputHandler : undefined
                           }
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
-                        >
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings"
-                          >
+                            className="ringcomponent rawrings">
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -321,24 +341,43 @@ const PostOppsettComponent = ({
               </div>
 
               <div className="flex relative fillrings-container">
+                {parsedPost && parsedPost.endRings2 && (
+                  <MdSwapHorizontalCircle
+                    style={{
+                      position: "absolute",
+                      top: "-10rem",
+                      right: "0",
+                      color: "grey",
+                      fontSize: "1.5rem",
+                    }}
+                    onClick={() => setOriginEndrings(!originEndrings)}
+                  />
+                )}
+
                 {parsedPost &&
+                  originEndrings &&
                   parsedPost.endRings.map((item: any) => {
-                    const endRingsHandler = () => {
-                      setRingID(item._id);
-                      setRingType("endRings");
-                    };
                     return (
                       <>
-                        <div
-                          onClick={
-                            openEdit ? editModeEndringsHandler : undefined
-                          }
-                          className={`outerRingContainer ${editBlink.endRings}`}
-                        >
+                        <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
+                            {item.input}
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                {parsedPost &&
+                  !originEndrings &&
+                  parsedPost.endRings2.map((item: any) => {
+                    return (
+                      <>
+                        <div className={`outerRingContainer`}>
+                          <div
+                            key={item._id}
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
