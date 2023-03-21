@@ -31,6 +31,8 @@ const CreatePostContainer = ({
   setEndRingsCalc,
   setRawRingID,
   setRawInputShimsData,
+  utfyllingBakOpenHandler2,
+  utfyllingForanOpenHandler2,
 }: any) => {
   return (
     <>
@@ -50,7 +52,9 @@ const CreatePostContainer = ({
           ringType={ringType}
           editBlink={editBlink}
           utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+          utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+          utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
           rawOpenHandler={rawOpenHandler}
           shimsOpenHandler={shimsOpenHandler}
           setRingType={setRingType}

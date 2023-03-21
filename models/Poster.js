@@ -8,6 +8,13 @@ const PosterSchema = new mongoose.Schema({
       },
     },
   ],
+  startRings2: [
+    {
+      input: {
+        type: Number,
+      },
+    },
+  ],
   rawInput: [
     {
       input: {
@@ -28,6 +35,13 @@ const PosterSchema = new mongoose.Schema({
     },
   ],
   endRings: [
+    {
+      input: {
+        type: Number,
+      },
+    },
+  ],
+  endRings2: [
     {
       input: {
         type: Number,

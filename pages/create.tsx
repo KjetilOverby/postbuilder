@@ -23,7 +23,9 @@ const Create = () => {
   const { user, isAuthenticated } = useAuth0<any>();
 
   const [utfyllingForanOpen, setUtfyllingForanOpen] = useState(false);
+  const [utfyllingForanOpen2, setUtfyllingForanOpen2] = useState(false);
   const [utfyllingBakOpen, setUtfyllingBakOpen] = useState(false);
+  const [utfyllingBakOpen2, setUtfyllingBakOpen2] = useState(false);
   const [rawOpen, setRawOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [postCopy, setPostCopy] = useState<any>();
@@ -74,6 +76,20 @@ const Create = () => {
     setShims1open(false);
     setEditBlink({ startRings: "editModeStartRings" });
     setRingType("startRings");
+    setUtfyllingBakOpen2(false);
+    setUtfyllingForanOpen2(false);
+  };
+  const utfyllingForanOpenHandler2 = () => {
+    setRawOpen(false);
+    setUtfyllingBakOpen(false);
+    setUtfyllingForanOpen(false);
+    setDetailsOpen(false);
+    setShimsOpen(false);
+    setShims1open(false);
+    setEditBlink({ startRings: "editModeStartRings" });
+    setRingType("startRings2");
+    setUtfyllingBakOpen2(false);
+    setUtfyllingForanOpen2(true);
   };
   const utfyllingBakOpenHandler = () => {
     setRawOpen(false);
@@ -84,6 +100,20 @@ const Create = () => {
     setEditBlink({ endRings: "editModeEndRings" });
     setRingType("endRings");
     setShims1open(false);
+    setUtfyllingBakOpen2(false);
+    setUtfyllingForanOpen2(false);
+  };
+  const utfyllingBakOpenHandler2 = () => {
+    setRawOpen(false);
+    setUtfyllingBakOpen(false);
+    setUtfyllingForanOpen(false);
+    setDetailsOpen(false);
+    setShimsOpen(false);
+    setEditBlink({ endRings: "editModeEndRings" });
+    setRingType("endRings2");
+    setShims1open(false);
+    setUtfyllingBakOpen2(true);
+    setUtfyllingForanOpen2(false);
   };
   const rawOpenHandler = () => {
     setRawOpen(true);
@@ -94,6 +124,8 @@ const Create = () => {
     setEditBlink({ rawInput: "editModeRawInput" });
     setRingType("rawInput");
     setShims1open(false);
+    setUtfyllingBakOpen2(false);
+    setUtfyllingForanOpen2(false);
   };
   const detailsOpenHandler = () => {
     setRawOpen(false);
@@ -104,6 +136,8 @@ const Create = () => {
     setEditBlink({ rawInput: "" });
     setRingType("");
     setShims1open(false);
+    setUtfyllingBakOpen2(false);
+    setUtfyllingForanOpen2(false);
   };
   const shimsOpenHandler = () => {
     setUtfyllingBakOpen(false);
@@ -111,6 +145,8 @@ const Create = () => {
     setDetailsOpen(false);
     setEditBlink({ rawInput: "" });
     setRingType("");
+    setUtfyllingBakOpen2(false);
+    setUtfyllingForanOpen2(false);
 
     setTimeout(() => {
       setRawOpen(false);
@@ -482,7 +518,9 @@ const Create = () => {
           rawOpen={rawOpen}
           setRawOpen={setRawOpen}
           utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+          utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+          utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
           rawOpenHandler={rawOpenHandler}
           setRingPanelNumber={setRingPanelNumber}
           setRingPanelNumberBak={setRingPanelNumberBak}
@@ -520,7 +558,9 @@ const Create = () => {
           ringType={ringType}
           editBlink={editBlink}
           utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+          utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
           utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+          utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
           rawOpenHandler={rawOpenHandler}
           shimsOpenHandler={shimsOpenHandler}
           setRingType={setRingType}

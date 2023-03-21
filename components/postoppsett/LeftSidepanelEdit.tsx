@@ -34,6 +34,8 @@ const LeftSidepanelEdit = ({
   deleteShimsRing,
   setRawManuallyInput,
   setToManuallyInputHandler,
+  utfyllingBakOpenHandler2,
+  utfyllingForanOpenHandler2,
 }: any) => {
   const shims1openHandler = () => {
     setShims1open(true);
@@ -51,8 +53,17 @@ const LeftSidepanelEdit = ({
             >
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
+            <button
+              onClick={utfyllingForanOpenHandler2}
+              className="btn btn-fill"
+            >
+              <p className="text-teal-400 tab">Utfylling foran Alt</p>
+            </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
               <p className="text-teal-100 tab">Utfylling bak</p>
+            </button>
+            <button onClick={utfyllingBakOpenHandler2} className="btn btn-fill">
+              <p className="text-teal-400 tab">Utfylling bak Alt</p>
             </button>
             <button className="btn btn-raw">
               <p onClick={rawOpenHandler} className="text-teal-100 tab">
