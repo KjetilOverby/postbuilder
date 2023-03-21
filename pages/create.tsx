@@ -86,7 +86,7 @@ const Create = () => {
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
     setOriginStartRings(true);
-    setOriginEndRings(false);
+    // setOriginEndRings(false);
   };
   const utfyllingForanOpenHandler2 = () => {
     setRawOpen(false);
@@ -100,7 +100,7 @@ const Create = () => {
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(true);
     setOriginStartRings(false);
-    setOriginEndRings(false);
+    // setOriginEndRings(false);
   };
   const utfyllingBakOpenHandler = () => {
     setRawOpen(false);
@@ -113,7 +113,7 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
-    setOriginStartRings(false);
+    // setOriginStartRings(false);
     setOriginEndRings(true);
   };
   const utfyllingBakOpenHandler2 = () => {
@@ -127,7 +127,7 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(true);
     setUtfyllingForanOpen2(false);
-    setOriginStartRings(false);
+    // setOriginStartRings(false);
     setOriginEndRings(false);
   };
   const rawOpenHandler = () => {
@@ -141,8 +141,6 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
-    setOriginStartRings(false);
-    setOriginEndRings(false);
   };
   const detailsOpenHandler = () => {
     setRawOpen(false);
@@ -155,8 +153,6 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
-    setOriginStartRings(false);
-    setOriginEndRings(false);
   };
   const shimsOpenHandler = () => {
     setUtfyllingBakOpen(false);
@@ -166,8 +162,6 @@ const Create = () => {
     setRingType("");
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
-    setOriginStartRings(false);
-    setOriginEndRings(false);
 
     setTimeout(() => {
       setRawOpen(false);
@@ -451,6 +445,9 @@ const Create = () => {
   };
   //********  EDIT && UPDATE POSTS *************//
 
+  console.log(startRingsCalc2);
+  console.log(utfyllingForan);
+
   const auth = "4564";
   const saveEditedPostHandler = async () => {
     if (!postCopy.planker) {
@@ -463,10 +460,20 @@ const Create = () => {
     ) {
       alert("Utfylling foran er ikke riktig");
     } else if (
+      (startRingsCalc2 > 0.1 && utfyllingForan - startRingsCalc2 > 0.05) ||
+      utfyllingForan - startRingsCalc2 < -0.05
+    ) {
+      alert("Utfylling foran Alterantive er ikke riktig");
+    } else if (
       utfyllingBak - endRingsCalc > 0.05 ||
       utfyllingBak - endRingsCalc < -0.05
     ) {
       alert("Utfylling bak er ikke riktig");
+    } else if (
+      (utfyllingBak < 0.1 && utfyllingBak - endRingsCalc2 > 0.05) ||
+      utfyllingBak - endRingsCalc2 < -0.05
+    ) {
+      alert("Utfylling bak Alternative er ikke riktig");
     } else {
       const reponse = await api
         .patch(

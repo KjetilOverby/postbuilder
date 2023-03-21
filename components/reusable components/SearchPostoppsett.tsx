@@ -63,7 +63,9 @@ const SearchPostoppsett = ({
                             return (
                               <div key={rawRing._id} className="rings raw">
                                 <p className="rawInput">{rawRing.input}</p>
-                                <p>{(rawRing.input + 1.4).toFixed(1)}</p>
+                                <p className="ringval">
+                                  {(rawRing.input + 1.4).toFixed(1)}
+                                </p>
                               </div>
                             );
                           }
@@ -140,6 +142,9 @@ const SearchPostoppsett = ({
             margin-top: 2rem;
             font-weight: 100;
             font-size: 0.8rem;
+          }
+          .ringval {
+            color: black;
           }
           .raw {
             position: relative;
