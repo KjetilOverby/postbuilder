@@ -40,10 +40,12 @@ const Create = () => {
   });
 
   const [originStartRings, setOriginStartRings] = useState(true);
+  const [originEndRings, setOriginEndRings] = useState(true);
 
   const [ringPanelNumber, setRingPanelNumber] = useState();
   const [ringPanelNumber2, setRingPanelNumber2] = useState();
   const [ringPanelNumberBak, setRingPanelNumberBak] = useState();
+  const [ringPanelNumberBak2, setRingPanelNumberBak2] = useState();
   const [rawPanelValue, setRawPanelValue] = useState();
   const [rawManuallyInput, setRawManuallyInput] = useState();
   const [rawManuallyInputSubmit, setRawManuallyInputSubmit] = useState();
@@ -58,9 +60,11 @@ const Create = () => {
   const [spesInput, setSpesInput] = useState();
 
   const [startRingsCalc, setStartRingsCalc] = useState<any>();
+  const [startRingsCalc2, setStartRingsCalc2] = useState<any>();
   const [utfyllingForan, setUtfyllingForan] = useState<any>();
   const [utfyllingBak, setUtfyllingBak] = useState<any>();
   const [endRingsCalc, setEndRingsCalc] = useState<any>();
+  const [endRingsCalc2, setEndRingsCalc2] = useState<any>();
 
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [openEditSaveModal, setOpenEditSaveModal] = useState(false);
@@ -82,6 +86,7 @@ const Create = () => {
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
     setOriginStartRings(true);
+    setOriginEndRings(false);
   };
   const utfyllingForanOpenHandler2 = () => {
     setRawOpen(false);
@@ -95,6 +100,7 @@ const Create = () => {
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(true);
     setOriginStartRings(false);
+    setOriginEndRings(false);
   };
   const utfyllingBakOpenHandler = () => {
     setRawOpen(false);
@@ -107,6 +113,8 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
+    setOriginStartRings(false);
+    setOriginEndRings(true);
   };
   const utfyllingBakOpenHandler2 = () => {
     setRawOpen(false);
@@ -119,7 +127,8 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(true);
     setUtfyllingForanOpen2(false);
-    setOriginStartRings(true);
+    setOriginStartRings(false);
+    setOriginEndRings(false);
   };
   const rawOpenHandler = () => {
     setRawOpen(true);
@@ -132,6 +141,8 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
+    setOriginStartRings(false);
+    setOriginEndRings(false);
   };
   const detailsOpenHandler = () => {
     setRawOpen(false);
@@ -144,6 +155,8 @@ const Create = () => {
     setShims1open(false);
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
+    setOriginStartRings(false);
+    setOriginEndRings(false);
   };
   const shimsOpenHandler = () => {
     setUtfyllingBakOpen(false);
@@ -153,6 +166,8 @@ const Create = () => {
     setRingType("");
     setUtfyllingBakOpen2(false);
     setUtfyllingForanOpen2(false);
+    setOriginStartRings(false);
+    setOriginEndRings(false);
 
     setTimeout(() => {
       setRawOpen(false);
@@ -204,6 +219,20 @@ const Create = () => {
     setUpdate(!update);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringPanelNumberBak]);
+
+  useEffect(() => {
+    if (postCopy) {
+      setPostCopy({
+        ...postCopy,
+        endRings2: [
+          ...postCopy.endRings2,
+          { input: ringPanelNumberBak2, id: v4() },
+        ],
+      });
+    }
+    setUpdate(!update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ringPanelNumberBak2]);
 
   useEffect(() => {
     if (postCopy) {
@@ -568,6 +597,8 @@ const Create = () => {
           setRawInputMupdate={setRawInputMupdate}
           utfyllingForanOpen2={utfyllingForanOpen2}
           setRingPanelNumber2={setRingPanelNumber2}
+          utfyllingBakOpen2={utfyllingBakOpen2}
+          setRingPanelNumberBak2={setRingPanelNumberBak2}
         />
         <CreatePostContainer
           postCopy={postCopy}
@@ -602,6 +633,13 @@ const Create = () => {
           setRawInputShimsData={setRawInputShimsData}
           shims1open={shims1open}
           originStartRings={originStartRings}
+          originEndRings={originEndRings}
+          startRingsCalc2={startRingsCalc2}
+          setStartRingsCalc2={setStartRingsCalc2}
+          utfyllingBakOpen2={utfyllingBakOpen2}
+          utfyllingForanOpen2={utfyllingForanOpen2}
+          endRingsCalc2={endRingsCalc2}
+          setEndRingsCalc2={setEndRingsCalc2}
         />
       </div>
       <style jsx>

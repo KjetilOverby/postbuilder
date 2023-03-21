@@ -39,11 +39,16 @@ const CreatePostOppsett = ({
   utfyllingBakOpenHandler2,
   utfyllingForanOpenHandler2,
   originStartRings,
+  originEndRings,
+  startRingsCalc2,
+  setStartRingsCalc2,
+  utfyllingForanOpen2,
+  endRingsCalc2,
+  setEndRingsCalc2,
+  utfyllingBakOpen2,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
-
-  const [originEndRings, setOriginEndRings] = useState(true);
 
   const [localStargeItem, setLocalStargeItem] = useState<any>();
   const [parsedPost, setParsedPost] = useState<any>();
@@ -107,8 +112,32 @@ const CreatePostOppsett = ({
 
   useEffect(() => {
     if (postInfo) {
+      setStartRingsCalc2(
+        postInfo.startRings2.reduce(
+          (num: number, { input }: any) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postInfo, update]);
+
+  useEffect(() => {
+    if (postInfo) {
       setEndRingsCalc(
         postInfo.endRings.reduce(
+          (num: number, { input }: any) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postInfo, update]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setEndRingsCalc2(
+        postInfo.endRings2.reduce(
           (num: number, { input }: any) => Number(num) + Number(input),
           0
         )
@@ -363,6 +392,27 @@ const CreatePostOppsett = ({
                         Number(utfyllingForan - startRingsCalc).toFixed(2)}
                     </h4>
                   </div>
+                  {utfyllingForanOpen2 && (
+                    <div
+                      className={`fill-calculate-box ${
+                        startRingsCalc &&
+                        utfyllingForan - startRingsCalc2 < 0.05 &&
+                        utfyllingForan - startRingsCalc2 > -0.05
+                          ? "fill-ok"
+                          : "fill-not-ok"
+                      }`}
+                    >
+                      <h4>
+                        Sum:{" "}
+                        {Number(startRingsCalc2 && startRingsCalc2).toFixed(2)}
+                      </h4>
+                      <h4>
+                        Diff:{" "}
+                        {startRingsCalc2 &&
+                          Number(utfyllingForan - startRingsCalc2).toFixed(2)}
+                      </h4>
+                    </div>
+                  )}
 
                   <p className="postcalc-number">
                     {utfyllingForan && utfyllingForan.toFixed(2)}
@@ -513,7 +563,7 @@ const CreatePostOppsett = ({
                     const endRingsHandler = () => {
                       setRingID(item._id);
                       setRingID2(item.id);
-                      // setRingType("endRings1");
+                      setRingType("endRings");
                     };
                     return (
                       <>
@@ -612,6 +662,28 @@ const CreatePostOppsett = ({
                         Number(utfyllingBak - endRingsCalc).toFixed(2)}
                     </h4>
                   </div>
+
+                  {utfyllingBakOpen2 && (
+                    <div
+                      className={`fill-calculate-box fill-bak-box ${
+                        endRingsCalc2 &&
+                        utfyllingBak - endRingsCalc2 < 0.05 &&
+                        utfyllingBak - endRingsCalc2 > -0.05
+                          ? "fill-ok"
+                          : "fill-not-ok"
+                      }`}
+                    >
+                      <h4>
+                        Sum: {Number(endRingsCalc2 && endRingsCalc2).toFixed(2)}
+                      </h4>
+                      <h4>
+                        Diff:{" "}
+                        {endRingsCalc &&
+                          Number(utfyllingBak - endRingsCalc2).toFixed(2)}
+                      </h4>
+                    </div>
+                  )}
+
                   <p className="postcalc-number">
                     {utfyllingBak && utfyllingBak.toFixed(2)}
                   </p>

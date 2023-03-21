@@ -38,6 +38,8 @@ const LeftSidepanelEdit = ({
   utfyllingForanOpenHandler2,
   utfyllingForanOpen2,
   setRingPanelNumber2,
+  utfyllingBakOpen2,
+  setRingPanelNumberBak2,
 }: any) => {
   const shims1openHandler = () => {
     setShims1open(true);
@@ -114,6 +116,19 @@ const LeftSidepanelEdit = ({
               setUpdate={setUpdate}
               update={update}
               setRingPanelNumber={setRingPanelNumberBak}
+            />
+          </div>
+        )}
+        {utfyllingBakOpen2 && (
+          <div>
+            <h4 className="header">Legg til utfylling bak:</h4>
+            <RingPanelComponent
+              list={ringlist}
+              postInfo={postCopy}
+              setPostCopy={setPostCopy}
+              setUpdate={setUpdate}
+              update={update}
+              setRingPanelNumber={setRingPanelNumberBak2}
             />
           </div>
         )}
