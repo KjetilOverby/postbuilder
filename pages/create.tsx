@@ -470,7 +470,7 @@ const Create = () => {
     ) {
       alert("Utfylling bak er ikke riktig");
     } else if (
-      (utfyllingBak < 0.1 && utfyllingBak - endRingsCalc2 > 0.05) ||
+      (endRingsCalc2 > 0.1 && utfyllingBak - endRingsCalc2 > 0.05) ||
       utfyllingBak - endRingsCalc2 < -0.05
     ) {
       alert("Utfylling bak Alternative er ikke riktig");
