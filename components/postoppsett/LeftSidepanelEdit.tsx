@@ -53,14 +53,12 @@ const LeftSidepanelEdit = ({
           <div>
             <button
               onClick={utfyllingForanOpenHandler}
-              className="btn btn-fill"
-            >
+              className="btn btn-fill">
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button
               onClick={utfyllingForanOpenHandler2}
-              className="btn btn-fill"
-            >
+              className="btn btn-fill">
               <p className="text-yellow-400 tab">Utfylling foran Alt</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
@@ -121,7 +119,7 @@ const LeftSidepanelEdit = ({
         )}
         {utfyllingBakOpen2 && (
           <div>
-            <h4 className="header">Legg til utfylling bak:</h4>
+            <h4 className="header-alt">Legg til utfylling bak Alt:</h4>
             <RingPanelComponent
               list={ringlist}
               postInfo={postCopy}
@@ -252,6 +250,9 @@ const LeftSidepanelEdit = ({
             z-index: 10;
             animation: fadeInLeft 0.3s;
             margin-top: 2rem;
+            overflow: scroll;
+            max-height: 95vh;
+            scrollbar-width: none;
           }
           .edit-header {
             margin-bottom: 1rem;

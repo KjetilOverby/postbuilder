@@ -9,7 +9,7 @@ const SearchFromListComponent = ({
   poster,
   setFinalSkurlisteInfo,
   update,
-  setUpdate
+  setUpdate,
 }: SearchProps) => {
   const [searchString, setSearchString] = useState<string>();
   const [searchStringResult, setSearchStringResult] = useState();
@@ -35,7 +35,6 @@ const SearchFromListComponent = ({
 
   const closeModal = () => {
     setSearchResultModal(false);
-
   };
 
   return (
@@ -44,14 +43,12 @@ const SearchFromListComponent = ({
         <div className="main-container absolute right-5 top-52 p-5 shadow-xl bounceIn">
           <button
             className="border pl-2 pr-2 mb-2 py-1 rounded-md mr-4 text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
-            onClick={closeModal}
-          >
+            onClick={closeModal}>
             Lukk
           </button>
           <button
             className="border pl-2 pr-2 mb-2 py-1 rounded-md text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
-            onClick={showAllHandler}
-          >
+            onClick={showAllHandler}>
             Vis alle
           </button>
           <SearchPostoppsett
@@ -68,9 +65,12 @@ const SearchFromListComponent = ({
       </div>
       <style jsx>
         {`
-        .main-container {
-          background: var(--table-bg)
-        }
+          .main-container {
+            background: var(--table-bg);
+            overflow: scroll;
+            max-height: 70%;
+            scrollbar-width: none;
+          }
           .bounceIn {
             animation: bounceInRight 0.8s;
           }
