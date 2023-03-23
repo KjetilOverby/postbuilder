@@ -32,8 +32,7 @@ const SearchPostoppsett = ({
               <Link href="/postoppsett">
                 <div
                   onClick={postInfoHandler}
-                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
-                >
+                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer">
                   <span>
                     <p className="post-header font-light">{item.header}</p>
                     <div className="allrings-container">
@@ -46,8 +45,7 @@ const SearchPostoppsett = ({
                             return (
                               <div
                                 key={startRing._id}
-                                className="rings outer text-slate-50"
-                              >
+                                className="rings outer text-slate-50">
                                 {startRing.input}
                               </div>
                             );
@@ -91,14 +89,21 @@ const SearchPostoppsett = ({
                             return (
                               <div
                                 key={endRing._id}
-                                className="rings outer text-slate-50"
-                              >
+                                className="rings outer text-slate-50">
                                 {endRing.input}
                               </div>
                             );
                           }
                         )}
                       </div>
+                    </div>
+                    <div className="alt-box">
+                      {item.startRings2.length > 1 && (
+                        <p className="alt alt1">A</p>
+                      )}
+                      {item.endRings2.length > 1 && (
+                        <p className="alt alt2">B</p>
+                      )}
                     </div>
                   </span>
                   <p className="date">
@@ -114,6 +119,30 @@ const SearchPostoppsett = ({
         })}
       <style jsx>
         {`
+          .alt {
+            width: 1rem;
+            height: 1rem;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            color: white;
+          }
+          .alt1 {
+            background: seagreen;
+          }
+          .alt2 {
+            background: dodgerblue;
+          }
+          .alt-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            width: 3rem;
+          }
           .date {
             font-size: 0.7rem;
             font-style: italic;
@@ -121,7 +150,9 @@ const SearchPostoppsett = ({
           }
           .post-container {
             background: var(--finish-text);
+            position: relative;
           }
+
           .post-header {
             color: var(--center);
           }
