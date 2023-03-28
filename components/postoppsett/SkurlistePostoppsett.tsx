@@ -10,18 +10,18 @@ const SkurlistePostoppsett = ({
   setSkurlisteInfo,
   searchTrigger,
   setSearchResultModal,
+  dotUpdate,
+  setDotUpdate,
 }: any) => {
   const [fieldID, setFieldID] = useState();
 
-  console.log(fieldID);
   const updateProgressFinished = async () => {
     const response = await api
       .patch(`/api/skurlister/updateField?ids=${fieldID}`, {
         progress: "finished",
       })
       .then(() => {
-        /*  setUpdate(!update);
-        setListeBuffer(false); */
+        setDotUpdate(!dotUpdate);
       });
   };
 
@@ -31,8 +31,7 @@ const SkurlistePostoppsett = ({
         progress: "running",
       })
       .then(() => {
-        /* setUpdate(!update);
-        setListeBuffer(false); */
+        setDotUpdate(!dotUpdate);
       });
   };
 
@@ -42,8 +41,7 @@ const SkurlistePostoppsett = ({
         progress: "none",
       })
       .then(() => {
-        /*  setUpdate(!update);
-        setListeBuffer(false); */
+        setDotUpdate(!dotUpdate);
       });
   };
 
@@ -137,17 +135,19 @@ const SkurlistePostoppsett = ({
                   className={`hover:bg-stone-700 cursor-pointer ${item.progress}`}
                   key={item._id}>
                   <td className="border border-slate-700 text-xs text-slate-400">
-                    <div className="dot-container">
-                      <div
-                        onClick={updateProgressNeutreal}
-                        className="dot neutral-dot"></div>
-                      <div
-                        onClick={updateProgressRunning}
-                        className="dot running-dot"></div>
-                      <div
-                        onClick={updateProgressFinished}
-                        className="dot finished-dot"></div>
-                    </div>
+                    {item._id === fieldID && (
+                      <div className="dot-container">
+                        <div
+                          onClick={updateProgressNeutreal}
+                          className="dot neutral-dot"></div>
+                        <div
+                          onClick={updateProgressRunning}
+                          className="dot running-dot"></div>
+                        <div
+                          onClick={updateProgressFinished}
+                          className="dot finished-dot"></div>
+                      </div>
+                    )}
                   </td>
                   <td
                     className={`border border-slate-700 text-xs text-slate-400  ${

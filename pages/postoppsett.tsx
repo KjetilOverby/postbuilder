@@ -25,6 +25,8 @@ const postoppsett = ({
   update,
   setUpdate,
   postCopy,
+  dotUpdate,
+  setDotUpdate,
 }: any) => {
   return (
     <>
@@ -48,6 +50,8 @@ const postoppsett = ({
           setSkurlisteInfo={setSkurlisteInfo}
           setSearchResultModal={setSearchResultModal}
           searchTrigger={true}
+          dotUpdate={dotUpdate}
+          setDotUpdate={setDotUpdate}
         />
 
         {searchResultModal && (

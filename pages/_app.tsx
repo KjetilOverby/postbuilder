@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [update, setUpdate] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [postID, setPostID] = useState();
+  const [dotUpdate, setDotUpdate] = useState(false);
 
   const api = axios.create({
     baseURL: process.env.api,
@@ -45,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [update]);
+  }, [update, dotUpdate]);
 
   // DELETE POSTS
 
@@ -56,8 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}
-    >
+      redirectUri={typeof window !== "undefined" && window.location.origin}>
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -68,8 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
           update,
           setPostID,
           postID,
-        }}
-      >
+        }}>
         <Component
           {...pageProps}
           poster={poster}
@@ -84,6 +83,8 @@ export default function App({ Component, pageProps }: AppProps) {
           update={update}
           finalSkurlisteInfo={finalSkurlisteInfo}
           setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+          dotUpdate={dotUpdate}
+          setDotUpdate={setDotUpdate}
         />
       </ContextAppData.Provider>
     </Auth0Provider>
