@@ -134,7 +134,8 @@ export interface SearchProps {
       setFinalSkurlisteInfo?:  React.Dispatch<React.SetStateAction<{}>>;
       update: boolean;
       setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
-      setOpenDot: any
+      setOpenDot: React.Dispatch<React.SetStateAction<boolean>>;
+     
 
       
 }

@@ -135,5 +135,6 @@ export interface SkurlisteProps {
       setSearchResultModal: React.Dispatch<React.SetStateAction<boolean>>;
       searchResultModal: boolean;
       setFinalSkurlisteInfo: React.Dispatch<React.SetStateAction<{}>>;
+      setOpenDot: React.Dispatch<React.SetStateAction<boolean>>;
       
 }

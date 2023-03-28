@@ -45,12 +45,14 @@ const SearchFromListComponent = ({
         <div className="main-container absolute right-5 top-52 p-5 shadow-xl bounceIn">
           <button
             className="border pl-2 pr-2 mb-2 py-1 rounded-md mr-4 text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
-            onClick={closeModal}>
+            onClick={closeModal}
+          >
             Lukk
           </button>
           <button
             className="border pl-2 pr-2 mb-2 py-1 rounded-md text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
-            onClick={showAllHandler}>
+            onClick={showAllHandler}
+          >
             Vis alle
           </button>
           <SearchPostoppsett

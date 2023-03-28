@@ -15,6 +15,7 @@ export default function Home({
   searchResultModal,
   setSearchResultModal,
   setFinalSkurlisteInfo,
+  setOpenDot,
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
 
@@ -41,6 +42,9 @@ export default function Home({
           setUpdate={function (value: React.SetStateAction<boolean>): void {
             throw new Error("Function not implemented.");
           }}
+          setOpenDot={function (value: React.SetStateAction<boolean>): void {
+            throw new Error("Function not implemented.");
+          }}
         />
       )}
       <StartPageComponent
@@ -53,6 +57,7 @@ export default function Home({
         setSearchResultModal={setSearchResultModal}
         searchResultModal={searchResultModal}
         setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+        setOpenDot={setOpenDot}
       />
     </div>
   );

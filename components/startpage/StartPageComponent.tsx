@@ -17,6 +17,7 @@ const StartPageComponent = ({
   searchResultModal,
   setSearchResultModal,
   setFinalSkurlisteInfo,
+  setOpenDot,
 }: SkurlisteProps) => {
   return (
     <>
@@ -43,6 +44,7 @@ const StartPageComponent = ({
             setSkurlisteInfo={setSkurlisteInfo}
             setFinalSkurlisteInfo={setFinalSkurlisteInfo}
             update={false}
+            setOpenDot={setOpenDot}
             setUpdate={function (value: React.SetStateAction<boolean>): void {
               throw new Error("Function not implemented.");
             }}
