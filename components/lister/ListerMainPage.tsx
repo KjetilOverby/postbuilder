@@ -186,6 +186,7 @@ const ListerMainPage = ({
         setListeBuffer(false);
       });
   };
+
   const updateProgressRunning = async () => {
     const response = await api
       .patch(`/api/skurlister/updateField?ids=${fieldID}`, {
@@ -196,6 +197,7 @@ const ListerMainPage = ({
         setListeBuffer(false);
       });
   };
+  
   const updateProgressNeutreal = async () => {
     const response = await api
       .patch(`/api/skurlister/updateField?ids=${fieldID}`, {
