@@ -12,6 +12,8 @@ const SkurlistePostoppsett = ({
   setSearchResultModal,
   dotUpdate,
   setDotUpdate,
+  openDot,
+  setOpenDot,
 }: any) => {
   const [fieldID, setFieldID] = useState();
 
@@ -123,6 +125,7 @@ const SkurlistePostoppsett = ({
               const skurlisteInfoHandler = () => {
                 setSkurlisteInfo(item);
                 setFieldID(item._id);
+                setOpenDot(true);
 
                 if (searchTrigger) {
                   setSearchResultModal(true);
@@ -135,7 +138,7 @@ const SkurlistePostoppsett = ({
                   className={`hover:bg-stone-700 cursor-pointer ${item.progress}`}
                   key={item._id}>
                   <td className="border border-slate-700 text-xs text-slate-400">
-                    {item._id === fieldID && (
+                    {item._id === fieldID && openDot && (
                       <div className="dot-container">
                         <div
                           onClick={updateProgressNeutreal}

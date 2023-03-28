@@ -10,6 +10,7 @@ const SearchFromListComponent = ({
   setFinalSkurlisteInfo,
   update,
   setUpdate,
+  setOpenDot,
 }: SearchProps) => {
   const [searchString, setSearchString] = useState<string>();
   const [searchStringResult, setSearchStringResult] = useState();
@@ -35,6 +36,7 @@ const SearchFromListComponent = ({
 
   const closeModal = () => {
     setSearchResultModal(false);
+    setOpenDot(false);
   };
 
   return (

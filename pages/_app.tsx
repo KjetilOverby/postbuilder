@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [openEdit, setOpenEdit] = useState(false);
   const [postID, setPostID] = useState();
   const [dotUpdate, setDotUpdate] = useState(false);
+  const [openDot, setOpenDot] = useState(false);
 
   const api = axios.create({
     baseURL: process.env.api,
@@ -85,6 +86,8 @@ export default function App({ Component, pageProps }: AppProps) {
           setFinalSkurlisteInfo={setFinalSkurlisteInfo}
           dotUpdate={dotUpdate}
           setDotUpdate={setDotUpdate}
+          openDot={openDot}
+          setOpenDot={setOpenDot}
         />
       </ContextAppData.Provider>
     </Auth0Provider>

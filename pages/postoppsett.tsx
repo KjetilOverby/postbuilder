@@ -27,6 +27,8 @@ const postoppsett = ({
   postCopy,
   dotUpdate,
   setDotUpdate,
+  openDot,
+  setOpenDot,
 }: any) => {
   return (
     <>
@@ -52,6 +54,8 @@ const postoppsett = ({
           searchTrigger={true}
           dotUpdate={dotUpdate}
           setDotUpdate={setDotUpdate}
+          openDot={openDot}
+          setOpenDot={setOpenDot}
         />
 
         {searchResultModal && (
@@ -64,6 +68,7 @@ const postoppsett = ({
             setFinalSkurlisteInfo={setFinalSkurlisteInfo}
             update={update}
             setUpdate={setUpdate}
+            setOpenDot={setOpenDot}
           />
         )}
       </div>
