@@ -19,23 +19,34 @@ export default function Home({
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
 
-  useEffect(() => {
+  function greenTheme() {
     if (typeof window !== "undefined") {
-      const r = document.querySelector(":root");
-
-      function myFunction_get() {
-        // Get the styles (properties and values) for the root
-        var rs = getComputedStyle(r);
-        // Alert the value of the --blue variable
-        r.style.setProperty("--primary", "lightblue");
-        r.style.setProperty("--table-bg", "red");
-        console.log(
-          "The value of --primary is: " + rs.getPropertyValue("--primary")
-        );
-      }
-
-      myFunction_get();
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#17252a");
+      r.style.setProperty("--primary-text", "#def2f1");
+      r.style.setProperty("--table-bg", "#29424b");
+      r.style.setProperty("--outer", "#2b7a78");
+      r.style.setProperty("--outer-text", "#ceeeda");
+      r.style.setProperty("--center", "#def2f1");
+      r.style.setProperty("--center-text", "#436268");
+      r.style.setProperty("--text", "#45a29e");
+      r.style.setProperty("--hover", "#395352");
+      r.style.setProperty("--running", "#26706d");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "#394046");
+      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--outer-text2", "#ceeeda");
+      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty("--center-text2", "#3f2f29");
+      r.style.setProperty("--mark", "#9c9c9c");
     }
+  }
+
+  useEffect(() => {
+    greenTheme();
   }, []);
 
   return (

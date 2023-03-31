@@ -18,6 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const [dotUpdate, setDotUpdate] = useState(false);
   const [openDot, setOpenDot] = useState(false);
 
+  const [colorTheme, setColorTheme] = useState({});
+  const [chosenTheme, setChosenTheme] = useState("standard");
+
   const api = axios.create({
     baseURL: process.env.api,
   });
