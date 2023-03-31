@@ -3,7 +3,7 @@ import Image from "next/image";
 import SearchModal from "../components/startpage/SearchModal";
 import StartPageComponent from "../components/startpage/StartPageComponent";
 import styles from "../styles/Home.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SkurlisteProps } from "../tsmodules/posterModule";
 
 export default function Home({
@@ -18,6 +18,25 @@ export default function Home({
   setOpenDot,
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const r = document.querySelector(":root");
+
+      function myFunction_get() {
+        // Get the styles (properties and values) for the root
+        var rs = getComputedStyle(r);
+        // Alert the value of the --blue variable
+        r.style.setProperty("--primary", "lightblue");
+        r.style.setProperty("--table-bg", "red");
+        console.log(
+          "The value of --primary is: " + rs.getPropertyValue("--primary")
+        );
+      }
+
+      myFunction_get();
+    }
+  }, []);
 
   return (
     <div className={styles.indexContainer}>
