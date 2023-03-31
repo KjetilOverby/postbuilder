@@ -14,7 +14,7 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const Create = () => {
+const Create = ({ setChosenTheme }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { postInfo, setPostInfo, update, setUpdate, postID } =
     useContext(ContextAppData);
@@ -564,6 +564,7 @@ const Create = () => {
           deleteHandler={setOpenDeleteModal}
           saveCreatedPostHandler={saveCreatedPostHandler}
           setOpenEditSaveModal={setOpenEditSaveModal}
+          setChosenTheme={setChosenTheme}
         />
         <LeftSidepanelEdit
           setPostCopy={setPostCopy}

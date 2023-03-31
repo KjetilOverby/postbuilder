@@ -8,10 +8,12 @@ const HeaderComponent = ({
   deleteHandler,
   saveCreatedPostHandler,
   setOpenEditSaveModal,
+  setChosenTheme,
 }: any) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [hideSidebar, setHideSidebar] = useState(false);
   const [fileOpen, setFileopen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
   const isMobile = useMediaQuery({ query: `(max-width: 1000px)` });
   const openSidebarHandler = () => {
     setHideSidebar(true);
@@ -38,7 +40,8 @@ const HeaderComponent = ({
                 <div
                   className={`sidebar-container ${
                     openSidebar ? "sidebar-open" : "sidebar-close"
-                  }`}>
+                  }`}
+                >
                   <Link href="/">
                     <p className="tabs-mobile">Fil</p>
                   </Link>
@@ -60,7 +63,8 @@ const HeaderComponent = ({
                     position: "absolute",
                     top: "0",
                     left: "0",
-                  }}></div>
+                  }}
+                ></div>
               )}
             </>
           ) : (
@@ -69,22 +73,26 @@ const HeaderComponent = ({
                 <p
                   onMouseOver={() => setFileopen(true)}
                   onMouseLeave={() => setFileopen(false)}
-                  className="tabs">
+                  className="tabs"
+                >
                   Fil
                 </p>
                 {fileOpen && (
                   <div
                     className="menu-box"
                     onMouseOver={() => setFileopen(true)}
-                    onMouseLeave={() => setFileopen(false)}>
+                    onMouseLeave={() => setFileopen(false)}
+                  >
                     <p
                       onClick={() => setOpenEditSaveModal(true)}
-                      className="menu-box-tab">
+                      className="menu-box-tab"
+                    >
                       Oppdater endringer
                     </p>
                     <p
                       onClick={saveCreatedPostHandler}
-                      className="menu-box-tab">
+                      className="menu-box-tab"
+                    >
                       Lagre som ny post
                     </p>
                     {/* <p className="menu-box-tab">Nullstill alle verdier</p> */}
@@ -99,13 +107,45 @@ const HeaderComponent = ({
                   </div>
                 )}
               </div>
+              <div className="menu-box-container">
+                <p
+                  onMouseOver={() => setThemeOpen(true)}
+                  onMouseLeave={() => setThemeOpen(false)}
+                  className="tabs"
+                >
+                  Themes
+                </p>
+                {themeOpen && (
+                  <div
+                    onMouseOver={() => setThemeOpen(true)}
+                    onMouseLeave={() => setThemeOpen(false)}
+                    className="menu-box"
+                  >
+                    <p
+                      onClick={() => setChosenTheme("purple")}
+                      className="menu-box-tab"
+                    >
+                      Purple
+                    </p>
+                    <p
+                      onClick={() => setChosenTheme("green")}
+                      className="menu-box-tab"
+                    >
+                      Green
+                    </p>
+                    <p
+                      onClick={() => setChosenTheme("bright")}
+                      className="menu-box-tab"
+                    >
+                      Bright
+                    </p>
+                  </div>
+                )}
+              </div>
 
-              <Link href="/">
-                <p className="tabs">Ringer</p>
-              </Link>
-              <Link href="/">
-                <p className="tabs">Råmål</p>
-              </Link>
+              <p onClick={() => setChosenTheme("standard")} className="tabs">
+                Råmål
+              </p>
             </>
           )}
         </div>
