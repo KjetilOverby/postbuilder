@@ -107,16 +107,66 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#d2c1df, rgb(18, 32, 73))"
       );
       r.style.setProperty("--primary-text", "#def2f1");
-      r.style.setProperty("--table-bg", "#c7bcb6");
+      r.style.setProperty("--table-bg", "rgb(18, 32, 73)");
       r.style.setProperty("--outer", "#123c69");
       r.style.setProperty("--outer-text", "#ceeeda");
       r.style.setProperty("--center", "#ab3b61");
       r.style.setProperty("--center-text", "#f0b8cb");
       r.style.setProperty("--text", "#45a29e");
-      r.style.setProperty("--hover", "#bab2b5");
+      r.style.setProperty("--hover", "#123c69");
       r.style.setProperty("--running", "#26706d");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#EEE2DC");
+      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--outer-text2", "#ceeeda");
+      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty("--center-text2", "#3f2f29");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
+  function futuristicTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#2c3531");
+      r.style.setProperty("--primary-text", "#def2f1");
+      r.style.setProperty("--table-bg", "#1f2522");
+      r.style.setProperty("--outer", "#116466");
+      r.style.setProperty("--outer-text", "#ceeeda");
+      r.style.setProperty("--center", "#d9b08c");
+      r.style.setProperty("--center-text", "#88694e");
+      r.style.setProperty("--text", "#45a29e");
+      r.style.setProperty("--hover", "#123c69");
+      r.style.setProperty("--running", "#26706d");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "#EEE2DC");
+      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--outer-text2", "#ceeeda");
+      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty("--center-text2", "#3f2f29");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
+  function innovativeTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#5f6366");
+      r.style.setProperty("--primary-text", "#def2f1");
+      r.style.setProperty("--table-bg", "#4d6d9a");
+      r.style.setProperty("--outer", "#99ced3");
+      r.style.setProperty("--outer-text", "#406568");
+      r.style.setProperty("--center", "#edb5bf");
+      r.style.setProperty("--center-text", "#80414c");
+      r.style.setProperty("--text", "#45a29e");
+      r.style.setProperty("--hover", "#3c567a");
+      r.style.setProperty("--running", "#26706d");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "#86b3d1");
       r.style.setProperty("--outer2", "#5d5c61");
       r.style.setProperty("--outer-text2", "#ceeeda");
       r.style.setProperty("--center2", "#7395ae");
@@ -142,6 +192,10 @@ export default function App({ Component, pageProps }: AppProps) {
       purpleTheme();
     } else if (chosenThemeColor === '"bright"') {
       brightTheme();
+    } else if (chosenThemeColor === '"futuristic"') {
+      futuristicTheme();
+    } else if (chosenThemeColor === '"innovative"') {
+      innovativeTheme();
     }
   }, [chosenThemeColor]);
 

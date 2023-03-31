@@ -139,6 +139,18 @@ const HeaderComponent = ({
                     >
                       Bright
                     </p>
+                    <p
+                      onClick={() => setChosenTheme("futuristic")}
+                      className="menu-box-tab"
+                    >
+                      Futuristic
+                    </p>
+                    <p
+                      onClick={() => setChosenTheme("innovative")}
+                      className="menu-box-tab"
+                    >
+                      Innovative
+                    </p>
                   </div>
                 )}
               </div>
