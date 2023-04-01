@@ -710,7 +710,7 @@ const CreatePostOppsett = ({
             font-size: 2rem;
           }
           .post-header {
-            color: var(--outer);
+            color: var(--primary-text);
           }
           .animate-container {
             animation: fadeIn 1.2s;

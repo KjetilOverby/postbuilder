@@ -178,6 +178,13 @@ const HeaderComponent = ({
                       color3="#d3e3fc"
                       title="Dusk gradients"
                     />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("bluegradient")}
+                      color1="#537895"
+                      color2="#09203f"
+                      color3="#d3e3fc"
+                      title="Dark blue"
+                    />
                   </div>
                 )}
               </div>
@@ -224,7 +231,7 @@ const HeaderComponent = ({
           animation: slideClose 0.5s forwards;
         }
         .theme-header {
-          color: var(--center);
+          color: var(--primary-text);
           font-size: 1rem;
           font-weight: 600;
           margin-bottom: 0.5rem;

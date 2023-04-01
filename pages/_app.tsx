@@ -225,6 +225,43 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--mark", "#9c9c9c");
     }
   }
+  function bluegradientTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "linear-gradient(#09203f, #537895)");
+      r.style.setProperty("--primary-text", "#d3e3fc");
+      r.style.setProperty("--table-bg", "linear-gradient(#537895, #09203f)");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#09203f, #537895, #09203f)"
+      );
+      r.style.setProperty("--outer-text", "#d3e3fc");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#0f3d5c, #537895, #0f3d5c)"
+      );
+      r.style.setProperty("--center-text", "#d3e3fc");
+      r.style.setProperty("--text", "#09203f");
+      r.style.setProperty("--hover", "linear-gradient( #09203f, #537895)");
+      r.style.setProperty("--running", "#537895");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#537895, #09203f)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#09203f, #537895, #09203f)"
+      );
+      r.style.setProperty("--outer-text2", "#d3e3fc");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#0f3d5c, #537895, #0f3d5c)"
+      );
+      r.style.setProperty("--center-text2", "#d3e3fc");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
 
   useEffect(() => {
     if (isComponentMounted) {
@@ -252,6 +289,8 @@ export default function App({ Component, pageProps }: AppProps) {
       flatcolorsTheme();
     } else if (chosenThemeColor === '"duskgradient"') {
       duskGradientTheme();
+    } else if (chosenThemeColor === '"bluegradient"') {
+      bluegradientTheme();
     }
   }, [chosenThemeColor]);
 

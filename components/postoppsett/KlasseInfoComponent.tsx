@@ -16,7 +16,11 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
           <Link href="/">
             <BsBackspace
               onClick={() => setSearchResultModal(false)}
-              style={{ color: "grey", fontSize: "2rem", marginBottom: "2rem" }}
+              style={{
+                color: "var(--primary-text)",
+                fontSize: "2rem",
+                marginBottom: "2rem",
+              }}
             />
           </Link>
 
@@ -70,7 +74,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
               <MdSettings
                 onClick={() => setOpenEdit(true)}
                 style={{
-                  color: "var(--center)",
+                  color: "var(--primary-text)",
                   fontSize: "2rem",
                   marginTop: "2rem",
                 }}
@@ -86,7 +90,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
             position: relative;
           }
           .uttak {
-            color: var(--center);
+            color: var(--primary-text);
             font-size: 2rem;
             padding: 1rem 0;
             position: absolute;
@@ -96,7 +100,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
             font-weight: 100;
           }
           .text-info {
-            color: var(--center);
+            color: var(--primary-text);
           }
         `}
       </style>
