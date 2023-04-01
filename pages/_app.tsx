@@ -208,8 +208,8 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#79674a");
       r.style.setProperty("--text", "#19547b");
-      r.style.setProperty("--hover", "linear-gradient( #19547b, #ffd89b)");
-      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--hover", "#ffd89b");
+      r.style.setProperty("--running", "#19547b");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "linear-gradient(#ffd89b, #19547b)");
       r.style.setProperty(
@@ -245,8 +245,8 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#d3e3fc");
       r.style.setProperty("--text", "#09203f");
-      r.style.setProperty("--hover", "linear-gradient( #09203f, #537895)");
-      r.style.setProperty("--running", "#537895");
+      r.style.setProperty("--hover", "#537895");
+      r.style.setProperty("--running", "#77a6f7");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "linear-gradient(#537895, #09203f)");
       r.style.setProperty(
@@ -259,6 +259,117 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#0f3d5c, #537895, #0f3d5c)"
       );
       r.style.setProperty("--center-text2", "#d3e3fc");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
+  function anwarGradientTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "linear-gradient(#334d50, #cbcaa5)");
+      r.style.setProperty("--primary-text", "#d3e3fc");
+      r.style.setProperty("--table-bg", "linear-gradient(#cbcaa5, #334d50)");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#334d50, #cbcaa5, #334d50)"
+      );
+      r.style.setProperty("--outer-text", "#334d50");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#0f3d5c, #cbcaa5, #0f3d5c)"
+      );
+      r.style.setProperty("--center-text", "#0f3d5c");
+      r.style.setProperty("--text", "#334d50");
+      r.style.setProperty("--hover", "#cbcaa5");
+      r.style.setProperty("--running", "#cbcaa5");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#cbcaa5, #334d50)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#334d50, #cbcaa5, #334d50)"
+      );
+      r.style.setProperty("--outer-text2", "#334d50");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#0f3d5c, #cbcaa5, #0f3d5c)"
+      );
+      r.style.setProperty("--center-text2", "#d3e3fc");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
+  function goldGradientTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "linear-gradient(#A2790D, #EBD197)");
+      r.style.setProperty("--primary-text", "#d3e3fc");
+      r.style.setProperty("--table-bg", "linear-gradient(#EBD197, #A2790D)");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#A2790D, #EBD197, #A2790D)"
+      );
+      r.style.setProperty("--outer-text", "#A2790D");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#1B2F52, #EBD197, #1B2F52)"
+      );
+      r.style.setProperty("--center-text", "#1B2F52");
+      r.style.setProperty("--text", "#A2790D");
+      r.style.setProperty("--hover", "#EBD197");
+      r.style.setProperty("--running", "#A2790D");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#EBD197, #A2790D)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#A2790D, #EBD197, #A2790D)"
+      );
+      r.style.setProperty("--outer-text2", "#A2790D");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#1B2F52, #EBD197, #1B2F52)"
+      );
+      r.style.setProperty("--center-text2", "#1B2F52");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
+  function pinkDarknessTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "linear-gradient(#000000, #E84393)");
+      r.style.setProperty("--primary-text", "#d3e3fc");
+      r.style.setProperty("--table-bg", "linear-gradient(#E84393, #000000)");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#000000, #E84393, #000000)"
+      );
+      r.style.setProperty("--outer-text", "#d3e3fc");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#1B2F52, #E84393, #1B2F52)"
+      );
+      r.style.setProperty("--center-text", "#d3e3fc");
+      r.style.setProperty("--text", "#000000");
+      r.style.setProperty("--hover", "#E84393");
+      r.style.setProperty("--running", "#000000");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#E84393, #000000)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#000000, #E84393, #000000)"
+      );
+      r.style.setProperty("--outer-text2", "#000000");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#1B2F52, #E84393, #1B2F52)"
+      );
+      r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#9c9c9c");
     }
   }
@@ -291,6 +402,12 @@ export default function App({ Component, pageProps }: AppProps) {
       duskGradientTheme();
     } else if (chosenThemeColor === '"bluegradient"') {
       bluegradientTheme();
+    } else if (chosenThemeColor === '"anwar"') {
+      anwarGradientTheme();
+    } else if (chosenThemeColor === '"gold"') {
+      goldGradientTheme();
+    } else if (chosenThemeColor === '"pinkdarkness"') {
+      pinkDarknessTheme();
     }
   }, [chosenThemeColor]);
 
