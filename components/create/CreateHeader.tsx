@@ -177,7 +177,7 @@ const HeaderComponent = ({
 
         .sidebar-container {
           position: absolute;
-          background-color: #a3e4f5;
+          background-color: var(--primary);
           left: 0;
           width: 10rem;
           height: 80vh;
@@ -214,7 +214,7 @@ const HeaderComponent = ({
           transition: 0.5s;
           font-size: 0.8rem;
           font-weight: 600;
-          color: var(--outer-text);
+          color: var(--primary-text);
         }
         .tabs-mobile {
           text-transform: uppercase;
@@ -223,7 +223,7 @@ const HeaderComponent = ({
         }
         .tabs:hover {
           cursor: pointer;
-          color: #747474;
+          color: var(--center);
         }
         .tabContainer {
           width: 10rem;
@@ -245,7 +245,7 @@ const HeaderComponent = ({
           animation: fadeIn 0.5s;
         }
         .menu-box-tab {
-          color: var(--outer-text);
+          color: var(--primary-text);
           font-size: 0.8rem;
           margin-bottom: 5px;
         }

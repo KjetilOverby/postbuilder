@@ -14,7 +14,7 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const Create = ({ setChosenTheme }) => {
+const Create = ({ setChosenTheme }: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { postInfo, setPostInfo, update, setUpdate, postID } =
     useContext(ContextAppData);

@@ -214,7 +214,7 @@ const PostOppsettComponent = ({
             <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
               {parsedPost && parsedPost.header}{" "}
             </h1>
-            <p className="text-slate-600 text-xs italic">
+            <p className="created-header text-xs italic">
               Post opprettet:{" "}
               {parsedPost && parsedPost.date
                 ? dateFormat(parsedPost.date, "dd.mm.yyyy, HH:MM")
@@ -318,7 +318,7 @@ const PostOppsettComponent = ({
                               </p>
                             </div>
                           )}
-                          <div className="sawBlade bg-slate-500">
+                          <div className="sawBlade bladstamme-color">
                             <p className="bladstamme">
                               {parsedPost.blades.bladStamme.toFixed(1)}
                             </p>
@@ -333,7 +333,7 @@ const PostOppsettComponent = ({
                   })}
               </div>
               <div className="relative">
-                <div className="sawBlade2 bg-slate-500">
+                <div className="sawBlade2 bladstamme-color">
                   <p className="bladstamme">
                     {parsedPost && parsedPost.blades.bladStamme.toFixed(1)}
                   </p>
@@ -397,11 +397,17 @@ const PostOppsettComponent = ({
       </div>
       <style jsx>
         {`
+          .bladstamme-color {
+            background: var(--outer);
+          }
           .postoppsettHeader {
             transform: translateX(-50%);
             left: 50%;
             top: 5rem;
             font-size: 2rem;
+          }
+          .created-header {
+            color: var(--primary-text);
           }
           .post-header {
             color: var(--center);
@@ -447,7 +453,7 @@ const PostOppsettComponent = ({
             height: 30rem;
             width: 0.3rem;
             left: -5px;
-            border: 0.5px solid lightgrey;
+            border: 0.5px solid var(--center);
           }
           .sawBlade2 {
             height: 30rem;
@@ -455,13 +461,13 @@ const PostOppsettComponent = ({
             position: absolute;
             left: -4px;
             top: -15rem;
-            border: 0.5px solid lightgrey;
+            border: 0.5px solid var(--center);
             z-index: 10;
           }
           .rawInput {
             top: -24px;
             font-size: 0.8rem;
-            color: lightgrey;
+            color: var(--primary-text);
           }
           .shims-container {
             position: absolute;
@@ -475,21 +481,21 @@ const PostOppsettComponent = ({
           .shims {
             color: black;
             font-size: 0.8rem;
-            color: lightgrey;
+            color: var(--primary-text);
           }
           .bladstamme {
             position: absolute;
             bottom: -18px;
             font-size: 0.8rem;
             right: -8px;
-            color: lightgrey;
+            color: var(--primary-text);
           }
           .sagsnitt {
             position: absolute;
             top: -18px;
             font-size: 0.8rem;
             right: -8px;
-            color: lightgrey;
+            color: var(--primary-text);
           }
           .icon-container {
             position: absolute;

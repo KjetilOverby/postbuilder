@@ -53,69 +53,81 @@ const SkurlistePostoppsett = ({
         <table className="border table-auto w-auto border-spacing-2 shadow-md">
           <thead>
             <tr>
-              <th className="border border-slate-700  text-xs text-slate-600">
+              <th className="border border-slate-700  text-xs table-headers">
                 Status
               </th>
               <th
-                className="border border-slate-700  text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700  text-xs table-headers"
+                scope="col"
+              >
                 Treslag
               </th>
               <th
-                className="border border-slate-700  text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700  text-xs table-headers"
+                scope="col"
+              >
                 Kl
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Ant
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 m3
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Status
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Post
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 X-log
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 %
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Anm
               </th>
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Vs66
               </th>
 
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Mkv
               </th>
 
               <th
-                className="border border-slate-700 text-xs text-slate-600"
-                scope="col">
+                className="border border-slate-700 text-xs table-headers"
+                scope="col"
+              >
                 Blad
               </th>
             </tr>
@@ -136,72 +148,78 @@ const SkurlistePostoppsett = ({
                 <tbody
                   onClick={skurlisteInfoHandler}
                   className={`hover:bg-stone-700 cursor-pointer ${item.progress}`}
-                  key={item._id}>
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  key={item._id}
+                >
+                  <td className="border border-slate-700 text-xs table-text">
                     {item._id === fieldID && openDot && (
                       <div className="dot-container">
                         <div
                           onClick={updateProgressNeutreal}
-                          className="dot neutral-dot"></div>
+                          className="dot neutral-dot"
+                        ></div>
                         <div
                           onClick={updateProgressRunning}
-                          className="dot running-dot"></div>
+                          className="dot running-dot"
+                        ></div>
                         <div
                           onClick={updateProgressFinished}
-                          className="dot finished-dot"></div>
+                          className="dot finished-dot"
+                        ></div>
                       </div>
                     )}
                   </td>
                   <td
-                    className={`border border-slate-700 text-xs text-slate-400  ${
+                    className={`border border-slate-700 text-xs   ${
                       item.treslag === "Furu"
-                        ? "text-orange-600"
+                        ? "text-orange-400"
                         : "text-green-500"
-                    }`}>
+                    }`}
+                  >
                     {item.treslag} {item.klType}
                   </td>
 
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.klasse}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.ant}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.m3}
                   </td>
                   <td
-                    className={`border border-slate-700 text-xs text-slate-400 ${
-                      item.status == "tøm" ? "text-green-400" : "text-red-600"
-                    }`}>
+                    className={`border border-slate-700 text-xs ${
+                      item.status == "tøm" ? "text-green-300" : "text-red-400"
+                    }`}
+                  >
                     {item.status}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400 post">
+                  <td className="border border-slate-700 text-xs table-text post">
                     {item.post}x{item.breddePost}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.xLog}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.prosent}
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400 ">
+                  <td className="border border-slate-700 text-xs table-text ">
                     <div className="two-input">
                       <div>{item.anm}</div>
 
                       <div>{item.anm2}</div>
                     </div>
                   </td>
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     <div>{item.vs66}</div>
                     <div className="text-red-600">{item.vs66Xtra}</div>
                   </td>
 
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.mkvBord}
                   </td>
 
-                  <td className="border border-slate-700 text-xs text-slate-400">
+                  <td className="border border-slate-700 text-xs table-text">
                     {item.blad}
                   </td>
                 </tbody>
@@ -238,6 +256,12 @@ const SkurlistePostoppsett = ({
           }
           .finished-dot {
             background: indianred;
+          }
+          .table-headers {
+            color: var(--center);
+          }
+          .table-text {
+            color: var(--outer);
           }
         `}
       </style>

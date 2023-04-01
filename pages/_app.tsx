@@ -18,10 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [dotUpdate, setDotUpdate] = useState(false);
   const [openDot, setOpenDot] = useState(false);
 
-  const [colorTheme, setColorTheme] = useState({});
-  const [chosenTheme, setChosenTheme] = useState("");
-  const [chosenThemeColor, setChosenThemeColor] = useState("");
-  const [parsedTheme, setParsedTheme] = useState("");
+  const [chosenTheme, setChosenTheme] = useState<any>("");
+  const [chosenThemeColor, setChosenThemeColor] = useState<any>("");
 
   const UseComponentDidMount = () => {
     const ref = useRef<any>();
@@ -49,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", "#363538");
       r.style.setProperty("--primary-text", "#c2c2c2");
       r.style.setProperty("--table-bg", "#282729");
-      r.style.setProperty("--outer", "#405697");
+      r.style.setProperty("--outer", "#4b65b3");
       r.style.setProperty("--outer-text", "#9db2ef");
       r.style.setProperty("--center", "#52d6f4");
       r.style.setProperty("--center-text", "#2b6977");
@@ -58,15 +56,9 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--running", "#567574");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#394046");
-      r.style.setProperty(
-        "--outer2",
-        "linear-gradient(#6cacd2, rgb(41, 41, 41))"
-      );
+      r.style.setProperty("--outer2", "#4b65b3");
       r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty(
-        "--center2",
-        "linear-gradient(#d2c1df, rgb(18, 32, 73))"
-      );
+      r.style.setProperty("--center2", "#52d6f4");
       r.style.setProperty("--center-text2", "#23194b");
       r.style.setProperty("--mark", "#9c9c9c");
     }
@@ -89,9 +81,9 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--running", "#26706d");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#394046");
-      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--outer2", "#2b7a78");
       r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty("--center2", "#def2f1");
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
     }
@@ -102,22 +94,19 @@ export default function App({ Component, pageProps }: AppProps) {
       // Get the styles (properties and values) for the root
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
-      r.style.setProperty(
-        "--primary",
-        "linear-gradient(#d2c1df, rgb(18, 32, 73))"
-      );
-      r.style.setProperty("--primary-text", "#def2f1");
-      r.style.setProperty("--table-bg", "rgb(18, 32, 73)");
-      r.style.setProperty("--outer", "#123c69");
+      r.style.setProperty("--primary", "#eae7dc");
+      r.style.setProperty("--primary-text", "#8e8d8a");
+      r.style.setProperty("--table-bg", "#c9c6bc");
+      r.style.setProperty("--outer", "#8e8d8a");
       r.style.setProperty("--outer-text", "#ceeeda");
-      r.style.setProperty("--center", "#ab3b61");
-      r.style.setProperty("--center-text", "#f0b8cb");
-      r.style.setProperty("--text", "#45a29e");
-      r.style.setProperty("--hover", "#123c69");
-      r.style.setProperty("--running", "#26706d");
+      r.style.setProperty("--center", "#e98074");
+      r.style.setProperty("--center-text", "#864942");
+      r.style.setProperty("--text", "#8e8d8a");
+      r.style.setProperty("--hover", "#aeaba1");
+      r.style.setProperty("--running", "#d8c3a5");
       r.style.setProperty("--finish", "#221f1f");
-      r.style.setProperty("--finish-text", "#EEE2DC");
-      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--finish-text", "#706f6c");
+      r.style.setProperty("--outer2", "#d8c3a5");
       r.style.setProperty("--outer-text2", "#ceeeda");
       r.style.setProperty("--center2", "#7395ae");
       r.style.setProperty("--center-text2", "#3f2f29");
@@ -138,13 +127,13 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center", "#d9b08c");
       r.style.setProperty("--center-text", "#88694e");
       r.style.setProperty("--text", "#45a29e");
-      r.style.setProperty("--hover", "#123c69");
+      r.style.setProperty("--hover", "#272f2b");
       r.style.setProperty("--running", "#26706d");
       r.style.setProperty("--finish", "#221f1f");
-      r.style.setProperty("--finish-text", "#EEE2DC");
-      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--finish-text", "#1f2522");
+      r.style.setProperty("--outer2", "#116466");
       r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty("--center2", "#d9b08c");
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
     }
@@ -163,13 +152,13 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center", "#edb5bf");
       r.style.setProperty("--center-text", "#80414c");
       r.style.setProperty("--text", "#45a29e");
-      r.style.setProperty("--hover", "#3c567a");
-      r.style.setProperty("--running", "#26706d");
+      r.style.setProperty("--hover", "#324868");
+      r.style.setProperty("--running", "#99ced3");
       r.style.setProperty("--finish", "#221f1f");
-      r.style.setProperty("--finish-text", "#86b3d1");
-      r.style.setProperty("--outer2", "#5d5c61");
+      r.style.setProperty("--finish-text", "#3c567a");
+      r.style.setProperty("--outer2", "#4d6d9a");
       r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty("--center2", "#99ced3");
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
     }
@@ -179,6 +168,7 @@ export default function App({ Component, pageProps }: AppProps) {
     if (isComponentMounted) {
       localStorage.setItem("color", JSON.stringify(chosenTheme));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chosenTheme]);
 
   useEffect(() => {
