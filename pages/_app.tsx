@@ -373,6 +373,43 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--mark", "#9c9c9c");
     }
   }
+  function greenDarknessTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "linear-gradient(#000000, #55EFC4)");
+      r.style.setProperty("--primary-text", "#d3e3fc");
+      r.style.setProperty("--table-bg", "linear-gradient(#55EFC4, #000000)");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#000000, #55EFC4, #000000)"
+      );
+      r.style.setProperty("--outer-text", "#000000");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#1B2F52, #55EFC4, #1B2F52)"
+      );
+      r.style.setProperty("--center-text", "#000000");
+      r.style.setProperty("--text", "#000000");
+      r.style.setProperty("--hover", "#55EFC4");
+      r.style.setProperty("--running", "#000000");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#55EFC4, #000000)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#000000, #55EFC4, #000000)"
+      );
+      r.style.setProperty("--outer-text2", "#000000");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#1B2F52, #55EFC4, #1B2F52)"
+      );
+      r.style.setProperty("--center-text2", "#1B2F52");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
 
   useEffect(() => {
     if (isComponentMounted) {
@@ -408,6 +445,8 @@ export default function App({ Component, pageProps }: AppProps) {
       goldGradientTheme();
     } else if (chosenThemeColor === '"pinkdarkness"') {
       pinkDarknessTheme();
+    } else if (chosenThemeColor === '"greendarkness"') {
+      greenDarknessTheme();
     }
   }, [chosenThemeColor]);
 

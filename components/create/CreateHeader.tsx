@@ -206,6 +206,13 @@ const HeaderComponent = ({
                       color3="#d3e3fc"
                       title="Pink darkness"
                     />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("greendarkness")}
+                      color1="#55EFC4"
+                      color2="#000000"
+                      color3="#d3e3fc"
+                      title="Green darkness"
+                    />
                   </div>
                 )}
               </div>

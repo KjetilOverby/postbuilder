@@ -147,7 +147,7 @@ const SkurlistePostoppsett = ({
               return (
                 <tbody
                   onClick={skurlisteInfoHandler}
-                  className={`hover:bg-stone-700 cursor-pointer ${item.progress}`}
+                  className={`lane cursor-pointer ${item.progress}`}
                   key={item._id}
                 >
                   <td className="border border-slate-700 text-xs table-text">
@@ -229,6 +229,9 @@ const SkurlistePostoppsett = ({
       </div>
       <style jsx>
         {`
+          .lane:hover {
+            background: var(--primary-text);
+          }
           .skurliste-container {
             bottom: 10px;
             right: 10px;
