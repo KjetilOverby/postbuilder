@@ -215,13 +215,13 @@ const LeftSidepanelEdit = ({
             height: 2rem;
           }
           .btn-fill {
-            background: var(--outer2);
+            background: var(--text);
           }
           .btn-raw {
-            background: var(--center2);
+            background: var(--text);
           }
           .btn-details {
-            background: var(--outer);
+            background: var(--text);
           }
           .button-box {
             display: flex;
@@ -229,7 +229,7 @@ const LeftSidepanelEdit = ({
           }
           .header {
             margin: 1rem 0;
-            color: var(--running);
+            color: var(--primary-text);
           }
           .header-alt {
             color: yellow;
@@ -247,13 +247,13 @@ const LeftSidepanelEdit = ({
             position: absolute;
             top: 0;
             left: 0;
-            background: var(--primary);
+            background: var(--hover);
             width: 17rem;
             z-index: 10;
             animation: fadeInLeft 0.3s;
             margin-top: 2rem;
             overflow: scroll;
-            max-height: 95vh;
+            height: 97vh;
             scrollbar-width: none;
           }
           .edit-header {

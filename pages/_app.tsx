@@ -70,7 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "#17252a");
-      r.style.setProperty("--primary-text", "#def2f1");
+      r.style.setProperty("--primary-text", "#ceeeda");
       r.style.setProperty("--table-bg", "#29424b");
       r.style.setProperty("--outer", "#2b7a78");
       r.style.setProperty("--outer-text", "#ceeeda");
@@ -188,6 +188,43 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--mark", "#9c9c9c");
     }
   }
+  function duskGradientTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "linear-gradient(#19547b, #ffd89b)");
+      r.style.setProperty("--primary-text", "#edd4ab");
+      r.style.setProperty("--table-bg", "linear-gradient(#ffd89b, #19547b)");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#19547b, #ffd89b, #19547b)"
+      );
+      r.style.setProperty("--outer-text", "#79674a");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#0f3d5c, #ffd89b, #0f3d5c)"
+      );
+      r.style.setProperty("--center-text", "#79674a");
+      r.style.setProperty("--text", "#19547b");
+      r.style.setProperty("--hover", "linear-gradient( #19547b, #ffd89b)");
+      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#ffd89b, #19547b)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#19547b, #ffd89b, #19547b)"
+      );
+      r.style.setProperty("--outer-text2", "#79674a");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#0f3d5c, #ffd89b, #0f3d5c)"
+      );
+      r.style.setProperty("--center-text2", "#79674a");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
 
   useEffect(() => {
     if (isComponentMounted) {
@@ -213,6 +250,8 @@ export default function App({ Component, pageProps }: AppProps) {
       innovativeTheme();
     } else if (chosenThemeColor === '"flatcolors"') {
       flatcolorsTheme();
+    } else if (chosenThemeColor === '"duskgradient"') {
+      duskGradientTheme();
     }
   }, [chosenThemeColor]);
 

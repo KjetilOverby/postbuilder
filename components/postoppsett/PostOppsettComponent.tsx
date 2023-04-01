@@ -410,7 +410,7 @@ const PostOppsettComponent = ({
             color: var(--primary-text);
           }
           .post-header {
-            color: var(--center);
+            color: var(--primary-text);
           }
           .animate-container {
             animation: fadeIn 1.2s;

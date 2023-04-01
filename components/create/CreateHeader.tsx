@@ -152,6 +152,7 @@ const HeaderComponent = ({
                       title="Inovative"
                     />
 
+                    <hr />
                     <h1 className="theme-header">Bright themes</h1>
                     <ThemeColorMenu
                       click={() => setChosenTheme("bright")}
@@ -167,6 +168,16 @@ const HeaderComponent = ({
                       color3="#d3e3fc"
                       title="Flat design colors"
                     />
+                    <hr />
+                    <h1 className="theme-header">Gradient themes</h1>
+
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("duskgradient")}
+                      color1="#ffd89b"
+                      color2="#19547b"
+                      color3="#d3e3fc"
+                      title="Dusk gradients"
+                    />
                   </div>
                 )}
               </div>
@@ -179,6 +190,9 @@ const HeaderComponent = ({
         </div>
       </div>
       <style jsx>{`
+        hr {
+          border-color: var(--primary-text);
+        }
         .head-container {
           height: 2rem;
           background: var(--table-bg);

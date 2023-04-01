@@ -10,41 +10,44 @@ const RingPanelComponent = ({
 }: any) => {
   return (
     <>
-      <p className="text-teal-100">Små ringer</p>
+      <p className="values">Små ringer</p>
       <div className="ringlist-container">
         {list.small.map((item: any) => {
           return (
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className={`ringvalue-container`}>
-              <p className="text-teal-800">{item}</p>
+              className="ringvalue-container"
+            >
+              <p className="values">{item}</p>
             </div>
           );
         })}
       </div>
-      <p className="text-teal-800">Store ringer</p>
+      <p className="values">Store ringer</p>
       <div className="ringlist-container">
         {list.big.map((item: any) => {
           return (
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container">
-              <p className="text-teal-800">{item}</p>
+              className="ringvalue-container"
+            >
+              <p className="values">{item}</p>
             </div>
           );
         })}
       </div>
-      <p className="text-teal-100">Skims</p>
+      <p className="values">Skims</p>
       <div className="ringlist-container">
         {list.shims.map((item: any) => {
           return (
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container">
-              <p className="text-teal-800">{item}</p>
+              className="ringvalue-container"
+            >
+              <p className="values">{item}</p>
             </div>
           );
         })}
@@ -61,17 +64,20 @@ const RingPanelComponent = ({
             margin: 1rem 0;
           }
           .ringvalue-container {
-            border: 1px solid var(--table-bg);
+            border: 1px solid var(--outer);
             display: grid;
             place-items: center;
             width: 3rem;
             font-size: 0.8rem;
-            background: var(--primary-text);
+            background: var(--primary);
             border-radius: 5px;
           }
           .ringvalue-container:hover {
             background: var(--table-bg);
             cursor: pointer;
+          }
+          .values {
+            color: var(--primary-text);
           }
         `}
       </style>
