@@ -305,35 +305,44 @@ export default function App({ Component, pageProps }: AppProps) {
       // Get the styles (properties and values) for the root
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
-      r.style.setProperty("--primary", "linear-gradient(#A2790D, #EBD197)");
+      r.style.setProperty(
+        "--primary",
+        "linear-gradient(#292929, rgb(212,154,119)"
+      );
       r.style.setProperty("--primary-text", "#d3e3fc");
-      r.style.setProperty("--table-bg", "linear-gradient(#EBD197, #A2790D)");
+      r.style.setProperty(
+        "--table-bg",
+        "linear-gradient(rgb(212,154,119), #292929)"
+      );
       r.style.setProperty(
         "--outer",
-        "linear-gradient(#A2790D, #EBD197, #A2790D)"
+        "linear-gradient(#292929, rgb(212,154,119), #292929)"
       );
-      r.style.setProperty("--outer-text", "#A2790D");
+      r.style.setProperty("--outer-text", "#292929");
       r.style.setProperty(
         "--center",
-        "linear-gradient(#1B2F52, #EBD197, #1B2F52)"
+        "linear-gradient(#1B2F52, rgb(212,154,119), #1B2F52)"
       );
       r.style.setProperty("--center-text", "#1B2F52");
-      r.style.setProperty("--text", "#A2790D");
-      r.style.setProperty("--hover", "#EBD197");
-      r.style.setProperty("--running", "#A2790D");
+      r.style.setProperty("--text", "#292929");
+      r.style.setProperty("--hover", "rgb(212,154,119)");
+      r.style.setProperty("--running", "#292929");
       r.style.setProperty("--finish", "#221f1f");
-      r.style.setProperty("--finish-text", "linear-gradient(#EBD197, #A2790D)");
+      r.style.setProperty(
+        "--finish-text",
+        "linear-gradient(rgb(212,154,119), #292929)"
+      );
       r.style.setProperty(
         "--outer2",
-        "linear-gradient(#A2790D, #EBD197, #A2790D)"
+        "linear-gradient(#292929, rgb(212,154,119), #292929)"
       );
-      r.style.setProperty("--outer-text2", "#A2790D");
+      r.style.setProperty("--outer-text2", "#292929");
       r.style.setProperty(
         "--center2",
-        "linear-gradient(#1B2F52, #EBD197, #1B2F52)"
+        "linear-gradient(#1B2F52, rgb(212,154,119), #1B2F52)"
       );
       r.style.setProperty("--center-text2", "#1B2F52");
-      r.style.setProperty("--mark", "#d3e3fc");
+      r.style.setProperty("--mark", "rgb(212,154,119)");
     }
   }
   function pinkDarknessTheme() {

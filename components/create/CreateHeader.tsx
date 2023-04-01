@@ -194,10 +194,10 @@ const HeaderComponent = ({
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("gold")}
-                      color1="#A2790D"
-                      color2="#EBD197"
+                      color1="rgb(212,154,119)"
+                      color2="#292929"
                       color3="#1B2F52"
-                      title="Gold"
+                      title="Dark gold"
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("pinkdarkness")}

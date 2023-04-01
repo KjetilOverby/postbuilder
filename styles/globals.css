@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --primary: #151a2c;
+:root {
+  --primary: #292929;
   --primary-text: #29648a;
   --table-bg: #2e9cca;
   --outer: #f66c6c;
@@ -11,6 +11,7 @@
   --text: #45a29e;
   --hover: #88bdbc;
 }
+/*
 :root {
   --primary: #222629;
   --primary-text: #81b094;
