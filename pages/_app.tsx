@@ -195,7 +195,7 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#19547b, #ffd89b)");
-      r.style.setProperty("--primary-text", "#edd4ab");
+      r.style.setProperty("--primary-text", "#9c9c9c");
       r.style.setProperty("--table-bg", "linear-gradient(#ffd89b, #19547b)");
       r.style.setProperty(
         "--outer",
@@ -222,7 +222,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#0f3d5c, #ffd89b, #0f3d5c)"
       );
       r.style.setProperty("--center-text2", "#79674a");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d3e3fc");
     }
   }
   function bluegradientTheme() {
@@ -259,7 +259,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#0f3d5c, #537895, #0f3d5c)"
       );
       r.style.setProperty("--center-text2", "#d3e3fc");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d3e3fc");
     }
   }
   function anwarGradientTheme() {
@@ -296,7 +296,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#0f3d5c, #cbcaa5, #0f3d5c)"
       );
       r.style.setProperty("--center-text2", "#d3e3fc");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d3e3fc");
     }
   }
   function goldGradientTheme() {
@@ -333,7 +333,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#1B2F52, #EBD197, #1B2F52)"
       );
       r.style.setProperty("--center-text2", "#1B2F52");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d3e3fc");
     }
   }
   function pinkDarknessTheme() {
@@ -370,7 +370,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#1B2F52, #E84393, #1B2F52)"
       );
       r.style.setProperty("--center-text2", "#1B2F52");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d3e3fc");
     }
   }
   function greenDarknessTheme() {
@@ -407,7 +407,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#1B2F52, #55EFC4, #1B2F52)"
       );
       r.style.setProperty("--center-text2", "#1B2F52");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d3e3fc");
     }
   }
 

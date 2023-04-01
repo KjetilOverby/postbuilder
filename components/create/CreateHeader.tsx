@@ -208,7 +208,7 @@ const HeaderComponent = ({
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("greendarkness")}
-                      color1="#55EFC4"
+                      color1="#E84393"
                       color2="#000000"
                       color3="#d3e3fc"
                       title="Green darkness"
@@ -286,7 +286,7 @@ const HeaderComponent = ({
           transition: 0.5s;
           font-size: 0.8rem;
           font-weight: 600;
-          color: var(--primary-text);
+          color: var(--mark);
         }
         .tabs-mobile {
           text-transform: uppercase;
