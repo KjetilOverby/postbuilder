@@ -197,7 +197,7 @@ const ListerMainPage = ({
         setListeBuffer(false);
       });
   };
-  
+
   const updateProgressNeutreal = async () => {
     const response = await api
       .patch(`/api/skurlister/updateField?ids=${fieldID}`, {
@@ -349,7 +349,8 @@ const ListerMainPage = ({
                   <div
                     key={item._id}
                     onClick={getBufferHandler}
-                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100">
+                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
+                  >
                     <p className="mr-2">{item.treslag}</p>
                     <p className="mr-2">{item.klasse}</p>
                     <p className="mr-2">
@@ -383,18 +384,21 @@ const ListerMainPage = ({
               <p className="mb-5">Valgt post fra {chosen}</p>
               <InputTable listInputData={skurlisteInfo} />
 
-              <div className="grid grid-cols-10">
+              <div className="grid grid-cols-8">
                 {chosen === "skurliste" ? (
                   <form className="grid place-items-center grid-cols-3 w-20 mb-3">
                     <div
                       onClick={updateProgressNeutreal}
-                      className="w-5 h-5 bg-white grid place-content-center rounded-full"></div>
+                      className="w-5 h-5 bg-white grid place-content-center rounded-full"
+                    ></div>
                     <div
                       onClick={updateProgressRunning}
-                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"></div>
+                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"
+                    ></div>
                     <div
                       onClick={updateProgressFinished}
-                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"></div>
+                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"
+                    ></div>
                   </form>
                 ) : (
                   ""
@@ -430,6 +434,9 @@ const ListerMainPage = ({
 
       <style jsx>
         {`
+          button {
+            color: var(--primary-text);
+          }
           .buffer-item {
             background: var(--hover);
           }

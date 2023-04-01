@@ -1,5 +1,5 @@
 import React from "react";
-import { TiDeleteOutline } from 'react-icons/ti';
+import { TiDeleteOutline } from "react-icons/ti";
 
 const InputComponent = ({
   setListInputData,
@@ -39,19 +39,27 @@ const InputComponent = ({
             </div>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   klasse: "",
-                }))}
-            className="hover: cursor-pointer"
+                }))
+              }
+              className="hover: cursor-pointer"
             >
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Klasse</p>
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Klasse</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.klasse}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -91,17 +99,26 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-            <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   klType: "",
-                }))} className="hover: cursor-pointer">
-
-            <TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
             </div>
-            <p className="text-slate-700 mb-3">Klassetype</p>
+            <p className="input-box-text mb-3">Klassetype</p>
             <select
-            
               className="input-field"
               value={listInputData.klType}
               onChange={(e) =>
@@ -123,17 +140,26 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   ant: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Antall</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Antall</p>
             <input
-            
               value={listInputData.ant}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -146,17 +172,26 @@ const InputComponent = ({
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   m3: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">M3</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">M3</p>
             <input
-            
               value={listInputData.m3}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -169,17 +204,27 @@ const InputComponent = ({
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   status: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Status</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Status</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.status}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -193,21 +238,29 @@ const InputComponent = ({
               <option value="stopp">stopp</option>
             </select>
           </div>
-         
         </div>
         <div className="w-36">
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   post: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Post</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Post</p>
             <input
-           
               value={listInputData.post}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -220,17 +273,27 @@ const InputComponent = ({
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   breddePost: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Bredde</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Bredde</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.breddePost}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -279,17 +342,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   xLog: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">X-log</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">X-log</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.xLog}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -311,17 +384,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   prosent: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Tørkeprosent</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Tørkeprosent</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.prosent}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -339,17 +422,26 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   anm: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Anm</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Anm</p>
             <input
-            
               value={listInputData.anm}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -362,17 +454,26 @@ const InputComponent = ({
             />
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   anm2: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">Anm 2</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">Anm 2</p>
             <input
-            
               value={listInputData.anm2}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -387,17 +488,27 @@ const InputComponent = ({
         </div>
         <div className="w-44">
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">VS-66 ty</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">VS-66 ty</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.vs66}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -415,17 +526,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66Br: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">VS-66 Br</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">VS-66 Br</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.vs66Br}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -451,17 +572,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66Xtra: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">VS-66 xtra ty</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">VS-66 xtra ty</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.vs66Xtra}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -479,17 +610,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="p-2 bg-orange-300 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   vs66XtraBr: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">VS-66 xtra br</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">VS-66 xtra br</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.vs66XtraBr}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -515,17 +656,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   mkvBord: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">MKV ty</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">MKV ty</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.mkvBord}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -543,17 +694,27 @@ const InputComponent = ({
             </select>
           </div>
           <div className="input-cont p-2 mt-5 rounded-md relative">
-          <div onClick={() =>
+            <div
+              onClick={() =>
                 setListInputData((prevState: any) => ({
                   ...prevState,
                   mkvBr: "",
-                }))} className="hover: cursor-pointer">
-
-<TiDeleteOutline style={{position: 'absolute', right: '2px', fontSize: '1.2rem', color: 'indianred'}} />
-</div>
-            <p className="text-slate-700 mb-3">MKV br</p>
+                }))
+              }
+              className="hover: cursor-pointer"
+            >
+              <TiDeleteOutline
+                style={{
+                  position: "absolute",
+                  right: "2px",
+                  fontSize: "1.2rem",
+                  color: "indianred",
+                }}
+              />
+            </div>
+            <p className="input-box-text mb-3">MKV br</p>
             <select
-            className="input-field"
+              className="input-field"
               value={listInputData.mkvBr}
               onChange={(e) =>
                 setListInputData((prevState: any) => ({
@@ -606,16 +767,19 @@ const InputComponent = ({
             opacity: 0.2;
           }
           .input-container {
-            background: var(--table-bg)
+            background: var(--table-bg);
           }
           .input-cont {
-            background: var(--primary-text)
+            background: var(--primary-text);
           }
           .input-field {
             background: var(--table-bg);
             border-radius: 5px;
-            padding:2px;
-            color: white
+            padding: 2px;
+            color: var(--primary-text);
+          }
+          .input-box-text {
+            color: var(--hover);
           }
         `}
       </style>

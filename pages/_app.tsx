@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--table-bg", "#282729");
       r.style.setProperty("--outer", "#4b65b3");
       r.style.setProperty("--outer-text", "#9db2ef");
-      r.style.setProperty("--center", "#52d6f4");
+      r.style.setProperty("--center", "#9db2ef");
       r.style.setProperty("--center-text", "#2b6977");
       r.style.setProperty("--text", "#52d6f4");
       r.style.setProperty("--hover", "#464646");
@@ -163,6 +163,31 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--mark", "#9c9c9c");
     }
   }
+  function flatcolorsTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#fff");
+      r.style.setProperty("--primary-text", "#334b75");
+      r.style.setProperty("--table-bg", "rgb(231, 231, 231)");
+      r.style.setProperty("--outer", "#406568");
+      r.style.setProperty("--outer-text", "#fff");
+      r.style.setProperty("--center", "#77a6f7");
+      r.style.setProperty("--center-text", "#3a537d");
+      r.style.setProperty("--text", "#45a29e");
+      r.style.setProperty("--hover", "rgb(196, 196, 196)");
+      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "#d3e3fc");
+      r.style.setProperty("--outer2", "#4d6d9a");
+      r.style.setProperty("--outer-text2", "#ceeeda");
+      r.style.setProperty("--center2", "#99ced3");
+      r.style.setProperty("--center-text2", "#3f2f29");
+      r.style.setProperty("--mark", "#9c9c9c");
+    }
+  }
 
   useEffect(() => {
     if (isComponentMounted) {
@@ -186,6 +211,8 @@ export default function App({ Component, pageProps }: AppProps) {
       futuristicTheme();
     } else if (chosenThemeColor === '"innovative"') {
       innovativeTheme();
+    } else if (chosenThemeColor === '"flatcolors"') {
+      flatcolorsTheme();
     }
   }, [chosenThemeColor]);
 

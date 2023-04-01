@@ -49,16 +49,18 @@ const LeftSidepanelEdit = ({
     <>
       <div className="sidepanel-container p-5">
         <div>
-          <h1 className="text-teal-100 edit-header">Redigering</h1>
+          <h1 className="edit-header">Redigering</h1>
           <div>
             <button
               onClick={utfyllingForanOpenHandler}
-              className="btn btn-fill">
+              className="btn btn-fill"
+            >
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button
               onClick={utfyllingForanOpenHandler2}
-              className="btn btn-fill">
+              className="btn btn-fill"
+            >
               <p className="text-yellow-400 tab">Utfylling foran Alt</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
@@ -257,6 +259,7 @@ const LeftSidepanelEdit = ({
           .edit-header {
             margin-bottom: 1rem;
             font-weight: bold;
+            color: var(--primary-text);
           }
 
           .tab:hover {

@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { IoMenuSharp } from "react-icons/io5";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import ThemeColorMenu from "./ThemeColorMenu";
 
 const HeaderComponent = ({
   deleteHandler,
@@ -101,7 +102,7 @@ const HeaderComponent = ({
                     </p>
                     <Link href="postoppsett">
                       <p onClick={cancelHandler} className="menu-box-tab">
-                        Avbryt
+                        Lukk
                       </p>
                     </Link>
                   </div>
@@ -121,36 +122,51 @@ const HeaderComponent = ({
                     onMouseLeave={() => setThemeOpen(false)}
                     className="menu-box"
                   >
-                    <p
-                      onClick={() => setChosenTheme("purple")}
-                      className="menu-box-tab"
-                    >
-                      Purple
-                    </p>
-                    <p
-                      onClick={() => setChosenTheme("green")}
-                      className="menu-box-tab"
-                    >
-                      Green
-                    </p>
-                    <p
-                      onClick={() => setChosenTheme("bright")}
-                      className="menu-box-tab"
-                    >
-                      Bright
-                    </p>
-                    <p
-                      onClick={() => setChosenTheme("futuristic")}
-                      className="menu-box-tab"
-                    >
-                      Futuristic
-                    </p>
-                    <p
-                      onClick={() => setChosenTheme("innovative")}
-                      className="menu-box-tab"
-                    >
-                      Innovative
-                    </p>
+                    <h1 className="theme-header">Dark themes</h1>
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("purple")}
+                      color1="#4b65b3"
+                      color2="#52d6f4"
+                      color3="#2b6977"
+                      title="Blue"
+                    />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("green")}
+                      color1="#29424b"
+                      color2="#2b7a78"
+                      color3="#def2f1"
+                      title="Green"
+                    />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("futuristic")}
+                      color1="#116466"
+                      color2="#ceeeda"
+                      color3="#d9b08c"
+                      title="Futuristic"
+                    />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("innovative")}
+                      color1="#edb5bf"
+                      color2="#80414c"
+                      color3="#4d6d9a"
+                      title="Inovative"
+                    />
+
+                    <h1 className="theme-header">Bright themes</h1>
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("bright")}
+                      color1="#ceeeda"
+                      color2="#e98074"
+                      color3="#d8c3a5"
+                      title="Minimal yet warm"
+                    />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("flatcolors")}
+                      color1="#406568"
+                      color2="#77a6f7"
+                      color3="#d3e3fc"
+                      title="Flat design colors"
+                    />
                   </div>
                 )}
               </div>
@@ -193,6 +209,13 @@ const HeaderComponent = ({
         .sidebar-close {
           animation: slideClose 0.5s forwards;
         }
+        .theme-header {
+          color: var(--center);
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
         @keyframes slide {
           0% {
             transform: translateX(0);
@@ -248,6 +271,7 @@ const HeaderComponent = ({
           color: var(--primary-text);
           font-size: 0.8rem;
           margin-bottom: 5px;
+          margin-right: 1rem;
         }
         .menu-box-tab:hover {
           cursor: pointer;
