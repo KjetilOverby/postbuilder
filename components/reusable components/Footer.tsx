@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Footer = () => {
+  const { user, isAuthenticated } = useAuth0<any>();
   const { chosenThemeColor } = useContext(ContextAppData);
   return (
     <>
       <div className="main-container">
+        <p className="text">Copyright © 2016-2023 POSTARKIV</p>
+        <p className="text">Bruker: {user ? user.name : "Ikke innlogget"}</p>
+
         <p className="text">
-          © POSTARKIV 2016-2023. Fargetema:{" "}
+          Fargetema:{" "}
           {chosenThemeColor === '"Cadet"' ||
           chosenThemeColor === '"Steelblue"' ||
           chosenThemeColor === '"Tomato"' ||
@@ -28,12 +33,12 @@ const Footer = () => {
       <style jsx>
         {`
           .main-container {
-            height: 3rem;
+            height: 5rem;
             background: var(--table-bg);
             grid-area: footer;
-            padding: 0 15rem;
             display: grid;
             place-items: center;
+            padding: 1rem 0;
           }
           .text {
             color: var(--primary-text);

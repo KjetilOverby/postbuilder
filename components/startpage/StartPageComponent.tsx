@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import HeaderComponent from "../reusable components/HeaderComponent";
 import SearchFromListComponent from "../reusable components/SearchFromListComponent";
-import SearchPostoppsett from "../reusable components/SearchPostoppsett";
-import SearchModal from "./SearchModal";
 import SkurlisteComponent from "./SkurlisteComponent";
 import { SkurlisteProps } from "../../tsmodules/posterModule";
-import AuthWrapper from "../auth/AuthWrapper";
 import Footer from "../reusable components/Footer";
 
 const StartPageComponent = ({

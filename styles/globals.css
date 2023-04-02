@@ -80,9 +80,12 @@
     "content"
     "footer";
   height: 100vh;
-  grid-template-rows: 5rem 1fr 3rem;
+  grid-template-rows: 5rem 1fr 5rem;
 }
 
+.logButton {
+  color: var(--mark);
+}
 html,
 body {
   padding: 0;

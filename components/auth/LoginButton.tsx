@@ -9,10 +9,10 @@ const LoginButton = (): any => {
   return (
     !isAuthenticated && (
       <p
-        className="text-orange-200 text-sm hover:cursor-pointer"
+        className="logButton text-sm hover:cursor-pointer"
         onClick={loginHandler}
       >
-        Sign in
+        SIGN IN
       </p>
     )
   );

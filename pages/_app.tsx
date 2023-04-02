@@ -209,8 +209,8 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#9b786f,#d1e8e2, #9b786f"
       );
       r.style.setProperty("--center-text", "#9b786f");
-      r.style.setProperty("--text", "#3c567a");
-      r.style.setProperty("--hover", "#5a5560");
+      r.style.setProperty("--text", "#5a5560");
+      r.style.setProperty("--hover", "#34273a");
       r.style.setProperty("--running", "#99ced3");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#3c567a");
