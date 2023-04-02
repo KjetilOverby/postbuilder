@@ -419,6 +419,43 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--mark", "#d3e3fc");
     }
   }
+  function lightTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#dfdfde");
+      r.style.setProperty("--primary-text", "#1B2F52");
+      r.style.setProperty("--table-bg", "#cfcfcf");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#697184,#9aa6c4, #697184)"
+      );
+      r.style.setProperty("--outer-text", "#f2f1ef");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#b1a6a4, #f2f1ef, #b1a6a4)"
+      );
+      r.style.setProperty("--center-text", "#1B2F52");
+      r.style.setProperty("--text", "#b1a6a4");
+      r.style.setProperty("--hover", "#f2f1ef");
+      r.style.setProperty("--running", "#b1a6a4");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "linear-gradient(#f2f1ef, #b1a6a4)");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#b1a6a4, #f2f1ef, #b1a6a4)"
+      );
+      r.style.setProperty("--outer-text2", "#1B2F52");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#1B2F52, #f2f1ef, #1B2F52)"
+      );
+      r.style.setProperty("--center-text2", "#1B2F52");
+      r.style.setProperty("--mark", "#1B2F52");
+    }
+  }
 
   useEffect(() => {
     if (isComponentMounted) {
@@ -456,6 +493,8 @@ export default function App({ Component, pageProps }: AppProps) {
       pinkDarknessTheme();
     } else if (chosenThemeColor === '"greendarkness"') {
       greenDarknessTheme();
+    } else if (chosenThemeColor === '"light"') {
+      lightTheme();
     }
   }, [chosenThemeColor]);
 

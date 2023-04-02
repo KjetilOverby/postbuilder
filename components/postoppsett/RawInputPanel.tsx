@@ -82,19 +82,19 @@ const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
           .container {
           }
           .nom {
-            color: var(--primarytext);
+            color: var(--primary-text);
           }
           .nom:hover {
             cursor: pointer;
           }
           .nominell {
-            color: finish-text;
+            color: var(--finish-text);
           }
           .nom12 {
-            color: var(--center);
+            color: var(--primary-text);
           }
           .nom18 {
-            color: var(--center);
+            color: var(--primary-textr);
           }
           td {
             border: 0.5px solid var(--outer);

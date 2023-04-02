@@ -189,7 +189,7 @@ const HeaderComponent = ({
                     />
 
                     <hr />
-                    <h1 className="theme-header">Bright themes</h1>
+                    <h1 className="theme-header">Light themes</h1>
                     <ThemeColorMenu
                       click={() => setChosenTheme("bright")}
                       color1="#ceeeda"
@@ -202,6 +202,13 @@ const HeaderComponent = ({
                       color1="#406568"
                       color2="#77a6f7"
                       color3="#d3e3fc"
+                      title="Flat design colors"
+                    />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("light")}
+                      color1="#b1a6a4"
+                      color2="#f2f1ef"
+                      color3="#1B2F52"
                       title="Flat design colors"
                     />
                     <hr />
