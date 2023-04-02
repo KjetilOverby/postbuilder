@@ -1,6 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import { IoMenuSharp } from "react-icons/io5";
+import { GiSave } from "react-icons/gi";
+import { TfiSave } from "react-icons/tfi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiLogoutBoxLine } from "react-icons/ri";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import ThemeColorMenu from "./ThemeColorMenu";
@@ -84,27 +88,59 @@ const HeaderComponent = ({
                     onMouseOver={() => setFileopen(true)}
                     onMouseLeave={() => setFileopen(false)}
                   >
-                    <p
+                    <div
                       onClick={() => setOpenEditSaveModal(true)}
-                      className="menu-box-tab"
+                      className="menu-icon-container"
                     >
-                      Oppdater endringer
-                    </p>
-                    <p
+                      <GiSave
+                        style={{
+                          color: "var(--primary-text)",
+                          marginRight: "1rem",
+                        }}
+                      />
+                      <p className="menu-box-tab">Oppdater endringer</p>
+                    </div>
+                    <div
                       onClick={saveCreatedPostHandler}
-                      className="menu-box-tab"
+                      className="menu-icon-container"
                     >
-                      Lagre som ny post
-                    </p>
-                    {/* <p className="menu-box-tab">Nullstill alle verdier</p> */}
-                    <p onClick={deleteHandler} className="menu-box-tab">
-                      Slett post
-                    </p>
-                    <Link href="postoppsett">
-                      <p onClick={cancelHandler} className="menu-box-tab">
-                        Lukk
-                      </p>
-                    </Link>
+                      <TfiSave
+                        style={{
+                          color: "var(--primary-text)",
+                          marginRight: "1rem",
+                          fontSize: ".8rem",
+                        }}
+                      />
+                      <p className="menu-box-tab">Lagre som ny post</p>
+                    </div>
+                    <div
+                      onClick={deleteHandler}
+                      className="menu-icon-container"
+                    >
+                      <RiDeleteBin6Line
+                        style={{
+                          color: "var(--primary-text)",
+                          marginRight: "1rem",
+                          fontSize: "1rem",
+                        }}
+                      />
+                      <p className="menu-box-tab">Slett post</p>
+                    </div>
+                    <div
+                      onClick={cancelHandler}
+                      className="menu-icon-container"
+                    >
+                      <RiLogoutBoxLine
+                        style={{
+                          color: "var(--primary-text)",
+                          marginRight: "1rem",
+                          fontSize: "1rem",
+                        }}
+                      />
+                      <Link href="postoppsett">
+                        <p className="menu-box-tab">Lukk</p>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -216,10 +252,6 @@ const HeaderComponent = ({
                   </div>
                 )}
               </div>
-
-              <p onClick={() => setChosenTheme("standard")} className="tabs">
-                Råmål
-              </p>
             </>
           )}
         </div>
@@ -264,6 +296,15 @@ const HeaderComponent = ({
           font-weight: 600;
           margin-bottom: 0.5rem;
         }
+        .menu-icon-container {
+          display: flex;
+          padding: 0.5rem;
+        }
+        .menu-icon-container:hover {
+          cursor: pointer;
+          background: var(--primary);
+          opacity: 0.5;
+        }
 
         @keyframes slide {
           0% {
@@ -298,7 +339,7 @@ const HeaderComponent = ({
           color: var(--center);
         }
         .tabContainer {
-          width: 10rem;
+          width: 6rem;
           height: 100%;
           display: flex;
           flex-direction: row;
@@ -319,12 +360,9 @@ const HeaderComponent = ({
         .menu-box-tab {
           color: var(--primary-text);
           font-size: 0.8rem;
-          margin-bottom: 5px;
           margin-right: 1rem;
         }
-        .menu-box-tab:hover {
-          cursor: pointer;
-        }
+
         @media screen and (max-width: 1000px) {
           .container {
             padding: 0 1rem;

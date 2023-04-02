@@ -26,9 +26,11 @@ const ThemeColorMenu = ({ click, color1, color2, color3, title }: any) => {
           .theme-menu {
             display: flex;
             align-items: center;
+            padding: 0.5rem;
           }
           .theme-menu:hover {
             cursor: pointer;
+            background: var(--primary);
           }
           .box1 {
             background: ${color1};
@@ -42,7 +44,6 @@ const ThemeColorMenu = ({ click, color1, color2, color3, title }: any) => {
           .menu-box-tab {
             color: var(--primary-text);
             font-size: 0.8rem;
-            margin-bottom: 5px;
             margin-left: 1rem;
           }
         `}

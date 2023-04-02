@@ -195,7 +195,7 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#19547b, #ffd89b)");
-      r.style.setProperty("--primary-text", "#9c9c9c");
+      r.style.setProperty("--primary-text", "#000000)");
       r.style.setProperty("--table-bg", "linear-gradient(#ffd89b, #19547b)");
       r.style.setProperty(
         "--outer",

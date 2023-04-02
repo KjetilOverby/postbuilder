@@ -124,6 +124,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
           }
           .input-top {
             border: 1px solid var(--hover);
+            color: var(--primary-text);
           }
           .running {
             background: #93c5fd;

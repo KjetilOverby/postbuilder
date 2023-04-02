@@ -71,14 +71,15 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
           )}
           <AuthWrapper>
             <Link href="/create">
-              <MdSettings
-                onClick={() => setOpenEdit(true)}
-                style={{
-                  color: "var(--primary-text)",
-                  fontSize: "2rem",
-                  marginTop: "2rem",
-                }}
-              />
+              <div className="mdSettings">
+                <MdSettings
+                  onClick={() => setOpenEdit(true)}
+                  style={{
+                    color: "var(--primary-text)",
+                    fontSize: "2rem",
+                  }}
+                />
+              </div>
             </Link>
           </AuthWrapper>
         </div>
@@ -101,6 +102,31 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
           }
           .text-info {
             color: var(--primary-text);
+          }
+          .mdSettings {
+            display: grid;
+            place-items: center;
+            height: 2rem;
+            width: 2rem;
+            margin-top: 5rem;
+          }
+          .mdSettings:hover {
+            animation: rotate 7s;
+          }
+          @keyframes rotate {
+            0% {
+              transform: rotate(360deg);
+            }
+            25% {
+              transform: rotate(0deg);
+            }
+            50% {
+              transform: rotate(360deg);
+            }
+
+            100% {
+              transform: rotate(0deg);
+            }
           }
         `}
       </style>

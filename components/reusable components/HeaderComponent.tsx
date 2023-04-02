@@ -24,9 +24,9 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
   };
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap p-5 lg:p-10 header-container">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span className="font-semibold text-2xl tracking-tight">
+      <nav className="p-5 lg:p-10 header-container">
+        <div className="logo flex items-center flex-shrink-0 mr-6">
+          <span className="logo-text font-semibold tracking-tight">
             Postarkiv
           </span>
         </div>
@@ -51,12 +51,11 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
           } lg-block`}
         >
           <div className="text-sm lg:grid grid-cols-2 tab-container">
-         
             <div>
               <a
                 onClick={openPostoppsettHandler}
                 href="#"
-                className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase"
+                className="tab block mt-4 lg:inline-block lg:mt-0 mr-4 uppercase"
               >
                 Søk
               </a>
@@ -64,14 +63,14 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             <div>
               <AuthWrapper>
                 <Link href="/lister">
-                  <p className="block mt-4 lg:inline-block lg:mt-0 text-stone-400 hover:text-white mr-4 uppercase">
+                  <p className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
                     Lister
                   </p>
                 </Link>
               </AuthWrapper>
             </div>
           </div>
-          <div>
+          <div className="auth-btn-box">
             <LoginButton />
             <LogoutButton />
           </div>
@@ -88,8 +87,21 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             position: absolute;
             width: 100vw;
           }
-        
-      
+          .tab {
+            color: var(--primary-text);
+          }
+          .logo {
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          .logo-text {
+            font-size: 3rem;
+          }
+          .auth-btn-box {
+            margin-left: 1rem;
+          }
+
           @media only screen and (max-width: 1000px) {
             .header-container {
               padding: 0.5rem 1rem;
