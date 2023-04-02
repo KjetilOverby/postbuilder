@@ -148,7 +148,8 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#e98074,#f2b2ab, #e98074)"
       );
       r.style.setProperty("--center-text2", "#3f2f29");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#e98074");
+      r.style.setProperty("--text2", "#e98074");
     }
   }
   function futuristicTheme() {
@@ -300,6 +301,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#79674a");
       r.style.setProperty("--mark", "#d3e3fc");
+      r.style.setProperty("--text2", "#19547b");
     }
   }
   function bluegradientTheme() {
@@ -337,6 +339,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#d3e3fc");
       r.style.setProperty("--mark", "#d3e3fc");
+      r.style.setProperty("--text2", "#d3e3fc");
     }
   }
   function anwarGradientTheme() {
@@ -374,7 +377,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#d3e3fc");
       r.style.setProperty("--mark", "#d3e3fc");
-      r.style.setProperty("--text2", "#e9e8ce");
+      r.style.setProperty("--text2", "#0f3d5c");
     }
   }
   function goldGradientTheme() {
@@ -459,6 +462,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#d3e3fc");
+      r.style.setProperty("--text2", "#f093c0");
     }
   }
   function greenDarknessTheme() {
@@ -496,6 +500,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#d3e3fc");
+      r.style.setProperty("--text2", "#1B2F52");
     }
   }
   function lightTheme() {
