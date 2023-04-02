@@ -160,52 +160,52 @@ const HeaderComponent = ({
                   >
                     <h1 className="theme-header">Dark themes</h1>
                     <ThemeColorMenu
-                      click={() => setChosenTheme("purple")}
+                      click={() => setChosenTheme("Steelblue")}
                       color1="#557a95"
                       color2="#bcd9ee"
                       color3="#b1a296"
                       title="Steelblue"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("green")}
+                      click={() => setChosenTheme("Cadet")}
                       color1="#2b7a78"
                       color2="#9c9c9c"
                       color3="#def2f1"
                       title="Cadet"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("futuristic")}
+                      click={() => setChosenTheme("Futuristic")}
                       color1="#116466"
                       color2="#406568"
                       color3="#d9b08c"
                       title="Futuristic"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("innovative")}
+                      click={() => setChosenTheme("Innovative")}
                       color1="#5a5560"
                       color2="#80414c"
                       color3="#9b786f"
-                      title="Inovative"
+                      title="Innovative"
                     />
 
                     <hr />
                     <h1 className="theme-header">Light themes</h1>
                     <ThemeColorMenu
-                      click={() => setChosenTheme("bright")}
+                      click={() => setChosenTheme("Tomato")}
                       color1="#8e8d8a"
                       color2="#e98074"
                       color3="#d8c3a5"
                       title="Tomato"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("flatcolors")}
+                      click={() => setChosenTheme("Dodger")}
                       color1="#406568"
                       color2="#77a6f7"
                       color3="#d3e3fc"
                       title="Dodger"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("beauregard")}
+                      click={() => setChosenTheme("Quick silver")}
                       color1="#b1a6a4"
                       color2="#f2f1ef"
                       color3="#1B2F52"
@@ -215,42 +215,42 @@ const HeaderComponent = ({
                     <h1 className="theme-header">Gradient themes</h1>
 
                     <ThemeColorMenu
-                      click={() => setChosenTheme("duskgradient")}
+                      click={() => setChosenTheme("Dusk")}
                       color1="#ffd89b"
                       color2="#19547b"
                       color3="#d3e3fc"
-                      title="Dusk gradients"
+                      title="Dusk"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("bluegradient")}
+                      click={() => setChosenTheme("Dark blue")}
                       color1="#537895"
                       color2="#09203f"
                       color3="#d3e3fc"
                       title="Dark blue"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("anwar")}
+                      click={() => setChosenTheme("Anwar")}
                       color1="#cbcaa5"
                       color2="#334d50"
                       color3="#d3e3fc"
                       title="Anwar"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("gold")}
+                      click={() => setChosenTheme("Dark bronze")}
                       color1="rgb(212,154,119)"
                       color2="#292929"
                       color3="#1B2F52"
-                      title="Dark gold"
+                      title="Dark bronze"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("pinkdarkness")}
+                      click={() => setChosenTheme("Pink darkness")}
                       color1="#E84393"
                       color2="#000000"
                       color3="#d3e3fc"
                       title="Pink darkness"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("greendarkness")}
+                      click={() => setChosenTheme("Green darkness")}
                       color1="#55EFC4"
                       color2="#000000"
                       color3="#d3e3fc"

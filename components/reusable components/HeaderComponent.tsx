@@ -83,7 +83,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             background: var(--primary);
             padding: 0.5rem 15rem;
             background: var(--table-bg);
-
+            grid-area: header;
             position: absolute;
             width: 100vw;
           }

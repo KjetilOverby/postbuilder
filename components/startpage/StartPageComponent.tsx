@@ -6,6 +6,7 @@ import SearchModal from "./SearchModal";
 import SkurlisteComponent from "./SkurlisteComponent";
 import { SkurlisteProps } from "../../tsmodules/posterModule";
 import AuthWrapper from "../auth/AuthWrapper";
+import Footer from "../reusable components/Footer";
 
 const StartPageComponent = ({
   skurliste,
@@ -21,41 +22,47 @@ const StartPageComponent = ({
 }: SkurlisteProps) => {
   return (
     <>
-      <HeaderComponent
-        open={setOpenSearchModal}
-        setSkurlisteInfo={setSkurlisteInfo}
-      />
-      <div className="px-3 lg:px-60 pt-12">
-        <h1 className="sk-header header text-2xl">Skurplan</h1>
-
-        <SkurlisteComponent
-          skurliste={skurliste}
+      <div className="pagelayout-container">
+        <HeaderComponent
+          open={setOpenSearchModal}
           setSkurlisteInfo={setSkurlisteInfo}
-          setSearchResultModal={setSearchResultModal}
-          searchTrigger={true}
         />
+        <div className="content-container px-3 lg:px-60 pt-12">
+          <h1 className="sk-header header text-2xl">Skurplan</h1>
 
-        {searchResultModal && (
-          <SearchFromListComponent
-            setPostInfo={setPostInfo}
-            setSearchResultModal={setSearchResultModal}
-            skurlisteInfo={skurlisteInfo}
-            poster={poster}
+          <SkurlisteComponent
+            skurliste={skurliste}
             setSkurlisteInfo={setSkurlisteInfo}
-            setFinalSkurlisteInfo={setFinalSkurlisteInfo}
-            update={false}
-            setOpenDot={setOpenDot}
-            setUpdate={function (value: React.SetStateAction<boolean>): void {
-              throw new Error("Function not implemented.");
-            }}
+            setSearchResultModal={setSearchResultModal}
+            searchTrigger={true}
           />
-        )}
+
+          {searchResultModal && (
+            <SearchFromListComponent
+              setPostInfo={setPostInfo}
+              setSearchResultModal={setSearchResultModal}
+              skurlisteInfo={skurlisteInfo}
+              poster={poster}
+              setSkurlisteInfo={setSkurlisteInfo}
+              setFinalSkurlisteInfo={setFinalSkurlisteInfo}
+              update={false}
+              setOpenDot={setOpenDot}
+              setUpdate={function (value: React.SetStateAction<boolean>): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
+          )}
+        </div>
+        <Footer />
       </div>
       <style jsx>
         {`
           .sk-header {
             color: var(--primary-text);
             margin-top: 7rem;
+          }
+          .content-container {
+            grid-area: content;
           }
         `}
       </style>

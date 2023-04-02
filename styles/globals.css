@@ -73,6 +73,15 @@
   --mark: #9ee9e7;
   --text2: #468583;
 }
+.pagelayout-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  height: 100vh;
+  grid-template-rows: 5rem 1fr 3rem;
+}
 
 html,
 body {

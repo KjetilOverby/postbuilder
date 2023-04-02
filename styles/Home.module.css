@@ -1,4 +1,4 @@
 .indexContainer {
   background: var(--primary);
-  min-height: 100vh;
+  height: 100vh;
 }

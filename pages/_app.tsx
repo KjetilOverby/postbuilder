@@ -554,31 +554,31 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [chosenTheme]);
 
   useEffect(() => {
-    if (chosenThemeColor === '"green"') {
+    if (chosenThemeColor === '"Cadet"') {
       greenTheme();
-    } else if (chosenThemeColor === '"purple"') {
+    } else if (chosenThemeColor === '"Steelblue"') {
       purpleTheme();
-    } else if (chosenThemeColor === '"bright"') {
+    } else if (chosenThemeColor === '"Tomato"') {
       brightTheme();
-    } else if (chosenThemeColor === '"futuristic"') {
+    } else if (chosenThemeColor === '"Futuristic"') {
       futuristicTheme();
-    } else if (chosenThemeColor === '"innovative"') {
+    } else if (chosenThemeColor === '"Innovative"') {
       innovativeTheme();
-    } else if (chosenThemeColor === '"flatcolors"') {
+    } else if (chosenThemeColor === '"Dodger"') {
       flatcolorsTheme();
-    } else if (chosenThemeColor === '"duskgradient"') {
+    } else if (chosenThemeColor === '"Dusk"') {
       duskGradientTheme();
-    } else if (chosenThemeColor === '"bluegradient"') {
+    } else if (chosenThemeColor === '"Dark blue"') {
       bluegradientTheme();
-    } else if (chosenThemeColor === '"anwar"') {
+    } else if (chosenThemeColor === '"Anwar"') {
       anwarGradientTheme();
-    } else if (chosenThemeColor === '"gold"') {
+    } else if (chosenThemeColor === '"Dark bronze"') {
       goldGradientTheme();
-    } else if (chosenThemeColor === '"pinkdarkness"') {
+    } else if (chosenThemeColor === '"Pink darkness"') {
       pinkDarknessTheme();
-    } else if (chosenThemeColor === '"greendarkness"') {
+    } else if (chosenThemeColor === '"Green darkness"') {
       greenDarknessTheme();
-    } else if (chosenThemeColor === '"beauregard"') {
+    } else if (chosenThemeColor === '"Quick silver"') {
       lightTheme();
     }
   }, [chosenThemeColor]);
@@ -628,6 +628,7 @@ export default function App({ Component, pageProps }: AppProps) {
           update,
           setPostID,
           postID,
+          chosenThemeColor,
         }}
       >
         <Component
