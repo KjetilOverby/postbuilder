@@ -32,7 +32,8 @@ const SearchPostoppsett = ({
               <Link href="/postoppsett">
                 <div
                   onClick={postInfoHandler}
-                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer">
+                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
+                >
                   <span>
                     <p className="post-header font-light">{item.header}</p>
                     <div className="allrings-container">
@@ -43,9 +44,7 @@ const SearchPostoppsett = ({
                             input: number | null | undefined;
                           }) => {
                             return (
-                              <div
-                                key={startRing._id}
-                                className="rings outer text-slate-50">
+                              <div key={startRing._id} className="rings outer">
                                 {startRing.input}
                               </div>
                             );
@@ -87,9 +86,7 @@ const SearchPostoppsett = ({
                               | undefined;
                           }) => {
                             return (
-                              <div
-                                key={endRing._id}
-                                className="rings outer text-slate-50">
+                              <div key={endRing._id} className="rings outer">
                                 {endRing.input}
                               </div>
                             );
@@ -154,7 +151,7 @@ const SearchPostoppsett = ({
           }
 
           .post-header {
-            color: var(--center);
+            color: var(--primary-text);
           }
           .post-container:hover {
             background: var(--hover);
@@ -189,6 +186,7 @@ const SearchPostoppsett = ({
           }
           .outer {
             background: var(--outer);
+            color: var(--outer-text);
           }
           .allrings-container {
             display: flex;

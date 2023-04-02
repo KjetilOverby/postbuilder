@@ -161,30 +161,30 @@ const HeaderComponent = ({
                     <h1 className="theme-header">Dark themes</h1>
                     <ThemeColorMenu
                       click={() => setChosenTheme("purple")}
-                      color1="#4b65b3"
-                      color2="#52d6f4"
-                      color3="#2b6977"
-                      title="Blue"
+                      color1="#557a95"
+                      color2="#bcd9ee"
+                      color3="#b1a296"
+                      title="Steelblue"
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("green")}
-                      color1="#29424b"
-                      color2="#2b7a78"
+                      color1="#2b7a78"
+                      color2="#9c9c9c"
                       color3="#def2f1"
-                      title="Green"
+                      title="Cadet"
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("futuristic")}
                       color1="#116466"
-                      color2="#ceeeda"
+                      color2="#406568"
                       color3="#d9b08c"
                       title="Futuristic"
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("innovative")}
-                      color1="#edb5bf"
+                      color1="#5a5560"
                       color2="#80414c"
-                      color3="#4d6d9a"
+                      color3="#9b786f"
                       title="Inovative"
                     />
 
@@ -192,17 +192,17 @@ const HeaderComponent = ({
                     <h1 className="theme-header">Light themes</h1>
                     <ThemeColorMenu
                       click={() => setChosenTheme("bright")}
-                      color1="#ceeeda"
+                      color1="#8e8d8a"
                       color2="#e98074"
                       color3="#d8c3a5"
-                      title="Minimal yet warm"
+                      title="Tomato"
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("flatcolors")}
                       color1="#406568"
                       color2="#77a6f7"
                       color3="#d3e3fc"
-                      title="Flat design colors"
+                      title="Dodger"
                     />
                     <ThemeColorMenu
                       click={() => setChosenTheme("beauregard")}

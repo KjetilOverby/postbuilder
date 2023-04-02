@@ -74,6 +74,7 @@ const SearchFromListComponent = ({
             overflow: scroll;
             max-height: 70%;
             scrollbar-width: none;
+            border-radius: 10px;
           }
           .bounceIn {
             animation: bounceInRight 0.8s;

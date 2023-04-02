@@ -44,30 +44,36 @@ export default function App({ Component, pageProps }: AppProps) {
       // Get the styles (properties and values) for the root
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
-      r.style.setProperty("--primary", "#363538");
+      r.style.setProperty("--primary", "#4c4b4f");
       r.style.setProperty("--primary-text", "#c2c2c2");
       r.style.setProperty("--table-bg", "#282729");
       r.style.setProperty(
         "--outer",
-        "linear-gradient(#4b65b3, #7089d5, #4b65b3)"
+        "linear-gradient(#557a95,#bcd9ee, #557a95)"
       );
-      r.style.setProperty("--outer-text", "#cdd8f9");
+      r.style.setProperty("--outer-text", "#557a95");
       r.style.setProperty(
         "--center",
-        "linear-gradient(#9db2ef, #cad6f8, #9db2ef)"
+        "linear-gradient(#b1a296, #eddfd3, #b1a296)"
       );
-      r.style.setProperty("--center-text", "#2b6977");
-      r.style.setProperty("--text", "#52d6f4");
+      r.style.setProperty("--center-text", "#98806b");
+      r.style.setProperty("--text", "#7395ae");
       r.style.setProperty("--hover", "#464646");
       r.style.setProperty("--running", "#567574");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#394046");
-      r.style.setProperty("--outer2", "#4b65b3");
-      r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#52d6f4");
-      r.style.setProperty("--center-text2", "#23194b");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#557a95,#bcd9ee, #557a95)"
+      );
+      r.style.setProperty("--outer-text2", "#557a95");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#b1a296, #eddfd3, #b1a296)"
+      );
+      r.style.setProperty("--center-text2", "#98806b");
       r.style.setProperty("--mark", "#9c9c9c");
-      r.style.setProperty("--text2", "#4b65b3");
+      r.style.setProperty("--text2", "#7395ae");
     }
   }
   function greenTheme() {
@@ -79,20 +85,33 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", "#17252a");
       r.style.setProperty("--primary-text", "#ceeeda");
       r.style.setProperty("--table-bg", "#29424b");
-      r.style.setProperty("--outer", "#2b7a78");
-      r.style.setProperty("--outer-text", "#ceeeda");
-      r.style.setProperty("--center", "#def2f1");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#2b7a78,#ceeeda, #2b7a78)"
+      );
+      r.style.setProperty("--outer-text", "#2b7a78");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#9ecfcc,#ffffff, #9ecfcc)"
+      );
       r.style.setProperty("--center-text", "#436268");
       r.style.setProperty("--text", "#45a29e");
       r.style.setProperty("--hover", "#395352");
       r.style.setProperty("--running", "#26706d");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#394046");
-      r.style.setProperty("--outer2", "#2b7a78");
-      r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#def2f1");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#2b7a78,#ceeeda, #2b7a78)"
+      );
+      r.style.setProperty("--outer-text2", "#2b7a78");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#9ecfcc,#ffffff, #9ecfcc)"
+      );
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--text2", "#9ecfcc");
     }
   }
   function brightTheme() {
@@ -141,19 +160,31 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", "#2c3531");
       r.style.setProperty("--primary-text", "#def2f1");
       r.style.setProperty("--table-bg", "#1f2522");
-      r.style.setProperty("--outer", "#116466");
-      r.style.setProperty("--outer-text", "#ceeeda");
-      r.style.setProperty("--center", "#d9b08c");
-      r.style.setProperty("--center-text", "#88694e");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#116466,#8edddf, #116466)"
+      );
+      r.style.setProperty("--outer-text", "#3b8986");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#b78b65,#f1d4ba, #b78b65)"
+      );
+      r.style.setProperty("--center-text", "#b78b65");
       r.style.setProperty("--text", "#45a29e");
       r.style.setProperty("--hover", "#272f2b");
       r.style.setProperty("--running", "#26706d");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#1f2522");
-      r.style.setProperty("--outer2", "#116466");
-      r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#d9b08c");
-      r.style.setProperty("--center-text2", "#3f2f29");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#116466,#8edddf, #116466)"
+      );
+      r.style.setProperty("--outer-text2", "#3b8986");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#d9b08c,#f1d4ba, #d9b08c)"
+      );
+      r.style.setProperty("--center-text2", "#b78b65");
       r.style.setProperty("--mark", "#9c9c9c");
       r.style.setProperty("--text2", "#45a29e");
     }
@@ -164,23 +195,36 @@ export default function App({ Component, pageProps }: AppProps) {
       // Get the styles (properties and values) for the root
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
-      r.style.setProperty("--primary", "#5f6366");
+      r.style.setProperty("--primary", "#46344e");
       r.style.setProperty("--primary-text", "#def2f1");
-      r.style.setProperty("--table-bg", "#4d6d9a");
-      r.style.setProperty("--outer", "#99ced3");
+      r.style.setProperty("--table-bg", "#5a5560");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#5a5560,#8edddf, #5a5560"
+      );
       r.style.setProperty("--outer-text", "#406568");
-      r.style.setProperty("--center", "#edb5bf");
-      r.style.setProperty("--center-text", "#80414c");
-      r.style.setProperty("--text", "#45a29e");
-      r.style.setProperty("--hover", "#324868");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#9b786f,#d1e8e2, #9b786f"
+      );
+      r.style.setProperty("--center-text", "#9b786f");
+      r.style.setProperty("--text", "#3c567a");
+      r.style.setProperty("--hover", "#5a5560");
       r.style.setProperty("--running", "#99ced3");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#3c567a");
-      r.style.setProperty("--outer2", "#4d6d9a");
-      r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#99ced3");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#5a5560,#8edddf, #5a5560"
+      );
+      r.style.setProperty("--outer-text2", "#5a5560");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#9b786f,#d1e8e2, #9b786f"
+      );
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--text2", "#9d8d8f");
     }
   }
   function flatcolorsTheme() {
