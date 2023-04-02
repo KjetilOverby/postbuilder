@@ -47,9 +47,15 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", "#363538");
       r.style.setProperty("--primary-text", "#c2c2c2");
       r.style.setProperty("--table-bg", "#282729");
-      r.style.setProperty("--outer", "#4b65b3");
-      r.style.setProperty("--outer-text", "#9db2ef");
-      r.style.setProperty("--center", "#9db2ef");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#4b65b3, #7089d5, #4b65b3)"
+      );
+      r.style.setProperty("--outer-text", "#cdd8f9");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#9db2ef, #cad6f8, #9db2ef)"
+      );
       r.style.setProperty("--center-text", "#2b6977");
       r.style.setProperty("--text", "#52d6f4");
       r.style.setProperty("--hover", "#464646");
@@ -61,6 +67,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center2", "#52d6f4");
       r.style.setProperty("--center-text2", "#23194b");
       r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--text2", "#4b65b3");
     }
   }
   function greenTheme() {
@@ -97,18 +104,30 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", "#eae7dc");
       r.style.setProperty("--primary-text", "#8e8d8a");
       r.style.setProperty("--table-bg", "#c9c6bc");
-      r.style.setProperty("--outer", "#8e8d8a");
-      r.style.setProperty("--outer-text", "#ceeeda");
-      r.style.setProperty("--center", "#e98074");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#8e8d8a,#eae7dc, #8e8d8a)"
+      );
+      r.style.setProperty("--outer-text", "#8e8d8a");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#e98074,#f2b2ab, #e98074)"
+      );
       r.style.setProperty("--center-text", "#864942");
       r.style.setProperty("--text", "#8e8d8a");
       r.style.setProperty("--hover", "#aeaba1");
       r.style.setProperty("--running", "#d8c3a5");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#706f6c");
-      r.style.setProperty("--outer2", "#d8c3a5");
-      r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#7395ae");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#8e8d8a,#eae7dc, #8e8d8a)"
+      );
+      r.style.setProperty("--outer-text2", "#8e8d8a");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#e98074,#f2b2ab, #e98074)"
+      );
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
     }
@@ -136,6 +155,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center2", "#d9b08c");
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--text2", "#45a29e");
     }
   }
   function innovativeTheme() {
@@ -172,20 +192,33 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", "#fff");
       r.style.setProperty("--primary-text", "#334b75");
       r.style.setProperty("--table-bg", "rgb(231, 231, 231)");
-      r.style.setProperty("--outer", "#406568");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#406568, #79b3b9, #406568)"
+      );
       r.style.setProperty("--outer-text", "#fff");
-      r.style.setProperty("--center", "#77a6f7");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#77a6f7,#ccdcf9, #77a6f7)"
+      );
       r.style.setProperty("--center-text", "#3a537d");
       r.style.setProperty("--text", "#45a29e");
       r.style.setProperty("--hover", "rgb(196, 196, 196)");
       r.style.setProperty("--running", "#99ced3");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#d3e3fc");
-      r.style.setProperty("--outer2", "#4d6d9a");
-      r.style.setProperty("--outer-text2", "#ceeeda");
-      r.style.setProperty("--center2", "#99ced3");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#77a6f7,#ccdcf9, #77a6f7)"
+      );
+      r.style.setProperty("--outer-text2", "#3a537d");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#406568, #79b3b9, #406568)"
+      );
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--text2", "#3a537d");
     }
   }
   function duskGradientTheme() {
@@ -297,6 +330,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#d3e3fc");
       r.style.setProperty("--mark", "#d3e3fc");
+      r.style.setProperty("--text2", "#e9e8ce");
     }
   }
   function goldGradientTheme() {
@@ -343,6 +377,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "rgb(212,154,119)");
+      r.style.setProperty("--text2", "rgb(239, 202, 179)");
     }
   }
   function pinkDarknessTheme() {
@@ -439,7 +474,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#1B2F52");
       r.style.setProperty("--text", "#b1a6a4");
-      r.style.setProperty("--hover", "#f2f1ef");
+      r.style.setProperty("--hover", "#c8c8c8");
       r.style.setProperty("--running", "#b1a6a4");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "linear-gradient(#f2f1ef, #b1a6a4)");
@@ -493,7 +528,7 @@ export default function App({ Component, pageProps }: AppProps) {
       pinkDarknessTheme();
     } else if (chosenThemeColor === '"greendarkness"') {
       greenDarknessTheme();
-    } else if (chosenThemeColor === '"light"') {
+    } else if (chosenThemeColor === '"beauregard"') {
       lightTheme();
     }
   }, [chosenThemeColor]);

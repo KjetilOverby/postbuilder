@@ -205,11 +205,11 @@ const HeaderComponent = ({
                       title="Flat design colors"
                     />
                     <ThemeColorMenu
-                      click={() => setChosenTheme("light")}
+                      click={() => setChosenTheme("beauregard")}
                       color1="#b1a6a4"
                       color2="#f2f1ef"
                       color3="#1B2F52"
-                      title="Flat design colors"
+                      title="Quick silver"
                     />
                     <hr />
                     <h1 className="theme-header">Gradient themes</h1>

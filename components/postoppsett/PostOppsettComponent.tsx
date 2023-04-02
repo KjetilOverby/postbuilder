@@ -618,7 +618,7 @@ const PostOppsettComponent = ({
             }
             .rawInput {
               font-size: 10px;
-              color: lightgrey;
+              color: var(--primary-text);
               top: -15px;
             }
             .bladstamme {

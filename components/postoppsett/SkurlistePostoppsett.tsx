@@ -230,7 +230,7 @@ const SkurlistePostoppsett = ({
       <style jsx>
         {`
           .lane:hover {
-            background: var(--primary-text);
+            background: var(--hover);
           }
           .skurliste-container {
             bottom: 10px;
@@ -261,10 +261,10 @@ const SkurlistePostoppsett = ({
             background: indianred;
           }
           .table-headers {
-            color: var(--center);
+            color: var(--text);
           }
           .table-text {
-            color: var(--outer);
+            color: var(--text2);
           }
         `}
       </style>
