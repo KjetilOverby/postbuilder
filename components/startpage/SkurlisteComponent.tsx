@@ -153,6 +153,9 @@ const SkurlisteComponent = ({
       </div>
       <style jsx>
         {`
+          tr {
+            color: var(--text2);
+          }
           .skurliste-container {
             background: var(--table-bg);
           }

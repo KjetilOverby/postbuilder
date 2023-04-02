@@ -53,25 +53,25 @@
   --mark: #9c9c9c;
 } */
 :root {
-  --primary: #4c4b4f;
-  --primary-text: #c2c2c2;
-  --table-bg: #282729;
-  --outer: linear-gradient(#557a95, #bcd9ee, #557a95);
-  --outer-text: #557a95;
-  --center: linear-gradient(#b1a296, #eddfd3, #b1a296);
-  --center-text: #98806b;
+  --primary: #022140;
+  --primary-text: #9ee9e7;
+  --table-bg: #2d5f5d;
+  --outer: linear-gradient(#2d5f5d, #9ee9e7, #2d5f5d);
+  --outer-text: #2d5f5d;
+  --center: linear-gradient(#265077, #a4c7e8, #265077);
+  --center-text: #265077;
   --text: #7395ae;
-  --hover: #464646;
-  --running: #567574;
+  --hover: #468583;
+  --running: #7395ae;
   --finish: #221f1f;
   --finish-text: #394046;
 
-  --outer2: linear-gradient(#557a95, #bcd9ee, #557a95);
-  --outer-text2: #557a95;
-  --center2: linear-gradient(#b1a296, #eddfd3, #b1a296);
-  --center-text2: #98806b;
-  --mark: #9c9c9c;
-  --text2: #7395ae;
+  --outer2: linear-gradient(#2d5f5d, #9ee9e7, #2d5f5d);
+  --outer-text2: #2d5f5d;
+  --center2: linear-gradient(#265077, #a4c7e8, #265077);
+  --center-text2: ##265077;
+  --mark: #9ee9e7;
+  --text2: #468583;
 }
 
 html,

@@ -59,7 +59,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text", "#98806b");
       r.style.setProperty("--text", "#7395ae");
       r.style.setProperty("--hover", "#464646");
-      r.style.setProperty("--running", "#567574");
+      r.style.setProperty("--running", "#7395ae");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#394046");
       r.style.setProperty(
@@ -72,7 +72,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#b1a296, #eddfd3, #b1a296)"
       );
       r.style.setProperty("--center-text2", "#98806b");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#bcd9ee");
       r.style.setProperty("--text2", "#7395ae");
     }
   }
@@ -110,7 +110,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#9ecfcc,#ffffff, #9ecfcc)"
       );
       r.style.setProperty("--center-text2", "#3f2f29");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#ceeeda");
       r.style.setProperty("--text2", "#9ecfcc");
     }
   }
@@ -164,12 +164,12 @@ export default function App({ Component, pageProps }: AppProps) {
         "--outer",
         "linear-gradient(#116466,#8edddf, #116466)"
       );
-      r.style.setProperty("--outer-text", "#3b8986");
+      r.style.setProperty("--outer-text", "#2f6c6a");
       r.style.setProperty(
         "--center",
         "linear-gradient(#b78b65,#f1d4ba, #b78b65)"
       );
-      r.style.setProperty("--center-text", "#b78b65");
+      r.style.setProperty("--center-text", "#73573f");
       r.style.setProperty("--text", "#45a29e");
       r.style.setProperty("--hover", "#272f2b");
       r.style.setProperty("--running", "#26706d");
@@ -179,13 +179,13 @@ export default function App({ Component, pageProps }: AppProps) {
         "--outer2",
         "linear-gradient(#116466,#8edddf, #116466)"
       );
-      r.style.setProperty("--outer-text2", "#3b8986");
+      r.style.setProperty("--outer-text2", "#2f6c6a");
       r.style.setProperty(
         "--center2",
         "linear-gradient(#d9b08c,#f1d4ba, #d9b08c)"
       );
-      r.style.setProperty("--center-text2", "#b78b65");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--center-text2", "#73573f");
+      r.style.setProperty("--mark", "#8edddf");
       r.style.setProperty("--text2", "#45a29e");
     }
   }
@@ -223,7 +223,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#9b786f,#d1e8e2, #9b786f"
       );
       r.style.setProperty("--center-text2", "#3f2f29");
-      r.style.setProperty("--mark", "#9c9c9c");
+      r.style.setProperty("--mark", "#d1e8e2");
       r.style.setProperty("--text2", "#9d8d8f");
     }
   }
@@ -533,6 +533,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#1B2F52");
+      r.style.setProperty("--text2", "#697184");
     }
   }
 
