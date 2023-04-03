@@ -91,9 +91,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             color: var(--primary-text);
           }
           .logo {
-            background: var(--primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text);
           }
           .logo-text {
             font-size: 3rem;
