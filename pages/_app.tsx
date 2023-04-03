@@ -266,6 +266,84 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--text2", "#3a537d");
     }
   }
+  function greenPearlTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#a3bcb6");
+      r.style.setProperty("--primary-text", "#39603d");
+      r.style.setProperty("--table-bg", "#daded4");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#39603d, #daded4, #39603d)"
+      );
+      r.style.setProperty("--outer-text", "#39603d");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#3c403d,#c4e1da, #3c403d)"
+      );
+      r.style.setProperty("--center-text", "#3c403d");
+      r.style.setProperty("--text", "#39603d");
+      r.style.setProperty("--hover", "#c4e1da");
+      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "#a3bcb6");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#3c403d,#c4e1da, #3c403d)"
+      );
+      r.style.setProperty("--outer-text2", "#3c403d");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(#39603d, #daded4, #39603d)"
+      );
+      r.style.setProperty("--center-text2", "#39603d");
+      r.style.setProperty("--mark", "#39603d");
+      r.style.setProperty("--text2", "#39603d");
+    }
+  }
+  // SAND THEME not in use
+  function sandTheme() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", "#2d545e");
+      r.style.setProperty("--primary-text", "#c89666");
+      r.style.setProperty("--table-bg", "#daded4");
+      r.style.setProperty(
+        "--outer",
+        "linear-gradient(#2d545e, #daded4, #2d545e)"
+      );
+      r.style.setProperty("--outer-text", "e1b382");
+      r.style.setProperty(
+        "--center",
+        "linear-gradient(#c89666,#daded4, #c89666)"
+      );
+      r.style.setProperty("--center-text", "#c89666");
+      r.style.setProperty("--text", "e1b382");
+      r.style.setProperty("--hover", "#c4e1da");
+      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish-text", "#a3bcb6");
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#e1b382,#c89666, #e1b382)"
+      );
+      r.style.setProperty("--outer-text2", "#e1b382");
+      r.style.setProperty(
+        "--center2",
+        "linear-gradient(e1b382, #daded4, e1b382)"
+      );
+      r.style.setProperty("--center-text2", "#39603d");
+      r.style.setProperty("--mark", "#39603d");
+      r.style.setProperty("--text2", "#39603d");
+    }
+  }
+
   function duskGradientTheme() {
     if (typeof window !== "undefined") {
       const r: any = document.querySelector(":root");
@@ -580,6 +658,8 @@ export default function App({ Component, pageProps }: AppProps) {
       greenDarknessTheme();
     } else if (chosenThemeColor === '"Quick silver"') {
       lightTheme();
+    } else if (chosenThemeColor === '"Green pearl"') {
+      greenPearlTheme();
     }
   }, [chosenThemeColor]);
 

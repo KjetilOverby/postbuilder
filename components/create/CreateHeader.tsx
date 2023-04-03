@@ -211,6 +211,13 @@ const HeaderComponent = ({
                       color3="#1B2F52"
                       title="Quick silver"
                     />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("Green pearl")}
+                      color1="#39603d"
+                      color2="#a3bcb6"
+                      color3="#daded4"
+                      title="Green pearl"
+                    />
                     <hr />
                     <h1 className="theme-header">Gradient themes</h1>
 
