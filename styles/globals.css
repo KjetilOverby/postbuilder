@@ -34,6 +34,7 @@
 }
 
 .logButton {
+  color: #4a3827;
   color: var(--mark);
 }
 html,

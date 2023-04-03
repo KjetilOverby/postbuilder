@@ -187,6 +187,13 @@ const HeaderComponent = ({
                       color3="#9b786f"
                       title="Innovative"
                     />
+                    <ThemeColorMenu
+                      click={() => setChosenTheme("Sahara night")}
+                      color1="#2d545e"
+                      color2="#c89666"
+                      color3="#99ced3"
+                      title="Sahara night"
+                    />
 
                     <hr />
                     <h1 className="theme-header">Light themes</h1>

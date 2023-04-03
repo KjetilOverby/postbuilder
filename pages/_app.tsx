@@ -313,34 +313,34 @@ export default function App({ Component, pageProps }: AppProps) {
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "#2d545e");
       r.style.setProperty("--primary-text", "#c89666");
-      r.style.setProperty("--table-bg", "#daded4");
+      r.style.setProperty("--table-bg", "#234249");
       r.style.setProperty(
         "--outer",
         "linear-gradient(#2d545e, #daded4, #2d545e)"
       );
-      r.style.setProperty("--outer-text", "e1b382");
+      r.style.setProperty("--outer-text", "rgb(29, 55, 61)");
       r.style.setProperty(
         "--center",
-        "linear-gradient(#c89666,#daded4, #c89666)"
+        "linear-gradient(#c89666,#f9e6d2, #c89666)"
       );
-      r.style.setProperty("--center-text", "#c89666");
-      r.style.setProperty("--text", "e1b382");
-      r.style.setProperty("--hover", "#c4e1da");
+      r.style.setProperty("--center-text", "#72553a");
+      r.style.setProperty("--text", "#c89666");
+      r.style.setProperty("--hover", "rgb(29, 55, 61)");
       r.style.setProperty("--running", "#99ced3");
       r.style.setProperty("--finish", "#221f1f");
-      r.style.setProperty("--finish-text", "#a3bcb6");
+      r.style.setProperty("--finish-text", "#2d545e");
       r.style.setProperty(
         "--outer2",
-        "linear-gradient(#e1b382,#c89666, #e1b382)"
+        "linear-gradient(#2d545e, #daded4, #2d545e)"
       );
-      r.style.setProperty("--outer-text2", "#e1b382");
+      r.style.setProperty("--outer-text2", "#72553a");
       r.style.setProperty(
         "--center2",
-        "linear-gradient(e1b382, #daded4, e1b382)"
+        "linear-gradient(#c89666,#f9e6d2, #c89666)"
       );
-      r.style.setProperty("--center-text2", "#39603d");
-      r.style.setProperty("--mark", "#39603d");
-      r.style.setProperty("--text2", "#39603d");
+      r.style.setProperty("--center-text2", "rgb(29, 55, 61)");
+      r.style.setProperty("--mark", "#f9e6d2");
+      r.style.setProperty("--text2", "#f9e6d2");
     }
   }
 
@@ -660,6 +660,8 @@ export default function App({ Component, pageProps }: AppProps) {
       lightTheme();
     } else if (chosenThemeColor === '"Green pearl"') {
       greenPearlTheme();
+    } else if (chosenThemeColor === '"Sahara night"') {
+      sandTheme();
     }
   }, [chosenThemeColor]);
 
