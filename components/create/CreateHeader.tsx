@@ -379,7 +379,7 @@ const HeaderComponent = ({
                     >
                       <p className="menu-box-tab">Fira Code</p>
                     </div>
-                    †
+
                     <div
                       onClick={() => setChosenFont("Maitree")}
                       className="menu-icon-container"

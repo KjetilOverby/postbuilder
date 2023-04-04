@@ -28,7 +28,8 @@ const Footer = () => {
           chosenThemeFont === '"Fira Code"' ||
           chosenThemeFont === '"Maitree"' ||
           chosenThemeFont === '"Nixie One"' ||
-          chosenThemeFont === '"Buda"'
+          chosenThemeFont === '"Buda"' ||
+          chosenThemeFont === '"Mina"'
             ? chosenThemeFont
             : "Standard"}
         </p>
@@ -48,8 +49,7 @@ const Footer = () => {
           chosenThemeColor === '"Green darkness"' ||
           chosenThemeColor === '"Quick silver"' ||
           chosenThemeColor === '"Green pearl"' ||
-          chosenThemeColor === '"Sahara night"' ||
-          chosenThemeColor === '"Mina"'
+          chosenThemeColor === '"Sahara night"'
             ? chosenThemeColor
             : "Standard"}
         </p>
