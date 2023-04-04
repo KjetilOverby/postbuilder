@@ -784,6 +784,15 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--font", "Buda");
     }
   };
+  const minaFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Mina");
+    }
+  };
 
   // ************** COLOR THEMES ************** //
 
@@ -883,6 +892,8 @@ export default function App({ Component, pageProps }: AppProps) {
       nixieFontHandler();
     } else if (chosenThemeFont === '"Buda"') {
       budaFontHandler();
+    } else if (chosenThemeFont === '"Mina"') {
+      minaFontHandler();
     }
   }, [chosenThemeFont]);
 

@@ -379,6 +379,7 @@ const HeaderComponent = ({
                     >
                       <p className="menu-box-tab">Fira Code</p>
                     </div>
+                    †
                     <div
                       onClick={() => setChosenFont("Maitree")}
                       className="menu-icon-container"
@@ -396,6 +397,12 @@ const HeaderComponent = ({
                       className="menu-icon-container"
                     >
                       <p className="menu-box-tab">Buda</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Mina")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Mina</p>
                     </div>
                   </div>
                 )}
