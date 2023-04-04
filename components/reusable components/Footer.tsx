@@ -8,29 +8,7 @@ const Footer = () => {
   return (
     <>
       <div className="main-container">
-        <p className="text">Copyright © 2016-2023 POSTARKIV</p>
         <p className="text">Bruker: {user ? user.name : "Ikke innlogget"}</p>
-
-        <p className="text">
-          Fargetema:{" "}
-          {chosenThemeColor === '"Cadet"' ||
-          chosenThemeColor === '"Steelblue"' ||
-          chosenThemeColor === '"Tomato"' ||
-          chosenThemeColor === '"Futuristic"' ||
-          chosenThemeColor === '"Innovative"' ||
-          chosenThemeColor === '"Dodger"' ||
-          chosenThemeColor === '"Dusk"' ||
-          chosenThemeColor === '"Dark blue"' ||
-          chosenThemeColor === '"Anwar"' ||
-          chosenThemeColor === '"Dark bronze"' ||
-          chosenThemeColor === '"Pink darkness"' ||
-          chosenThemeColor === '"Green darkness"' ||
-          chosenThemeColor === '"Quick silver"' ||
-          chosenThemeColor === '"Green pearl"' ||
-          chosenThemeColor === '"Sahara night"'
-            ? chosenThemeColor
-            : "Standard"}
-        </p>
         <p className="text">
           Font:{" "}
           {chosenThemeFont === '"Abel"' ||
@@ -54,6 +32,28 @@ const Footer = () => {
             ? chosenThemeFont
             : "Standard"}
         </p>
+        <p className="text">
+          Fargetema:{" "}
+          {chosenThemeColor === '"Cadet"' ||
+          chosenThemeColor === '"Steelblue"' ||
+          chosenThemeColor === '"Tomato"' ||
+          chosenThemeColor === '"Futuristic"' ||
+          chosenThemeColor === '"Innovative"' ||
+          chosenThemeColor === '"Dodger"' ||
+          chosenThemeColor === '"Dusk"' ||
+          chosenThemeColor === '"Dark blue"' ||
+          chosenThemeColor === '"Anwar"' ||
+          chosenThemeColor === '"Dark bronze"' ||
+          chosenThemeColor === '"Pink darkness"' ||
+          chosenThemeColor === '"Green darkness"' ||
+          chosenThemeColor === '"Quick silver"' ||
+          chosenThemeColor === '"Green pearl"' ||
+          chosenThemeColor === '"Sahara night"'
+            ? chosenThemeColor
+            : "Standard"}
+        </p>
+
+        <p className="text">Copyright © 2016-2023 POSTARKIV</p>
       </div>
       <style jsx>
         {`
