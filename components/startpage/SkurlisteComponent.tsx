@@ -172,7 +172,7 @@ const SkurlisteComponent = ({
             background: var(--running);
           }
           .finished {
-            background: var(--text);
+            background: var(--hover);
           }
           table {
             width: 100%;
