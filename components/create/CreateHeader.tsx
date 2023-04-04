@@ -14,11 +14,13 @@ const HeaderComponent = ({
   saveCreatedPostHandler,
   setOpenEditSaveModal,
   setChosenTheme,
+  setChosenFont,
 }: any) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [hideSidebar, setHideSidebar] = useState(false);
   const [fileOpen, setFileopen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
+  const [fontOpen, setFontOpen] = useState(false);
   const isMobile = useMediaQuery({ query: `(max-width: 1000px)` });
   const openSidebarHandler = () => {
     setHideSidebar(true);
@@ -273,6 +275,131 @@ const HeaderComponent = ({
                   </div>
                 )}
               </div>
+              <div className="menu-box-container">
+                <p
+                  onMouseOver={() => setFontOpen(true)}
+                  onMouseLeave={() => setFontOpen(false)}
+                  className="tabs"
+                >
+                  Fonts
+                </p>
+                {fontOpen && (
+                  <div
+                    onMouseOver={() => setFontOpen(true)}
+                    onMouseLeave={() => setFontOpen(false)}
+                    className="menu-box"
+                  >
+                    <div
+                      onClick={() => setChosenFont("Abel")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Abel</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Krub")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Krub</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Chakra Petch")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Chakra Petch</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Exo")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Exo</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Fjalla One")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Fjalla One</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Orbitron")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Orbitron</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Red Hat Display")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Red Hat Display</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Roboto")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Roboto</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Saira Condensed")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Saira Condensed</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Space Grotesk")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Space Grotesk</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Unica One")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Unica One</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Poiret One")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Poiret One</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Electrolize")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Electrolize</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Armata")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Armata</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Fira Code")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Fira Code</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Maitree")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Maitree</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Nixie One")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Nixie One</p>
+                    </div>
+                    <div
+                      onClick={() => setChosenFont("Buda")}
+                      className="menu-icon-container"
+                    >
+                      <p className="menu-box-tab">Buda</p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </>
           )}
         </div>
@@ -360,7 +487,7 @@ const HeaderComponent = ({
           color: var(--center);
         }
         .tabContainer {
-          width: 6rem;
+          width: 12rem;
           height: 100%;
           display: flex;
           flex-direction: row;

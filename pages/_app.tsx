@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const [chosenTheme, setChosenTheme] = useState<any>("");
   const [chosenThemeColor, setChosenThemeColor] = useState<any>("");
+  const [chosenFont, setChosenFont] = useState<any>("");
+  const [chosenThemeFont, setChosenThemeFont] = useState<any>("");
 
   const UseComponentDidMount = () => {
     const ref = useRef<any>();
@@ -620,6 +622,171 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }
 
+  const abelFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Abel");
+    }
+  };
+  const krubFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Krub");
+    }
+  };
+  const chakraFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Chakra Petch");
+    }
+  };
+  const exoFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Exo");
+    }
+  };
+  const fjallaFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Fjalla One");
+    }
+  };
+  const orbitronFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Orbitron");
+    }
+  };
+  const redHatFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Red Hat Display");
+    }
+  };
+  const robotoFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Roboto");
+    }
+  };
+  const sairaFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Saira Condensed");
+    }
+  };
+  const spaceGroteskFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Space Grotesk");
+    }
+  };
+  const unicaOneFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Unica One");
+    }
+  };
+  const poiretOneFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Poiret One");
+    }
+  };
+  const electrolizeFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Electrolize");
+    }
+  };
+  const armataFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Armata");
+    }
+  };
+  const firaCodeFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Fira Code");
+    }
+  };
+  const maitreeFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Maitree");
+    }
+  };
+  const nixieFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Nixie One");
+    }
+  };
+  const budaFontHandler = () => {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--font", "Buda");
+    }
+  };
+
+  // ************** COLOR THEMES ************** //
+
   useEffect(() => {
     if (isComponentMounted) {
       localStorage.setItem("color", JSON.stringify(chosenTheme));
@@ -630,6 +797,19 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setChosenThemeColor(localStorage.getItem("color"));
   }, [chosenTheme]);
+
+  // *************** FONTS ******************* //
+
+  useEffect(() => {
+    if (isComponentMounted) {
+      localStorage.setItem("font", JSON.stringify(chosenFont));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chosenFont]);
+
+  useEffect(() => {
+    setChosenThemeFont(localStorage.getItem("font"));
+  }, [chosenFont]);
 
   useEffect(() => {
     if (chosenThemeColor === '"Cadet"') {
@@ -664,6 +844,47 @@ export default function App({ Component, pageProps }: AppProps) {
       sandTheme();
     }
   }, [chosenThemeColor]);
+  console.log(chosenThemeFont);
+
+  useEffect(() => {
+    if (chosenThemeFont === '"Abel"') {
+      abelFontHandler();
+    } else if (chosenThemeFont === '"Krub"') {
+      krubFontHandler();
+    } else if (chosenThemeFont === '"Chakra Petch"') {
+      chakraFontHandler();
+    } else if (chosenThemeFont === '"Exo"') {
+      exoFontHandler();
+    } else if (chosenThemeFont === '"Fjalla One"') {
+      fjallaFontHandler();
+    } else if (chosenThemeFont === '"Orbitron"') {
+      orbitronFontHandler();
+    } else if (chosenThemeFont === '"Red Hat Display"') {
+      redHatFontHandler();
+    } else if (chosenThemeFont === '"Roboto"') {
+      robotoFontHandler();
+    } else if (chosenThemeFont === '"Saira Condensed"') {
+      sairaFontHandler();
+    } else if (chosenThemeFont === '"Space Grotesk"') {
+      spaceGroteskFontHandler();
+    } else if (chosenThemeFont === '"Unica One"') {
+      unicaOneFontHandler();
+    } else if (chosenThemeFont === '"Poiret One"') {
+      poiretOneFontHandler();
+    } else if (chosenThemeFont === '"Electrolize"') {
+      electrolizeFontHandler();
+    } else if (chosenThemeFont === '"Armata"') {
+      armataFontHandler();
+    } else if (chosenThemeFont === '"Fira Code"') {
+      firaCodeFontHandler();
+    } else if (chosenThemeFont === '"Maitree"') {
+      maitreeFontHandler();
+    } else if (chosenThemeFont === '"Nixie One"') {
+      nixieFontHandler();
+    } else if (chosenThemeFont === '"Buda"') {
+      budaFontHandler();
+    }
+  }, [chosenThemeFont]);
 
   useEffect(() => {
     (async () => {
@@ -711,6 +932,7 @@ export default function App({ Component, pageProps }: AppProps) {
           setPostID,
           postID,
           chosenThemeColor,
+          chosenThemeFont,
         }}
       >
         <Component
@@ -732,6 +954,7 @@ export default function App({ Component, pageProps }: AppProps) {
           openDot={openDot}
           setOpenDot={setOpenDot}
           setChosenTheme={setChosenTheme}
+          setChosenFont={setChosenFont}
         />
       </ContextAppData.Provider>
     </Auth0Provider>

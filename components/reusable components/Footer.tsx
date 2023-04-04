@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Footer = () => {
   const { user, isAuthenticated } = useAuth0<any>();
-  const { chosenThemeColor } = useContext(ContextAppData);
+  const { chosenThemeColor, chosenThemeFont } = useContext(ContextAppData);
   return (
     <>
       <div className="main-container">
@@ -31,11 +31,34 @@ const Footer = () => {
             ? chosenThemeColor
             : "Standard"}
         </p>
+        <p className="text">
+          Font:{" "}
+          {chosenThemeFont === '"Abel"' ||
+          chosenThemeFont === '"Krub"' ||
+          chosenThemeFont === '"Chakra Petch"' ||
+          chosenThemeFont === '"Exo"' ||
+          chosenThemeFont === '"Fjalla One"' ||
+          chosenThemeFont === '"Orbitron"' ||
+          chosenThemeFont === '"Red Hat Display"' ||
+          chosenThemeFont === '"Roboto"' ||
+          chosenThemeFont === '"Saira Condensed"' ||
+          chosenThemeFont === '"Space Grotesk"' ||
+          chosenThemeFont === '"Unica One"' ||
+          chosenThemeFont === '"Poiret One"' ||
+          chosenThemeFont === '"Electrolize"' ||
+          chosenThemeFont === '"Armata"' ||
+          chosenThemeFont === '"Fira Code"' ||
+          chosenThemeFont === '"Maitree"' ||
+          chosenThemeFont === '"Nixie One"' ||
+          chosenThemeFont === '"Buda"'
+            ? chosenThemeFont
+            : "Standard"}
+        </p>
       </div>
       <style jsx>
         {`
           .main-container {
-            height: 5rem;
+            height: 6rem;
             background: var(--table-bg);
             grid-area: footer;
             display: grid;

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+
 import { ContextAppData } from "../data/context/ContextAppData";
 import CreateHeader from "../components/create/CreateHeader";
 import CreatePostContainer from "../components/create/CreatePostContainer";
@@ -9,12 +10,13 @@ import { useRouter } from "next/router";
 import ringList from "../data/ringList";
 import { useAuth0 } from "@auth0/auth0-react";
 import Modal from "../components/reusable components/Modal";
+import HeadComponent from "../components/reusable components/HeadComponent";
 
 const api = axios.create({
   baseURL: process.env.api,
 });
 
-const Create = ({ setChosenTheme }: any) => {
+const Create = ({ setChosenTheme, setChosenFont }: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { postInfo, setPostInfo, update, setUpdate, postID } =
     useContext(ContextAppData);
@@ -536,6 +538,7 @@ const Create = ({ setChosenTheme }: any) => {
 
   return (
     <>
+      <HeadComponent />
       <div className="create-container">
         {openDeleteModal && (
           <Modal
@@ -565,6 +568,7 @@ const Create = ({ setChosenTheme }: any) => {
           saveCreatedPostHandler={saveCreatedPostHandler}
           setOpenEditSaveModal={setOpenEditSaveModal}
           setChosenTheme={setChosenTheme}
+          setChosenFont={setChosenFont}
         />
         <LeftSidepanelEdit
           setPostCopy={setPostCopy}

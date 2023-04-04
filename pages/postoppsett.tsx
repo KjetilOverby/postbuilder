@@ -1,10 +1,12 @@
 import React from "react";
+
 import KlasseInfoComponent from "../components/postoppsett/KlasseInfoComponent";
 import PostOppsettComponent from "../components/postoppsett/PostOppsettComponent";
 import SkurlistePostoppsett from "../components/postoppsett/SkurlistePostoppsett";
 import SearchFromListComponent from "../components/reusable components/SearchFromListComponent";
 import SkurlisteComponent from "../components/startpage/SkurlisteComponent";
 import axios from "axios";
+import HeadComponent from "../components/reusable components/HeadComponent";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -32,6 +34,7 @@ const postoppsett = ({
 }: any) => {
   return (
     <>
+      <HeadComponent />
       <div className=" h-screen grid relative overflow:hidden main-container">
         <div className="">
           <PostOppsettComponent

@@ -22,6 +22,7 @@
   --center-text2: ##265077;
   --mark: #9ee9e7;
   --text2: #468583;
+  --font: "Roboto";
 }
 .pagelayout-container {
   display: grid;
@@ -30,7 +31,7 @@
     "content"
     "footer";
   height: 100vh;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 5rem 1fr 6rem;
 }
 
 .logButton {
@@ -44,6 +45,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scrollbar-width: none;
+  font-family: var(--font);
 }
 
 a {
