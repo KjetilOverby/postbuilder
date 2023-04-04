@@ -231,7 +231,7 @@ const PostOppsettComponent = ({
                       position: "absolute",
                       top: "-10rem",
                       left: "0",
-                      color: "grey",
+                      color: "var(--primary-text)",
                       fontSize: "1.5rem",
                     }}
                     onClick={() => setOriginStartrings(!originStartrings)}
@@ -351,7 +351,7 @@ const PostOppsettComponent = ({
                       position: "absolute",
                       top: "-10rem",
                       right: "0",
-                      color: "grey",
+                      color: "var(--primary-text)",
                       fontSize: "1.5rem",
                     }}
                     onClick={() => setOriginEndrings(!originEndrings)}
