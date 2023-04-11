@@ -33,6 +33,11 @@
   height: 100vh;
   grid-template-rows: 5rem 1fr 6rem;
 }
+@media only screen and (max-width: 1000px) {
+  .pagelayout-container {
+    grid-template-rows: 0rem 1fr 6rem;
+  }
+}
 
 .logButton {
   color: #5b4b33;

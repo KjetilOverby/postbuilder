@@ -47,8 +47,7 @@ const HeaderComponent = ({
                 <div
                   className={`sidebar-container ${
                     openSidebar ? "sidebar-open" : "sidebar-close"
-                  }`}
-                >
+                  }`}>
                   <Link href="/">
                     <p className="tabs-mobile">Fil</p>
                   </Link>
@@ -70,8 +69,7 @@ const HeaderComponent = ({
                     position: "absolute",
                     top: "0",
                     left: "0",
-                  }}
-                ></div>
+                  }}></div>
               )}
             </>
           ) : (
@@ -80,20 +78,17 @@ const HeaderComponent = ({
                 <p
                   onMouseOver={() => setFileopen(true)}
                   onMouseLeave={() => setFileopen(false)}
-                  className="tabs"
-                >
+                  className="tabs">
                   Fil
                 </p>
                 {fileOpen && (
                   <div
                     className="menu-box"
                     onMouseOver={() => setFileopen(true)}
-                    onMouseLeave={() => setFileopen(false)}
-                  >
+                    onMouseLeave={() => setFileopen(false)}>
                     <div
                       onClick={() => setOpenEditSaveModal(true)}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <GiSave
                         style={{
                           color: "var(--primary-text)",
@@ -104,8 +99,7 @@ const HeaderComponent = ({
                     </div>
                     <div
                       onClick={saveCreatedPostHandler}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <TfiSave
                         style={{
                           color: "var(--primary-text)",
@@ -117,8 +111,7 @@ const HeaderComponent = ({
                     </div>
                     <div
                       onClick={deleteHandler}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <RiDeleteBin6Line
                         style={{
                           color: "var(--primary-text)",
@@ -128,21 +121,20 @@ const HeaderComponent = ({
                       />
                       <p className="menu-box-tab">Slett post</p>
                     </div>
-                    <div
-                      onClick={cancelHandler}
-                      className="menu-icon-container"
-                    >
-                      <RiLogoutBoxLine
-                        style={{
-                          color: "var(--primary-text)",
-                          marginRight: "1rem",
-                          fontSize: "1rem",
-                        }}
-                      />
-                      <Link href="postoppsett">
+                    <Link href="postoppsett">
+                      <div
+                        onClick={cancelHandler}
+                        className="menu-icon-container">
+                        <RiLogoutBoxLine
+                          style={{
+                            color: "var(--primary-text)",
+                            marginRight: "1rem",
+                            fontSize: "1rem",
+                          }}
+                        />
                         <p className="menu-box-tab">Lukk</p>
-                      </Link>
-                    </div>
+                      </div>
+                    </Link>
                   </div>
                 )}
               </div>
@@ -150,16 +142,14 @@ const HeaderComponent = ({
                 <p
                   onMouseOver={() => setThemeOpen(true)}
                   onMouseLeave={() => setThemeOpen(false)}
-                  className="tabs"
-                >
+                  className="tabs">
                   Themes
                 </p>
                 {themeOpen && (
                   <div
                     onMouseOver={() => setThemeOpen(true)}
                     onMouseLeave={() => setThemeOpen(false)}
-                    className="menu-box"
-                  >
+                    className="menu-box">
                     <h1 className="theme-header">Dark themes</h1>
                     <ThemeColorMenu
                       click={() => setChosenTheme("Steelblue")}
@@ -279,129 +269,108 @@ const HeaderComponent = ({
                 <p
                   onMouseOver={() => setFontOpen(true)}
                   onMouseLeave={() => setFontOpen(false)}
-                  className="tabs"
-                >
+                  className="tabs">
                   Fonts
                 </p>
                 {fontOpen && (
                   <div
                     onMouseOver={() => setFontOpen(true)}
                     onMouseLeave={() => setFontOpen(false)}
-                    className="menu-box"
-                  >
+                    className="menu-box">
                     <div
                       onClick={() => setChosenFont("Abel")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Abel</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Krub")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Krub</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Chakra Petch")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Chakra Petch</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Exo")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Exo</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Fjalla One")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Fjalla One</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Orbitron")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Orbitron</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Red Hat Display")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Red Hat Display</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Roboto")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Roboto</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Saira Condensed")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Saira Condensed</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Space Grotesk")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Space Grotesk</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Unica One")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Unica One</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Poiret One")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Poiret One</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Electrolize")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Electrolize</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Armata")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Armata</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Fira Code")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Fira Code</p>
                     </div>
 
                     <div
                       onClick={() => setChosenFont("Maitree")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Maitree</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Nixie One")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Nixie One</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Buda")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Buda</p>
                     </div>
                     <div
                       onClick={() => setChosenFont("Mina")}
-                      className="menu-icon-container"
-                    >
+                      className="menu-icon-container">
                       <p className="menu-box-tab">Mina</p>
                     </div>
                   </div>

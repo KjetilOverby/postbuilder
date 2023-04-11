@@ -209,8 +209,8 @@ const PostOppsettComponent = ({
   return (
     <>
       <div className="">
-        <div className="grid place-items-center h-screen">
-          <div className="absolute postoppsettHeader">
+        <div className="main-container grid place-items-center h-screen">
+          <div className="postoppsettHeader">
             <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
               {parsedPost && parsedPost.header}{" "}
             </h1>
@@ -245,8 +245,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -261,8 +260,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -283,13 +281,11 @@ const PostOppsettComponent = ({
                           onClick={
                             openEdit ? editModeRawinputHandler : undefined
                           }
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
-                        >
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings"
-                          >
+                            className="ringcomponent rawrings">
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -366,8 +362,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -382,8 +377,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -401,6 +395,7 @@ const PostOppsettComponent = ({
             background: var(--outer);
           }
           .postoppsettHeader {
+            position: absolute;
             transform: translateX(-50%);
             left: 50%;
             top: 5rem;
@@ -588,6 +583,15 @@ const PostOppsettComponent = ({
             }
           }
           @media only screen and (max-width: 1000px) {
+            .fillrings-container {
+              min-width: 0;
+            }
+            .main-container {
+              height: 30rem;
+            }
+            .postoppsettHeader {
+              top: 0;
+            }
             .ringcomponent {
               height: 6rem;
               width: 2.8rem;
@@ -596,8 +600,8 @@ const PostOppsettComponent = ({
             }
 
             .outerRingContainer {
-              height: 6.5rem;
-              width: 3.3rem;
+              height: 6.2rem;
+              width: 3.1rem;
               margin-right: 5px;
             }
             .sawBlade {
@@ -632,10 +636,11 @@ const PostOppsettComponent = ({
               left: -5px;
             }
           }
-          @media only screen and (max-width: 656px) {
-            .postoppsettHeader {
-              top: 150px;
+          @media only screen and (max-width: 756px) {
+            .post-header {
+              margin: 0;
             }
+
             .ringcomponent {
               height: 4rem;
               width: 2rem;

@@ -60,6 +60,7 @@ const StartPageComponent = ({
           }
           .content-container {
             grid-area: content;
+            background: var(--primary);
           }
         `}
       </style>

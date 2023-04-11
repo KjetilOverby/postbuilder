@@ -7,6 +7,7 @@ import SearchFromListComponent from "../components/reusable components/SearchFro
 import SkurlisteComponent from "../components/startpage/SkurlisteComponent";
 import axios from "axios";
 import HeadComponent from "../components/reusable components/HeadComponent";
+import Hidden from "../components/reusable components/Hidden";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -44,22 +45,26 @@ const postoppsett = ({
             update={update}
             setPostInfo={setPostInfo}
           />
-          <KlasseInfoComponent
-            info={finalSkurlisteInfo}
-            setSearchResultModal={setSearchResultModal}
-            postInfo={postInfo}
-          />
+          <Hidden size="medium-down">
+            <KlasseInfoComponent
+              info={finalSkurlisteInfo}
+              setSearchResultModal={setSearchResultModal}
+              postInfo={postInfo}
+            />
+          </Hidden>
         </div>
-        <SkurlistePostoppsett
-          skurliste={skurliste}
-          setSkurlisteInfo={setSkurlisteInfo}
-          setSearchResultModal={setSearchResultModal}
-          searchTrigger={true}
-          dotUpdate={dotUpdate}
-          setDotUpdate={setDotUpdate}
-          openDot={openDot}
-          setOpenDot={setOpenDot}
-        />
+        <Hidden size="medium-down">
+          <SkurlistePostoppsett
+            skurliste={skurliste}
+            setSkurlisteInfo={setSkurlisteInfo}
+            setSearchResultModal={setSearchResultModal}
+            searchTrigger={true}
+            dotUpdate={dotUpdate}
+            setDotUpdate={setDotUpdate}
+            openDot={openDot}
+            setOpenDot={setOpenDot}
+          />
+        </Hidden>
 
         {searchResultModal && (
           <SearchFromListComponent

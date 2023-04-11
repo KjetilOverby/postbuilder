@@ -32,8 +32,7 @@ const SearchPostoppsett = ({
               <Link href="/postoppsett">
                 <div
                   onClick={postInfoHandler}
-                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer"
-                >
+                  className="post-container result-container rounded-md p-5 mb-5 transition-all hover:bg-amber-200 cursor-pointer">
                   <span>
                     <p className="post-header font-light">{item.header}</p>
                     <div className="allrings-container">
@@ -198,13 +197,25 @@ const SearchPostoppsett = ({
           }
 
           @media only screen and (max-width: 756px) {
-            .ring {
-              width: 20px;
+            .rings {
+              width: 25px;
               font-size: 0.5rem;
               height: 45px;
             }
             .result-container {
               width: 100%;
+            }
+            .ringval {
+              font-size: 0.5rem;
+            }
+            .rawInput {
+              font-size: 0.5rem;
+            }
+            .post-header {
+              font-size: 0.8rem;
+            }
+            .ring-container {
+              font-size: 0.6rem;
             }
           }
         `}
