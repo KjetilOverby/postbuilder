@@ -353,7 +353,7 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#19547b, #ffd89b)");
-      r.style.setProperty("--primary-text", "#ffd89b");
+      r.style.setProperty("--primary-text", "#fff0d7");
       r.style.setProperty("--table-bg", "linear-gradient(#ffd89b, #19547b)");
       r.style.setProperty(
         "--outer",
@@ -366,7 +366,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#79674a");
       r.style.setProperty("--text", "#19547b");
-      r.style.setProperty("--hover", "#ffd89b");
+      r.style.setProperty("--hover", "#7395ae");
       r.style.setProperty("--running", "#19547b");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "linear-gradient(#ffd89b, #19547b)");
@@ -565,9 +565,9 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#1B2F52");
       r.style.setProperty("--text", "#000000");
-      r.style.setProperty("--hover", "#55EFC4");
+      r.style.setProperty("--hover", "#3c927a");
       r.style.setProperty("--running", "#000000");
-      r.style.setProperty("--finish", "#221f1f");
+      r.style.setProperty("--finish", "#157256");
       r.style.setProperty("--finish-text", "linear-gradient(#55EFC4, #000000)");
       r.style.setProperty(
         "--outer2",
@@ -930,8 +930,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}
-    >
+      redirectUri={typeof window !== "undefined" && window.location.origin}>
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -944,8 +943,7 @@ export default function App({ Component, pageProps }: AppProps) {
           postID,
           chosenThemeColor,
           chosenThemeFont,
-        }}
-      >
+        }}>
         <Component
           {...pageProps}
           poster={poster}
