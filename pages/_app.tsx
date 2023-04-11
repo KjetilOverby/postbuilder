@@ -213,7 +213,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text", "#9b786f");
       r.style.setProperty("--text", "#5a5560");
       r.style.setProperty("--hover", "#34273a");
-      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--running", "#787082");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#3c567a");
       r.style.setProperty(
@@ -328,7 +328,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text", "#72553a");
       r.style.setProperty("--text", "#c89666");
       r.style.setProperty("--hover", "rgb(29, 55, 61)");
-      r.style.setProperty("--running", "#99ced3");
+      r.style.setProperty("--running", "#45727d");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#2d545e");
       r.style.setProperty(
@@ -429,7 +429,7 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#334d50, #cbcaa5)");
-      r.style.setProperty("--primary-text", "#cbcaa5");
+      r.style.setProperty("--primary-text", "#a4a281");
       r.style.setProperty("--table-bg", "linear-gradient(#cbcaa5, #334d50)");
       r.style.setProperty(
         "--outer",
@@ -442,8 +442,8 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#0f3d5c");
       r.style.setProperty("--text", "#334d50");
-      r.style.setProperty("--hover", "#cbcaa5");
-      r.style.setProperty("--running", "#cbcaa5");
+      r.style.setProperty("--hover", "#8f8d6a");
+      r.style.setProperty("--running", "#b8b697");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "linear-gradient(#cbcaa5, #334d50)");
       r.style.setProperty(
@@ -486,7 +486,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#1B2F52");
       r.style.setProperty("--text", "#292929");
-      r.style.setProperty("--hover", "rgb(212,154,119)");
+      r.style.setProperty("--hover", "rgb(130, 85, 57)");
       r.style.setProperty("--running", "#292929");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty(
@@ -527,7 +527,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#d3e3fc");
       r.style.setProperty("--text", "#000000");
-      r.style.setProperty("--hover", "#E84393");
+      r.style.setProperty("--hover", "#7a204c");
       r.style.setProperty("--running", "#000000");
       r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "linear-gradient(#E84393, #000000)");
@@ -565,7 +565,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
       r.style.setProperty("--center-text", "#1B2F52");
       r.style.setProperty("--text", "#000000");
-      r.style.setProperty("--hover", "#3c927a");
+      r.style.setProperty("--hover", "#226351");
       r.style.setProperty("--running", "#000000");
       r.style.setProperty("--finish", "#157256");
       r.style.setProperty("--finish-text", "linear-gradient(#55EFC4, #000000)");
@@ -930,7 +930,8 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}>
+      redirectUri={typeof window !== "undefined" && window.location.origin}
+    >
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -943,7 +944,8 @@ export default function App({ Component, pageProps }: AppProps) {
           postID,
           chosenThemeColor,
           chosenThemeFont,
-        }}>
+        }}
+      >
         <Component
           {...pageProps}
           poster={poster}

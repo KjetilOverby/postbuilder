@@ -40,7 +40,7 @@
 }
 
 .logButton {
-  color: #3c927a;
+  color: rgb(130, 85, 57);
   color: var(--mark);
 }
 html,
