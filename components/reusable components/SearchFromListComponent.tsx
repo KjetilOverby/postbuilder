@@ -42,7 +42,7 @@ const SearchFromListComponent = ({
   return (
     <>
       <div className="">
-        <div className="main-container absolute right-5 top-52 p-5 shadow-xl bounceIn">
+        <div className="main-container top-52 p-5 shadow-xl bounceIn">
           <button
             className="border pl-2 pr-2 mb-2 py-1 rounded-md mr-4 text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
             onClick={closeModal}>
@@ -73,6 +73,8 @@ const SearchFromListComponent = ({
             max-height: 70%;
             scrollbar-width: none;
             border-radius: 10px;
+            position: absolute;
+            right: 5rem;
           }
           .bounceIn {
             animation: bounceInRight 0.8s;
@@ -117,6 +119,9 @@ const SearchFromListComponent = ({
           @media only screen and (max-width: 1000px) {
             .main-container {
               width: 100vw;
+              margin-bottom: 3rem;
+              right: 0;
+              top: 5rem;
             }
             .bounceIn {
               animation: none;
