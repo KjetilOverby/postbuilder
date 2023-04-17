@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import KlasseInfoComponent from "../components/postoppsett/KlasseInfoComponent";
 import PostOppsettComponent from "../components/postoppsett/PostOppsettComponent";
@@ -33,6 +33,9 @@ const postoppsett = ({
   openDot,
   setOpenDot,
 }: any) => {
+  const [originStartrings, setOriginStartrings] = useState(true);
+
+  const [originEndrings, setOriginEndrings] = useState(true);
   return (
     <>
       <HeadComponent />
@@ -44,6 +47,10 @@ const postoppsett = ({
             setUpdate={setUpdate}
             update={update}
             setPostInfo={setPostInfo}
+            setOriginStartrings={setOriginStartrings}
+            originStartrings={originStartrings}
+            originEndrings={originEndrings}
+            setOriginEndrings={setOriginEndrings}
           />
           <Hidden size="medium-down">
             <KlasseInfoComponent
@@ -63,6 +70,8 @@ const postoppsett = ({
             setDotUpdate={setDotUpdate}
             openDot={openDot}
             setOpenDot={setOpenDot}
+            setOriginStartrings={setOriginStartrings}
+            setOriginEndrings={setOriginEndrings}
           />
         </Hidden>
 

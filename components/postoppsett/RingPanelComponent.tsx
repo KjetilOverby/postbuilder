@@ -13,12 +13,14 @@ const RingPanelComponent = ({
       <p className="values">Små ringer</p>
       <div className="ringlist-container">
         {list.small.map((item: any) => {
+          const ringPanelNumberHandler = () => {
+            setRingPanelNumber(item);
+          };
           return (
             <div
               key={item._id}
-              onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              onClick={ringPanelNumberHandler}
+              className="ringvalue-container">
               <p className="values">{item}</p>
             </div>
           );
@@ -31,8 +33,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="values">{item}</p>
             </div>
           );
@@ -45,8 +46,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={() => setRingPanelNumber(item)}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="values">{item}</p>
             </div>
           );

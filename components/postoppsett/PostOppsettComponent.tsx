@@ -11,6 +11,10 @@ const PostOppsettComponent = ({
   update,
   setUpdate,
   setPostInfo,
+  originStartrings,
+  setOriginStartrings,
+  originEndrings,
+  setOriginEndrings,
 }: any) => {
   const { openEdit, setOpenEdit } = useContext(ContextAppData);
   const router = useRouter();
@@ -30,8 +34,6 @@ const PostOppsettComponent = ({
 
   const [updatePostCalc, setUpdatePostCalc] = useState(false);
   const [updateUtfylling, setUpdateUtfylling] = useState(false);
-  const [originEndrings, setOriginEndrings] = useState(true);
-  const [originStartrings, setOriginStartrings] = useState(true);
 
   const [ringID, setRingID] = useState();
   const [ringType, setRingType] = useState<string>("");
