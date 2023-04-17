@@ -53,14 +53,12 @@ const LeftSidepanelEdit = ({
           <div>
             <button
               onClick={utfyllingForanOpenHandler}
-              className="btn btn-fill"
-            >
+              className="btn btn-fill">
               <p className="text-teal-100 tab">Utfylling foran</p>
             </button>
             <button
               onClick={utfyllingForanOpenHandler2}
-              className="btn btn-fill"
-            >
+              className="btn btn-fill">
               <p className="text-yellow-400 tab">Utfylling foran Alt</p>
             </button>
             <button onClick={utfyllingBakOpenHandler} className="btn btn-fill">
@@ -140,7 +138,11 @@ const LeftSidepanelEdit = ({
               className="input"
               type="number"
             />
-            <button onClick={setToManuallyInputHandler}>Legg til</button>
+            <button
+              className="btn btn-fill"
+              onClick={setToManuallyInputHandler}>
+              Legg til
+            </button>
             <RawInputPanel
               raw={rawInputList}
               postInfo={postCopy}
@@ -238,6 +240,7 @@ const LeftSidepanelEdit = ({
           .input {
             background: var(--primary-text);
             margin-bottom: 1rem;
+            color: var(--text);
           }
           .shims-btn {
             background: var(--outer);
