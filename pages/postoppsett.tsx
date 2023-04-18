@@ -13,7 +13,7 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const postoppsett = ({
+const Postoppsett = ({
   postInfo,
   skurlisteInfo,
   skurliste,
@@ -34,8 +34,8 @@ const postoppsett = ({
   setOpenDot,
 }: any) => {
   const [originStartrings, setOriginStartrings] = useState(true);
-
   const [originEndrings, setOriginEndrings] = useState(true);
+
   return (
     <>
       <HeadComponent />
@@ -99,4 +99,4 @@ const postoppsett = ({
   );
 };
 
-export default postoppsett;
+export default Postoppsett;
