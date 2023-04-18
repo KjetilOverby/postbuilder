@@ -24,7 +24,7 @@ const StartPageComponent = ({
           open={setOpenSearchModal}
           setSkurlisteInfo={setSkurlisteInfo}
         />
-        <div className="content-container px-3 lg:px-60 pt-12">
+        <div className="content-container">
           <h1 className="sk-header header text-2xl">Skurplan</h1>
 
           <SkurlisteComponent
@@ -61,6 +61,22 @@ const StartPageComponent = ({
           .content-container {
             grid-area: content;
             background: var(--primary);
+            margin: 0 15rem;
+          }
+          @media only screen and (max-width: 1800px) {
+            .content-container {
+              margin: 0 8rem;
+            }
+          }
+          @media only screen and (max-width: 1400px) {
+            .content-container {
+              margin: 0 4rem;
+            }
+          }
+          @media only screen and (max-width: 1200px) {
+            .content-container {
+              margin: 0 0.5rem;
+            }
           }
         `}
       </style>

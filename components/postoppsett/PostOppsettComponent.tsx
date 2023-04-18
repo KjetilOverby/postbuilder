@@ -584,7 +584,7 @@ const PostOppsettComponent = ({
               transform: scale3d(1, 1, 1);
             }
           }
-          @media only screen and (max-width: 1000px) {
+          @media only screen and (max-width: 1200px) {
             .fillrings-container {
               min-width: 0;
             }

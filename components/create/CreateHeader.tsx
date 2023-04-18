@@ -248,13 +248,13 @@ const HeaderComponent = ({
                       color3="#1B2F52"
                       title="Dark bronze"
                     />
-                    <ThemeColorMenu
+                    {/*  <ThemeColorMenu
                       click={() => setChosenTheme("Pink darkness")}
                       color1="#E84393"
                       color2="#000000"
                       color3="#d3e3fc"
                       title="Pink darkness"
-                    />
+                    /> */}
                     <ThemeColorMenu
                       click={() => setChosenTheme("Green darkness")}
                       color1="#55EFC4"
