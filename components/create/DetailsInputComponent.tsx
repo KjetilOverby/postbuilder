@@ -45,8 +45,7 @@ const DetailsInputComponent = ({
           <select
             className="select"
             //   onChange={(e) => setProsentValg(e.target.value)}
-            onChange={(e) => setProsentSelect(e.target.value)}
-          >
+            onChange={(e) => setProsentSelect(e.target.value)}>
             <option className="option" value="" selected disabled hidden>
               Velg prosent
             </option>

@@ -845,7 +845,7 @@ const CreatePostOppsett = ({
           }
           .postcalc-number {
             position: absolute;
-            color: white;
+            color: var(--primary-text);
             left: 50%;
             top: -30px;
             font-weight: 100;

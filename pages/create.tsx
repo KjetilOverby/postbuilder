@@ -536,6 +536,29 @@ const Create = ({ setChosenTheme, setChosenFont }: any) => {
       });
   };
 
+  const resetPostHandler = () => {
+    setPostCopy({
+      ...postCopy,
+      startRings: [],
+      endRings: [],
+      rawInput: [],
+      prosent: "",
+      planker: "",
+      spes: "",
+      startRings2: [],
+      endRings2: [],
+    });
+  };
+  const fjernUtfylling = () => {
+    setPostCopy({
+      ...postCopy,
+      startRings: [],
+      endRings: [],
+      startRings2: [],
+      endRings2: [],
+    });
+  };
+
   return (
     <>
       <HeadComponent />
@@ -569,6 +592,8 @@ const Create = ({ setChosenTheme, setChosenFont }: any) => {
           setOpenEditSaveModal={setOpenEditSaveModal}
           setChosenTheme={setChosenTheme}
           setChosenFont={setChosenFont}
+          resetPostHandler={resetPostHandler}
+          fjernUtfylling={fjernUtfylling}
         />
         <LeftSidepanelEdit
           setPostCopy={setPostCopy}

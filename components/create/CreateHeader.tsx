@@ -5,6 +5,8 @@ import { GiSave } from "react-icons/gi";
 import { TfiSave } from "react-icons/tfi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { RiDeleteBin4Line } from "react-icons/ri";
+import { BiReset } from "react-icons/bi";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import ThemeColorMenu from "./ThemeColorMenu";
@@ -15,6 +17,8 @@ const HeaderComponent = ({
   setOpenEditSaveModal,
   setChosenTheme,
   setChosenFont,
+  resetPostHandler,
+  fjernUtfylling,
 }: any) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [hideSidebar, setHideSidebar] = useState(false);
@@ -120,6 +124,31 @@ const HeaderComponent = ({
                         }}
                       />
                       <p className="menu-box-tab">Slett post</p>
+                    </div>
+                    <hr />
+                    <div
+                      onClick={resetPostHandler}
+                      className="menu-icon-container">
+                      <BiReset
+                        style={{
+                          color: "var(--primary-text)",
+                          marginRight: "1rem",
+                          fontSize: "1rem",
+                        }}
+                      />
+                      <p className="menu-box-tab">Nullstill post</p>
+                    </div>
+                    <div
+                      onClick={fjernUtfylling}
+                      className="menu-icon-container">
+                      <RiDeleteBin4Line
+                        style={{
+                          color: "var(--primary-text)",
+                          marginRight: "1rem",
+                          fontSize: "1rem",
+                        }}
+                      />
+                      <p className="menu-box-tab">Fjern utfylling</p>
                     </div>
                     <Link href="postoppsett">
                       <div

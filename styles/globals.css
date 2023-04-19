@@ -24,6 +24,7 @@
   --text2: #468583;
   --font: "Roboto";
 }
+
 .pagelayout-container {
   display: grid;
   grid-template-areas:
