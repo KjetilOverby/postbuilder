@@ -368,6 +368,16 @@ const CreatePostOppsett = ({
 
                 {/* ********************** under line front ************************ */}
                 <div className="calculate-line all-length-line">
+                  {(startRingsCalc &&
+                    utfyllingForan - startRingsCalc2 < 0.05 &&
+                    utfyllingForan - startRingsCalc2 > -0.05) ||
+                  startRingsCalc2 === 0 ? (
+                    <div></div>
+                  ) : (
+                    <div className="utfylling2-red utfylling2">
+                      Alt. utfylling
+                    </div>
+                  )}
                   <div
                     className={`fill-calculate-box ${
                       startRingsCalc &&
@@ -625,6 +635,16 @@ const CreatePostOppsett = ({
 
                 {/* ********************** under line end ************************ */}
                 <div className="calculate-line all-length-line">
+                  {(endRingsCalc &&
+                    utfyllingBak - endRingsCalc2 < 0.05 &&
+                    utfyllingBak - endRingsCalc2 > -0.05) ||
+                  endRingsCalc2 === 0 ? (
+                    <div></div>
+                  ) : (
+                    <div className="utfylling2-red utfylling2">
+                      Alt. utfylling
+                    </div>
+                  )}
                   <div
                     className={`fill-calculate-box fill-bak-box ${
                       endRingsCalc &&
@@ -674,6 +694,16 @@ const CreatePostOppsett = ({
       </div>
       <style jsx>
         {`
+          .utfylling2-red {
+            background: red;
+            color: white;
+          }
+          .utfylling2 {
+            width: 7rem;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+          }
           .add-btn:hover {
             cursor: pointer;
           }
