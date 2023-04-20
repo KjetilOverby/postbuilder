@@ -402,12 +402,24 @@ const Create = ({ setChosenTheme, setChosenFont }: any) => {
     ) {
       alert("Utfylling bak er ikke riktig");
     } else if (
+      utfyllingForan - startRingsCalc2 > 0.05 ||
+      utfyllingForan - startRingsCalc2 < -0.05
+    ) {
+      alert("Utfylling alternativ foran er ikke riktig");
+    } else if (
+      utfyllingBak - endRingsCalc2 > 0.05 ||
+      utfyllingBak - endRingsCalc2 < -0.05
+    ) {
+      alert("Utfylling alternativ bak er ikke riktig");
+    } else if (
       postCopy.header ===
       `${postCopy.rawInput.length}x${postCopy.planker}${postCopy.prosent}${(
         Number(postCopy.blades.bladStamme) + Number(1.4)
       ).toFixed(1)}${postCopy.spes === undefined ? "" : postCopy.spes}`
     ) {
-      alert("Kan ikke lagre for denne postoverskriften finnes fra før");
+      alert(
+        "Postoverskriften eksisterer allerede, hver post må ha en unik overskrift"
+      );
     } else {
       const reponse = await api
         .post(
@@ -446,9 +458,6 @@ const Create = ({ setChosenTheme, setChosenFont }: any) => {
     }
   };
   //********  EDIT && UPDATE POSTS *************//
-
-  console.log(startRingsCalc2);
-  console.log(utfyllingForan);
 
   const auth = "4564";
   const saveEditedPostHandler = async () => {
