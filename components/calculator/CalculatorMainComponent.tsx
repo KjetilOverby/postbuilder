@@ -22,6 +22,7 @@ const CalculatorMainComponent = () => {
 
   useEffect(() => {
     setShims1((inputValue - ringListValue + 1.4).toFixed(1));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringListValue]);
   return (
     <>
