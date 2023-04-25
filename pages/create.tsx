@@ -402,12 +402,12 @@ const Create = ({ setChosenTheme, setChosenFont }: any) => {
     ) {
       alert("Utfylling bak er ikke riktig");
     } else if (
-      utfyllingForan - startRingsCalc2 > 0.05 ||
+      (startRingsCalc2 > 0.1 && utfyllingForan - startRingsCalc2 > 0.05) ||
       utfyllingForan - startRingsCalc2 < -0.05
     ) {
       alert("Utfylling alternativ foran er ikke riktig");
     } else if (
-      utfyllingBak - endRingsCalc2 > 0.05 ||
+      (endRingsCalc2 > 0.1 && utfyllingBak - endRingsCalc2 > 0.05) ||
       utfyllingBak - endRingsCalc2 < -0.05
     ) {
       alert("Utfylling alternativ bak er ikke riktig");
