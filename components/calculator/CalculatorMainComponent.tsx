@@ -21,7 +21,7 @@ const CalculatorMainComponent = () => {
 
   useEffect(() => {
     if (raw) {
-      setXvalue(Number(inputValue) + 1.4);
+      setXvalue((Number(inputValue) + 1.4).toFixed(1));
     } else {
       setXvalue(inputValue);
     }
@@ -35,13 +35,6 @@ const CalculatorMainComponent = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringListValue]);
-
-  useEffect(() => {
-    setShims1((inputValue - ringListValue + 1.4).toFixed(1));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ringListValue2]);
-
-  console.log(shimsNumber);
 
   return (
     <>
@@ -76,18 +69,13 @@ const CalculatorMainComponent = () => {
               </div>
             )}
             <hr />
-            {/*    {ringListValue && (
-                <div>
-                  <h4>Ring: {ringListValue}</h4>
-                </div>
-              )}
-              {ringListValue2 > 0 && (
-                <h1>Shims2: {ringListValue2 - ringListValue3}</h1>
-              )}
-              <h4>Skims: {shims1 - ringListValue2}</h4>
-              {ringListValue3 > 0 && <h1>Shims3: {ringListValue3}</h1>} */}
-            {ringListValue && <h1>Ring: {ringListValue}</h1>}
-            {ringListValue > 0 && <h1>*: {shims1 - ringListValue2}</h1>}
+
+            {ringListValue && <h1>{ringListValue}</h1>}
+            {ringListValue2 > 0 && <h1>{ringListValue2}</h1>}
+            {ringListValue3 > 0 && <h1>{ringListValue3}</h1>}
+            {ringListValue > 0 && (
+              <h1>{(shims1 - ringListValue2 - ringListValue3).toFixed(1)}</h1>
+            )}
           </div>
         </div>
       </div>
