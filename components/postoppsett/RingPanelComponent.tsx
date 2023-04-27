@@ -1,20 +1,34 @@
+import { log } from "console";
 import React, { useState } from "react";
 
 const RingPanelComponent = ({
   list,
   setRingPanelNumber,
+  setRingPanelNumber2,
+  setRingPanelNumber3,
+  shimsNumber,
   setUpdate,
   update,
   postInfo,
   setPostInfo,
 }: any) => {
+  const getPanelNumbers = () => {
+    setRingPanelNumber;
+  };
+
   return (
     <>
       <p className="values">Små ringer</p>
       <div className="ringlist-container">
         {list.small.map((item: any) => {
           const ringPanelNumberHandler = () => {
-            setRingPanelNumber(item);
+            if (shimsNumber === 1) {
+              setRingPanelNumber(item);
+            } else if (shimsNumber === 2) {
+              setRingPanelNumber2(item);
+            } else if (shimsNumber === 3) {
+              setRingPanelNumber3(item);
+            }
           };
           return (
             <div
@@ -29,10 +43,19 @@ const RingPanelComponent = ({
       <p className="values">Store ringer</p>
       <div className="ringlist-container">
         {list.big.map((item: any) => {
+          const ringPanelNumberHandler = () => {
+            if (shimsNumber === 1) {
+              setRingPanelNumber(item);
+            } else if (shimsNumber === 2) {
+              setRingPanelNumber2(item);
+            } else if (shimsNumber === 3) {
+              setRingPanelNumber3(item);
+            }
+          };
           return (
             <div
               key={item._id}
-              onClick={() => setRingPanelNumber(item)}
+              onClick={ringPanelNumberHandler}
               className="ringvalue-container">
               <p className="values">{item}</p>
             </div>
@@ -42,10 +65,19 @@ const RingPanelComponent = ({
       <p className="values">Skims</p>
       <div className="ringlist-container">
         {list.shims.map((item: any) => {
+          const ringPanelNumberHandler = () => {
+            if (shimsNumber === 1) {
+              setRingPanelNumber(item);
+            } else if (shimsNumber === 2) {
+              setRingPanelNumber2(item);
+            } else if (shimsNumber === 3) {
+              setRingPanelNumber3(item);
+            }
+          };
           return (
             <div
               key={item._id}
-              onClick={() => setRingPanelNumber(item)}
+              onClick={ringPanelNumberHandler}
               className="ringvalue-container">
               <p className="values">{item}</p>
             </div>
