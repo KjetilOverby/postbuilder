@@ -6,6 +6,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FiMinusCircle } from "react-icons/fi";
 import { BiReset } from "react-icons/bi";
 import { BsBackspace } from "react-icons/bs";
+import { GiSave } from "react-icons/gi";
 import { FaHandPointRight } from "react-icons/fa";
 import Link from "next/link";
 
@@ -98,6 +99,9 @@ const CalculatorMainComponent = () => {
             <button onClick={resetValues}>
               <BiReset />
             </button>
+            <button onClick={resetValues}>
+              <GiSave />
+            </button>
           </div>
           <div className="side-panel">
             <RingPanelComponent
@@ -149,6 +153,10 @@ const CalculatorMainComponent = () => {
             padding: 0.5rem;
             border-radius: 5px;
             margin: 1rem 1rem 1rem 0;
+            transition: 0.5s;
+          }
+          button:hover {
+            background: var(--table-bg);
           }
 
           .calc-container {
