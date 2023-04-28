@@ -5,7 +5,9 @@ import ringlist from "../../data/ringList";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FiMinusCircle } from "react-icons/fi";
 import { BiReset } from "react-icons/bi";
+import { BsBackspace } from "react-icons/bs";
 import { FaHandPointRight } from "react-icons/fa";
+import Link from "next/link";
 
 interface calcProps {
   inputValue: Number;
@@ -41,9 +43,15 @@ const CalculatorMainComponent = () => {
 
   const shimsNumberAdd = () => {
     setShimsNumber(shimsNumber + 1);
+    if (shimsNumber >= 3) {
+      setShimsNumber(3);
+    }
   };
   const shimsNumberMinus = () => {
     setShimsNumber(shimsNumber - 1);
+    if (shimsNumber <= 1) {
+      setShimsNumber(1);
+    }
   };
 
   useEffect(() => {
@@ -65,6 +73,9 @@ const CalculatorMainComponent = () => {
     <>
       <div className="main-container">
         <div className="side-panel-container">
+          <Link href="/">
+            <BsBackspace style={{ fontSize: "2rem" }} />
+          </Link>
           <div className="selector-container">
             <button onClick={() => setRaw(!raw)}>
               {raw ? "Ring" : "Råmål"}
@@ -111,14 +122,20 @@ const CalculatorMainComponent = () => {
               <h1 className="ringnumber-header">Ring: {shimsNumber}</h1>
             )}
 
-            {ringListValue > 0 && <h1 className="values">{ringListValue}</h1>}
+            {ringListValue > 0 && (
+              <h1 className="values xvalue">{ringListValue}</h1>
+            )}
 
-            {ringListValue2 > 0 && <h1 className="values">{ringListValue2}</h1>}
+            {ringListValue2 > 0 && (
+              <h1 className="values value2">{ringListValue2}</h1>
+            )}
 
-            {ringListValue3 > 0 && <h1 className="values">{ringListValue3}</h1>}
+            {ringListValue3 > 0 && (
+              <h1 className="values value2">{ringListValue3}</h1>
+            )}
 
             {ringListValue > 0 && (
-              <h1 className="values">
+              <h1 className="values value2">
                 {(shims1 - ringListValue2 - ringListValue3).toFixed(1)}
               </h1>
             )}
@@ -192,6 +209,87 @@ const CalculatorMainComponent = () => {
             margin: 0.3rem 0;
             border-radius: 10px;
             font-size: 2.4rem;
+          }
+          .xvalue {
+            animation: bounceInLeft 1s;
+          }
+          .value2 {
+            animation: bounceInRight 1s;
+          }
+
+          @-webkit-keyframes bounceInLeft {
+            0%,
+            60%,
+            75%,
+            90%,
+            100% {
+              -webkit-transition-timing-function: cubic-bezier(
+                0.215,
+                0.61,
+                0.355,
+                1
+              );
+              transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(-3000px, 0, 0);
+              transform: translate3d(-3000px, 0, 0);
+            }
+            60% {
+              opacity: 1;
+              -webkit-transform: translate3d(25px, 0, 0);
+              transform: translate3d(25px, 0, 0);
+            }
+            75% {
+              -webkit-transform: translate3d(-10px, 0, 0);
+              transform: translate3d(-10px, 0, 0);
+            }
+            90% {
+              -webkit-transform: translate3d(5px, 0, 0);
+              transform: translate3d(5px, 0, 0);
+            }
+            100% {
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
+          @-webkit-keyframes bounceInRight {
+            0%,
+            60%,
+            75%,
+            90%,
+            100% {
+              -webkit-transition-timing-function: cubic-bezier(
+                0.215,
+                0.61,
+                0.355,
+                1
+              );
+              transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(3000px, 0, 0);
+              transform: translate3d(3000px, 0, 0);
+            }
+            60% {
+              opacity: 1;
+              -webkit-transform: translate3d(-25px, 0, 0);
+              transform: translate3d(-25px, 0, 0);
+            }
+            75% {
+              -webkit-transform: translate3d(10px, 0, 0);
+              transform: translate3d(10px, 0, 0);
+            }
+            90% {
+              -webkit-transform: translate3d(-5px, 0, 0);
+              transform: translate3d(-5px, 0, 0);
+            }
+            100% {
+              -webkit-transform: none;
+              transform: none;
+            }
           }
         `}
       </style>

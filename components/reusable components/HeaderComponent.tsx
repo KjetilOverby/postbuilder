@@ -50,7 +50,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             hidden === true ? "" : "hidden"
           } lg-block`}
         >
-          <div className="text-sm lg:grid grid-cols-2 tab-container">
+          <div className="text-sm tab-container">
             <div>
               <a
                 onClick={openPostoppsettHandler}
@@ -60,15 +60,23 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
                 Søk
               </a>
             </div>
+
             <div>
-              <AuthWrapper>
-                <Link href="/lister">
-                  <p className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
-                    Lister
-                  </p>
-                </Link>
-              </AuthWrapper>
+              <Link href="/calculator">
+                <p className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
+                  Kalkulator
+                </p>
+              </Link>
             </div>
+          </div>
+          <div>
+            <AuthWrapper>
+              <Link href="/lister">
+                <p className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
+                  Lister
+                </p>
+              </Link>
+            </AuthWrapper>
           </div>
           <div className="auth-btn-box">
             <LoginButton />
@@ -89,6 +97,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
           }
           .tab {
             color: var(--primary-text);
+            font-size: 0.9rem;
           }
           .logo {
             color: var(--text);
@@ -98,6 +107,9 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
           }
           .auth-btn-box {
             margin-left: 1rem;
+          }
+          .tab-container {
+            display: flex;
           }
 
           @media only screen and (max-width: 1000px) {
