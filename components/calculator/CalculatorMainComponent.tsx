@@ -59,6 +59,7 @@ const CalculatorMainComponent = () => {
     setRingListValue2(0);
     setRingListValue3(0);
     setInputValue("");
+    setShimsNumber(1);
   };
   return (
     <>
@@ -69,6 +70,7 @@ const CalculatorMainComponent = () => {
               {raw ? "Ring" : "Råmål"}
             </button>
           </div>
+          <h1>Ring: {shimsNumber}</h1>
           <p>Skriv en verdi</p>
           <input
             value={inputValue}
@@ -104,6 +106,9 @@ const CalculatorMainComponent = () => {
                 {raw && <h4>Råmål: {inputValue}</h4>}
                 <h4>X-verdi: {Number(inputValue) > 1.4 ? xValue : null}</h4>
               </div>
+            )}
+            {ringListValue && (
+              <h1 className="ringnumber-header">Ring: {shimsNumber}</h1>
             )}
 
             {ringListValue > 0 && <h1 className="values">{ringListValue}</h1>}
@@ -161,6 +166,9 @@ const CalculatorMainComponent = () => {
             background: var(--primary);
             color: var(--primary-text);
           }
+          .ringnumber-header {
+            margin-bottom: 3rem;
+          }
           .side-panel {
             width: 15rem;
             grid-area: sidebar;
@@ -178,11 +186,12 @@ const CalculatorMainComponent = () => {
           .values {
             background: var(--table-bg);
             padding: 0.2rem;
-            width: 5rem;
+            width: 10rem;
             display: grid;
             place-items: center;
             margin: 0.3rem 0;
             border-radius: 10px;
+            font-size: 2.4rem;
           }
         `}
       </style>
