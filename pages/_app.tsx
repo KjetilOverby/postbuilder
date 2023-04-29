@@ -25,8 +25,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const [editRingPanelValue, setEditRingPanelValue] = useState(true);
   const [savedValuesFromCalc, setSavedValuesFromCalc] = useState({});
-  const [getCalcValues, setGetCalcValues] = useState();
-  const [parsedCalcValues, setParsedCalcValues] = useState();
+  const [getCalcValues, setGetCalcValues] = useState<any>();
+  const [parsedCalcValues, setParsedCalcValues] = useState<any>();
 
   console.log(parsedCalcValues);
 
