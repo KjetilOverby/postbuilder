@@ -7,6 +7,7 @@ import { FiMinusCircle } from "react-icons/fi";
 import { BiReset } from "react-icons/bi";
 import { BsBackspace } from "react-icons/bs";
 import { GiSave } from "react-icons/gi";
+import { RiDeleteBinLine } from "react-icons/ri";
 import { FaHandPointRight } from "react-icons/fa";
 import Link from "next/link";
 import { ContextAppData } from "../../data/context/ContextAppData";
@@ -16,7 +17,14 @@ interface calcProps {
 }
 
 const CalculatorMainComponent = () => {
-  const { setSavedValuesFromCalc } = useContext(ContextAppData);
+  const {
+    setSavedValuesFromCalc,
+    savedValuesFromCalc,
+    parsedCalcValues,
+    setParsedCalcValues,
+    update,
+    setUpdate,
+  } = useContext(ContextAppData);
   const [inputValue, setInputValue] = useState<any>();
   const [ringListValue, setRingListValue] = useState<any>();
   const [ringListValue2, setRingListValue2] = useState<any>(0);
@@ -37,6 +45,7 @@ const CalculatorMainComponent = () => {
       ringListValue2: ringListValue2,
       ringListValue3: ringListValue3,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     inputValue,
     raw,
@@ -45,6 +54,20 @@ const CalculatorMainComponent = () => {
     ringListValue2,
     ringListValue3,
   ]);
+
+  const saveCalculations = () => {
+    localStorage.setItem("calculations", JSON.stringify(savedValuesFromCalc));
+    setTimeout(() => {
+      setUpdate(!update);
+    }, 200);
+  };
+
+  const deleteSavedCalcLocalStorage = () => {
+    localStorage.removeItem("calculations");
+    setTimeout(() => {
+      setParsedCalcValues();
+    }, 200);
+  };
 
   useEffect(() => {
     if (raw) {
@@ -91,6 +114,8 @@ const CalculatorMainComponent = () => {
     setInputValue("");
     setShimsNumber(1);
   };
+  console.log("test" + parsedCalcValues);
+
   return (
     <>
       <div className="main-container">
@@ -99,13 +124,13 @@ const CalculatorMainComponent = () => {
             <BsBackspace style={{ fontSize: "2rem" }} />
           </Link>
           <hr />
+
           <div className="selector-container">
             <p className="description">Velg råmål eller ring</p>
             <button className="raw-btn" onClick={() => setRaw(!raw)}>
               {raw ? "Sett til ring" : "Sett til Råmål"}
             </button>
           </div>
-
           <hr />
           <p className="description">{`Legg inn ${raw ? "råmål" : "ring"}`}</p>
           <input
@@ -125,9 +150,14 @@ const CalculatorMainComponent = () => {
             <button onClick={resetValues}>
               <BiReset />
             </button>
-            <button onClick={resetValues}>
+            <button onClick={saveCalculations}>
               <GiSave />
             </button>
+            {parsedCalcValues && (
+              <button onClick={deleteSavedCalcLocalStorage}>
+                <RiDeleteBinLine />
+              </button>
+            )}
             <h1 className="ringnumber-text">Ring: {shimsNumber}</h1>
           </div>
           <hr />

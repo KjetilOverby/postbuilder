@@ -25,6 +25,18 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const [editRingPanelValue, setEditRingPanelValue] = useState(true);
   const [savedValuesFromCalc, setSavedValuesFromCalc] = useState({});
+  const [getCalcValues, setGetCalcValues] = useState();
+  const [parsedCalcValues, setParsedCalcValues] = useState();
+
+  useEffect(() => {
+    setGetCalcValues(localStorage.getItem("calculations"));
+  }, [update]);
+
+  useEffect(() => {
+    if (getCalcValues) {
+      setParsedCalcValues(JSON.parse(getCalcValues));
+    }
+  }, [getCalcValues, update]);
 
   const UseComponentDidMount = () => {
     const ref = useRef<any>();
@@ -950,6 +962,10 @@ export default function App({ Component, pageProps }: AppProps) {
           editRingPanelValue,
           setEditRingPanelValue,
           setSavedValuesFromCalc,
+          savedValuesFromCalc,
+          setGetCalcValues,
+          parsedCalcValues,
+          setParsedCalcValues,
         }}
       >
         <Component

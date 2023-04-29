@@ -16,7 +16,8 @@ const PostOppsettComponent = ({
   originEndrings,
   setOriginEndrings,
 }: any) => {
-  const { openEdit, setOpenEdit } = useContext(ContextAppData);
+  const { openEdit, setOpenEdit, parsedCalcValues } =
+    useContext(ContextAppData);
   const router = useRouter();
 
   const [localStargeItem, setLocalStargeItem] = useState<any>();
@@ -212,6 +213,11 @@ const PostOppsettComponent = ({
     <>
       <div className="">
         <div className="main-container grid place-items-center h-screen">
+          {parsedCalcValues && (
+            <div className="calc-container">
+              <h1>{parsedCalcValues.header}</h1>
+            </div>
+          )}
           <div className="postoppsettHeader">
             <h1 className="post-header text-xl  md:text-1xl lg:text-4xl font-thin">
               {parsedPost && parsedPost.header}{" "}
@@ -247,7 +253,8 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -262,7 +269,8 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -283,11 +291,13 @@ const PostOppsettComponent = ({
                           onClick={
                             openEdit ? editModeRawinputHandler : undefined
                           }
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
+                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
+                        >
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings">
+                            className="ringcomponent rawrings"
+                          >
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -364,7 +374,8 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -379,7 +390,8 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -393,6 +405,12 @@ const PostOppsettComponent = ({
       </div>
       <style jsx>
         {`
+          .calc-container {
+            position: absolute;
+            right: 5rem;
+            top: 2rem;
+            color: var(--primary-text);
+          }
           .bladstamme-color {
             background: var(--outer);
           }
