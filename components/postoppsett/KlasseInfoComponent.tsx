@@ -6,8 +6,13 @@ import { ContextAppData } from "../../data/context/ContextAppData";
 import AuthWrapper from "../auth/AuthWrapper";
 
 const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
-  const { openEdit, setOpenEdit } = useContext(ContextAppData);
-  console.log(postInfo);
+  const { openEdit, setOpenEdit, setEditRingPanelValue } =
+    useContext(ContextAppData);
+
+  const openEditHandler = () => {
+    setOpenEdit(true);
+    setEditRingPanelValue(true);
+  };
 
   return (
     <>
@@ -73,7 +78,7 @@ const KlasseInfoComponent = ({ info, setSearchResultModal, postInfo }: any) => {
             <Link href="/create">
               <div className="mdSettings">
                 <MdSettings
-                  onClick={() => setOpenEdit(true)}
+                  onClick={openEditHandler}
                   style={{
                     color: "var(--primary-text)",
                     fontSize: "2rem",

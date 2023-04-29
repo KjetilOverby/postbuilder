@@ -23,6 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [chosenFont, setChosenFont] = useState<any>("");
   const [chosenThemeFont, setChosenThemeFont] = useState<any>("");
 
+  const [editRingPanelValue, setEditRingPanelValue] = useState(true);
+
   const UseComponentDidMount = () => {
     const ref = useRef<any>();
     useEffect(() => {
@@ -944,6 +946,8 @@ export default function App({ Component, pageProps }: AppProps) {
           postID,
           chosenThemeColor,
           chosenThemeFont,
+          editRingPanelValue,
+          setEditRingPanelValue,
         }}
       >
         <Component

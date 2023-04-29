@@ -1,9 +1,10 @@
 import { Header } from "next/dist/lib/load-custom-routes";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
 import LoginButton from "../auth/LoginButton";
 import LogoutButton from "../auth/LogoutButton";
 import AuthWrapper from "../auth/AuthWrapper";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,6 +12,7 @@ interface HeaderProps {
 }
 
 const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
+  const { setEditRingPanelValue } = useContext(ContextAppData);
   const [hidden, setHidden] = useState(false);
   const openPostoppsettHandler = () => {
     setSkurlisteInfo(
@@ -63,7 +65,10 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
 
             <div>
               <Link href="/calculator">
-                <p className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
+                <p
+                  onClick={() => setEditRingPanelValue(false)}
+                  className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase"
+                >
                   Kalkulator
                 </p>
               </Link>

@@ -77,18 +77,23 @@ const CalculatorMainComponent = () => {
           <Link href="/">
             <BsBackspace style={{ fontSize: "2rem" }} />
           </Link>
+          <hr />
           <div className="selector-container">
-            <button onClick={() => setRaw(!raw)}>
-              {raw ? "Ring" : "Råmål"}
+            <p className="description">Velg råmål eller ring</p>
+            <button className="raw-btn" onClick={() => setRaw(!raw)}>
+              {raw ? "Sett til ring" : "Sett til Råmål"}
             </button>
           </div>
-          <h1>Ring: {shimsNumber}</h1>
-          <p>Skriv en verdi</p>
+
+          <hr />
+          <p className="description">{`Legg inn ${raw ? "råmål" : "ring"}`}</p>
           <input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Verdi"
           />
+          <hr />
+          <p className="description">Kontrollpanel</p>
           <div>
             <button onClick={shimsNumberAdd}>
               <IoIosAddCircleOutline />
@@ -102,7 +107,9 @@ const CalculatorMainComponent = () => {
             <button onClick={resetValues}>
               <GiSave />
             </button>
+            <h1 className="ringnumber-text">Ring: {shimsNumber}</h1>
           </div>
+          <hr />
           <div className="side-panel">
             <RingPanelComponent
               setRingPanelNumber={setRingListValue}
@@ -148,6 +155,10 @@ const CalculatorMainComponent = () => {
       </div>
       <style jsx>
         {`
+          hr {
+            margin: 1rem 0;
+            border-color: var(--primary-text);
+          }
           button {
             background: var(--primary);
             padding: 0.5rem;
@@ -165,6 +176,10 @@ const CalculatorMainComponent = () => {
             align-items: center;
             flex-direction: column;
           }
+          .description {
+            font-size: 0.8rem;
+            font-style: italic;
+          }
           .icon-value-container {
             position: relative;
           }
@@ -173,6 +188,7 @@ const CalculatorMainComponent = () => {
             padding: 0.2rem;
             border-radius: 5px;
             width: 4rem;
+            margin-top: 1rem;
           }
           .content-container {
             grid-area: content;
@@ -191,8 +207,14 @@ const CalculatorMainComponent = () => {
             background: var(--primary);
             color: var(--primary-text);
           }
+          .raw-btn {
+            width: 100%;
+          }
           .ringnumber-header {
             margin-bottom: 3rem;
+          }
+          .ringnumber-text {
+            margin-bottom: 1rem;
           }
           .side-panel {
             width: 15rem;
@@ -205,8 +227,6 @@ const CalculatorMainComponent = () => {
             padding: 1rem;
           }
           .selector-container {
-            display: flex;
-            justify-content: space-around;
           }
           .values {
             background: var(--table-bg);

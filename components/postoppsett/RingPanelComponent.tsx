@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 const RingPanelComponent = ({
   list,
@@ -15,13 +16,15 @@ const RingPanelComponent = ({
     setRingPanelNumber;
   };
 
+  const { editRingPanelValue } = useContext(ContextAppData);
+
   return (
     <>
       <p className="values">Små ringer</p>
       <div className="ringlist-container">
         {list.small.map((item: any) => {
           const ringPanelNumberHandler = () => {
-            if (shimsNumber === 1) {
+            if (shimsNumber === 1 || editRingPanelValue) {
               setRingPanelNumber(item);
             } else if (shimsNumber === 2) {
               setRingPanelNumber2(item);
@@ -33,7 +36,8 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className="ringvalue-container">
+              className="ringvalue-container"
+            >
               <p className="values">{item}</p>
             </div>
           );
@@ -43,7 +47,7 @@ const RingPanelComponent = ({
       <div className="ringlist-container">
         {list.big.map((item: any) => {
           const ringPanelNumberHandler = () => {
-            if (shimsNumber === 1) {
+            if (shimsNumber === 1 || editRingPanelValue) {
               setRingPanelNumber(item);
             } else if (shimsNumber === 2) {
               setRingPanelNumber2(item);
@@ -55,7 +59,8 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className="ringvalue-container">
+              className="ringvalue-container"
+            >
               <p className="values">{item}</p>
             </div>
           );
@@ -65,7 +70,7 @@ const RingPanelComponent = ({
       <div className="ringlist-container">
         {list.shims.map((item: any) => {
           const ringPanelNumberHandler = () => {
-            if (shimsNumber === 1) {
+            if (shimsNumber === 1 || editRingPanelValue) {
               setRingPanelNumber(item);
             } else if (shimsNumber === 2) {
               setRingPanelNumber2(item);
@@ -77,7 +82,8 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className="ringvalue-container">
+              className="ringvalue-container"
+            >
               <p className="values">{item}</p>
             </div>
           );
@@ -109,6 +115,8 @@ const RingPanelComponent = ({
           }
           .values {
             color: var(--primary-text);
+            font-size: 0.8rem;
+            font-style: italic;
           }
         `}
       </style>
