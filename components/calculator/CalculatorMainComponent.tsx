@@ -173,6 +173,47 @@ const CalculatorMainComponent = () => {
         </div>
         <div className="content-container">
           <div className="calc-container">
+            {parsedCalcValues && (
+              <div className="saved-calc-container">
+                <h4>Lagret utregning</h4>
+                {parsedCalcValues.type && (
+                  <p className="calcvalues">
+                    Råmål: {parsedCalcValues.inputValue}
+                  </p>
+                )}
+                <p className="calcvalues">Xvalue: {parsedCalcValues.xValue}</p>
+                <hr />
+                {parsedCalcValues.ringListValue > 0 && (
+                  <p className="calcvalues">{parsedCalcValues.ringListValue}</p>
+                )}
+                {parsedCalcValues.ringListValue2 > 0 && (
+                  <p className="calcvalues">
+                    {parsedCalcValues.ringListValue2}
+                  </p>
+                )}
+                {parsedCalcValues.ringListValue3 > 0 && (
+                  <p className="calcvalues">
+                    {parsedCalcValues.ringListValue3}
+                  </p>
+                )}
+                <p className="calcvalues">
+                  {parsedCalcValues.type
+                    ? (
+                        parsedCalcValues.inputValue -
+                        parsedCalcValues.ringListValue -
+                        parsedCalcValues.ringListValue2 -
+                        parsedCalcValues.ringListValue3 +
+                        1.4
+                      ).toFixed(1)
+                    : (
+                        parsedCalcValues.inputValue -
+                        parsedCalcValues.ringListValue -
+                        parsedCalcValues.ringListValue2 -
+                        parsedCalcValues.ringListValue3
+                      ).toFixed(1)}
+                </p>
+              </div>
+            )}
             <h1 className="header">{raw ? "Råmål" : "Ring"}</h1>
             {inputValue && (
               <div>
@@ -227,6 +268,9 @@ const CalculatorMainComponent = () => {
             align-items: center;
             flex-direction: column;
           }
+          .calcvalues {
+            font-style: italic;
+          }
           .description {
             font-size: 0.8rem;
             font-style: italic;
@@ -266,6 +310,10 @@ const CalculatorMainComponent = () => {
           }
           .ringnumber-text {
             margin-bottom: 1rem;
+          }
+          .saved-calc-container {
+            position: absolute;
+            left: 20rem;
           }
           .side-panel {
             width: 15rem;

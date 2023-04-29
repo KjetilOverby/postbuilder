@@ -227,10 +227,12 @@ const PostOppsettComponent = ({
                 <TiDelete onClick={deleteSavedCalcLocalStorage} />
               </div>
 
-              <p className="calcvalues">{parsedCalcValues.inputValue}</p>
               {parsedCalcValues.type && (
-                <p className="calcvalues">{parsedCalcValues.xValue}</p>
+                <p className="calcvalues">
+                  Råmål: {parsedCalcValues.inputValue}
+                </p>
               )}
+              <p className="calcvalues">Xvalue: {parsedCalcValues.xValue}</p>
               <hr />
               {parsedCalcValues.ringListValue > 0 && (
                 <p className="calcvalues">{parsedCalcValues.ringListValue}</p>
