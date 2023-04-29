@@ -4,6 +4,7 @@ import useComponentDidMount from "../customHooks/UseComponentDidMount";
 import dateFormat from "dateformat";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import { MdSwapHorizontalCircle } from "react-icons/md";
+import { TiDelete } from "react-icons/ti";
 
 const PostOppsettComponent = ({
   postInfo,
@@ -16,7 +17,7 @@ const PostOppsettComponent = ({
   originEndrings,
   setOriginEndrings,
 }: any) => {
-  const { openEdit, setOpenEdit, parsedCalcValues } =
+  const { openEdit, setOpenEdit, parsedCalcValues, setParsedCalcValues } =
     useContext(ContextAppData);
   const router = useRouter();
 
@@ -209,13 +210,53 @@ const PostOppsettComponent = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ringType, ringPanelNumber]);
 
+  const deleteSavedCalcLocalStorage = () => {
+    localStorage.removeItem("calculations");
+    setTimeout(() => {
+      setParsedCalcValues();
+    }, 200);
+  };
+
   return (
     <>
       <div className="">
         <div className="main-container grid place-items-center h-screen">
           {parsedCalcValues && (
             <div className="calc-container">
-              <h1>{parsedCalcValues.header}</h1>
+              <div>
+                <TiDelete onClick={deleteSavedCalcLocalStorage} />
+              </div>
+
+              <p className="calcvalues">{parsedCalcValues.inputValue}</p>
+              {parsedCalcValues.type && (
+                <p className="calcvalues">{parsedCalcValues.xValue}</p>
+              )}
+              <hr />
+              {parsedCalcValues.ringListValue > 0 && (
+                <p className="calcvalues">{parsedCalcValues.ringListValue}</p>
+              )}
+              {parsedCalcValues.ringListValue2 > 0 && (
+                <p className="calcvalues">{parsedCalcValues.ringListValue2}</p>
+              )}
+              {parsedCalcValues.ringListValue3 > 0 && (
+                <p className="calcvalues">{parsedCalcValues.ringListValue3}</p>
+              )}
+              <p className="calcvalues">
+                {parsedCalcValues.type
+                  ? (
+                      parsedCalcValues.inputValue -
+                      parsedCalcValues.ringListValue -
+                      parsedCalcValues.ringListValue2 -
+                      parsedCalcValues.ringListValue3 +
+                      1.4
+                    ).toFixed(1)
+                  : (
+                      parsedCalcValues.inputValue -
+                      parsedCalcValues.ringListValue -
+                      parsedCalcValues.ringListValue2 -
+                      parsedCalcValues.ringListValue3
+                    ).toFixed(1)}
+              </p>
             </div>
           )}
           <div className="postoppsettHeader">
@@ -405,11 +446,18 @@ const PostOppsettComponent = ({
       </div>
       <style jsx>
         {`
+          hr {
+            border-color: var(--primary-text);
+          }
           .calc-container {
             position: absolute;
             right: 5rem;
             top: 2rem;
             color: var(--primary-text);
+          }
+          .calcvalues {
+            font-weight: 100;
+            font-style: italic;
           }
           .bladstamme-color {
             background: var(--outer);

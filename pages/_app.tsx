@@ -28,6 +28,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [getCalcValues, setGetCalcValues] = useState();
   const [parsedCalcValues, setParsedCalcValues] = useState();
 
+  console.log(parsedCalcValues);
+
   useEffect(() => {
     setGetCalcValues(localStorage.getItem("calculations"));
   }, [update]);

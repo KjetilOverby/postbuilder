@@ -44,6 +44,7 @@ const CalculatorMainComponent = () => {
       ringListValue: ringListValue,
       ringListValue2: ringListValue2,
       ringListValue3: ringListValue3,
+      type: raw,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -114,7 +115,6 @@ const CalculatorMainComponent = () => {
     setInputValue("");
     setShimsNumber(1);
   };
-  console.log("test" + parsedCalcValues);
 
   return (
     <>
