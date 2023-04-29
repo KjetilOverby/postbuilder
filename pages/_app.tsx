@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [chosenThemeFont, setChosenThemeFont] = useState<any>("");
 
   const [editRingPanelValue, setEditRingPanelValue] = useState(true);
+  const [savedValuesFromCalc, setSavedValuesFromCalc] = useState({});
 
   const UseComponentDidMount = () => {
     const ref = useRef<any>();
@@ -948,6 +949,7 @@ export default function App({ Component, pageProps }: AppProps) {
           chosenThemeFont,
           editRingPanelValue,
           setEditRingPanelValue,
+          setSavedValuesFromCalc,
         }}
       >
         <Component

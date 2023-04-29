@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import LeftSidepanelEdit from "../postoppsett/LeftSidepanelEdit";
 import RingPanelComponent from "../postoppsett/RingPanelComponent";
 import ringlist from "../../data/ringList";
@@ -9,12 +9,14 @@ import { BsBackspace } from "react-icons/bs";
 import { GiSave } from "react-icons/gi";
 import { FaHandPointRight } from "react-icons/fa";
 import Link from "next/link";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 interface calcProps {
   inputValue: Number;
 }
 
 const CalculatorMainComponent = () => {
+  const { setSavedValuesFromCalc } = useContext(ContextAppData);
   const [inputValue, setInputValue] = useState<any>();
   const [ringListValue, setRingListValue] = useState<any>();
   const [ringListValue2, setRingListValue2] = useState<any>(0);
@@ -24,6 +26,25 @@ const CalculatorMainComponent = () => {
   const [shims1, setShims1] = useState<any>(0);
 
   const [raw, setRaw] = useState(true);
+
+  useEffect(() => {
+    setSavedValuesFromCalc({
+      header: "Kalkulasjon",
+      inputValue: inputValue,
+      shims1: shims1,
+      xValue: xValue,
+      ringListValue: ringListValue,
+      ringListValue2: ringListValue2,
+      ringListValue3: ringListValue3,
+    });
+  }, [
+    inputValue,
+    raw,
+    shimsNumber,
+    ringListValue,
+    ringListValue2,
+    ringListValue3,
+  ]);
 
   useEffect(() => {
     if (raw) {
