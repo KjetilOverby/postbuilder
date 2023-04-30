@@ -224,24 +224,25 @@ const CalculatorMainComponent = () => {
             {ringListValue && (
               <h1 className="ringnumber-header">Ring: {shimsNumber}</h1>
             )}
+            <div className="ring-container">
+              {ringListValue > 0 && (
+                <h1 className="values xvalue">{ringListValue}</h1>
+              )}
 
-            {ringListValue > 0 && (
-              <h1 className="values xvalue">{ringListValue}</h1>
-            )}
+              {ringListValue2 > 0 && (
+                <h1 className="values value2">{ringListValue2}</h1>
+              )}
 
-            {ringListValue2 > 0 && (
-              <h1 className="values value2">{ringListValue2}</h1>
-            )}
+              {ringListValue3 > 0 && (
+                <h1 className="values value2">{ringListValue3}</h1>
+              )}
 
-            {ringListValue3 > 0 && (
-              <h1 className="values value2">{ringListValue3}</h1>
-            )}
-
-            {ringListValue > 0 && (
-              <h1 className="values value2">
-                {(shims1 - ringListValue2 - ringListValue3).toFixed(1)}
-              </h1>
-            )}
+              {ringListValue > 0 && (
+                <h1 className="values value2">
+                  {(shims1 - ringListValue2 - ringListValue3).toFixed(1)}
+                </h1>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -305,6 +306,9 @@ const CalculatorMainComponent = () => {
           .raw-btn {
             width: 100%;
           }
+          .ring-container {
+            display: flex;
+          }
           .ringnumber-header {
             margin-bottom: 3rem;
           }
@@ -325,17 +329,20 @@ const CalculatorMainComponent = () => {
             min-height: 100vh;
             padding: 1rem;
           }
-          .selector-container {
-          }
+
           .values {
-            background: var(--table-bg);
+            background: var(--outer);
             padding: 0.2rem;
-            width: 10rem;
+            width: 6rem;
             display: grid;
             place-items: center;
             margin: 0.3rem 0;
             border-radius: 10px;
-            font-size: 2.4rem;
+            font-size: 2rem;
+            height: 12rem;
+            margin-right: 0.5rem;
+            color: var(--outer-text);
+            border: 1px solid var(--primary-text);
           }
           .xvalue {
             animation: bounceInLeft 1s;
