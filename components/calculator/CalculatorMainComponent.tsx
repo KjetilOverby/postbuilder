@@ -230,11 +230,11 @@ const CalculatorMainComponent = () => {
               )}
 
               {ringListValue2 > 0 && (
-                <h1 className="values value2">{ringListValue2}</h1>
+                <h1 className="values value3">{ringListValue2}</h1>
               )}
 
               {ringListValue3 > 0 && (
-                <h1 className="values value2">{ringListValue3}</h1>
+                <h1 className="values value3">{ringListValue3}</h1>
               )}
 
               {ringListValue > 0 && (
@@ -333,13 +333,13 @@ const CalculatorMainComponent = () => {
           .values {
             background: var(--outer);
             padding: 0.2rem;
-            width: 6rem;
+            width: 4.5rem;
             display: grid;
             place-items: center;
             margin: 0.3rem 0;
             border-radius: 10px;
-            font-size: 2rem;
-            height: 12rem;
+            font-size: 1.5rem;
+            height: 9rem;
             margin-right: 0.5rem;
             color: var(--outer-text);
             border: 1px solid var(--primary-text);
@@ -349,6 +349,9 @@ const CalculatorMainComponent = () => {
           }
           .value2 {
             animation: bounceInRight 1s;
+          }
+          .value3 {
+            animation: bounceInDown 1s;
           }
 
           @-webkit-keyframes bounceInLeft {
@@ -419,6 +422,43 @@ const CalculatorMainComponent = () => {
             90% {
               -webkit-transform: translate3d(-5px, 0, 0);
               transform: translate3d(-5px, 0, 0);
+            }
+            100% {
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
+          @-webkit-keyframes bounceInDown {
+            0%,
+            60%,
+            75%,
+            90%,
+            100% {
+              -webkit-transition-timing-function: cubic-bezier(
+                0.215,
+                0.61,
+                0.355,
+                1
+              );
+              transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(0, -3000px, 0);
+              transform: translate3d(0, -3000px, 0);
+            }
+            60% {
+              opacity: 1;
+              -webkit-transform: translate3d(0, 25px, 0);
+              transform: translate3d(0, 25px, 0);
+            }
+            75% {
+              -webkit-transform: translate3d(0, -10px, 0);
+              transform: translate3d(0, -10px, 0);
+            }
+            90% {
+              -webkit-transform: translate3d(0, 5px, 0);
+              transform: translate3d(0, 5px, 0);
             }
             100% {
               -webkit-transform: none;
