@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ContextAppData } from "../../data/context/ContextAppData";
 
 const RingPanelComponent = ({
@@ -17,6 +17,7 @@ const RingPanelComponent = ({
   };
 
   const { editRingPanelValue } = useContext(ContextAppData);
+  const [ring270, setRing270] = useState("ring270");
 
   return (
     <>
@@ -36,8 +37,7 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className="ringvalue-container"
-            >
+              className="ringvalue-container">
               <p className="values">{item}</p>
             </div>
           );
@@ -59,8 +59,13 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className="ringvalue-container"
-            >
+              className={`ringvalue-container ${item === 34.6 ? ring270 : ""} ${
+                item === 37 ? ring270 : ""
+              } ${item === 37.5 ? ring270 : ""} ${
+                item === 40.8 ? ring270 : ""
+              } ${item === 46.9 ? ring270 : ""} ${
+                item === 53.1 ? ring270 : ""
+              } ${item === 66.4 ? ring270 : ""}`}>
               <p className="values">{item}</p>
             </div>
           );
@@ -82,8 +87,9 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className="ringvalue-container"
-            >
+              className={`ringvalue-container ${item === 0.3 ? ring270 : ""} ${
+                item === 0.5 ? ring270 : ""
+              } ${item === 1 ? ring270 : ""}`}>
               <p className="values">{item}</p>
             </div>
           );
@@ -117,6 +123,9 @@ const RingPanelComponent = ({
             color: var(--primary-text);
             font-size: 0.8rem;
             font-style: italic;
+          }
+          .ring270 {
+            box-shadow: inset 5px 5px 10px var(--text);
           }
         `}
       </style>
