@@ -59,10 +59,12 @@ const RingPanelComponent = ({
             <div
               key={item._id}
               onClick={ringPanelNumberHandler}
-              className={`ringvalue-container ${item === 34.6 ? ring270 : ""} ${
-                item === 37 ? ring270 : ""
-              } ${item === 37.5 ? ring270 : ""} ${
-                item === 40.8 ? ring270 : ""
+              className={`ringvalue-container ${item === 2.2 ? ring270 : ""} ${
+                item === 2.4 ? ring270 : ""
+              } ${item === 34.6 ? ring270 : ""} ${item === 37 ? ring270 : ""} ${
+                item === 37.5 ? ring270 : ""
+              } ${item === 40.8 ? ring270 : ""} ${
+                item === 44.9 ? ring270 : ""
               } ${item === 46.9 ? ring270 : ""} ${
                 item === 53.1 ? ring270 : ""
               } ${item === 66.4 ? ring270 : ""}`}>
