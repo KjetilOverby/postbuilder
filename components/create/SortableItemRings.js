@@ -3,7 +3,7 @@ import { CSS } from "@dnd-kit/utilities";
 
 export function SortableItemRings(props) {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: props.id, ring: props.ring });
+    useSortable({ id: props.id ? props.id : props._id, ring: props.ring });
 
   const style = { transform: CSS.Transform.toString(transform), transition };
 
@@ -13,7 +13,7 @@ export function SortableItemRings(props) {
         style={{
           border: "1px solid white",
           padding: "5.5px",
-          borderRadius: "10px",
+          borderRadius: "5px",
           display: "grid",
           placeItems: "center",
           width: "5rem",

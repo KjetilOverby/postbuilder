@@ -78,12 +78,22 @@ const CreatePostOppsett = ({
   const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState();
 
   const [rings, setRings] = useState<any>([]);
+  const [endRings, setEndRings] = useState<any>([]);
 
   useEffect(() => {
     if (postInfo) {
       setRings(postInfo.startRings.map((item: any) => item));
     }
   }, [postInfo]);
+  useEffect(() => {
+    if (postInfo) {
+      setEndRings(postInfo.endRings.map((item: any) => item));
+    }
+  }, [postInfo]);
+
+  console.log(endRings);
+
+  // ******************************************************
 
   useEffect(() => {
     if (postInfo) {
@@ -266,11 +276,24 @@ const CreatePostOppsett = ({
   const bladStammeFixed =
     Number(postInfo && postInfo.blades.bladStamme) + Number(1.4);
   const [updateDrag, setUpdateDrag] = useState(true);
+
   function handleDragEnd(event: any) {
     console.log("DragEnd Called!");
     const { active, over } = event;
     if (active.id !== over.id) {
       setRings((items: any) => {
+        const oldIndex = items.findIndex((item: any) => item.id === active.id);
+        const newIndex = items.findIndex((item: any) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+    setUpdateDrag(!updateDrag);
+  }
+  function handleDragEndEndRings(event: any) {
+    console.log("DragEndEndrings Called!");
+    const { active, over } = event;
+    if (active.id !== over.id) {
+      setEndRings((items: any) => {
         const oldIndex = items.findIndex((item: any) => item.id === active.id);
         const newIndex = items.findIndex((item: any) => item.id === over.id);
         return arrayMove(items, oldIndex, newIndex);
@@ -339,8 +362,8 @@ const CreatePostOppsett = ({
                                 X
                               </p>
                               <SortableItemRings
-                                key={ring.id}
-                                id={ring.id}
+                                key={ring.id ? ring.id : ring._id}
+                                id={ring.id ? ring.id : ring._id}
                                 ring={ring.input}
                               />
                             </div>
@@ -619,7 +642,38 @@ const CreatePostOppsett = ({
               </div>
 
               <div className="flex relative fillrings-container">
-                {postInfo &&
+                <DndContext
+                  collisionDetection={closestCenter}
+                  onDragEnd={handleDragEndEndRings}>
+                  <div className="startRingsDraggableContainer">
+                    <SortableContext
+                      strategy={horizontalListSortingStrategy}
+                      items={endRings}>
+                      {endRings &&
+                        endRings.map((endRing: any) => {
+                          const endRingsHandler = () => {
+                            setRingID(endRing._id);
+                            setRingID2(endRing.id);
+                            setRingType("endRings");
+                            setUpdate(!update);
+                          };
+                          return (
+                            <div className="sort-container">
+                              <p className="deleteX" onClick={endRingsHandler}>
+                                X
+                              </p>
+                              <SortableItemRings
+                                key={endRing.id ? endRing.id : endRing._id}
+                                id={endRing.id ? endRing.id : endRing._id}
+                                ring={endRing.input}
+                              />
+                            </div>
+                          );
+                        })}
+                    </SortableContext>
+                  </div>
+                </DndContext>
+                {/*   {postInfo &&
                   originEndRings &&
                   postInfo.endRings.map((item: any) => {
                     const endRingsHandler = () => {
@@ -657,7 +711,7 @@ const CreatePostOppsett = ({
                         </div>
                       </>
                     );
-                  })}
+                  })} */}
                 {/* ********************** Alternative EndRings ************************ */}
 
                 {postInfo &&
