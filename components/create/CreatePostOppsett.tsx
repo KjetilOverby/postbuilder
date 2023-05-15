@@ -5,6 +5,14 @@ import dateFormat from "dateformat";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiAddToQueue, BiBookAdd } from "react-icons/bi";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import { DndContext, closestCenter } from "@dnd-kit/core";
+import {
+  arrayMove,
+  horizontalListSortingStrategy,
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { SortableItemRings } from "./SortableItemRings";
 
 const CreatePostOppsett = ({
   postInfo,
@@ -68,6 +76,14 @@ const CreatePostOppsett = ({
   const [ringID2, setRingID2] = useState();
 
   const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState();
+
+  const [rings, setRings] = useState<any>([]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setRings(postInfo.startRings.map((item: any) => item));
+    }
+  }, [postInfo]);
 
   useEffect(() => {
     if (postInfo) {
@@ -181,8 +197,6 @@ const CreatePostOppsett = ({
 
   // *********************** Delete from postinfo *************************
 
-  console.log(ringType);
-
   useEffect(() => {
     if (postInfo) {
       if (ringType === "startRings") {
@@ -251,6 +265,23 @@ const CreatePostOppsett = ({
 
   const bladStammeFixed =
     Number(postInfo && postInfo.blades.bladStamme) + Number(1.4);
+  const [updateDrag, setUpdateDrag] = useState(true);
+  function handleDragEnd(event: any) {
+    console.log("DragEnd Called!");
+    const { active, over } = event;
+    if (active.id !== over.id) {
+      setRings((items: any) => {
+        const oldIndex = items.findIndex((item: any) => item.id === active.id);
+        const newIndex = items.findIndex((item: any) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+    setUpdateDrag(!updateDrag);
+  }
+
+  useEffect(() => {
+    setPostInfo({ ...postInfo, startRings: rings });
+  }, [updateDrag]);
 
   return (
     <>
@@ -285,7 +316,41 @@ const CreatePostOppsett = ({
           <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
-                {postInfo &&
+                <DndContext
+                  collisionDetection={closestCenter}
+                  onDragEnd={handleDragEnd}>
+                  <div className="startRingsDraggableContainer">
+                    <SortableContext
+                      strategy={horizontalListSortingStrategy}
+                      items={rings}>
+                      {rings &&
+                        rings.map((ring: any) => {
+                          const startRingsHandler = () => {
+                            setRingID(ring._id);
+                            setRingID2(ring.id);
+                            setRingType("startRings");
+                            setUpdate(!update);
+                          };
+                          return (
+                            <div className="sort-container">
+                              <p
+                                className="deleteX"
+                                onClick={startRingsHandler}>
+                                X
+                              </p>
+                              <SortableItemRings
+                                key={ring.id}
+                                id={ring.id}
+                                ring={ring.input}
+                              />
+                            </div>
+                          );
+                        })}
+                    </SortableContext>
+                  </div>
+                </DndContext>
+
+                {/*     {postInfo &&
                   originStartRings &&
                   postInfo.startRings.map((item: any) => {
                     const startRingsHandler = () => {
@@ -294,6 +359,7 @@ const CreatePostOppsett = ({
                       setRingType("startRings");
                       setUpdate(!update);
                     };
+
                     return (
                       <>
                         <div
@@ -315,7 +381,7 @@ const CreatePostOppsett = ({
                             )}
                           </>
 
-                          <div
+                           <div
                             key={item._id}
                             className="ringcomponent fillrings">
                             {item.input}
@@ -323,7 +389,8 @@ const CreatePostOppsett = ({
                         </div>
                       </>
                     );
-                  })}
+                  })} */}
+
                 {/* ********************** Alternative ************************ */}
 
                 {postInfo &&
@@ -694,6 +761,29 @@ const CreatePostOppsett = ({
       </div>
       <style jsx>
         {`
+          .sort-container {
+            position: relative;
+          }
+          .startRingsDraggableContainer {
+            display: flex;
+          }
+          .deleteX {
+            position: absolute;
+            background: indianred;
+            color: white;
+            border-radius: 50%;
+            padding: 1px;
+            left: 5px;
+            top: 5px;
+            width: 1rem;
+            height: 1rem;
+            display: grid;
+            place-items: center;
+            font-size: 0.6rem;
+          }
+          .deleteX:hover {
+            cursor: pointer;
+          }
           .utfylling2-red {
             background: red;
             color: white;
