@@ -13,6 +13,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { SortableItemRings } from "./SortableItemRings";
+import { SortableItemCenterRing } from "./SortableItemCenterRing";
 
 const CreatePostOppsett = ({
   postInfo,
@@ -78,20 +79,35 @@ const CreatePostOppsett = ({
   const [startRingsMinusRawinput, setStartRingsMinusRwinput] = useState();
 
   const [rings, setRings] = useState<any>([]);
+  const [ringsAlt, setRingsAlt] = useState<any>([]);
   const [endRings, setEndRings] = useState<any>([]);
+  const [rawRing, setRawRing] = useState<any>([]);
+
+  console.log(postInfo);
 
   useEffect(() => {
     if (postInfo) {
       setRings(postInfo.startRings.map((item: any) => item));
     }
   }, [postInfo]);
+
+  useEffect(() => {
+    if (postInfo) {
+      setRingsAlt(postInfo.startRings2.map((item: any) => item));
+    }
+  }, [postInfo]);
+
   useEffect(() => {
     if (postInfo) {
       setEndRings(postInfo.endRings.map((item: any) => item));
     }
   }, [postInfo]);
 
-  console.log(endRings);
+  useEffect(() => {
+    if (postInfo) {
+      setRawRing(postInfo.rawInput.map((item: any) => item));
+    }
+  }, [postInfo]);
 
   // ******************************************************
 
@@ -289,6 +305,18 @@ const CreatePostOppsett = ({
     }
     setUpdateDrag(!updateDrag);
   }
+  function handleDragEndAlt(event: any) {
+    console.log("DragEndAlt Called!");
+    const { active, over } = event;
+    if (active.id !== over.id) {
+      setRingsAlt((items: any) => {
+        const oldIndex = items.findIndex((item: any) => item.id === active.id);
+        const newIndex = items.findIndex((item: any) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+    setUpdateDrag(!updateDrag);
+  }
   function handleDragEndEndRings(event: any) {
     console.log("DragEndEndrings Called!");
     const { active, over } = event;
@@ -304,6 +332,7 @@ const CreatePostOppsett = ({
 
   useEffect(() => {
     setPostInfo({ ...postInfo, startRings: rings });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateDrag]);
 
   return (
@@ -339,39 +368,44 @@ const CreatePostOppsett = ({
           <div style={{ position: "relative" }}>
             <div className="flex items-center animate-container">
               <div className="flex relative fillrings-container">
-                <DndContext
-                  collisionDetection={closestCenter}
-                  onDragEnd={handleDragEnd}>
-                  <div className="startRingsDraggableContainer">
-                    <SortableContext
-                      strategy={horizontalListSortingStrategy}
-                      items={rings}>
-                      {rings &&
-                        rings.map((ring: any) => {
-                          const startRingsHandler = () => {
-                            setRingID(ring._id);
-                            setRingID2(ring.id);
-                            setRingType("startRings");
-                            setUpdate(!update);
-                          };
-                          return (
-                            <div className="sort-container">
-                              <p
-                                className="deleteX"
-                                onClick={startRingsHandler}>
-                                X
-                              </p>
-                              <SortableItemRings
-                                key={ring.id ? ring.id : ring._id}
-                                id={ring.id ? ring.id : ring._id}
-                                ring={ring.input}
-                              />
-                            </div>
-                          );
-                        })}
-                    </SortableContext>
-                  </div>
-                </DndContext>
+                {originStartRings && (
+                  <DndContext
+                    collisionDetection={closestCenter}
+                    onDragEnd={handleDragEnd}
+                  >
+                    <div className="startRingsDraggableContainer">
+                      <SortableContext
+                        strategy={horizontalListSortingStrategy}
+                        items={rings}
+                      >
+                        {rings &&
+                          rings.map((ring: any) => {
+                            const startRingsHandler = () => {
+                              setRingID(ring._id);
+                              setRingID2(ring.id);
+                              setRingType("startRings");
+                              setUpdate(!update);
+                            };
+                            return (
+                              <div key={ring.id} className="sort-container">
+                                <p
+                                  className="deleteX"
+                                  onClick={startRingsHandler}
+                                >
+                                  X
+                                </p>
+                                <SortableItemRings
+                                  key={ring.id ? ring.id : ring._id}
+                                  id={ring.id ? ring.id : ring._id}
+                                  ring={ring.input}
+                                />
+                              </div>
+                            );
+                          })}
+                      </SortableContext>
+                    </div>
+                  </DndContext>
+                )}
 
                 {/*     {postInfo &&
                   originStartRings &&
@@ -415,8 +449,46 @@ const CreatePostOppsett = ({
                   })} */}
 
                 {/* ********************** Alternative ************************ */}
+                {!originStartRings && (
+                  <DndContext
+                    collisionDetection={closestCenter}
+                    onDragEnd={handleDragEndAlt}
+                  >
+                    <div className="startRingsDraggableContainer">
+                      <SortableContext
+                        strategy={horizontalListSortingStrategy}
+                        items={ringsAlt}
+                      >
+                        {ringsAlt &&
+                          ringsAlt.map((ring: any) => {
+                            const startRingsHandler = () => {
+                              setRingID(ring._id);
+                              setRingID2(ring.id);
+                              setRingType("startRings2");
+                              setUpdate(!update);
+                            };
+                            return (
+                              <div key={ring.id} className="sort-container">
+                                <p
+                                  className="deleteX"
+                                  onClick={startRingsHandler}
+                                >
+                                  X
+                                </p>
+                                <SortableItemRings
+                                  key={ring.id ? ring.id : ring._id}
+                                  id={ring.id ? ring.id : ring._id}
+                                  ring={ring.input}
+                                />
+                              </div>
+                            );
+                          })}
+                      </SortableContext>
+                    </div>
+                  </DndContext>
+                )}
 
-                {postInfo &&
+                {/* {postInfo &&
                   !originStartRings &&
                   postInfo.startRings2.map((item: any) => {
                     const startRingsHandler = () => {
@@ -431,7 +503,8 @@ const CreatePostOppsett = ({
                           onClick={
                             openEdit ? utfyllingForanOpenHandler2 : undefined
                           }
-                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}>
+                          className={`outerRingContainer fillringcontainer ${editBlink.startRings}`}
+                        >
                           <>
                             {editBlink.startRings === "editModeStartRings" && (
                               <RiDeleteBinLine
@@ -448,13 +521,14 @@ const CreatePostOppsett = ({
 
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
                       </>
                     );
-                  })}
+                  })} */}
 
                 {/* ********************** under line front ************************ */}
                 <div className="calculate-line all-length-line">
@@ -475,7 +549,8 @@ const CreatePostOppsett = ({
                       utfyllingForan - startRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
-                    }`}>
+                    }`}
+                  >
                     <h4>
                       Sum: {Number(startRingsCalc && startRingsCalc).toFixed(2)}
                     </h4>
@@ -493,7 +568,8 @@ const CreatePostOppsett = ({
                         utfyllingForan - startRingsCalc2 > -0.05
                           ? "fill-ok"
                           : "fill-not-ok"
-                      }`}>
+                      }`}
+                    >
                       <h4>
                         Sum:{" "}
                         {Number(startRingsCalc2 && startRingsCalc2).toFixed(2)}
@@ -512,7 +588,7 @@ const CreatePostOppsett = ({
                 </div>
               </div>
               <div className="flex relative">
-                {postInfo &&
+                {/* {postInfo &&
                   postInfo.rawInput.map((item: any) => {
                     const rawInputHandler = () => {
                       setRingID(item._id);
@@ -526,12 +602,13 @@ const CreatePostOppsett = ({
                       shimsOpenHandler();
                     };
 
-                    return (
-                      <>
-                        <div
-                          onClick={openEdit ? rawOpenHandler : undefined}
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}>
-                          <>
+                    return ( */}
+                <>
+                  <div
+                    onClick={openEdit ? rawOpenHandler : undefined}
+                    className={`outerRingContainer `}
+                  >
+                    {/* <>
                             {editBlink.rawInput === "editModeRawInput" && (
                               <RiDeleteBinLine
                                 onClick={rawInputHandler}
@@ -543,17 +620,19 @@ const CreatePostOppsett = ({
                                 }}
                               />
                             )}
-                          </>
+                          </> 
 
-                          <p
+                           <p
                             className={`absolute rawInput ${
                               rawOpen ? "mark" : ""
-                            }`}>
+                            }`}
+                          >
                             {item.input}
                           </p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings">
+                            className="ringcomponent rawrings"
+                          >
                             {editBlink.rawInput === "editModeRawInput" && (
                               <BiAddToQueue
                                 onClick={openRawInputShimsHandler}
@@ -568,11 +647,11 @@ const CreatePostOppsett = ({
                               />
                             )}
 
-                            {/* {(item.input && item.input + 1.4).toFixed(1)} */}
+                           
                             {item.input &&
                               (Number(item.input) + Number(1.4)).toFixed(1)}
-                          </div>
-                          {item.ring && (
+                          </div> 
+                          {/* {item.ring && (
                             <div className="shims-container">
                               <p className="shims shims1">{item.ring}</p>
                               <p className="shims shims2">
@@ -597,41 +676,79 @@ const CreatePostOppsett = ({
                                   (item.shims2 - item.shims3).toFixed(1)}
                               </p>
                             </div>
-                          )}
-                          <div
-                            className={`sawBlade bg-slate-500 ${
-                              detailsOpen ? "sawblade-mark" : ""
-                            }`}>
-                            <p
-                              className={`bladstamme ${
-                                detailsOpen ? "mark" : ""
-                              }`}>
-                              {postInfo && postInfo.blades.bladStamme}
-                            </p>
-                            <p
-                              className={`sagsnitt ${
-                                detailsOpen ? "mark" : ""
-                              }`}>
-                              {postInfo && bladStammeFixed.toFixed(1)}
-                            </p>
-                          </div>
-                        </div>
+                          )} */}
+                    <DndContext
+                      collisionDetection={closestCenter}
+                      onDragEnd={handleDragEnd}
+                    >
+                      <div className="startRingsDraggableContainer">
+                        <SortableContext
+                          strategy={horizontalListSortingStrategy}
+                          items={rawRing}
+                        >
+                          {rawRing &&
+                            rawRing.map((ring: any) => {
+                              const rawRingsHandler = () => {
+                                setRingID(ring._id);
+                                setRingID2(ring.id);
+                                setRingType("rawInput");
+                                setUpdate(!update);
+                              };
+                              return (
+                                <div key={ring.id} className="sort-container">
+                                  <p
+                                    className="deleteX"
+                                    onClick={rawRingsHandler}
+                                  >
+                                    <div
+                                      className={`sawBlade bg-slate-500 ${
+                                        detailsOpen ? "sawblade-mark" : ""
+                                      }`}
+                                    >
+                                      <p
+                                        className={`bladstamme ${
+                                          detailsOpen ? "mark" : ""
+                                        }`}
+                                      >
+                                        {postInfo && postInfo.blades.bladStamme}
+                                      </p>
+                                      <p
+                                        className={`sagsnitt ${
+                                          detailsOpen ? "mark" : ""
+                                        }`}
+                                      >
+                                        {postInfo && bladStammeFixed.toFixed(1)}
+                                      </p>
+                                    </div>
+                                    X
+                                  </p>
+                                  <SortableItemCenterRing
+                                    key={ring.id ? ring.id : ring._id}
+                                    id={ring.id ? ring.id : ring._id}
+                                    ring={ring.input}
+                                  />
+                                </div>
+                              );
+                            })}
+                        </SortableContext>
+                      </div>
+                    </DndContext>
+                  </div>
 
-                        {/* ********************** under line center ************************ */}
-                        {/* <div className="calculate-line all-length-line">
+                  {/* ********************** under line center ************************ */}
+                  {/* <div className="calculate-line all-length-line">
                           <p className="postcalc-number">
                             {postCalc && postCalc.toFixed(2)}
                           </p>
                         </div> */}
-                      </>
-                    );
-                  })}
+                </>
               </div>
               <div className="relative">
                 <div
                   className={`sawBlade2 bg-slate-500 ${
                     detailsOpen ? "sawblade-mark" : ""
-                  }`}>
+                  }`}
+                >
                   <p className={`bladstamme ${detailsOpen ? "mark" : ""}`}>
                     {postInfo && postInfo.blades.bladStamme}
                   </p>
@@ -644,11 +761,13 @@ const CreatePostOppsett = ({
               <div className="flex relative fillrings-container">
                 <DndContext
                   collisionDetection={closestCenter}
-                  onDragEnd={handleDragEndEndRings}>
+                  onDragEnd={handleDragEndEndRings}
+                >
                   <div className="startRingsDraggableContainer">
                     <SortableContext
                       strategy={horizontalListSortingStrategy}
-                      items={endRings}>
+                      items={endRings}
+                    >
                       {endRings &&
                         endRings.map((endRing: any) => {
                           const endRingsHandler = () => {
@@ -658,7 +777,7 @@ const CreatePostOppsett = ({
                             setUpdate(!update);
                           };
                           return (
-                            <div className="sort-container">
+                            <div key={endRing.id} className="sort-container">
                               <p className="deleteX" onClick={endRingsHandler}>
                                 X
                               </p>
@@ -728,7 +847,8 @@ const CreatePostOppsett = ({
                           onClick={
                             openEdit ? utfyllingBakOpenHandler2 : undefined
                           }
-                          className={`outerRingContainer ${editBlink.endRings}`}>
+                          className={`outerRingContainer ${editBlink.endRings}`}
+                        >
                           <>
                             {editBlink.endRings === "editModeEndRings" && (
                               <RiDeleteBinLine
@@ -746,7 +866,8 @@ const CreatePostOppsett = ({
 
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings">
+                            className="ringcomponent fillrings"
+                          >
                             {item.input}
                           </div>
                         </div>
@@ -773,7 +894,8 @@ const CreatePostOppsett = ({
                       utfyllingBak - endRingsCalc > -0.05
                         ? "fill-ok"
                         : "fill-not-ok"
-                    }`}>
+                    }`}
+                  >
                     <h4>
                       Sum: {Number(endRingsCalc && endRingsCalc).toFixed(2)}
                     </h4>
@@ -792,7 +914,8 @@ const CreatePostOppsett = ({
                         utfyllingBak - endRingsCalc2 > -0.05
                           ? "fill-ok"
                           : "fill-not-ok"
-                      }`}>
+                      }`}
+                    >
                       <h4>
                         Sum: {Number(endRingsCalc2 && endRingsCalc2).toFixed(2)}
                       </h4>
@@ -823,7 +946,7 @@ const CreatePostOppsett = ({
           }
           .deleteX {
             position: absolute;
-            background: indianred;
+            background: var(--text);
             color: white;
             border-radius: 50%;
             padding: 1px;
@@ -911,7 +1034,9 @@ const CreatePostOppsett = ({
             display: flex;
             justify-content: center;
           }
-          .outerRingContainer {
+
+           {
+            /* .outerRingContainer {
             height: 11.4rem;
             width: 5.4rem;
             border: 1px solid var(--mark);
@@ -920,13 +1045,16 @@ const CreatePostOppsett = ({
             margin-right: 4px;
             border-radius: 5px;
             position: relative;
+          } */
           }
+
           .sawBlade {
             position: absolute;
             height: 30rem;
             width: 0.3rem;
-            left: -5px;
+            left: -11px;
             border: 0.5px solid var(--outer);
+            top: -10rem;
           }
 
           .sawBlade2 {
@@ -1171,3 +1299,5 @@ const CreatePostOppsett = ({
 };
 
 export default CreatePostOppsett;
+// );
+// })}
