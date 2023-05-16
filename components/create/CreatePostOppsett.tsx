@@ -83,7 +83,8 @@ const CreatePostOppsett = ({
   const [endRings, setEndRings] = useState<any>([]);
   const [rawRing, setRawRing] = useState<any>([]);
 
-  console.log(postInfo);
+  console.log(rings);
+  console.log(ringsAlt);
 
   useEffect(() => {
     if (postInfo) {
@@ -315,7 +316,6 @@ const CreatePostOppsett = ({
         return arrayMove(items, oldIndex, newIndex);
       });
     }
-    setUpdateDrag(!updateDrag);
   }
   function handleDragEndEndRings(event: any) {
     console.log("DragEndEndrings Called!");
@@ -327,7 +327,6 @@ const CreatePostOppsett = ({
         return arrayMove(items, oldIndex, newIndex);
       });
     }
-    setUpdateDrag(!updateDrag);
   }
 
   useEffect(() => {
