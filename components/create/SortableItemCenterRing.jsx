@@ -1,11 +1,26 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { useEffect, useState } from "react";
 
 export function SortableItemCenterRing(props) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: props.id ? props.id : props._id });
 
   const style = { transform: CSS.Transform.toString(transform), transition };
+
+  const [ringShimsCalc, setRingShimsCalc] = useState();
+
+  useEffect(() => {
+    if (props.ringShims) {
+      setRingShimsCalc(Number(props.ring) + 1.4 - props.ringShims);
+    }
+
+    if (props.shims) {
+      setRingShimsCalc(
+        Number(props.ring) + 1.4 - props.ringShims - props.shims
+      );
+    }
+  }, [props.ring, props.ringShims, props.shims, ringShimsCalc]);
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
@@ -24,7 +39,8 @@ export function SortableItemCenterRing(props) {
           color: "var(--center-text)",
           position: "relative",
         }}>
-        {(props.ring + 1.4).toFixed(1)}
+        {(Number(props.ring) + 1.4).toFixed(1)}
+
         <p
           style={{
             fontSize: ".8rem",
@@ -34,37 +50,33 @@ export function SortableItemCenterRing(props) {
           }}>
           {props.ring}
         </p>
-        <p
-          style={{
-            position: "absolute",
-            bottom: "-25px",
-            fontSize: ".8rem",
-            color: "var(--text)",
-          }}>
-          {props.ringShims}
-        </p>
-        <p
-          style={{
-            position: "absolute",
-            bottom: "-45px",
-            fontSize: ".8rem",
-            color: "var(--text)",
-          }}>
-          {(
-            Number(props.ring + 1.4) -
-            Number(props.ringShims) -
-            props.shims
-          ).toFixed(1)}
-        </p>
-        <p
+        <div
           style={{
             position: "absolute",
             bottom: "-65px",
-            fontSize: ".8rem",
-            color: "var(--text)",
           }}>
-          {props.shims}
-        </p>
+          <p
+            style={{
+              fontSize: ".8rem",
+              color: "var(--text)",
+            }}>
+            {props.ringShims}
+          </p>
+          <p
+            style={{
+              fontSize: ".8rem",
+              color: "var(--text)",
+            }}>
+            {ringShimsCalc && ringShimsCalc !== NaN && ringShimsCalc.toFixed(1)}
+          </p>
+          <p
+            style={{
+              fontSize: ".8rem",
+              color: "var(--text)",
+            }}>
+            {props.shims}
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -296,8 +296,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -312,8 +311,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer fillringcontainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -334,13 +332,11 @@ const PostOppsettComponent = ({
                           onClick={
                             openEdit ? editModeRawinputHandler : undefined
                           }
-                          className={`outerRingContainer centerringcontainer ${editBlink.rawInput}`}
-                        >
+                          className={`outerRingContainer centerringcontainer`}>
                           <p className="absolute rawInput">{item.input}</p>
                           <div
                             key={item._id}
-                            className="ringcomponent rawrings"
-                          >
+                            className="ringcomponent rawrings">
                             {(item.input && item.input + 1.4).toFixed(1)}
                           </div>
                           {item.ring && (
@@ -417,8 +413,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>
@@ -433,8 +428,7 @@ const PostOppsettComponent = ({
                         <div className={`outerRingContainer`}>
                           <div
                             key={item._id}
-                            className="ringcomponent fillrings"
-                          >
+                            className="ringcomponent fillrings">
                             {item.input}
                           </div>
                         </div>

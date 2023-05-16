@@ -734,6 +734,10 @@ const CreatePostOppsett = ({
                                 setRingType("rawInput");
                                 setUpdate(!update);
                               };
+                              const openRawInputShimsHandler = () => {
+                                setRawRingID(ring.input);
+                                shimsOpenHandler();
+                              };
                               return (
                                 <div key={ring.id} className="sort-container">
                                   <p
@@ -757,6 +761,11 @@ const CreatePostOppsett = ({
                                       </p>
                                     </div>
                                     X
+                                  </p>
+                                  <p
+                                    onClick={openRawInputShimsHandler}
+                                    className="add-btn">
+                                    +
                                   </p>
                                   <SortableItemCenterRing
                                     key={ring.id ? ring.id : ring._id}
@@ -1009,6 +1018,20 @@ const CreatePostOppsett = ({
       </div>
       <style jsx>
         {`
+          .add-btn {
+            position: absolute;
+            background: var(--text);
+            bottom: 10px;
+            left: 7px;
+            z-index: 1000;
+            height: 1.2rem;
+            width: 1.2rem;
+            display: grid;
+            place-items: center;
+            font-size: 0.8rem;
+            color: white;
+            border-radius: 50%;
+          }
           .sort-container {
             position: relative;
           }
