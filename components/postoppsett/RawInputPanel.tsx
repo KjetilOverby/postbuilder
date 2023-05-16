@@ -1,6 +1,6 @@
 import React from "react";
 
-const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
+const RawInputPanel = ({ raw, setRawPanelValue, update, setUpdate }: any) => {
   return (
     <>
       <div>
@@ -23,12 +23,15 @@ const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
               </td>
               <td>
                 {raw.map((item: any) => {
+                  const ring1Handler = () => {
+                    setRawPanelValue(item.r18);
+                    setUpdate(!update);
+                  };
                   return (
                     <p
-                      onClick={() => setRawPanelValue(item.r18)}
+                      onClick={ring1Handler}
                       key={item.id}
-                      className="nom nom18"
-                    >
+                      className="nom nom18">
                       {item.r18}
                     </p>
                   );
@@ -36,12 +39,15 @@ const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
               </td>
               <td>
                 {raw.map((item: any) => {
+                  const ring2Handler = () => {
+                    setRawPanelValue(item.r12);
+                    setUpdate(!update);
+                  };
                   return (
                     <p
-                      onClick={() => setRawPanelValue(item.r12)}
+                      onClick={ring2Handler}
                       key={item.id}
-                      className="nom nom12"
-                    >
+                      className="nom nom12">
                       {item.r12}
                     </p>
                   );
@@ -49,12 +55,15 @@ const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
               </td>
               <td>
                 {raw.map((item: any) => {
+                  const ring3Handler = () => {
+                    setRawPanelValue(item.r12s);
+                    setUpdate(!update);
+                  };
                   return (
                     <p
-                      onClick={() => setRawPanelValue(item.r12s)}
+                      onClick={ring3Handler}
                       key={item.id}
-                      className="nom nom12"
-                    >
+                      className="nom nom12">
                       {item.r12s}
                     </p>
                   );
@@ -62,12 +71,15 @@ const RawInputPanel = ({ raw, setRawPanelValue }: any) => {
               </td>
               <td>
                 {raw.map((item: any) => {
+                  const ring4Handler = () => {
+                    setRawPanelValue(item.r12s1);
+                    setUpdate(!update);
+                  };
                   return (
                     <p
-                      onClick={() => setRawPanelValue(item.r12s1)}
+                      onClick={ring4Handler}
                       key={item.id}
-                      className="nom nom12"
-                    >
+                      className="nom nom12">
                       {item.r12s1}
                     </p>
                   );
