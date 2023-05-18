@@ -32,6 +32,7 @@ const SkurlisteModelSchema = new mongoose.Schema({
   mkvBr: String,
   date: Date,
   progress: String,
+  id: String
 });
 
 module.exports =

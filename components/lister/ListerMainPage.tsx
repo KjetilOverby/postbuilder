@@ -3,6 +3,8 @@ import SkurlisteComponent from "../startpage/SkurlisteComponent";
 import InputComponent from "./InputComponent";
 import InputTable from "./InputTable";
 import axios from "axios";
+import ListSort from "./ListSort";
+import { v4 as uuidv4, v4 } from "uuid";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -22,6 +24,7 @@ const ListerMainPage = ({
   const [progress, setProgress] = useState();
   const [updateMode, setUpdateMode] = useState<boolean>();
   const [chosen, setChosen] = useState("");
+  const [dragDropOpen, setDragDropOpen] = useState(true);
 
   const [disabled, setDisabled] = useState({
     text: "disabledText",
@@ -260,6 +263,7 @@ const ListerMainPage = ({
             mkvBord: listInputData.mkvBord,
             mkvBr: listInputData.mkvBr,
             date: new Date(),
+            id: uuidv4(),
           })
           .then(() => {
             setDisabled({ text: "disabledText", status: true });
@@ -369,15 +373,24 @@ const ListerMainPage = ({
 
           <InputTable listInputData={listInputData} sagblad={sagblad} />
           <div>
+            <div>
+              <button onClick={() => setDragDropOpen(!dragDropOpen)}>
+                Sorter
+              </button>
+            </div>
             <h1 className="lister-text">Skurplan</h1>
-            <SkurlisteComponent
-              listeBuffer={true}
-              setListeBuffer={setListeBuffer}
-              skurliste={skurliste}
-              setSkurlisteInfo={setSkurlisteInfo}
-              setFieldID={setFieldID}
-              setChosen={setChosen}
-            />
+            {dragDropOpen ? (
+              <ListSort skurliste={skurliste} />
+            ) : (
+              <SkurlisteComponent
+                listeBuffer={true}
+                setListeBuffer={setListeBuffer}
+                skurliste={skurliste}
+                setSkurlisteInfo={setSkurlisteInfo}
+                setFieldID={setFieldID}
+                setChosen={setChosen}
+              />
+            )}
           </div>
           {ListeBuffer && (
             <div className="edit-container">
