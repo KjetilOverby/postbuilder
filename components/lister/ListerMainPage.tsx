@@ -28,15 +28,14 @@ const ListerMainPage = ({
   const [list, setList] = useState<any>([]);
   const [listFinished, setListFinished] = useState([]);
 
-  const saveChanges = () => {
-    deleteAllList();
-    setTimeout(() => {
-      saveAllList();
-    }, 200);
-    setDragDropOpen(false);
-    setTimeout(() => {
-      setUpdate(!update);
-    }, 500);
+  const saveChanges = async () => {
+    await deleteAllList();
+
+    await saveAllList();
+
+    await setDragDropOpen(false);
+
+    await setUpdate(!update);
   };
 
   useEffect(() => {
