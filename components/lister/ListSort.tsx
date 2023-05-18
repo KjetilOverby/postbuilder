@@ -18,6 +18,7 @@ const ListSort = ({ skurliste, setList, list }: any) => {
     if (skurliste) {
       setList(skurliste.map((item: any) => item));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [skurliste]);
 
   function handleDragList(event: any) {

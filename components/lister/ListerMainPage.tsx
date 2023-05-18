@@ -29,13 +29,14 @@ const ListerMainPage = ({
   const [listFinished, setListFinished] = useState([]);
 
   const saveChanges = async () => {
-    await deleteAllList();
-
-    await saveAllList();
-
-    await setDragDropOpen(false);
-
-    await setUpdate(!update);
+    deleteAllList();
+    setTimeout(() => {
+      saveAllList();
+      setTimeout(() => {
+        setDragDropOpen(false);
+        setUpdate(!update);
+      }, 300);
+    }, 300);
   };
 
   useEffect(() => {
@@ -47,15 +48,10 @@ const ListerMainPage = ({
     );
   }, [list]);
 
-  const saveAllList = () => {
-    api
-      .post("/api/skurlister/insertListMany", listFinished)
-      .then((response) => {
-        console.log("Documents inserted:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error inserting documents:", error);
-      });
+  const saveAllList = async () => {
+    api.post("/api/skurlister/insertListMany", listFinished).catch((error) => {
+      console.error("Error inserting documents:", error);
+    });
   };
   const deleteAllList = () => {
     api.post("/api/skurlister/deleteAllList", {});
