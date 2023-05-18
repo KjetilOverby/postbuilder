@@ -7,18 +7,13 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { SortableItemList } from "../../components/lister/SortableItemList";
+const axios = require("axios");
 
-const ListSort = ({ skurliste }: any) => {
-  const [list, setList] = useState<any>([]);
-  const [list2, setList2] = useState([
-    { id: "1", klasse: "2" },
-    { id: "2", klasse: "8" },
-    { id: "3", klasse: "8" },
-    { id: "4", klasse: "8" },
-    { id: "5", klasse: "8" },
-    { id: "6", klasse: "8" },
-  ]);
+const api = axios.create({
+  baseURL: process.env.api,
+});
 
+const ListSort = ({ skurliste, setList, list }: any) => {
   useEffect(() => {
     if (skurliste) {
       setList(skurliste.map((item: any) => item));
@@ -26,15 +21,11 @@ const ListSort = ({ skurliste }: any) => {
   }, [skurliste]);
 
   function handleDragList(event: any) {
-    console.log("drag works");
-
     const { active, over } = event;
     if (active.id !== over.id) {
       setList((items: any) => {
         const oldIndex = items.findIndex((item: any) => item.id === active.id);
         const newIndex = items.findIndex((item: any) => item.id === over.id);
-        // const activeIndex = items.indexOf(active.id);
-        // const overIndex = items.indexOf(over.id);
         return arrayMove(items, oldIndex, newIndex);
       });
     }
@@ -50,7 +41,7 @@ const ListSort = ({ skurliste }: any) => {
           <div className="slistContainer">
             <SortableContext
               strategy={verticalListSortingStrategy}
-              items={list}
+              items={list && list}
             >
               {list &&
                 list.map((item: any) => {
@@ -59,7 +50,15 @@ const ListSort = ({ skurliste }: any) => {
                       <SortableItemList
                         key={item.id}
                         id={item.id}
+                        treslag={item.treslag}
                         klasse={item.klasse}
+                        ant={item.ant}
+                        m3={item.m3}
+                        status={item.status}
+                        post={item.post}
+                        breddePost={item.breddePost}
+                        xLog={item.xLog}
+                        prosent={item.prosent}
                       />
                     </div>
                   );

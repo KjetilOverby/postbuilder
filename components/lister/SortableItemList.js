@@ -13,12 +13,20 @@ export function SortableItemList(props) {
         style={{
           border: '1px solid var(--text)',
           marginBottom: '.5rem',
-          padding: '10px',
+          padding: '17px 10px',
           borderRadius: '5px',
           background: 'var(--hover)',
-          color: 'var(--text)'
+          color: 'var(--text)',
+          display: 'flex',
         }}>
-        {props.klasse}
+          <p style={{width: '4rem'}}>{props.treslag}</p>
+          <p style={{width: '7rem'}}>Klasse: {props.klasse} </p>
+          <p style={{width: '7rem'}}>Ant: {props.ant} </p>
+          <p style={{width: '7rem'}}>m3: {props.m3} </p>
+          <p style={{width: '8rem'}}>status: {props.status} </p>
+          <p style={{width: '8rem'}}>xLog: {props.xLog} </p>
+          <p style={{width: '8rem'}}>%: {props.prosent} </p>
+          <p>post: {props.post}x{props.breddePost} </p>
       </div>
     </div>
   );

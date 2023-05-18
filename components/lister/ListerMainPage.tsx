@@ -24,7 +24,43 @@ const ListerMainPage = ({
   const [progress, setProgress] = useState();
   const [updateMode, setUpdateMode] = useState<boolean>();
   const [chosen, setChosen] = useState("");
-  const [dragDropOpen, setDragDropOpen] = useState(true);
+  const [dragDropOpen, setDragDropOpen] = useState(false);
+  const [list, setList] = useState<any>([]);
+  const [listFinished, setListFinished] = useState([]);
+
+  const saveChanges = () => {
+    deleteAllList();
+    setTimeout(() => {
+      saveAllList();
+    }, 200);
+    setDragDropOpen(false);
+    setTimeout(() => {
+      setUpdate(!update);
+    }, 500);
+  };
+
+  useEffect(() => {
+    setListFinished(
+      list.map(function (item: any) {
+        delete item._id;
+        return item;
+      })
+    );
+  }, [list]);
+
+  const saveAllList = () => {
+    api
+      .post("/api/skurlister/insertListMany", listFinished)
+      .then((response) => {
+        console.log("Documents inserted:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error inserting documents:", error);
+      });
+  };
+  const deleteAllList = () => {
+    api.post("/api/skurlister/deleteAllList", {});
+  };
 
   const [disabled, setDisabled] = useState({
     text: "disabledText",
@@ -374,13 +410,21 @@ const ListerMainPage = ({
           <InputTable listInputData={listInputData} sagblad={sagblad} />
           <div>
             <div>
-              <button onClick={() => setDragDropOpen(!dragDropOpen)}>
-                Sorter
+              <button
+                className="btn"
+                onClick={() => setDragDropOpen(!dragDropOpen)}
+              >
+                {dragDropOpen ? "Avbryt" : "Sorter"}
               </button>
+              {dragDropOpen && (
+                <button onClick={saveChanges} className="btn">
+                  Lagre Endringer
+                </button>
+              )}
             </div>
             <h1 className="lister-text">Skurplan</h1>
             {dragDropOpen ? (
-              <ListSort skurliste={skurliste} />
+              <ListSort skurliste={skurliste} setList={setList} list={list} />
             ) : (
               <SkurlisteComponent
                 listeBuffer={true}
@@ -449,6 +493,18 @@ const ListerMainPage = ({
         {`
           button {
             color: var(--primary-text);
+          }
+          .btn {
+            border: 1px solid var(--text);
+            padding: 5px;
+            width: 10rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            transition: 0.5s;
+          }
+          .btn:hover {
+            background: var(--hover);
           }
           .buffer-item {
             background: var(--hover);
