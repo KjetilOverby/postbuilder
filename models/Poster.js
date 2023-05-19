@@ -6,6 +6,9 @@ const PosterSchema = new mongoose.Schema({
       input: {
         type: Number,
       },
+      id: {
+        type: String
+      }
     },
   ],
   startRings2: [
@@ -13,12 +16,18 @@ const PosterSchema = new mongoose.Schema({
       input: {
         type: Number,
       },
+      id: {
+        type: String
+      }
     },
   ],
   rawInput: [
     {
       input: {
         type: Number,
+      },
+      id: {
+        type: String
       },
       ring: {
         type: Number,
@@ -39,6 +48,9 @@ const PosterSchema = new mongoose.Schema({
       input: {
         type: Number,
       },
+      id: {
+        type: String
+      }
     },
   ],
   endRings2: [
@@ -46,6 +58,9 @@ const PosterSchema = new mongoose.Schema({
       input: {
         type: Number,
       },
+      id: {
+        type: String
+      }
     },
   ],
   blades: {
@@ -74,6 +89,7 @@ const PosterSchema = new mongoose.Schema({
   editDate: {
     type: Date,
   },
+
 });
 
 module.exports = mongoose.models.Posts || mongoose.model("Posts", PosterSchema);
