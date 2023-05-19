@@ -15,6 +15,7 @@
   --running: #7395ae;
   --finish: #221f1f;
   --finish-text: #394046;
+  --main-to-right: linear-gradient(to right, #2f2f2f, #2d5f5d);
 
   --outer2: linear-gradient(#2d5f5d, #9ee9e7, #2d5f5d);
   --outer-text2: #2d5f5d;

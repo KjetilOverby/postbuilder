@@ -91,6 +91,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#98806b");
       r.style.setProperty("--mark", "#bcd9ee");
       r.style.setProperty("--text2", "#7395ae");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #282729,#557a95 )"
+      );
     }
   }
   function greenTheme() {
@@ -129,6 +133,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#ceeeda");
       r.style.setProperty("--text2", "#9ecfcc");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #17252a,#2b7a78 )"
+      );
     }
   }
   function brightTheme() {
@@ -167,6 +175,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#e98074");
       r.style.setProperty("--text2", "#e98074");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right,#c9c6bc,#e98074 )"
+      );
     }
   }
   function futuristicTheme() {
@@ -205,6 +217,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#73573f");
       r.style.setProperty("--mark", "#8edddf");
       r.style.setProperty("--text2", "#45a29e");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #1f2522,#116466 )"
+      );
     }
   }
   function innovativeTheme() {
@@ -243,6 +259,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#3f2f29");
       r.style.setProperty("--mark", "#d1e8e2");
       r.style.setProperty("--text2", "#9d8d8f");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #5a5560,#3c567a )"
+      );
     }
   }
   function flatcolorsTheme() {
@@ -281,6 +301,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#406568");
       r.style.setProperty("--mark", "#9c9c9c");
       r.style.setProperty("--text2", "#3a537d");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, rgb(231, 231, 231),#406568 )"
+      );
     }
   }
   function greenPearlTheme() {
@@ -319,6 +343,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#39603d");
       r.style.setProperty("--mark", "#39603d");
       r.style.setProperty("--text2", "#39603d");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #daded4,#39603d )"
+      );
     }
   }
 
@@ -358,6 +386,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#72553a");
       r.style.setProperty("--mark", "#f9e6d2");
       r.style.setProperty("--text2", "#f9e6d2");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #234249,#72553a )"
+      );
     }
   }
 
@@ -397,6 +429,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#79674a");
       r.style.setProperty("--mark", "#d3e3fc");
       r.style.setProperty("--text2", "#19547b");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #19547b,#ffd89b)"
+      );
     }
   }
   function bluegradientTheme() {
@@ -435,6 +471,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#d3e3fc");
       r.style.setProperty("--mark", "#d3e3fc");
       r.style.setProperty("--text2", "#d3e3fc");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #09203f,#d3e3fc)"
+      );
     }
   }
   function anwarGradientTheme() {
@@ -473,6 +513,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#d3e3fc");
       r.style.setProperty("--mark", "#d3e3fc");
       r.style.setProperty("--text2", "#0f3d5c");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #334d50,#cbcaa5)"
+      );
     }
   }
   function goldGradientTheme() {
@@ -520,6 +564,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "rgb(212,154,119)");
       r.style.setProperty("--text2", "rgb(239, 202, 179)");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #292929,rgb(212,154,119))"
+      );
     }
   }
   function pinkDarknessTheme() {
@@ -596,6 +644,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#d3e3fc");
       r.style.setProperty("--text2", "#1B2F52");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right,  #000000,#55EFC4)"
+      );
     }
   }
   function lightTheme() {
@@ -634,6 +686,10 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#1B2F52");
       r.style.setProperty("--text2", "#697184");
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right,#cfcfcf,#697184 )"
+      );
     }
   }
 
