@@ -345,7 +345,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--text2", "#39603d");
       r.style.setProperty(
         "--main-to-right",
-        "linear-gradient(to right, #daded4,#39603d )"
+        "linear-gradient(to right, #daded4,#a3bcb6 )"
       );
     }
   }

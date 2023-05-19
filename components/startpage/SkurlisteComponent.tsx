@@ -79,13 +79,15 @@ const SkurlisteComponent = ({
                 <tbody
                   onClick={skurlisteInfoHandler}
                   className={`table-rows cursor-pointer ${item.progress}`}
-                  key={item._id}>
+                  key={item._id}
+                >
                   <td
                     className={`border-class treslag lg:p-1.5 ${
                       item.treslag === "Furu"
                         ? "text-orange-600"
                         : "text-green-500"
-                    }`}>
+                    }`}
+                  >
                     <div>
                       {item.treslag} {item.klType}
                     </div>
@@ -107,7 +109,8 @@ const SkurlisteComponent = ({
                   <td
                     className={`border-class lg:p-1.5 ${
                       item.status == "tøm" ? "text-green-400" : "text-red-400"
-                    }`}>
+                    }`}
+                  >
                     {item.status}
                   </td>
                   <td className="table-text border-class lg:p-1.5 post">
@@ -154,7 +157,7 @@ const SkurlisteComponent = ({
             color: var(--text2);
           }
           .skurliste-container {
-            background: var(--table-bg);
+            background: var(--main-to-right);
           }
           .status-stopp {
             color: green;
