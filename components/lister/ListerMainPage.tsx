@@ -28,34 +28,52 @@ const ListerMainPage = ({
   const [list, setList] = useState<any>([]);
   const [listFinished, setListFinished] = useState([]);
 
-  const saveChanges = async () => {
+  const [afterDelete, setAfterDelete] = useState(false);
+
+  // ****************** Drag and drop list ******************
+
+  const saveChanges = () => {
+    delete_id();
     deleteAllList();
-    setTimeout(() => {
-      saveAllList();
-      setTimeout(() => {
-        setDragDropOpen(false);
-        setUpdate(!update);
-      }, 300);
-    }, 300);
+    setAfterDelete(!afterDelete);
   };
 
-  useEffect(() => {
-    setListFinished(
-      list.map(function (item: any) {
-        delete item._id;
-        return item;
-      })
-    );
-  }, [list]);
+  const delete_id = () => {
+    return new Promise((resolve, reject) => {
+      setListFinished(
+        list.map(function (item: any) {
+          delete item._id;
+          return item;
+        })
+      );
+    });
+  };
 
   const saveAllList = async () => {
-    api.post("/api/skurlister/insertListMany", listFinished).catch((error) => {
-      console.error("Error inserting documents:", error);
+    return new Promise((resolve, reject) => {
+      try {
+        api.post("/api/skurlister/insertListMany", listFinished).then((res) => {
+          resolve(res);
+          console.log("success");
+        });
+      } catch (error) {}
     });
   };
   const deleteAllList = () => {
-    api.post("/api/skurlister/deleteAllList", {});
+    try {
+      api.delete("/api/skurlister/deleteAllList", {});
+    } catch (error) {}
   };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    saveAllList().then(() => {
+      setDragDropOpen(false);
+      setUpdate(!update);
+    });
+  }, [afterDelete]);
+
+  // ****************** Drag and drop list end ******************
 
   const [disabled, setDisabled] = useState({
     text: "disabledText",

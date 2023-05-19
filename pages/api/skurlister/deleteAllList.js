@@ -6,11 +6,13 @@ dbConnect();
 export default async (req, res) => {
   const { method } = req;
   switch (method) {
-    case "POST":
+    case "DELETE":
     
         try {
           const skurliste = await SkurlisteModel.deleteMany({
 
+          }).then((res) => {
+            console.log(res);
           })
      
         } catch (error) {
