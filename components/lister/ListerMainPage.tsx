@@ -32,21 +32,20 @@ const ListerMainPage = ({
 
   // ****************** Drag and drop list ******************
 
-  const saveChanges = () => {
+  const saveChanges = async () => {
     delete_id();
-    deleteAllList();
-    setAfterDelete(!afterDelete);
+    await deleteAllList().then(() => {
+      setAfterDelete(!afterDelete);
+    });
   };
 
   const delete_id = () => {
-    return new Promise((resolve, reject) => {
-      setListFinished(
-        list.map(function (item: any) {
-          delete item._id;
-          return item;
-        })
-      );
-    });
+    setListFinished(
+      list.map(function (item: any) {
+        delete item._id;
+        return item;
+      })
+    );
   };
 
   const saveAllList = async () => {
@@ -60,9 +59,14 @@ const ListerMainPage = ({
     });
   };
   const deleteAllList = () => {
-    try {
-      api.delete("/api/skurlister/deleteAllList", {});
-    } catch (error) {}
+    return new Promise((resolve, reject) => {
+      try {
+        api.delete("/api/skurlister/deleteAllList", {}).then((res) => {
+          resolve(res);
+          console.log("after delete");
+        });
+      } catch (error) {}
+    });
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

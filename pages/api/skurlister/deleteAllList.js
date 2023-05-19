@@ -11,8 +11,8 @@ export default async (req, res) => {
         try {
           const skurliste = await SkurlisteModel.deleteMany({
 
-          }).then((res) => {
-            console.log(res);
+          }).then((response) => {
+           res.send(response)
           })
      
         } catch (error) {
