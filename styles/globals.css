@@ -12,11 +12,10 @@
   --center-text: #265077;
   --text: #7395ae;
   --hover: #468583;
-  --running: #7395ae;
-  --finish: #221f1f;
+  --running: linear-gradient(to right,#49565f, #77aace);
+  --finish: linear-gradient(to right, #000000, #5a5a5a);
   --finish-text: #394046;
-  --main-to-right: linear-gradient(to right, #2f2f2f, #2d5f5d);
-
+  
   --outer2: linear-gradient(#2d5f5d, #9ee9e7, #2d5f5d);
   --outer-text2: #2d5f5d;
   --center2: linear-gradient(#265077, #a4c7e8, #265077);
@@ -24,6 +23,7 @@
   --mark: #9ee9e7;
   --text2: #468583;
   --font: "Roboto";
+  --main-to-right: linear-gradient(to right, #2f2f2f, #2d5f5d);
 }
 
 .pagelayout-container {

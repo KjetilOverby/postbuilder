@@ -406,8 +406,7 @@ const ListerMainPage = ({
                   <div
                     key={item._id}
                     onClick={getBufferHandler}
-                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
-                  >
+                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100">
                     <p className="mr-2">{item.treslag}</p>
                     <p className="mr-2">{item.klasse}</p>
                     <p className="mr-2">
@@ -429,8 +428,7 @@ const ListerMainPage = ({
             <div>
               <button
                 className="btn"
-                onClick={() => setDragDropOpen(!dragDropOpen)}
-              >
+                onClick={() => setDragDropOpen(!dragDropOpen)}>
                 {dragDropOpen ? "Avbryt" : "Sorter"}
               </button>
               {dragDropOpen && (
@@ -463,16 +461,13 @@ const ListerMainPage = ({
                   <form className="grid place-items-center grid-cols-3 w-20 mb-3">
                     <div
                       onClick={updateProgressNeutreal}
-                      className="w-5 h-5 bg-white grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-white grid place-content-center rounded-full"></div>
                     <div
                       onClick={updateProgressRunning}
-                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"></div>
                     <div
                       onClick={updateProgressFinished}
-                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"></div>
                   </form>
                 ) : (
                   ""
@@ -524,7 +519,8 @@ const ListerMainPage = ({
             background: var(--hover);
           }
           .buffer-item {
-            background: var(--hover);
+            background: var(--main-to-right);
+            border: 1px solid var(--text);
           }
           .lister-container {
             display: grid;
@@ -536,10 +532,12 @@ const ListerMainPage = ({
             background: green;
           }
           .edit-container {
-            background: var(--table-bg);
+            background: var(--main-to-right);
             padding: 1rem;
             widht: 100%;
             left: 0;
+            color: var(--text);
+            border-radius: 5px;
           }
           .checkmark {
             position: absolute;

@@ -736,7 +736,8 @@ const InputComponent = ({
             opacity: 0.2;
           }
           .input-container {
-            background: var(--table-bg);
+            background: var(--main-to-right);
+            border: 1px solid var(--table-bg);
           }
           .input-cont {
             background: var(--primary-text);

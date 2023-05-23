@@ -71,8 +71,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             </td>
             <td
               className={`input-top lg:p-1.5 
-                    `}
-            >
+                    `}>
               {listInputData && listInputData.status}
             </td>
             <td className="input-top lg:p-1.5 post">
@@ -111,7 +110,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
         {`
           .skurliste-container {
             animation: fadeInDown 0.5s;
-            background: var(--primary);
+            background: var(--main-to-right);
           }
           .status-stopp {
             color: green;
