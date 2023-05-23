@@ -119,7 +119,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--text", "#45a29e");
       r.style.setProperty("--hover", "#395352");
       r.style.setProperty("--running", "#26706d");
-      r.style.setProperty("--finish", "linear-gradient(to right, #000,#2b7a78");
+      r.style.setProperty("--finish", "#221f1f");
       r.style.setProperty("--finish-text", "#394046");
       r.style.setProperty(
         "--outer2",
