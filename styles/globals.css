@@ -12,10 +12,10 @@
   --center-text: #265077;
   --text: #7395ae;
   --hover: #468583;
-  --running: linear-gradient(to right,#49565f, #77aace);
-  --finish: linear-gradient(to right, #000000, #5a5a5a);
+  --running: #2d5f5d;
+  --finish: #2f2f2f;
   --finish-text: #394046;
-  
+
   --outer2: linear-gradient(#2d5f5d, #9ee9e7, #2d5f5d);
   --outer-text2: #2d5f5d;
   --center2: linear-gradient(#265077, #a4c7e8, #265077);
