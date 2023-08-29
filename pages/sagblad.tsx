@@ -19,6 +19,8 @@ const sagblad = () => {
           }
           .header {
             color: var(--primary-text);
+            font-size: 3rem;
+            margin-bottom: 3rem;
           }
         `}
       </style>
