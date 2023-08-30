@@ -3,6 +3,8 @@ import { GiSpeedometer } from "react-icons/gi";
 import { CgArrowsMergeAltH } from "react-icons/cg";
 import { GiCircularSawblade } from "react-icons/gi";
 import { GiWoodBeam } from "react-icons/gi";
+import Selector from "../sagblad/Selector";
+import sagblader from "../../data/sagblader";
 
 const SagbladMainPage = () => {
   const [pi, setPi] = useState(3.14);
@@ -51,9 +53,27 @@ const SagbladMainPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [feedTooth, skurHøyde, tannlukeAreal]);
 
+  const [selectVal, setSelectVal] = useState();
+
+  useEffect(() => {
+    if (selectVal === "mkv510") {
+      setDiameter(sagblader.mkv510.diameter);
+      setZ(sagblader.mkv510.z);
+      setTurtall(sagblader.mkv510.rpm);
+      setTannlukeAreal(sagblader.mkv510.areal);
+    }
+    if (selectVal === "mkv445") {
+      setDiameter(sagblader.mkv445.diameter);
+      setZ(sagblader.mkv445.z);
+      setTurtall(sagblader.mkv445.rpm);
+      setTannlukeAreal(sagblader.mkv445.areal);
+    }
+  }, [selectVal]);
+
   return (
     <>
       <div className="container">
+        <Selector setSelectVal={setSelectVal} />
         <div className="form-container">
           <form>
             <p className="text">Data</p>
