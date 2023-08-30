@@ -22,7 +22,7 @@ const SagbladMainPage = () => {
   const [flisafaktor, setFlisafaktor] = useState(3);
   const [sponfyllingsGrad, setSponfyllingsGrad] = useState();
   const [skurHøyde, setSkurHøyde] = useState(150);
-  const [tannlukeAreal, setTannlukeAreal] = useState(325);
+  const [tannlukeAreal, setTannlukeAreal] = useState(206);
 
   useEffect(() => {
     setBrgMatehastighet(matehastighet * 1000);
@@ -165,10 +165,10 @@ const SagbladMainPage = () => {
             <p>{sponfyllingsGrad && sponfyllingsGrad.toFixed(2)} </p>
             {/* <p>{(tannlukeAreal - sponfyllingsGrad).toFixed(2)}mm2 </p> */}
             <h1 className="h1">
-              SFG verdien bør ikke overstige 0.5, har man 1 betyr at man har
-              fyllt opp tannluka og hvis man overskrider det så vil flis legge
-              seg mellom sagbladet og virket å skape varmgang i tannbunnen.
-              Dette kan påvirke strekk og skapw ubalanse.
+              SFG verdien bør ikke overstige 1, har man 1 betyr at man har fyllt
+              opp tannluka og hvis man overskrider det så vil flis legge seg
+              mellom sagbladet og virket å skape varmgang i tannbunnen. Dette
+              kan påvirke strekk og skape ubalanse.
             </h1>
           </div>
         </div>
