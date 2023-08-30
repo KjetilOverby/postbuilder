@@ -22,6 +22,11 @@ const sagblad = () => {
             font-size: 3rem;
             margin-bottom: 3rem;
           }
+          @media only screen and (max-width: 2100px) {
+            .container {
+              padding: 3rem 10rem;
+            }
+          }
         `}
       </style>
     </>
