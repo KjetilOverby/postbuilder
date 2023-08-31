@@ -95,6 +95,20 @@ const SagbladMainPage = () => {
       setTannlukeAreal(sagblader.trimmer500.areal);
       setSkurHøyde(sagblader.trimmer500.skurhøyde);
       setBladeHeader("Trimmer 500 z96 -5 tørt virke");
+    } else if (selectVal === "vs66") {
+      setDiameter(sagblader.vs66.diameter);
+      setZ(sagblader.vs66.z);
+      setTurtall(sagblader.vs66.rpm);
+      setTannlukeAreal(sagblader.vs66.areal);
+      setSkurHøyde(sagblader.vs66.skurhøyde);
+      setBladeHeader("VS66 475 z27 rått virke");
+    } else if (selectVal === "trimmerrasort") {
+      setDiameter(sagblader.trimmerrasort.diameter);
+      setZ(sagblader.trimmerrasort.z);
+      setTurtall(sagblader.trimmerrasort.rpm);
+      setTannlukeAreal(sagblader.trimmerrasort.areal);
+      setSkurHøyde(sagblader.trimmerrasort.skurhøyde);
+      setBladeHeader("Trimmer råsort 450 z72 10grader rått virke");
     }
   }, [selectVal]);
 
