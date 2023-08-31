@@ -35,13 +35,11 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
         <div className="block lg:hidden">
           <button
             onClick={openMenu}
-            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
-          >
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
             <svg
               className="fill-current h-3 w-3"
               viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
@@ -50,15 +48,13 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
         <div
           className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
             hidden === true ? "" : "hidden"
-          } lg-block`}
-        >
+          } lg-block`}>
           <div className="text-sm tab-container">
             <div>
               <a
                 onClick={openPostoppsettHandler}
                 href="#"
-                className="tab block mt-4 lg:inline-block lg:mt-0 mr-4 uppercase"
-              >
+                className="tab block mt-4 lg:inline-block lg:mt-0 mr-4 uppercase">
                 Søk
               </a>
             </div>
@@ -67,9 +63,19 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
               <Link href="/calculator">
                 <p
                   onClick={() => setEditRingPanelValue(false)}
-                  className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase"
-                >
+                  className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
                   Kalkulator
+                </p>
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div>
+              <Link href="/sagblad">
+                <p
+                  onClick={() => setEditRingPanelValue(false)}
+                  className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">
+                  Sagblad
                 </p>
               </Link>
             </div>

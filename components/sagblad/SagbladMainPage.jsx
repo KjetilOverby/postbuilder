@@ -300,7 +300,7 @@ const SagbladMainPage = () => {
             padding-left: 2rem;
           }
           .results-container {
-            margin-top: 10rem;
+            margin-top: 1rem;
             display: flex;
             padding: 10px;
             border-radius: 10px;
