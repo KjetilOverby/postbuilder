@@ -61,7 +61,7 @@ const SagbladMainPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [feedTooth, skurHøyde, tannlukeAreal]);
 
-  const [selectVal, setSelectVal] = useState();
+  const [selectVal, setSelectVal] = useState("mkv445");
   const [bladeHeader, setBladeHeader] = useState();
 
   useEffect(() => {
@@ -71,44 +71,49 @@ const SagbladMainPage = () => {
       setTurtall(sagblader.mkv510.rpm);
       setTannlukeAreal(sagblader.mkv510.areal);
       setSkurHøyde(sagblader.mkv510.skurhøyde);
-      setBladeHeader("MKV 510 z36 25 rått virke");
+      setBladeHeader("MKV 4,6");
     } else if (selectVal === "mkv445") {
       setDiameter(sagblader.mkv445.diameter);
       setZ(sagblader.mkv445.z);
       setTurtall(sagblader.mkv445.rpm);
       setTannlukeAreal(sagblader.mkv445.areal);
       setSkurHøyde(sagblader.mkv445.skurhøyde);
-      setBladeHeader("MKV 445 z36 25 rått virke");
+      setBladeHeader("MKV 4,2");
     } else if (selectVal === "vs66flens") {
       setDiameter(sagblader.vs66flens.diameter);
       setZ(sagblader.vs66flens.z);
       setTurtall(sagblader.vs66flens.rpm);
       setTannlukeAreal(sagblader.vs66flens.areal);
       setSkurHøyde(sagblader.vs66flens.skurhøyde);
-      setBladeHeader(
-        "VS66 flensblad 475 z24 25 rått virke tannlukeareal: 605mm2"
-      );
+      setBladeHeader("VS66 flensblad");
     } else if (selectVal === "trimmer500") {
       setDiameter(sagblader.trimmer500.diameter);
       setZ(sagblader.trimmer500.z);
       setTurtall(sagblader.trimmer500.rpm);
       setTannlukeAreal(sagblader.trimmer500.areal);
       setSkurHøyde(sagblader.trimmer500.skurhøyde);
-      setBladeHeader("Trimmer 500 z96 -5 tørt virke");
+      setBladeHeader("Trimmer 500 JV");
     } else if (selectVal === "vs66") {
       setDiameter(sagblader.vs66.diameter);
       setZ(sagblader.vs66.z);
       setTurtall(sagblader.vs66.rpm);
       setTannlukeAreal(sagblader.vs66.areal);
       setSkurHøyde(sagblader.vs66.skurhøyde);
-      setBladeHeader("VS66 475 z27 rått virke");
+      setBladeHeader("VS66");
     } else if (selectVal === "trimmerrasort") {
       setDiameter(sagblader.trimmerrasort.diameter);
       setZ(sagblader.trimmerrasort.z);
       setTurtall(sagblader.trimmerrasort.rpm);
       setTannlukeAreal(sagblader.trimmerrasort.areal);
       setSkurHøyde(sagblader.trimmerrasort.skurhøyde);
-      setBladeHeader("Trimmer råsort 450 z72 10grader rått virke");
+      setBladeHeader("Trimmer råsort");
+    } else if (selectVal === "eksakt") {
+      setDiameter(sagblader.eksakt.diameter);
+      setZ(sagblader.eksakt.z);
+      setTurtall(sagblader.eksakt.rpm);
+      setTannlukeAreal(sagblader.eksakt.areal);
+      setSkurHøyde(sagblader.eksakt.skurhøyde);
+      setBladeHeader("Eksaktkappe JV");
     }
   }, [selectVal]);
 
@@ -175,15 +180,17 @@ const SagbladMainPage = () => {
               />
             </form>
           </div>
-          <div>
+          <div className="fact-box">
             <h4 className="blade-header">{bladeHeader}</h4>
-            <div className="img-container">
-              <img
-                className="img"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Circular_tipped_saw_blade_sketch2.svg/2057px-Circular_tipped_saw_blade_sketch2.svg.png"
-                alt=""
-              />
-            </div>
+            <p className="facts">Max rpm: {sagblader[selectVal].maxRpm}</p>
+            <p className="facts">
+              Tannlukeareal: {sagblader[selectVal].areal} mm2
+            </p>
+            <p className="facts">Antall tenner: {sagblader[selectVal].z}</p>
+            <p className="facts">
+              Diameter: {sagblader[selectVal].diameter} mm
+            </p>
+            <p className="facts">Virke: {sagblader[selectVal].virke}</p>
           </div>
         </div>
         <div className="results-container">
@@ -250,6 +257,7 @@ const SagbladMainPage = () => {
             <h1 className="info-header">Minimum tannlukeareal</h1>
             <p>{(feedTooth * skurHøyde * 3).toFixed(1)}mm2</p>
 
+            <h1 className="text">Tannluke areal: {tannlukeAreal}</h1>
             <h1 className="text">Mating per tann: {feedTooth}</h1>
             <h1 className="text">Skurhøyde: {skurHøyde}</h1>
             <h1 className="text">Flisafaktor: 3</h1>
@@ -283,7 +291,13 @@ const SagbladMainPage = () => {
           .blade-header {
             font-size: 2rem;
             color: var(--text);
-            margin: 4rem 5rem;
+          }
+          .facts {
+            color: var(--primary-text);
+            font-size: 1rem;
+          }
+          .fact-box {
+            padding-left: 2rem;
           }
           .results-container {
             margin-top: 10rem;
