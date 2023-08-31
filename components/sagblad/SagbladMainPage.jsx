@@ -191,6 +191,9 @@ const SagbladMainPage = () => {
               Diameter: {sagblader[selectVal].diameter} mm
             </p>
             <p className="facts">Virke: {sagblader[selectVal].virke}</p>
+            <p className="facts">
+              Brystvinkel: {sagblader[selectVal].brystvinkel} grader
+            </p>
           </div>
         </div>
         <div className="results-container">

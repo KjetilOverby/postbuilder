@@ -8,6 +8,7 @@ const sagblader = {
     skurhøyde: 75,
     maxRpm: 4100,
     virke: "Rått",
+    brystvinkel: 25,
   },
   mkv510: {
     name: "MKV 510 36z",
@@ -18,6 +19,7 @@ const sagblader = {
     skurhøyde: 75,
     maxRpm: 3300,
     virke: "Rått",
+    brystvinkel: 25,
   },
   vs66flens: {
     name: "VS66 flens 475 24z",
@@ -28,6 +30,7 @@ const sagblader = {
     skurhøyde: 75,
     maxRpm: 4200,
     virke: "Rått",
+    brystvinkel: 25,
   },
   vs66: {
     name: "VS66 475 27z",
@@ -38,6 +41,7 @@ const sagblader = {
     skurhøyde: 75,
     maxRpm: 4500,
     virke: "Rått",
+    brystvinkel: 25,
   },
   trimmer500: {
     name: "Trimmer 500 96z",
@@ -48,6 +52,7 @@ const sagblader = {
     skurhøyde: 50,
     maxRpm: 3200,
     virke: "Tørt",
+    brystvinkel: -5,
   },
   trimmerrasort: {
     name: "Trimmer råsortering 450 72z",
@@ -58,6 +63,7 @@ const sagblader = {
     skurhøyde: 20,
     maxRpm: 4200,
     virke: "Tørt",
+    brystvinkel: 10,
   },
   eksakt: {
     name: "Eksakt Justerverk 400 80z",
@@ -68,6 +74,7 @@ const sagblader = {
     skurhøyde: 20,
     maxRpm: 4800,
     virke: "Tørt",
+    brystvinkel: -5,
   },
 };
 
