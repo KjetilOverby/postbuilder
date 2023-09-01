@@ -9,7 +9,7 @@ const RingerStartPage = () => {
       <HeadComponent />
       <div className="container">
         <div>
-          <h1>Utfyllingsringer</h1>
+          <h1>Utfyllingsringer (190mm)</h1>
           <table>
             <tr>
               <th>Ringtykkelse</th>
@@ -31,12 +31,14 @@ const RingerStartPage = () => {
             <tr>
               <th>Ringtykkelse</th>
               <th>Antall</th>
+              <th>Råmål</th>
             </tr>
             {ringcount.vanlig.map((item) => {
               return (
                 <tr key={item.ring}>
                   <td>{item.ring}</td>
                   <td>{item.antall}</td>
+                  <td>{item.ring > 10 && (item.ring - 1.4).toFixed(1)}</td>
                 </tr>
               );
             })}
@@ -48,12 +50,14 @@ const RingerStartPage = () => {
             <tr>
               <th>Ringtykkelse</th>
               <th>Antall</th>
+              <th>Råmål</th>
             </tr>
             {ringcount.store.map((item) => {
               return (
                 <tr key={item.ring}>
                   <td>{item.ring}</td>
                   <td>{item.antall}</td>
+                  <td>{item.ring > 10 && (item.ring - 1.4).toFixed(1)}</td>
                 </tr>
               );
             })}
@@ -69,7 +73,7 @@ const RingerStartPage = () => {
           th {
             border: 1px solid grey;
             padding: 5px;
-            width: 12rem;
+            width: 8rem;
             color: var(--text);
           }
           td {
