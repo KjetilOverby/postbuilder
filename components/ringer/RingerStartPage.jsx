@@ -38,7 +38,9 @@ const RingerStartPage = () => {
                 <tr key={item.ring}>
                   <td>{item.ring}</td>
                   <td>{item.antall}</td>
-                  <td>{item.ring > 10 && (item.ring - 1.4).toFixed(1)}</td>
+                  <td>
+                    {item.ring > 10 ? (item.ring - 1.4).toFixed(1) : "Skims"}
+                  </td>
                 </tr>
               );
             })}
@@ -57,7 +59,9 @@ const RingerStartPage = () => {
                 <tr key={item.ring}>
                   <td>{item.ring}</td>
                   <td>{item.antall}</td>
-                  <td>{item.ring > 10 && (item.ring - 1.4).toFixed(1)}</td>
+                  <td>
+                    {item.ring > 10 ? (item.ring - 1.4).toFixed(1) : "Skims"}
+                  </td>
                 </tr>
               );
             })}
@@ -75,6 +79,7 @@ const RingerStartPage = () => {
             padding: 5px;
             width: 8rem;
             color: var(--text);
+            background: var(--mark);
           }
           td {
             border: 1px solid grey;
