@@ -322,6 +322,7 @@ const InputComponent = ({
               <option value="180">180</option>
               <option value="185">185</option>
               <option value="186">186</option>
+              <option value="190">190</option>
               <option value="195">195</option>
               <option value="200">200</option>
               <option value="210">210</option>
