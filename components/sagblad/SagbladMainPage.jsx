@@ -72,6 +72,7 @@ const SagbladMainPage = () => {
       setTannlukeAreal(sagblader.mkv510.areal);
       setSkurHøyde(sagblader.mkv510.skurhøyde);
       setBladeHeader("MKV 4,6");
+      setMatehastighet(sagblader.mkv510.speed);
     } else if (selectVal === "mkv445") {
       setDiameter(sagblader.mkv445.diameter);
       setZ(sagblader.mkv445.z);
@@ -79,6 +80,7 @@ const SagbladMainPage = () => {
       setTannlukeAreal(sagblader.mkv445.areal);
       setSkurHøyde(sagblader.mkv445.skurhøyde);
       setBladeHeader("MKV 4,2");
+      setMatehastighet(sagblader.mkv445.speed);
     } else if (selectVal === "vs66flens") {
       setDiameter(sagblader.vs66flens.diameter);
       setZ(sagblader.vs66flens.z);
@@ -86,6 +88,7 @@ const SagbladMainPage = () => {
       setTannlukeAreal(sagblader.vs66flens.areal);
       setSkurHøyde(sagblader.vs66flens.skurhøyde);
       setBladeHeader("VS66 flensblad");
+      setMatehastighet(sagblader.vs66flens.speed);
     } else if (selectVal === "trimmer500") {
       setDiameter(sagblader.trimmer500.diameter);
       setZ(sagblader.trimmer500.z);
@@ -93,12 +96,14 @@ const SagbladMainPage = () => {
       setTannlukeAreal(sagblader.trimmer500.areal);
       setSkurHøyde(sagblader.trimmer500.skurhøyde);
       setBladeHeader("Trimmer 500 JV");
+      setMatehastighet(sagblader.trimmer500.speed);
     } else if (selectVal === "vs66") {
       setDiameter(sagblader.vs66.diameter);
       setZ(sagblader.vs66.z);
       setTurtall(sagblader.vs66.rpm);
       setTannlukeAreal(sagblader.vs66.areal);
       setSkurHøyde(sagblader.vs66.skurhøyde);
+      setMatehastighet(sagblader.vs66.speed);
       setBladeHeader("VS66");
     } else if (selectVal === "trimmerrasort") {
       setDiameter(sagblader.trimmerrasort.diameter);
@@ -106,6 +111,7 @@ const SagbladMainPage = () => {
       setTurtall(sagblader.trimmerrasort.rpm);
       setTannlukeAreal(sagblader.trimmerrasort.areal);
       setSkurHøyde(sagblader.trimmerrasort.skurhøyde);
+      setMatehastighet(sagblader.trimmerrasort.speed);
       setBladeHeader("Trimmer råsort");
     } else if (selectVal === "eksakt") {
       setDiameter(sagblader.eksakt.diameter);
@@ -113,7 +119,24 @@ const SagbladMainPage = () => {
       setTurtall(sagblader.eksakt.rpm);
       setTannlukeAreal(sagblader.eksakt.areal);
       setSkurHøyde(sagblader.eksakt.skurhøyde);
+      setMatehastighet(sagblader.eksakt.speed);
       setBladeHeader("Eksaktkappe JV");
+    } else if (selectVal === "makita") {
+      setDiameter(sagblader.makita.diameter);
+      setZ(sagblader.makita.z);
+      setTurtall(sagblader.makita.rpm);
+      setTannlukeAreal(sagblader.makita.areal);
+      setSkurHøyde(sagblader.makita.skurhøyde);
+      setMatehastighet(sagblader.makita.speed);
+      setBladeHeader("Makita");
+    } else if (selectVal === "DeWalt") {
+      setDiameter(sagblader.DeWalt.diameter);
+      setZ(sagblader.DeWalt.z);
+      setTurtall(sagblader.DeWalt.rpm);
+      setTannlukeAreal(sagblader.DeWalt.areal);
+      setSkurHøyde(sagblader.DeWalt.skurhøyde);
+      setMatehastighet(sagblader.DeWalt.speed);
+      setBladeHeader("DeWalt");
     }
   }, [selectVal]);
 

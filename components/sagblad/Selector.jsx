@@ -14,6 +14,8 @@ const Selector = ({ setSelectVal }) => {
           <option value="trimmer500">Trimmer JV 500</option>
           <option value="vs66">VS66</option>
           <option value="eksakt">Eksaktkappe JV</option>
+          <option value="makita">Makita 216 60z</option>
+          <option value="DeWalt">DeWalt 216 24z</option>
         </select>
       </div>
       <style jsx>
