@@ -31,7 +31,8 @@ const RawInputPanel = ({ raw, setRawPanelValue, update, setUpdate }: any) => {
                     <p
                       onClick={ring1Handler}
                       key={item.id}
-                      className="nom nom18">
+                      className="nom nom18"
+                    >
                       {item.r18}
                     </p>
                   );
@@ -47,7 +48,8 @@ const RawInputPanel = ({ raw, setRawPanelValue, update, setUpdate }: any) => {
                     <p
                       onClick={ring2Handler}
                       key={item.id}
-                      className="nom nom12">
+                      className="nom nom12"
+                    >
                       {item.r12}
                     </p>
                   );
@@ -63,7 +65,8 @@ const RawInputPanel = ({ raw, setRawPanelValue, update, setUpdate }: any) => {
                     <p
                       onClick={ring3Handler}
                       key={item.id}
-                      className="nom nom12">
+                      className="nom nom12"
+                    >
                       {item.r12s}
                     </p>
                   );
@@ -79,7 +82,8 @@ const RawInputPanel = ({ raw, setRawPanelValue, update, setUpdate }: any) => {
                     <p
                       onClick={ring4Handler}
                       key={item.id}
-                      className="nom nom12">
+                      className="nom nom12"
+                    >
                       {item.r12s1}
                     </p>
                   );
