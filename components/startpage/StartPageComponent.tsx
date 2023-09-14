@@ -61,7 +61,7 @@ const StartPageComponent = ({
           .content-container {
             grid-area: content;
             background: var(--primary);
-            margin: 0 15rem;
+            padding: 0 15rem;
           }
           @media only screen and (max-width: 1800px) {
             .content-container {

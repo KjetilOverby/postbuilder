@@ -401,7 +401,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#19547b, #ffd89b)");
       r.style.setProperty("--primary-text", "#fff0d7");
-      r.style.setProperty("--table-bg", "linear-gradient(#ffd89b, #19547b)");
+      r.style.setProperty("--table-bg", " #19547b");
       r.style.setProperty(
         "--outer",
         "linear-gradient(#19547b, #ffd89b, #19547b)"
@@ -412,7 +412,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#0f3d5c, #ffd89b, #0f3d5c)"
       );
       r.style.setProperty("--center-text", "#79674a");
-      r.style.setProperty("--text", "#19547b");
+      r.style.setProperty("--text", "#221f1f");
       r.style.setProperty("--hover", "#7395ae");
       r.style.setProperty("--running", "#19547b");
       r.style.setProperty("--finish", "#221f1f");
@@ -443,7 +443,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#09203f, #537895)");
       r.style.setProperty("--primary-text", "#d3e3fc");
-      r.style.setProperty("--table-bg", "linear-gradient(#537895, #09203f)");
+      r.style.setProperty("--table-bg", " #09203f");
       r.style.setProperty(
         "--outer",
         "linear-gradient(#09203f, #537895, #09203f)"
@@ -484,8 +484,8 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#334d50, #cbcaa5)");
-      r.style.setProperty("--primary-text", "#a4a281");
-      r.style.setProperty("--table-bg", "linear-gradient(#cbcaa5, #334d50)");
+      r.style.setProperty("--primary-text", "black");
+      r.style.setProperty("--table-bg", "#334d50");
       r.style.setProperty(
         "--outer",
         "linear-gradient(#334d50, #cbcaa5, #334d50)"
@@ -496,7 +496,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#0f3d5c, #cbcaa5, #0f3d5c)"
       );
       r.style.setProperty("--center-text", "#0f3d5c");
-      r.style.setProperty("--text", "#334d50");
+      r.style.setProperty("--text", "#b8b697");
       r.style.setProperty("--hover", "#8f8d6a");
       r.style.setProperty("--running", "#b8b697");
       r.style.setProperty("--finish", "#221f1f");
@@ -530,10 +530,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#292929, rgb(212,154,119)"
       );
       r.style.setProperty("--primary-text", "rgb(245, 218, 201)");
-      r.style.setProperty(
-        "--table-bg",
-        "linear-gradient(rgb(212,154,119), #292929)"
-      );
+      r.style.setProperty("--table-bg", "#292929");
       r.style.setProperty(
         "--outer",
         "linear-gradient(#292929, rgb(212,154,119), #292929)"
@@ -544,7 +541,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#1B2F52, rgb(212,154,119), #1B2F52)"
       );
       r.style.setProperty("--center-text", "#1B2F52");
-      r.style.setProperty("--text", "#292929");
+      r.style.setProperty("--text", "rgb(212,154,119)");
       r.style.setProperty("--hover", "rgb(130, 85, 57)");
       r.style.setProperty("--running", "#292929");
       r.style.setProperty("--finish", "#221f1f");
@@ -608,49 +605,49 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--text2", "#f093c0");
     }
   }
-  function greenDarknessTheme() {
+  function khakiTheme() {
     if (typeof window !== "undefined") {
       const r: any = document.querySelector(":root");
       // Get the styles (properties and values) for the root
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
-      r.style.setProperty("--primary", "linear-gradient(#000000,  #E1DCD9)");
-      r.style.setProperty("--primary-text", "orangered");
-      r.style.setProperty("--table-bg", "#E1DCD9");
+      r.style.setProperty("--primary", "linear-gradient(#000000,  #A0AECD)");
+      r.style.setProperty("--primary-text", "khaki");
+      r.style.setProperty("--table-bg", "#393a47");
       r.style.setProperty(
         "--outer",
-        "linear-gradient(#000000,  #E1DCD9, #000000)"
+        "linear-gradient(#000000,  #A0AECD, #000000)"
       );
-      r.style.setProperty("--outer-text", "#226351");
+      r.style.setProperty("--outer-text", "khaki");
       r.style.setProperty(
         "--center",
-        "linear-gradient(#1B2F52,  #E1DCD9, #1B2F52)"
+        "linear-gradient(#1B2F52,  #A0AECD, #1B2F52)"
       );
       r.style.setProperty("--center-text", "#1B2F52");
-      r.style.setProperty("--text", "#000000");
-      r.style.setProperty("--hover", "#226351");
-      r.style.setProperty("--running", "#000000");
-      r.style.setProperty("--finish", "#157256");
-      r.style.setProperty("--finish-text", "#A67F78");
+      r.style.setProperty("--text", "#415487");
+      r.style.setProperty("--hover", "#262626");
+      r.style.setProperty("--running", "#0c3d29");
+      r.style.setProperty("--finish", "slategray");
+      r.style.setProperty("--finish-text", "black");
       r.style.setProperty(
         "--outer2",
-        "linear-gradient(#000000,  #E1DCD9, #000000)"
+        "linear-gradient(#000000,  #A0AECD, #000000)"
       );
       r.style.setProperty("--outer-text2", "#226351");
       r.style.setProperty(
         "--center2",
-        "linear-gradient(#1B2F52,  #E1DCD9, #1B2F52)"
+        "linear-gradient(#1B2F52,  #A0AECD, #1B2F52)"
       );
       r.style.setProperty("--center-text2", "#1B2F52");
       r.style.setProperty("--mark", "#d3e3fc");
-      r.style.setProperty("--text2", "#1B2F52");
+      r.style.setProperty("--text2", "white");
       r.style.setProperty(
         "--main-to-right",
-        "linear-gradient(to right,  #000000, #E1DCD9)"
+        "linear-gradient(to right,  #000000, #A0AECD)"
       );
     }
   }
-  /* function greenDarknessTheme() {
+  function greenDarknessTheme() {
     if (typeof window !== "undefined") {
       const r: any = document.querySelector(":root");
       // Get the styles (properties and values) for the root
@@ -658,7 +655,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#000000, #55EFC4)");
       r.style.setProperty("--primary-text", "#a1f3db");
-      r.style.setProperty("--table-bg", "linear-gradient(#55EFC4, #000000)");
+      r.style.setProperty("--table-bg", " #000000");
       r.style.setProperty(
         "--outer",
         "linear-gradient(#000000, #55EFC4, #000000)"
@@ -669,7 +666,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(#1B2F52, #55EFC4, #1B2F52)"
       );
       r.style.setProperty("--center-text", "#1B2F52");
-      r.style.setProperty("--text", "#000000");
+      r.style.setProperty("--text", "#55EFC4");
       r.style.setProperty("--hover", "#226351");
       r.style.setProperty("--running", "#000000");
       r.style.setProperty("--finish", "#157256");
@@ -691,7 +688,7 @@ export default function App({ Component, pageProps }: AppProps) {
         "linear-gradient(to right,  #000000,#55EFC4)"
       );
     }
-  } */
+  }
   function lightTheme() {
     if (typeof window !== "undefined") {
       const r: any = document.querySelector(":root");
@@ -964,9 +961,10 @@ export default function App({ Component, pageProps }: AppProps) {
       greenPearlTheme();
     } else if (chosenThemeColor === '"Sahara night"') {
       sandTheme();
+    } else if (chosenThemeColor === '"Khaki"') {
+      khakiTheme();
     }
   }, [chosenThemeColor]);
-  console.log(chosenThemeFont);
 
   useEffect(() => {
     if (chosenThemeFont === '"Abel"') {
