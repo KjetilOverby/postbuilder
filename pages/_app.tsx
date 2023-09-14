@@ -1043,7 +1043,8 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}>
+      redirectUri={typeof window !== "undefined" && window.location.origin}
+    >
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -1063,7 +1064,8 @@ export default function App({ Component, pageProps }: AppProps) {
           setGetCalcValues,
           parsedCalcValues,
           setParsedCalcValues,
-        }}>
+        }}
+      >
         <Component
           {...pageProps}
           poster={poster}
