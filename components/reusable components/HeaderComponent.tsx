@@ -99,6 +99,18 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             </div>
           </div>
           <div>
+            <div>
+              <Link href="/tabell">
+                <p
+                  onClick={() => setEditRingPanelValue(false)}
+                  className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase"
+                >
+                  Råmålstabell
+                </p>
+              </Link>
+            </div>
+          </div>
+          <div>
             <AuthWrapper>
               <Link href="/lister">
                 <p className="tab block mt-4 lg:inline-block lg:mt-0  mr-4 uppercase">

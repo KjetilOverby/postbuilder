@@ -19,7 +19,6 @@ const ringer = () => {
         {`
           .container {
             padding: 2rem 10rem;
-            background: var(--primary);
             min-height: 100vh;
             min-width: 100vw;
           }
