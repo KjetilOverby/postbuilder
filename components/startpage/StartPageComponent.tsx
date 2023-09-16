@@ -64,7 +64,7 @@ const StartPageComponent = ({
           }
           @media only screen and (max-width: 1800px) {
             .content-container {
-              margin: 0 8rem;
+              padding: 0 8rem;
             }
           }
           @media only screen and (max-width: 1400px) {
