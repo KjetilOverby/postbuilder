@@ -9,6 +9,7 @@ const TabellMain = () => {
         <div className="tabell-container">
           <h1 className="header">Tykkelser</h1>
           <TabellComponent list={rawList.tykkelser} />
+          <p>* Faste ringer</p>
           <p className="text">Råmål 25mm sidebord gran 27.2</p>
         </div>
         <div className="tabell-container">

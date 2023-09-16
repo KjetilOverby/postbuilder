@@ -17,8 +17,8 @@ const TabellComponent = ({ list }) => {
               return (
                 <tr key={item.id}>
                   <td className="nom">{item.nom}</td>
-                  <td className="raw">{item.r18}</td>
-                  <td className="raw2">{item.r12}</td>
+                  <td className={`raw ${item.r18f} `}>{item.r18}</td>
+                  <td className={`raw2 ${item.r12f}`}>{item.r12}</td>
                 </tr>
               );
             })}
@@ -69,6 +69,9 @@ const TabellComponent = ({ list }) => {
           }
           tr:hover {
             cursor: pointer;
+          }
+          .fast:after {
+            content: " *";
           }
         `}
       </style>
