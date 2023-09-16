@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import TabellComponent from "./TabellComponent";
 import rawList from "../../data/rawList";
+import TabellModal from "./TabellModal";
 
 const TabellMain = () => {
+  const [rawVal, setRawVal] = useState();
+  const [openModal, setOpenModal] = useState(false);
+  console.log(rawVal);
   return (
     <>
       <div className="container">
         <div className="tabell-container">
+          {openModal && <TabellModal />}
           <h1 className="header">Tykkelser</h1>
-          <TabellComponent list={rawList.tykkelser} />
-          <p>* Faste ringer</p>
+          <TabellComponent list={rawList.tykkelser} setRawVal={setRawVal} />
+          <p className="f">* Faste ringer</p>
           <p className="text">Råmål 25mm sidebord gran 27.2</p>
         </div>
         <div className="tabell-container">
@@ -25,19 +30,26 @@ const TabellMain = () => {
         {`
           .container {
             display: flex;
-            flex-wrap: wrap
+            flex-wrap: wrap;
           }
           .header {
             font-size: 1.5rem;
+            color: grey;
           }
           .tabell-container {
             margin-right: 2rem;
-          .text {
-            color: indianred
+            margin-bottom: 2rem;
+            position: relative;
           }
-          @media only screen and (max-width: 756px) {
-        
-}
+          .text {
+            color: indianred;
+          }
+
+          .f {
+            color: slategrey;
+          }
+          @media only screen and (max-width: 1000px) {
+          }
         `}
       </style>
     </>

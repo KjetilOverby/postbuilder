@@ -406,7 +406,8 @@ const ListerMainPage = ({
                   <div
                     key={item._id}
                     onClick={getBufferHandler}
-                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100">
+                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
+                  >
                     <p className="mr-2">{item.treslag}</p>
                     <p className="mr-2">{item.klasse}</p>
                     <p className="mr-2">
@@ -428,7 +429,8 @@ const ListerMainPage = ({
             <div>
               <button
                 className="btn"
-                onClick={() => setDragDropOpen(!dragDropOpen)}>
+                onClick={() => setDragDropOpen(!dragDropOpen)}
+              >
                 {dragDropOpen ? "Avbryt" : "Sorter"}
               </button>
               {dragDropOpen && (
@@ -461,13 +463,16 @@ const ListerMainPage = ({
                   <form className="grid place-items-center grid-cols-3 w-20 mb-3">
                     <div
                       onClick={updateProgressNeutreal}
-                      className="w-5 h-5 bg-white grid place-content-center rounded-full"></div>
+                      className="w-5 h-5 bg-white grid place-content-center rounded-full"
+                    ></div>
                     <div
                       onClick={updateProgressRunning}
-                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"></div>
+                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"
+                    ></div>
                     <div
                       onClick={updateProgressFinished}
-                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"></div>
+                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"
+                    ></div>
                   </form>
                 ) : (
                   ""
@@ -504,7 +509,7 @@ const ListerMainPage = ({
       <style jsx>
         {`
           button {
-            color: var(--primary-text);
+            color: grey;
           }
           .btn {
             border: 1px solid var(--text);
@@ -516,7 +521,7 @@ const ListerMainPage = ({
             transition: 0.5s;
           }
           .btn:hover {
-            background: var(--hover);
+            background: #cfcfcf;
           }
           .buffer-item {
             background: var(--main-to-right);
@@ -527,17 +532,20 @@ const ListerMainPage = ({
             grid-template-columns: 35rem 1fr;
             grid-gap: 25px;
           }
-          list-container {
+          .list-container {
             position: relative;
-            background: green;
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 10px;
           }
           .edit-container {
-            background: var(--main-to-right);
+            background: #e8e8e8;
             padding: 1rem;
             widht: 100%;
             left: 0;
-            color: var(--text);
+            color: grey;
             border-radius: 5px;
+            box-shadow: 5px 5px 20px grey;
           }
           .checkmark {
             position: absolute;
@@ -553,7 +561,7 @@ const ListerMainPage = ({
             display: none;
           }
           .lister-text {
-            color: var(--primary-text);
+            color: grey;
           }
         `}
       </style>

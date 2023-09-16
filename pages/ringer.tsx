@@ -21,6 +21,7 @@ const ringer = () => {
             padding: 2rem 10rem;
             min-height: 100vh;
             min-width: 100vw;
+            background: white;
           }
           .header {
             font-size: 1.5rem;

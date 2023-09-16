@@ -55,12 +55,11 @@ const StartPageComponent = ({
       <style jsx>
         {`
           .sk-header {
-            color: var(--primary-text);
+            color: grey;
             margin-top: 7rem;
           }
           .content-container {
             grid-area: content;
-            background: var(--primary);
             padding: 0 15rem;
           }
           @media only screen and (max-width: 1800px) {

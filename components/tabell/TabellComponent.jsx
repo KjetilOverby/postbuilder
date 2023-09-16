@@ -1,6 +1,6 @@
 import React from "react";
 
-const TabellComponent = ({ list }) => {
+const TabellComponent = ({ list, setRawVal }) => {
   return (
     <>
       <div>
@@ -17,8 +17,18 @@ const TabellComponent = ({ list }) => {
               return (
                 <tr key={item.id}>
                   <td className="nom">{item.nom}</td>
-                  <td className={`raw ${item.r18f} `}>{item.r18}</td>
-                  <td className={`raw2 ${item.r12f}`}>{item.r12}</td>
+                  <td
+                    onClick={() => setRawVal(item.r18)}
+                    className={`raw ${item.r18f} `}
+                  >
+                    {item.r18}
+                  </td>
+                  <td
+                    onClick={() => setRawVal(item.r12)}
+                    className={`raw2 ${item.r12f}`}
+                  >
+                    {item.r12}
+                  </td>
                 </tr>
               );
             })}
@@ -51,9 +61,6 @@ const TabellComponent = ({ list }) => {
             background-color: #f3f3f3;
           }
 
-          .styled-table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
-          }
           .styled-table tbody tr.active-row {
             font-weight: bold;
             color: #009879;

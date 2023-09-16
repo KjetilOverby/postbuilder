@@ -22,7 +22,8 @@ const InputComponent = ({
                   treslag: "Gran",
                 }))
               }
-              className="border grid place-content-center h-16 w-16 rounded-full bg-green-600 hover:cursor-pointer hover:bg-green-700">
+              className="border grid place-content-center h-16 w-16 rounded-full bg-green-600 hover:cursor-pointer hover:bg-green-700"
+            >
               <p>Gran</p>
             </div>
             <div
@@ -32,7 +33,8 @@ const InputComponent = ({
                   treslag: "Furu",
                 }))
               }
-              className="border grid place-content-center h-16 w-16 rounded-full bg-orange-400 hover:cursor-pointer hover:bg-orange-500">
+              className="border grid place-content-center h-16 w-16 rounded-full bg-orange-400 hover:cursor-pointer hover:bg-orange-500"
+            >
               <p>Furu</p>
             </div>
           </div>
@@ -44,7 +46,8 @@ const InputComponent = ({
                   klasse: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -54,7 +57,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Klasse</p>
+            <p className="input-box-text mb-1">Klasse</p>
             <select
               className="input-field"
               value={listInputData.klasse}
@@ -63,7 +66,8 @@ const InputComponent = ({
                   ...prevState,
                   klasse: e.target.value,
                 }))
-              }>
+              }
+            >
               <option selected disabled hidden value="">
                 Velg
               </option>
@@ -102,7 +106,8 @@ const InputComponent = ({
                   klType: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -112,7 +117,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Klassetype</p>
+            <p className="input-box-text mb-1">Klassetype</p>
             <select
               className="input-field"
               value={listInputData.klType}
@@ -121,7 +126,8 @@ const InputComponent = ({
                   ...prevState,
                   klType: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="Spesial">Spesial</option>
               <option value="Panel">Panel</option>
@@ -141,7 +147,8 @@ const InputComponent = ({
                   ant: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -151,7 +158,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Antall</p>
+            <p className="input-box-text mb-1">Antall</p>
             <input
               value={listInputData.ant}
               onChange={(e) =>
@@ -172,7 +179,8 @@ const InputComponent = ({
                   m3: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -182,7 +190,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">M3</p>
+            <p className="input-box-text mb-1">M3</p>
             <input
               value={listInputData.m3}
               onChange={(e) =>
@@ -203,7 +211,8 @@ const InputComponent = ({
                   status: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -213,7 +222,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Status</p>
+            <p className="input-box-text mb-1">Status</p>
             <select
               className="input-field"
               value={listInputData.status}
@@ -222,7 +231,8 @@ const InputComponent = ({
                   ...prevState,
                   status: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="tøm">tøm</option>
               <option value="stopp">stopp</option>
@@ -238,7 +248,8 @@ const InputComponent = ({
                   post: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -248,7 +259,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Post</p>
+            <p className="input-box-text mb-1">Post</p>
             <input
               value={listInputData.post}
               onChange={(e) =>
@@ -269,7 +280,8 @@ const InputComponent = ({
                   breddePost: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -279,7 +291,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Bredde</p>
+            <p className="input-box-text mb-1">Bredde</p>
             <select
               className="input-field"
               value={listInputData.breddePost}
@@ -288,7 +300,8 @@ const InputComponent = ({
                   ...prevState,
                   breddePost: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="84">84</option>
               <option value="85">85</option>
@@ -338,7 +351,8 @@ const InputComponent = ({
                   xLog: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -348,7 +362,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">X-log</p>
+            <p className="input-box-text mb-1">X-log</p>
             <select
               className="input-field"
               value={listInputData.xLog}
@@ -357,7 +371,8 @@ const InputComponent = ({
                   ...prevState,
                   xLog: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="1X">1X</option>
               <option value="2X">2X</option>
@@ -378,7 +393,8 @@ const InputComponent = ({
                   prosent: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -388,7 +404,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Tørkeprosent</p>
+            <p className="input-box-text mb-1">Tørkeprosent</p>
             <select
               className="input-field"
               value={listInputData.prosent}
@@ -397,7 +413,8 @@ const InputComponent = ({
                   ...prevState,
                   prosent: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="18">18</option>
               <option value="12">12</option>
@@ -414,7 +431,8 @@ const InputComponent = ({
                   anm: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -424,7 +442,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Anm</p>
+            <p className="input-box-text mb-1">Anm</p>
             <input
               value={listInputData.anm}
               onChange={(e) =>
@@ -445,7 +463,8 @@ const InputComponent = ({
                   anm2: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -455,7 +474,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">Anm 2</p>
+            <p className="input-box-text mb-1">Anm 2</p>
             <input
               value={listInputData.anm2}
               onChange={(e) =>
@@ -478,7 +497,8 @@ const InputComponent = ({
                   vs66: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -488,7 +508,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">VS-66 ty</p>
+            <p className="input-box-text mb-1">VS-66 ty</p>
             <select
               className="input-field"
               value={listInputData.vs66}
@@ -497,7 +517,8 @@ const InputComponent = ({
                   ...prevState,
                   vs66: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="16">16</option>
               <option value="19">19</option>
@@ -514,7 +535,8 @@ const InputComponent = ({
                   vs66Br: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -524,7 +546,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">VS-66 Br</p>
+            <p className="input-box-text mb-1">VS-66 Br</p>
             <select
               className="input-field"
               value={listInputData.vs66Br}
@@ -533,7 +555,8 @@ const InputComponent = ({
                   ...prevState,
                   vs66Br: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="75">75</option>
               <option value="100">100</option>
@@ -558,7 +581,8 @@ const InputComponent = ({
                   vs66Xtra: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -568,7 +592,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">VS-66 xtra ty</p>
+            <p className="input-box-text mb-1">VS-66 xtra ty</p>
             <select
               className="input-field"
               value={listInputData.vs66Xtra}
@@ -577,7 +601,8 @@ const InputComponent = ({
                   ...prevState,
                   vs66Xtra: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="16">16</option>
               <option value="19">19</option>
@@ -594,7 +619,8 @@ const InputComponent = ({
                   vs66XtraBr: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -604,7 +630,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">VS-66 xtra br</p>
+            <p className="input-box-text mb-1">VS-66 xtra br</p>
             <select
               className="input-field"
               value={listInputData.vs66XtraBr}
@@ -613,7 +639,8 @@ const InputComponent = ({
                   ...prevState,
                   vs66XtraBr: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="75">75</option>
               <option value="100">100</option>
@@ -638,7 +665,8 @@ const InputComponent = ({
                   mkvBord: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -648,7 +676,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">MKV ty</p>
+            <p className="input-box-text mb-1">MKV ty</p>
             <select
               className="input-field"
               value={listInputData.mkvBord}
@@ -657,7 +685,8 @@ const InputComponent = ({
                   ...prevState,
                   mkvBord: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="16">16</option>
               <option value="19">19</option>
@@ -674,7 +703,8 @@ const InputComponent = ({
                   mkvBr: "",
                 }))
               }
-              className="hover: cursor-pointer">
+              className="hover: cursor-pointer"
+            >
               <TiDeleteOutline
                 style={{
                   position: "absolute",
@@ -684,7 +714,7 @@ const InputComponent = ({
                 }}
               />
             </div>
-            <p className="input-box-text mb-3">MKV br</p>
+            <p className="input-box-text mb-1">MKV br</p>
             <select
               className="input-field"
               value={listInputData.mkvBr}
@@ -693,7 +723,8 @@ const InputComponent = ({
                   ...prevState,
                   mkvBr: e.target.value,
                 }))
-              }>
+              }
+            >
               <option value="">Velg</option>
               <option value="75">75</option>
               <option value="100">100</option>
@@ -723,7 +754,8 @@ const InputComponent = ({
               <button
                 disabled={disabled.status}
                 onClick={createFieldHandler}
-                className={`text-slate-50 ${disabled.text}`}>
+                className={`text-slate-50 ${disabled.text}`}
+              >
                 Lagre
               </button>
             )}
@@ -737,20 +769,21 @@ const InputComponent = ({
             opacity: 0.2;
           }
           .input-container {
-            background: var(--main-to-right);
-            border: 1px solid var(--table-bg);
+            background: white;
+            border: 1px solid #e8e8e8;
+            box-shadow: 5px 5px 20px #e8e8e8;
           }
           .input-cont {
-            background: var(--primary-text);
+            background: #e8e8e8;
           }
           .input-field {
-            background: var(--table-bg);
+            background: grey;
             border-radius: 5px;
-            padding: 2px;
-            color: var(--primary-text);
+            padding: 0px 2px;
+            color: white;
           }
           .input-box-text {
-            color: var(--hover);
+            color: #009879;
           }
         `}
       </style>

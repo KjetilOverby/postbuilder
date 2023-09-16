@@ -5,7 +5,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
   return (
     <>
       <div className="skurliste-container mb-10">
-        <table className="border table-auto w-auto border-spacing-2 shadow-md">
+        <table className="styled-table">
           <thead>
             <tr className="tr-text">
               <th className="input-top lg:p-1.5 " scope="col">
@@ -60,7 +60,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
                 {listInputData && listInputData.klType}
               </span>
             </td>
-            <td className="input-top lg:p-1.5">
+            <td className="input-top lg:p-1.5 kl">
               {listInputData && listInputData.klasse}
             </td>
             <td className="input-top lg:p-1.5">
@@ -71,7 +71,8 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             </td>
             <td
               className={`input-top lg:p-1.5 
-                    `}>
+                    `}
+            >
               {listInputData && listInputData.status}
             </td>
             <td className="input-top lg:p-1.5 post">
@@ -84,7 +85,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             <td className="input-top lg:p-1.5">
               {listInputData && listInputData.prosent}
             </td>
-            <td className="input-top lg:p-1.5 text-slate-300">
+            <td className="input-top lg:p-1.5 text-slate-300 anm">
               {listInputData && listInputData.anm}
               {listInputData && listInputData.anm2}
             </td>
@@ -110,34 +111,64 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
         {`
           .skurliste-container {
             animation: fadeInDown 0.5s;
-            background: var(--main-to-right);
+            background: white;
           }
           .status-stopp {
             color: green;
           }
           .tr-text {
-            color: var(--center);
+            color: grey;
           }
           .tom {
             color: blue;
           }
           .input-top {
-            border: 1px solid var(--hover);
-            color: var(--primary-text);
+            color: #585859;
           }
-          .running {
-            background: #93c5fd;
-            color: #3b82f6;
-          }
-          .finished {
-            background: #94a3b8;
-            color: #64748b;
-          }
-          table {
-            width: 100%;
-          }
+
           .span-text-date {
             font-size: 0.6rem;
+          }
+          .styled-table {
+            border-collapse: collapse;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 300px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+          }
+          .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+          }
+          .styled-table th,
+          .styled-table td {
+            padding: 2px 5px;
+          }
+          .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+          }
+
+          .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+          }
+
+          .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+          }
+          .post {
+            color: #009879;
+            font-weight: bold;
+          }
+          .anm {
+            color: dodgerblue;
+            font-style: italic;
+          }
+          .kl {
+            font-weight: bold;
+            color: #009879;
           }
           @-webkit-keyframes fadeInDown {
             0% {

@@ -9,7 +9,7 @@ const RingerStartPage = () => {
       <HeadComponent />
       <div className="container">
         <div className="list-container">
-          <h1>Utfyllingsringer (190mm)</h1>
+          <h1 className="header">Utfyllingsringer (190mm)</h1>
           <table className="styled-table">
             <thead>
               <tr>
@@ -30,7 +30,7 @@ const RingerStartPage = () => {
           </table>
         </div>
         <div className="list-container">
-          <h1>Vanlige ringer (210mm)</h1>
+          <h1 className="header">Vanlige ringer (210mm)</h1>
           <table className="styled-table">
             <thead>
               <tr>
@@ -55,7 +55,7 @@ const RingerStartPage = () => {
           </table>
         </div>
         <div className="list-container">
-          <h1>Store ringer (270mm)</h1>
+          <h1 className="header">Store ringer (270mm)</h1>
           <table className="styled-table">
             <thead>
               <tr>
@@ -84,6 +84,9 @@ const RingerStartPage = () => {
         {`
           .container {
             display: flex;
+          }
+          .header {
+            color: grey;
           }
 
           .list-container {

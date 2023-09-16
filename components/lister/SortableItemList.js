@@ -13,10 +13,10 @@ export function SortableItemList(props) {
         style={{
           border: "1px solid var(--text)",
           marginBottom: ".5rem",
-          padding: "17px 10px",
+          padding: "8px 10px",
           borderRadius: "5px",
-          background: "var(--main-to-right)",
-          color: "var(--primary-text)",
+          background: "#d3ddf0",
+          color: "#384c70",
           display: "flex",
         }}>
         <p

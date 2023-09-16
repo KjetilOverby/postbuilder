@@ -20,6 +20,8 @@ const tabell = () => {
         {`
           .container {
             padding: 2rem 15rem;
+            background: white;
+            min-width: 100vw;
           }
           @media only screen and (max-width: 756px) {
             .container {

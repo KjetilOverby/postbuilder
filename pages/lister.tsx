@@ -22,7 +22,7 @@ const CreateList = ({
               style={{
                 fontSize: "1.8rem",
                 marginBottom: "1rem",
-                color: "var(--primary-text)",
+                color: "#009879",
               }}
             />
           </Link>
@@ -39,11 +39,11 @@ const CreateList = ({
       <style jsx>
         {`
           .lister-bg {
-            background: var(--primary);
             min-height: 100vh;
+            background: white;
           }
           .lister-text {
-            color: var(--primary-text);
+            color: #009879;
           }
         `}
       </style>

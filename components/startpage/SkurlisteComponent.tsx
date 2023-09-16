@@ -14,7 +14,7 @@ const SkurlisteComponent = ({
   return (
     <>
       <div className="skurliste-container mb-10">
-        <table className="table-auto w-auto border-spacing-2 shadow-md">
+        <table className="table-auto w-auto border-spacing-2 shadow-md styled-table">
           <thead>
             <tr>
               <th className="border-class table-text-top lg:p-1.5 " scope="col">
@@ -113,7 +113,7 @@ const SkurlisteComponent = ({
                   >
                     {item.status}
                   </td>
-                  <td className="table-text border-class lg:p-1.5 post">
+                  <td className="table-text border-class lg:p-1.5 post post">
                     {item.post}x{item.breddePost}
                   </td>
                   <td className="table-text border-class lg:p-1.5">
@@ -124,24 +124,46 @@ const SkurlisteComponent = ({
                   </td>
                   <td className="table-text border-class lg:p-1.5 text-teal-600 ">
                     <div className="two-input">
-                      <div>{item.anm}</div>
+                      <div className="anm">{item.anm}</div>
 
-                      <div>{item.anm2}</div>
+                      <div className="anm">{item.anm2}</div>
                     </div>
                   </td>
                   <td className="table-text border-class lg:p-1.5">
-                    <div>{item.vs66}</div>
+                    <div>
+                      {" "}
+                      {item.vs66 ? (
+                        item.vs66
+                      ) : (
+                        <p className="no-bord">Ingen bord</p>
+                      )}
+                    </div>
                     <div className="text-red-600">{item.vs66Xtra}</div>
                   </td>
                   <td className="table-text border-class lg:p-1.5">
-                    <div>{item.vs66Br}</div>
+                    <div>
+                      {" "}
+                      {item.vs66Br ? (
+                        item.vs66Br
+                      ) : (
+                        <p className="no-bord">Ingen bord</p>
+                      )}
+                    </div>
                     <div className="text-red-600">{item.vs66XtraBr}</div>
                   </td>
                   <td className="table-text border-class lg:p-1.5">
-                    {item.mkvBord}
+                    {item.mkvBord ? (
+                      item.mkvBord
+                    ) : (
+                      <p className="no-bord">Ingen bord</p>
+                    )}
                   </td>
                   <td className="table-text border-class lg:p-1.5">
-                    {item.mkvBr}
+                    {item.mkvBr ? (
+                      item.mkvBr
+                    ) : (
+                      <p className="no-bord">Ingen bord</p>
+                    )}
                   </td>
                   <td className="table-text border-class lg:p-1.5">
                     {item.blad}
@@ -153,11 +175,13 @@ const SkurlisteComponent = ({
       </div>
       <style jsx>
         {`
-          tr {
-            color: var(--text2);
+          .anm {
+            font-style: italic;
+            color: dodgerblue;
           }
-          .skurliste-container {
-            background: var(--main-to-right);
+          .no-bord {
+            font-style: italic;
+            color: indianred;
           }
           .status-stopp {
             color: green;
@@ -166,13 +190,13 @@ const SkurlisteComponent = ({
             color: blue;
           }
           .table-rows:hover {
-            background: var(--hover);
+            background: #f7f4da;
           }
           .running {
-            background: var(--running);
+            background: #bff2bd;
           }
           .finished {
-            background: var(--finish);
+            background: #e8e8e8;
           }
           table {
             width: 100%;
@@ -181,22 +205,51 @@ const SkurlisteComponent = ({
           }
           .span-text-date {
             font-size: 0.6rem;
-            color: var(--text);
+            color: lightgrey;
           }
           .table-text {
-            color: var(--primary-text);
+            color: #383f6e;
           }
           .table-text-top {
-            color: var(--center);
+            color: white;
           }
           .two-input {
             display: flex;
             flex-direction: column;
           }
-          .border-class {
-            border: 1px solid var(--hover);
+
+          .styled-table {
+            border-collapse: collapse;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 300px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          }
+          .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+          }
+          .styled-table th,
+          .styled-table td {
+            padding: 2px 5px;
+          }
+          .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
           }
 
+          .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+          }
+
+          .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+          }
+          .post {
+            font-weight: bold;
+            color: #009879;
+          }
           @media only screen and (max-width: 1000px) {
             table {
               width: 100%;
