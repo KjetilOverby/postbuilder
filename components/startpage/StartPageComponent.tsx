@@ -69,12 +69,12 @@ const StartPageComponent = ({
           }
           @media only screen and (max-width: 1400px) {
             .content-container {
-              margin: 0 4rem;
+              padding: 0 4rem;
             }
           }
           @media only screen and (max-width: 1200px) {
             .content-container {
-              margin: 0 0.5rem;
+              padding: 0 0.5rem;
             }
           }
         `}

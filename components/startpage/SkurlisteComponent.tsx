@@ -143,11 +143,7 @@ const SkurlisteComponent = ({
                   <td className="table-text border-class lg:p-1.5">
                     <div>
                       {" "}
-                      {item.vs66Br ? (
-                        item.vs66Br
-                      ) : (
-                        <p className="no-bord">Ingen bord</p>
-                      )}
+                      {item.vs66Br ? item.vs66Br : <p className="no-bord"></p>}
                     </div>
                     <div className="text-red-600">{item.vs66XtraBr}</div>
                   </td>
@@ -159,11 +155,7 @@ const SkurlisteComponent = ({
                     )}
                   </td>
                   <td className="table-text border-class lg:p-1.5">
-                    {item.mkvBr ? (
-                      item.mkvBr
-                    ) : (
-                      <p className="no-bord">Ingen bord</p>
-                    )}
+                    {item.mkvBr ? item.mkvBr : <p className="no-bord"></p>}
                   </td>
                   <td className="table-text border-class lg:p-1.5">
                     {item.blad}
