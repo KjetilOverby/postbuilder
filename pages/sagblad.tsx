@@ -10,7 +10,7 @@ const sagblad = () => {
       <div className="container">
         <Link href="/">
           <TbArrowBigLeftLine
-            style={{ color: "var(--text)", fontSize: "3rem" }}
+            style={{ color: "rgb(0, 138, 138)", fontSize: "3rem" }}
           />
         </Link>
         <h1 className="header">SAGBLAD</h1>
@@ -25,7 +25,7 @@ const sagblad = () => {
             padding: 3rem 25rem;
           }
           .header {
-            color: var(--primary-text);
+            color: rgb(0, 138, 138);
             font-size: 2rem;
             margin-bottom: 1rem;
           }

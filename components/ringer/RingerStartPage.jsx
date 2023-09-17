@@ -22,7 +22,7 @@ const RingerStartPage = () => {
                 return (
                   <tr key={item.ring}>
                     <td>{item.ring}</td>
-                    <td>{item.antall}</td>
+                    <td className="ant">{item.antall}</td>
                   </tr>
                 );
               })}
@@ -44,8 +44,8 @@ const RingerStartPage = () => {
                 return (
                   <tr key={item.ring}>
                     <td>{item.ring}</td>
-                    <td>{item.antall}</td>
-                    <td>
+                    <td className="ant">{item.antall}</td>
+                    <td className="raw">
                       {item.ring > 10 ? (item.ring - 1.4).toFixed(1) : "Skims"}
                     </td>
                   </tr>
@@ -69,8 +69,8 @@ const RingerStartPage = () => {
                 return (
                   <tr key={item.ring}>
                     <td>{item.ring}</td>
-                    <td>{item.antall}</td>
-                    <td>
+                    <td className="ant">{item.antall}</td>
+                    <td className="raw">
                       {item.ring > 10 ? (item.ring - 1.4).toFixed(1) : "Skims"}
                     </td>
                   </tr>
@@ -82,6 +82,12 @@ const RingerStartPage = () => {
       </div>
       <style jsx>
         {`
+          .ant {
+            color: #c26363;
+          }
+          .raw {
+            color: #6393c2;
+          }
           .container {
             display: flex;
           }
@@ -125,7 +131,7 @@ const RingerStartPage = () => {
             color: #009879;
           }
           td {
-            color: darkblue;
+            color: #009879;
           }
         `}
       </style>

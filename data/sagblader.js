@@ -102,7 +102,7 @@ const sagblader = {
     diameter: 216,
     z: 24,
     skurhøyde: 20,
-    maxRpm: 6000,
+    maxRpm: 6500,
     virke: "Tørt",
     brystvinkel: 5,
     speed: 40,

@@ -78,15 +78,18 @@ const FormInputComponent = ({
             background: rgb(0, 138, 138);
             padding: 2rem;
             border-radius: 10px;
+            width: 20rem;
           }
           input {
             background: rgb(224, 242, 241);
             border-radius: 10px;
             padding: 2px;
+            color: rgb(0, 138, 138);
+            margin-bottom: 1rem;
           }
-          label {
+          .label {
             color: rgb(224, 242, 241);
-            margin-bottom: ;
+            margin-bottom: 2rem;
           }
         `}
       </style>

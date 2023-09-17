@@ -26,6 +26,7 @@ const Selector = ({ setSelectVal }) => {
           select {
             border-radius: 10px;
             background: rgb(224, 242, 241);
+            color: rgb(0, 138, 138);
           }
         `}
       </style>
