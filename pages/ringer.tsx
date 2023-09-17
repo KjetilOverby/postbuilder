@@ -9,7 +9,7 @@ const ringer = () => {
       <div className="container">
         <Link href="/">
           <TbArrowBigLeftLine
-            style={{ color: "var(--text)", fontSize: "3rem" }}
+            style={{ color: "rgb(0, 138, 138)", fontSize: "3rem" }}
           />
         </Link>
         <h1 className="header">Oversikt ringer</h1>
@@ -27,7 +27,7 @@ const ringer = () => {
             font-size: 1.5rem;
           }
           h1 {
-            color: var(--text);
+            color: rgb(0, 138, 138);
           }
         `}
       </style>

@@ -22,7 +22,7 @@ const InputComponent = ({
                   treslag: "Gran",
                 }))
               }
-              className="border grid place-content-center h-16 w-16 rounded-full bg-green-600 hover:cursor-pointer hover:bg-green-700"
+              className="border grid place-content-center h-16 w-16 rounded-full bg-green-200 hover:cursor-pointer hover:bg-green-700"
             >
               <p>Gran</p>
             </div>
@@ -33,7 +33,7 @@ const InputComponent = ({
                   treslag: "Furu",
                 }))
               }
-              className="border grid place-content-center h-16 w-16 rounded-full bg-orange-400 hover:cursor-pointer hover:bg-orange-500"
+              className="border grid place-content-center h-16 w-16 rounded-full bg-orange-300 hover:cursor-pointer hover:bg-orange-500"
             >
               <p>Furu</p>
             </div>
@@ -769,12 +769,12 @@ const InputComponent = ({
             opacity: 0.2;
           }
           .input-container {
-            background: white;
+            background: rgb(0, 138, 138);
             border: 1px solid #e8e8e8;
             box-shadow: 5px 5px 20px #e8e8e8;
           }
           .input-cont {
-            background: #e8e8e8;
+            background: rgb(224, 242, 241);
           }
           .input-field {
             background: grey;
@@ -783,7 +783,7 @@ const InputComponent = ({
             color: white;
           }
           .input-box-text {
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
         `}
       </style>

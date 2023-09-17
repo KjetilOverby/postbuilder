@@ -45,7 +45,7 @@ const TabellComponent = ({ list, setRawVal }) => {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
           }
           .styled-table thead tr {
-            background-color: #009879;
+            background-color: rgb(0, 138, 138);
             color: #ffffff;
             text-align: left;
           }
@@ -58,18 +58,18 @@ const TabellComponent = ({ list, setRawVal }) => {
           }
 
           .styled-table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
+            background-color: rgb(224, 242, 241);
           }
 
           .styled-table tbody tr.active-row {
             font-weight: bold;
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
           .nom {
             color: slategrey;
           }
           .raw {
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
           .raw2 {
             color: indianred;

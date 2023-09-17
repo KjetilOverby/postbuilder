@@ -11,7 +11,7 @@ const tabell = () => {
         <HeadComponent />
         <Link href="/">
           <TbArrowBigLeftLine
-            style={{ color: "var(--text)", fontSize: "3rem" }}
+            style={{ color: "rgb(0, 138, 138)", fontSize: "3rem" }}
           />
         </Link>
         <TabellMain />

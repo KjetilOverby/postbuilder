@@ -22,7 +22,7 @@ const CreateList = ({
               style={{
                 fontSize: "1.8rem",
                 marginBottom: "1rem",
-                color: "#009879",
+                color: "rgb(0, 138, 138)",
               }}
             />
           </Link>
@@ -43,7 +43,7 @@ const CreateList = ({
             background: white;
           }
           .lister-text {
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
         `}
       </style>

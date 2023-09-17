@@ -15,7 +15,7 @@ export function SortableItemList(props) {
           marginBottom: ".5rem",
           padding: "8px 10px",
           borderRadius: "5px",
-          background: "#d3ddf0",
+          background: "linear-gradient(to right,rgb(224, 242, 241), rgb(0, 138, 138))",
           color: "#384c70",
           display: "flex",
         }}>

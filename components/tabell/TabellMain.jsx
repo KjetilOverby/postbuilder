@@ -34,7 +34,7 @@ const TabellMain = () => {
           }
           .header {
             font-size: 1.5rem;
-            color: grey;
+            color: rgb(0, 138, 138);
           }
           .tabell-container {
             margin-right: 2rem;

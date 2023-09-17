@@ -138,7 +138,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             width: 100%;
           }
           .styled-table thead tr {
-            background-color: #009879;
+            background-color: rgb(0, 138, 138);
             color: #ffffff;
             text-align: left;
           }
@@ -156,10 +156,10 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
 
           .styled-table tbody tr.active-row {
             font-weight: bold;
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
           .post {
-            color: #009879;
+            color: rgb(0, 138, 138);
             font-weight: bold;
           }
           .anm {
@@ -168,7 +168,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
           }
           .kl {
             font-weight: bold;
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
           @-webkit-keyframes fadeInDown {
             0% {

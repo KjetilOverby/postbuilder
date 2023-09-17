@@ -157,7 +157,6 @@ const SagbladMainPage = () => {
           <div className="form-container">
             <Selector setSelectVal={setSelectVal} />
             <form>
-              <p className="text">Data</p>
               <label>Diameter</label>
               <br />
               <input
@@ -223,7 +222,7 @@ const SagbladMainPage = () => {
           <div className="info-container">
             <GiSpeedometer
               style={{
-                fontSize: "5rem",
+                fontSize: "3rem",
                 color: "var(--text)",
                 marginBottom: "2rem",
               }}
@@ -240,7 +239,7 @@ const SagbladMainPage = () => {
           <div className="info-container">
             <CgArrowsMergeAltH
               style={{
-                fontSize: "5rem",
+                fontSize: "3rem",
                 color: "var(--text)",
                 marginBottom: "2rem",
               }}
@@ -256,7 +255,7 @@ const SagbladMainPage = () => {
           <div className="info-container">
             <GiCircularSawblade
               style={{
-                fontSize: "5rem",
+                fontSize: "3rem",
                 color: "var(--text)",
                 marginBottom: "2rem",
               }}
@@ -275,7 +274,7 @@ const SagbladMainPage = () => {
           <div className="info-container">
             <BiArea
               style={{
-                fontSize: "5rem",
+                fontSize: "3rem",
                 color: "var(--text)",
                 marginBottom: "2rem",
               }}
@@ -292,7 +291,7 @@ const SagbladMainPage = () => {
           <div className="info-container">
             <GiWoodBeam
               style={{
-                fontSize: "5rem",
+                fontSize: "3rem",
                 color: "var(--text)",
                 marginBottom: "2rem",
               }}
@@ -314,6 +313,9 @@ const SagbladMainPage = () => {
       </div>
       <style jsx>
         {`
+          .container {
+            display: flex;
+          }
           .blade-header {
             font-size: 2rem;
             color: var(--text);
@@ -323,7 +325,7 @@ const SagbladMainPage = () => {
             font-size: 1rem;
           }
           .fact-box {
-            padding-left: 2rem;
+            padding-left: 0rem;
           }
           .results-container {
             margin-top: 1rem;
@@ -332,10 +334,8 @@ const SagbladMainPage = () => {
             border-radius: 10px;
           }
           .form-container {
-            display: grid;
-            place-items: center;
             background: var(--table-bg);
-            width: 20rem;
+            width: 15rem;
             padding: 1rem;
             border-radius: 10px;
           }
@@ -348,13 +348,13 @@ const SagbladMainPage = () => {
           }
           .info-container {
             padding: 1rem;
-            display: grid;
             place-items: center;
-            width: 25rem;
+            width: 14rem;
             border: 1px solid var(--primary-text);
             margin-right: 1rem;
             border-radius: 10px;
             background: var(--table-bg);
+            height: 24rem;
           }
           .text {
             color: var(--text);
@@ -367,21 +367,22 @@ const SagbladMainPage = () => {
           }
           p {
             color: var(--primary-text);
-            font-size: 2rem;
+            font-size: 1rem;
           }
           .h1 {
             color: var(--text);
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 100;
+            font-size: 0.8rem;
             font-style: italic;
           }
           .info-header {
             color: var(--text);
             font-weight: 100;
-            font-size: 1.5rem;
+            font-size: 1rem;
           }
           .top-container {
             display: flex;
+            flex-direction: column;
           }
         `}
       </style>

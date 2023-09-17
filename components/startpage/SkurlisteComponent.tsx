@@ -108,7 +108,7 @@ const SkurlisteComponent = ({
                   </td>
                   <td
                     className={`border-class lg:p-1.5 ${
-                      item.status == "tøm" ? "text-green-400" : "text-red-400"
+                      item.status == "tøm" ? "text-green-600" : "text-red-400"
                     }`}
                   >
                     {item.status}
@@ -185,7 +185,7 @@ const SkurlisteComponent = ({
             background: #f7f4da;
           }
           .running {
-            background: #bff2bd;
+            background: rgb(224, 242, 241);
           }
           .finished {
             background: #e8e8e8;
@@ -218,7 +218,7 @@ const SkurlisteComponent = ({
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
           }
           .styled-table thead tr {
-            background-color: #009879;
+            background-color: rgb(0, 138, 138);
             color: #ffffff;
             text-align: left;
           }
@@ -236,11 +236,11 @@ const SkurlisteComponent = ({
 
           .styled-table tbody tr.active-row {
             font-weight: bold;
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
           .post {
             font-weight: bold;
-            color: #009879;
+            color: rgb(0, 138, 138);
           }
           @media only screen and (max-width: 1000px) {
             table {

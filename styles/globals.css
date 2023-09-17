@@ -26,6 +26,13 @@
   --main-to-right: linear-gradient(to right, #2f2f2f, #2d5f5d);
 }
 
+.table-dark {
+  background: rgb(0, 138, 138);
+}
+.table-light {
+  background: rgb(224, 242, 241);
+}
+
 .pagelayout-container {
   display: grid;
   grid-template-areas:

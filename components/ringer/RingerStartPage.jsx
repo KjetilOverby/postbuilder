@@ -101,7 +101,7 @@ const RingerStartPage = () => {
           }
 
           .styled-table thead tr {
-            background-color: #009879;
+            background-color: rgb(0, 138, 138);
             color: #ffffff;
             text-align: left;
           }
@@ -114,7 +114,7 @@ const RingerStartPage = () => {
           }
 
           .styled-table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
+            background-color: rgb(224, 242, 241);
           }
 
           .styled-table tbody tr:last-of-type {

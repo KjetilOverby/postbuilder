@@ -467,11 +467,11 @@ const ListerMainPage = ({
                     ></div>
                     <div
                       onClick={updateProgressRunning}
-                      className="w-5 h-5 bg-green-500 grid place-content-center rounded-full"
+                      className="w-5 h-5 grid place-content-center rounded-full run-btn"
                     ></div>
                     <div
                       onClick={updateProgressFinished}
-                      className="w-5 h-5 bg-red-400 grid place-content-center rounded-full"
+                      className="w-5 h-5 grid place-content-center rounded-full finish-btn"
                     ></div>
                   </form>
                 ) : (
@@ -523,8 +523,13 @@ const ListerMainPage = ({
           .btn:hover {
             background: #cfcfcf;
           }
+
           .buffer-item {
-            background: var(--main-to-right);
+            background: linear-gradient(
+              to right,
+              rgb(0, 138, 138),
+              rgb(224, 242, 241)
+            );
             border: 1px solid var(--text);
           }
           .lister-container {
@@ -562,6 +567,12 @@ const ListerMainPage = ({
           }
           .lister-text {
             color: grey;
+          }
+          .run-btn {
+            background: rgb(0, 138, 138);
+          }
+          .finish-btn {
+            background: grey;
           }
         `}
       </style>
