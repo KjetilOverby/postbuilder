@@ -4,9 +4,10 @@ import { CgArrowsMergeAltH } from "react-icons/cg";
 import { GiCircularSawblade } from "react-icons/gi";
 import { GiWoodBeam } from "react-icons/gi";
 import { BiArea } from "react-icons/bi";
-import Selector from "../sagblad/Selector";
+import FormInputComponent from "../sagblad/FormInputComponent";
 import sagblader from "../../data/sagblader";
 import Head from "next/head";
+import InfoContainerComponent from "../sagblad/InfoContainerComponent";
 
 const SagbladMainPage = () => {
   const [pi, setPi] = useState(3.14);
@@ -27,6 +28,9 @@ const SagbladMainPage = () => {
   const [sponfyllingsGrad, setSponfyllingsGrad] = useState();
   const [skurHøyde, setSkurHøyde] = useState(75);
   const [tannlukeAreal, setTannlukeAreal] = useState(206);
+  const [sawBladeImg, setSawBladeImg] = useState(
+    "https://www.obsbygg.no/globalassets/productimages/396511_4007430241702_.jpg?ref=00203FDAD8&w=640&mode=pad&h=640&format=jpg"
+  );
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -154,54 +158,21 @@ const SagbladMainPage = () => {
       </Head>
       <div className="container">
         <div className="top-container">
-          <div className="form-container">
-            <Selector setSelectVal={setSelectVal} />
-            <form>
-              <label>Diameter</label>
-              <br />
-              <input
-                placeholder={diameter}
-                onChange={(e) => setDiameter(e.target.value)}
-                value={diameter}
-              />
-              <br />
-              <label>Antall tenner</label>
-              <br />
-              <input placeholder={z} onChange={(e) => setZ(e.target.value)} />
-              <br />
-              <label>Matehastighet</label>
-              <br />
-              <input
-                placeholder={matehastighet}
-                onChange={(e) => setMatehastighet(e.target.value)}
-                value={matehastighet}
-              />
-              <br />
-              <label>Turtall</label>
-              <br />
-              <input
-                placeholder={turtall}
-                onChange={(e) => setTurtall(e.target.value)}
-                value={turtall}
-              />
-              <br />
-              <label>Skurhøyde</label>
-              <br />
-              <input
-                placeholder={skurHøyde}
-                onChange={(e) => setSkurHøyde(e.target.value)}
-                value={skurHøyde}
-              />
-              <br />
-              <label>Tannlukeareal</label>
-              <br />
-              <input
-                placeholder={tannlukeAreal}
-                onChange={(e) => setTannlukeAreal(e.target.value)}
-                value={tannlukeAreal}
-              />
-            </form>
-          </div>
+          <FormInputComponent
+            setSelectVal={setSelectVal}
+            diameter={diameter}
+            matehastighet={matehastighet}
+            turtall={turtall}
+            skurHøyde={skurHøyde}
+            tannlukeAreal={tannlukeAreal}
+            setDiameter={setDiameter}
+            setMatehastighet={setMatehastighet}
+            setTurtall={setTurtall}
+            setSkurHøyde={setSkurHøyde}
+            setTannlukeAreal={setTannlukeAreal}
+            z={z}
+          />
+
           <div className="fact-box">
             <h4 className="blade-header">{bladeHeader}</h4>
             <p className="facts">Max rpm: {sagblader[selectVal].maxRpm}</p>
@@ -217,13 +188,16 @@ const SagbladMainPage = () => {
               Brystvinkel: {sagblader[selectVal].brystvinkel} grader
             </p>
           </div>
+          <div className="img-container">
+            <img className="img" src={sawBladeImg} alt="" />
+          </div>
         </div>
         <div className="results-container">
           <div className="info-container">
             <GiSpeedometer
               style={{
                 fontSize: "3rem",
-                color: "var(--text)",
+                color: "rgb(224, 242, 241)",
                 marginBottom: "2rem",
               }}
             />
@@ -240,7 +214,7 @@ const SagbladMainPage = () => {
             <CgArrowsMergeAltH
               style={{
                 fontSize: "3rem",
-                color: "var(--text)",
+                color: "rgb(224, 242, 241)",
                 marginBottom: "2rem",
               }}
             />
@@ -256,7 +230,7 @@ const SagbladMainPage = () => {
             <GiCircularSawblade
               style={{
                 fontSize: "3rem",
-                color: "var(--text)",
+                color: "rgb(224, 242, 241)",
                 marginBottom: "2rem",
               }}
             />
@@ -275,7 +249,7 @@ const SagbladMainPage = () => {
             <BiArea
               style={{
                 fontSize: "3rem",
-                color: "var(--text)",
+                color: "rgb(224, 242, 241)",
                 marginBottom: "2rem",
               }}
             />
@@ -292,7 +266,7 @@ const SagbladMainPage = () => {
             <GiWoodBeam
               style={{
                 fontSize: "3rem",
-                color: "var(--text)",
+                color: "rgb(224, 242, 241)",
                 marginBottom: "2rem",
               }}
             />
@@ -314,7 +288,6 @@ const SagbladMainPage = () => {
       <style jsx>
         {`
           .container {
-            display: flex;
           }
           .blade-header {
             font-size: 2rem;
@@ -325,7 +298,7 @@ const SagbladMainPage = () => {
             font-size: 1rem;
           }
           .fact-box {
-            padding-left: 0rem;
+            padding-left: 2rem;
           }
           .results-container {
             margin-top: 1rem;
@@ -333,12 +306,7 @@ const SagbladMainPage = () => {
             padding: 10px;
             border-radius: 10px;
           }
-          .form-container {
-            background: var(--table-bg);
-            width: 15rem;
-            padding: 1rem;
-            border-radius: 10px;
-          }
+
           .img {
             width: 100%;
           }
@@ -353,36 +321,41 @@ const SagbladMainPage = () => {
             border: 1px solid var(--primary-text);
             margin-right: 1rem;
             border-radius: 10px;
-            background: var(--table-bg);
+            background: rgb(0, 138, 138);
             height: 24rem;
           }
           .text {
-            color: var(--text);
+            color: rgb(224, 242, 241);
           }
           label {
-            color: var(--text);
+            color: rgb(224, 242, 241);
           }
           input {
             margin-bottom: 1rem;
           }
           p {
-            color: var(--primary-text);
+            color: rgb(224, 242, 241);
             font-size: 1rem;
           }
           .h1 {
-            color: var(--text);
+            color: rgb(224, 242, 241);
             font-weight: 100;
             font-size: 0.8rem;
             font-style: italic;
           }
           .info-header {
-            color: var(--text);
+            color: rgb(224, 242, 241);
             font-weight: 100;
             font-size: 1rem;
           }
           .top-container {
             display: flex;
-            flex-direction: column;
+          }
+          .img-container {
+            width: 30rem;
+          }
+          .img {
+            widht: 100%;
           }
         `}
       </style>

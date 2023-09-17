@@ -19,7 +19,7 @@ const sagblad = () => {
       <style jsx>
         {`
           .container {
-            background: var(--primary);
+            background: white;
             min-height: 100vh;
             min-width: 100vw;
             padding: 3rem 25rem;

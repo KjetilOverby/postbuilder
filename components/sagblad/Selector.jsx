@@ -7,7 +7,8 @@ const Selector = ({ setSelectVal }) => {
         <select
           name="cars"
           id="cars"
-          onChange={(e) => setSelectVal(e.target.value)}>
+          onChange={(e) => setSelectVal(e.target.value)}
+        >
           <option value="mkv445">MKV 445 36z</option>
           <option value="mkv510">MKV 510 36z</option>
           <option value="vs66flens">VS66 flens</option>
@@ -21,6 +22,10 @@ const Selector = ({ setSelectVal }) => {
       <style jsx>
         {`
           .container {
+          }
+          select {
+            border-radius: 10px;
+            background: rgb(224, 242, 241);
           }
         `}
       </style>
