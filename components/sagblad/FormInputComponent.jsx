@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Selector from "../sagblad/Selector";
+import { ContextAppData } from "../../data/context/ContextAppData";
+import darkModeColor from "../../styles/darkMode";
 
 const FormInputComponent = ({
   setSelectVal,
@@ -15,6 +17,7 @@ const FormInputComponent = ({
   setTannlukeAreal,
   z,
 }) => {
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <div className="form-main-container">
@@ -75,7 +78,7 @@ const FormInputComponent = ({
             display: flex;
           }
           .form-container {
-            background: rgb(0, 138, 138);
+            background: ${darkMode ? darkModeColor.hover : "rgb(0, 138, 138)"};
             padding: 2rem;
             border-radius: 10px;
             width: 20rem;

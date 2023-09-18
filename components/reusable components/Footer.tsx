@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import { useAuth0 } from "@auth0/auth0-react";
+import darkModeColor from "../../styles/darkMode";
 
 const Footer = () => {
   const { user, isAuthenticated } = useAuth0<any>();
-  const { chosenThemeColor, chosenThemeFont } = useContext(ContextAppData);
+  const { chosenThemeColor, chosenThemeFont, darkMode } =
+    useContext(ContextAppData);
   return (
     <>
       <div className="main-container">
@@ -60,14 +62,16 @@ const Footer = () => {
         {`
           .main-container {
             height: 6rem;
-            background: var(--table-bg);
+            background: ${darkMode
+              ? darkModeColor.headerColor
+              : "rgb(0, 138, 138)"};
             grid-area: footer;
             display: grid;
             place-items: center;
             padding: 1rem 0;
           }
           .text {
-            color: var(--primary-text);
+            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
             font-size: 0.7rem;
           }
         `}

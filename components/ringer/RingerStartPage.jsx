@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import RingModel from "../ringer/RingModel";
 import ringcount from "../../data/ringcount";
 import HeadComponent from "../reusable components/HeadComponent";
+import darkModeColor from "../../styles/darkMode";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 const RingerStartPage = () => {
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <HeadComponent />
@@ -107,7 +110,9 @@ const RingerStartPage = () => {
           }
 
           .styled-table thead tr {
-            background-color: rgb(0, 138, 138);
+            background-color: ${darkMode
+              ? darkModeColor.primary
+              : "rgb(0, 138, 138)"};
             color: #ffffff;
             text-align: left;
           }
@@ -116,11 +121,14 @@ const RingerStartPage = () => {
             padding: 2px 5px;
           }
           .styled-table tbody tr {
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px solid
+              ${darkMode ? darkModeColor.hover : "#dddddd"};
           }
 
           .styled-table tbody tr:nth-of-type(even) {
-            background-color: rgb(224, 242, 241);
+            background-color: ${darkMode
+              ? darkModeColor.even
+              : "rgb(224, 242, 241)"};
           }
 
           .styled-table tbody tr:last-of-type {

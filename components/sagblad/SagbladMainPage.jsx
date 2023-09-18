@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { GiSpeedometer } from "react-icons/gi";
 import { CgArrowsMergeAltH } from "react-icons/cg";
 import { GiCircularSawblade } from "react-icons/gi";
@@ -8,8 +8,11 @@ import FormInputComponent from "../sagblad/FormInputComponent";
 import sagblader from "../../data/sagblader";
 import Head from "next/head";
 import InfoContainerComponent from "../sagblad/InfoContainerComponent";
+import { ContextAppData } from "../../data/context/ContextAppData";
+import darkModeColor from "../../styles/darkMode";
 
 const SagbladMainPage = () => {
+  const { darkMode } = useContext(ContextAppData);
   const [pi, setPi] = useState(3.14);
   const [diameter, setDiameter] = useState(445);
   const [z, setZ] = useState(36);
@@ -318,10 +321,10 @@ const SagbladMainPage = () => {
           }
           .blade-header {
             font-size: 2rem;
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
           }
           .facts {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
             font-size: 1rem;
           }
           .fact-box {
@@ -345,13 +348,16 @@ const SagbladMainPage = () => {
             padding: 1rem;
             place-items: center;
             width: 14rem;
-            border: 1px solid rgb(0, 138, 138);
+            border: 1px solid
+              ${darkMode ? darkModeColor.hover : "rgb(0, 138, 138)"};
             margin-right: 1rem;
             border-radius: 10px;
-            background: rgb(224, 242, 241);
+            background: ${darkMode
+              ? darkModeColor.hover
+              : "rgb(224, 242, 241)"};
           }
           .text {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
           }
           label {
             color: rgb(0, 138, 138);
@@ -360,17 +366,17 @@ const SagbladMainPage = () => {
             margin-bottom: 1rem;
           }
           p {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
             font-size: 1rem;
           }
           .h1 {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
             font-weight: 100;
             font-size: 0.8rem;
             font-style: italic;
           }
           .info-header {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
             font-weight: 100;
             font-size: 1rem;
           }

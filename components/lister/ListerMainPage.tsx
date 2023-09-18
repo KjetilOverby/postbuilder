@@ -510,16 +510,17 @@ const ListerMainPage = ({
             color: grey;
           }
           .btn {
-            border: 1px solid var(--text);
+            border: 1px solid ${darkMode ? darkModeColor.text : "grey"};
             padding: 5px;
             width: 10rem;
             border-radius: 5px;
             margin-right: 1rem;
             margin-bottom: 1rem;
             transition: 0.5s;
+            color: ${darkMode ? darkModeColor.text : "grey"};
           }
           .btn:hover {
-            background: #cfcfcf;
+            background: ${darkMode ? darkModeColor.primary : "#cfcfcf"};
           }
 
           .buffer-item {

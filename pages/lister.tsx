@@ -25,7 +25,7 @@ const CreateList = ({
               style={{
                 fontSize: "1.8rem",
                 marginBottom: "1rem",
-                color: "rgb(0, 138, 138)",
+                color: darkMode ? darkModeColor.text : "rgb(0, 138, 138)",
               }}
             />
           </Link>
@@ -47,7 +47,7 @@ const CreateList = ({
             background: ${darkMode ? darkModeColor.primary : "white"};
           }
           .lister-text {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
           }
         `}
       </style>

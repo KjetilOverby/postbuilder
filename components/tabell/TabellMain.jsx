@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import TabellComponent from "./TabellComponent";
 import rawList from "../../data/rawList";
 import TabellModal from "./TabellModal";
+import darkModeColor from "../../styles/darkMode";
 
-const TabellMain = () => {
+const TabellMain = ({ darkMode }) => {
   const [rawVal, setRawVal] = useState();
   const [openModal, setOpenModal] = useState(false);
   console.log(rawVal);
@@ -34,7 +35,7 @@ const TabellMain = () => {
           }
           .header {
             font-size: 1.5rem;
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.hover : "rgb(0, 138, 138)"};
           }
           .tabell-container {
             margin-right: 2rem;

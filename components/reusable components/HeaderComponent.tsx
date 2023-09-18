@@ -5,6 +5,7 @@ import LoginButton from "../auth/LoginButton";
 import LogoutButton from "../auth/LogoutButton";
 import AuthWrapper from "../auth/AuthWrapper";
 import { ContextAppData } from "../../data/context/ContextAppData";
+import darkModeColor from "../../styles/darkMode";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -123,22 +124,22 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
       <style jsx>
         {`
           .header-container {
-            background: var(--primary);
+            background: ${darkMode
+              ? darkModeColor.headerColor
+              : "rgb(0, 138, 138)"};
             padding: 0.5rem 15rem;
-            background: var(--table-bg);
             grid-area: header;
             position: absolute;
             width: 100vw;
           }
           .tab {
-            color: var(--primary-text);
+            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
             font-size: 0.9rem;
           }
-          .logo {
-            color: var(--text);
-          }
+
           .logo-text {
             font-size: 3rem;
+            color: ${darkMode ? darkModeColor.hover : "rgb(224, 242, 241)"};
           }
           .auth-btn-box {
             margin-left: 1rem;
