@@ -185,10 +185,12 @@ const SkurlisteComponent = ({
             background: ${darkMode ? darkModeColor.hover : "#f7f4da"};
           }
           .running {
-            background: ${darkMode ? "#1b291d" : "rgb(224, 242, 241)"};
+            background: ${darkMode
+              ? darkModeColor.headerColor
+              : "rgb(224, 242, 241)"};
           }
           .finished {
-            background: ${darkMode ? "black" : "#e8e8e8"};
+            background: ${darkMode ? darkModeColor.almostBlack : "#e8e8e8"};
           }
           table {
             width: 100%;

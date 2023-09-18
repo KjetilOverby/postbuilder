@@ -6,6 +6,8 @@ const darkModeColor = {
   hover: "#696969",
   even: "#403f3f",
   blue: "#76b0db",
+  almostBlack: "#212121",
+  running: "rgb(0, 138, 138)",
 };
 
 export default darkModeColor;

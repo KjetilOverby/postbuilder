@@ -6,6 +6,8 @@ import LogoutButton from "../auth/LogoutButton";
 import AuthWrapper from "../auth/AuthWrapper";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import darkModeColor from "../../styles/darkMode";
+import { BsCloudMoonFill } from "react-icons/bs";
+import { BsFillSunFill } from "react-icons/bs";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -104,6 +106,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
               </Link>
             </div>
           </div>
+
           <div>
             <AuthWrapper>
               <Link href="/lister">
@@ -113,11 +116,17 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
               </Link>
             </AuthWrapper>
           </div>
+          <div onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? (
+              <BsFillSunFill style={{ color: darkModeColor.text }} />
+            ) : (
+              <BsCloudMoonFill style={{ color: "rgb(224, 242, 241" }} />
+            )}
+          </div>
           <div className="auth-btn-box">
             <LoginButton />
             <LogoutButton />
           </div>
-          <div onClick={() => setDarkMode(!darkMode)}>DarkMode</div>
         </div>
       </nav>
 
