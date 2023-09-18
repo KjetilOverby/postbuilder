@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import dateFormat from "dateformat";
+import { ContextAppData } from "../../data/context/ContextAppData";
+import darkModeColor from "../../styles/darkMode";
 
 const SkurlisteComponent = ({
   skurliste,
@@ -11,6 +13,7 @@ const SkurlisteComponent = ({
   setFieldID,
   setChosen,
 }: any) => {
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <div className="skurliste-container mb-10">
@@ -79,15 +82,13 @@ const SkurlisteComponent = ({
                 <tbody
                   onClick={skurlisteInfoHandler}
                   className={`table-rows cursor-pointer ${item.progress}`}
-                  key={item._id}
-                >
+                  key={item._id}>
                   <td
                     className={`border-class treslag lg:p-1.5 ${
                       item.treslag === "Furu"
                         ? "text-orange-600"
                         : "text-green-500"
-                    }`}
-                  >
+                    }`}>
                     <div>
                       {item.treslag} {item.klType}
                     </div>
@@ -109,8 +110,7 @@ const SkurlisteComponent = ({
                   <td
                     className={`border-class lg:p-1.5 ${
                       item.status == "tøm" ? "text-green-600" : "text-red-400"
-                    }`}
-                  >
+                    }`}>
                     {item.status}
                   </td>
                   <td className="table-text border-class lg:p-1.5 post post">
@@ -182,16 +182,17 @@ const SkurlisteComponent = ({
             color: blue;
           }
           .table-rows:hover {
-            background: #f7f4da;
+            background: ${darkMode ? darkModeColor.hover : "#f7f4da"};
           }
           .running {
-            background: rgb(224, 242, 241);
+            background: ${darkMode ? "#1b291d" : "rgb(224, 242, 241)"};
           }
           .finished {
-            background: #e8e8e8;
+            background: ${darkMode ? "black" : "#e8e8e8"};
           }
           table {
             width: 100%;
+            background: ${darkMode ? darkModeColor.primary : "white"};
           }
           .treslag {
           }
@@ -200,7 +201,7 @@ const SkurlisteComponent = ({
             color: lightgrey;
           }
           .table-text {
-            color: #383f6e;
+            color: ${darkModeColor.text};
           }
           .table-text-top {
             color: white;
@@ -218,7 +219,7 @@ const SkurlisteComponent = ({
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
           }
           .styled-table thead tr {
-            background-color: rgb(0, 138, 138);
+            background-color: ${darkMode ? "#858483" : "rgb(0, 138, 138)"};
             color: #ffffff;
             text-align: left;
           }

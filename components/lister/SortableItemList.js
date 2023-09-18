@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import darkModeColor from "../../styles/darkMode";
 
 export function SortableItemList(props) {
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -15,8 +16,10 @@ export function SortableItemList(props) {
           marginBottom: ".5rem",
           padding: "8px 10px",
           borderRadius: "5px",
-          background: "linear-gradient(to right,rgb(224, 242, 241), rgb(0, 138, 138))",
-          color: "#384c70",
+          background: props.darkMode
+            ? darkModeColor.primary
+            : "rgb(224, 242, 241)",
+          color: props.darkMode ? darkModeColor.text : "#384c70",
           display: "flex",
         }}>
         <p

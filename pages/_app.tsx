@@ -6,6 +6,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { ContextAppData } from "../data/context/ContextAppData";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [darkMode, setDarkMode] = useState<any>(false);
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
   const [skurlisteInfo, setSkurlisteInfo] = useState();
@@ -1041,8 +1042,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}
-    >
+      redirectUri={typeof window !== "undefined" && window.location.origin}>
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -1062,8 +1062,9 @@ export default function App({ Component, pageProps }: AppProps) {
           setGetCalcValues,
           parsedCalcValues,
           setParsedCalcValues,
-        }}
-      >
+          setDarkMode,
+          darkMode,
+        }}>
         <Component
           {...pageProps}
           poster={poster}
@@ -1084,6 +1085,7 @@ export default function App({ Component, pageProps }: AppProps) {
           setOpenDot={setOpenDot}
           setChosenTheme={setChosenTheme}
           setChosenFont={setChosenFont}
+          darkMode={darkMode}
         />
       </ContextAppData.Provider>
     </Auth0Provider>

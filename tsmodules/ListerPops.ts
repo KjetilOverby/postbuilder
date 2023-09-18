@@ -18,7 +18,7 @@ export interface ListerProps {
     vs66XtraBr: string;
     mkvBord: string;
     mkvBr:string;
-    blad: string
+    blad: string,
   }
   sagblad?: string
  

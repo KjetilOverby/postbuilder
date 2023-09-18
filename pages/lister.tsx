@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ListerMainPage from "../components/lister/ListerMainPage";
 import { BsBackspace } from "react-icons/bs";
 import Link from "next/link";
 import AuthWrapper from "../components/auth/AuthWrapper";
 import HeadComponent from "../components/reusable components/HeadComponent";
+import { ContextAppData } from "../data/context/ContextAppData";
+import darkModeColor from "../styles/darkMode";
 
 const CreateList = ({
   skurliste,
@@ -12,6 +14,7 @@ const CreateList = ({
   setUpdate,
   update,
 }: any) => {
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <HeadComponent />
@@ -33,6 +36,7 @@ const CreateList = ({
             skurlisteInfo={skurlisteInfo}
             setUpdate={setUpdate}
             update={update}
+            darkMode={darkMode}
           />
         </div>
       </AuthWrapper>
@@ -40,7 +44,7 @@ const CreateList = ({
         {`
           .lister-bg {
             min-height: 100vh;
-            background: white;
+            background: ${darkMode ? darkModeColor.primary : "white"};
           }
           .lister-text {
             color: rgb(0, 138, 138);

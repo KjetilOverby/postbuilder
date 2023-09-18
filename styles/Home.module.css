@@ -1,4 +1,7 @@
 .indexContainer {
-  background: white;
+  background: rgb(255, 255, 255);
   height: 100vh;
+}
+.indexContainerDark {
+  background: rgb(51, 51, 51);
 }

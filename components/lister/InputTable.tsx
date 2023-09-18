@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ListerProps } from "../../tsmodules/ListerPops";
+import darkModeColor from "../../styles/darkMode";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 const InputTable = ({ listInputData, sagblad }: ListerProps) => {
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <div className="skurliste-container mb-10">
@@ -71,8 +74,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             </td>
             <td
               className={`input-top lg:p-1.5 
-                    `}
-            >
+                    `}>
               {listInputData && listInputData.status}
             </td>
             <td className="input-top lg:p-1.5 post">
@@ -136,22 +138,22 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             min-width: 300px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             width: 100%;
+            background: ${darkMode ? darkModeColor.hover : "white"};
           }
           .styled-table thead tr {
-            background-color: rgb(0, 138, 138);
+            background: ${darkMode
+              ? darkModeColor.primary
+              : " rgb(0, 138, 138)"};
             color: #ffffff;
             text-align: left;
           }
           .styled-table th,
           .styled-table td {
             padding: 2px 5px;
+            color: ${darkMode ? darkModeColor.text : "#474747"};
           }
           .styled-table tbody tr {
             border-bottom: 1px solid #dddddd;
-          }
-
-          .styled-table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
           }
 
           .styled-table tbody tr.active-row {
@@ -159,7 +161,7 @@ const InputTable = ({ listInputData, sagblad }: ListerProps) => {
             color: rgb(0, 138, 138);
           }
           .post {
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? "orange" : "rgb(0, 138, 138)"};
             font-weight: bold;
           }
           .anm {

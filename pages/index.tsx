@@ -16,11 +16,13 @@ export default function Home({
   setSearchResultModal,
   setFinalSkurlisteInfo,
   setOpenDot,
+  darkMode,
 }: SkurlisteProps) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
 
   return (
-    <div className={styles.indexContainer}>
+    <div
+      className={darkMode ? styles.indexContainerDark : styles.indexContainer}>
       <HeadComponent />
       {openSearchModal && (
         <SearchModal
@@ -54,6 +56,7 @@ export default function Home({
         searchResultModal={searchResultModal}
         setFinalSkurlisteInfo={setFinalSkurlisteInfo}
         setOpenDot={setOpenDot}
+        darkMode={darkMode}
       />
     </div>
   );

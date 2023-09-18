@@ -5,6 +5,7 @@ import InputTable from "./InputTable";
 import axios from "axios";
 import ListSort from "./ListSort";
 import { v4 as uuidv4, v4 } from "uuid";
+import darkModeColor from "../../styles/darkMode";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -16,6 +17,7 @@ const ListerMainPage = ({
   skurlisteInfo,
   setUpdate,
   update,
+  darkMode,
 }: any) => {
   const [ListeBuffer, setListeBuffer] = useState(false);
   const [editMode, setEditMode] = useState("");
@@ -391,6 +393,7 @@ const ListerMainPage = ({
             disabled={disabled}
             updateFieldHandler={updateFieldHandler}
             updateMode={updateMode}
+            darkMode={darkMode}
           />
           <div className="mt-5">
             <h1 className="lister-text">Bufrede klasser</h1>
@@ -406,8 +409,7 @@ const ListerMainPage = ({
                   <div
                     key={item._id}
                     onClick={getBufferHandler}
-                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100"
-                  >
+                    className="buffer-item flex mb-3 p-2 rounded-md hover:cursor-pointer hover:bg-slate-600 text-slate-100">
                     <p className="mr-2">{item.treslag}</p>
                     <p className="mr-2">{item.klasse}</p>
                     <p className="mr-2">
@@ -429,8 +431,7 @@ const ListerMainPage = ({
             <div>
               <button
                 className="btn"
-                onClick={() => setDragDropOpen(!dragDropOpen)}
-              >
+                onClick={() => setDragDropOpen(!dragDropOpen)}>
                 {dragDropOpen ? "Avbryt" : "Sorter"}
               </button>
               {dragDropOpen && (
@@ -463,16 +464,13 @@ const ListerMainPage = ({
                   <form className="grid place-items-center grid-cols-3 w-20 mb-3">
                     <div
                       onClick={updateProgressNeutreal}
-                      className="w-5 h-5 bg-white grid place-content-center rounded-full"
-                    ></div>
+                      className="w-5 h-5 bg-white grid place-content-center rounded-full"></div>
                     <div
                       onClick={updateProgressRunning}
-                      className="w-5 h-5 grid place-content-center rounded-full run-btn"
-                    ></div>
+                      className="w-5 h-5 grid place-content-center rounded-full run-btn"></div>
                     <div
                       onClick={updateProgressFinished}
-                      className="w-5 h-5 grid place-content-center rounded-full finish-btn"
-                    ></div>
+                      className="w-5 h-5 grid place-content-center rounded-full finish-btn"></div>
                   </form>
                 ) : (
                   ""
@@ -525,12 +523,8 @@ const ListerMainPage = ({
           }
 
           .buffer-item {
-            background: linear-gradient(
-              to right,
-              rgb(0, 138, 138),
-              rgb(224, 242, 241)
-            );
-            border: 1px solid var(--text);
+            background: ${darkMode ? "#696969" : " rgb(0, 138, 138)"};
+            border: 1px solid ${darkMode ? "#c2c0c0" : "grey"};
           }
           .lister-container {
             display: grid;
@@ -539,16 +533,16 @@ const ListerMainPage = ({
           }
           .list-container {
             position: relative;
-            background: #f5f5f5;
+            background: ${darkMode ? darkModeColor.hover : "#f5f5f5"};
             padding: 1rem;
             border-radius: 10px;
           }
           .edit-container {
-            background: #e8e8e8;
+            background: ${darkMode ? darkModeColor.primary : "#e8e8e8"};
             padding: 1rem;
             widht: 100%;
             left: 0;
-            color: grey;
+            color: ${darkMode ? darkModeColor.text : "grey"};
             border-radius: 5px;
             box-shadow: 5px 5px 20px grey;
           }

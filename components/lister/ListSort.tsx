@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { DndContext, closestCenter } from "@dnd-kit/core";
+import { ContextAppData } from "../../data/context/ContextAppData";
 import {
   arrayMove,
   horizontalListSortingStrategy,
@@ -14,6 +15,8 @@ const api = axios.create({
 });
 
 const ListSort = ({ skurliste, setList, list }: any) => {
+  const { darkMode } = useContext(ContextAppData);
+
   useEffect(() => {
     if (skurliste) {
       setList(skurliste.map((item: any) => item));
@@ -37,13 +40,11 @@ const ListSort = ({ skurliste, setList, list }: any) => {
       <div className="container">
         <DndContext
           collisionDetection={closestCenter}
-          onDragEnd={handleDragList}
-        >
+          onDragEnd={handleDragList}>
           <div className="slistContainer">
             <SortableContext
               strategy={verticalListSortingStrategy}
-              items={list && list}
-            >
+              items={list && list}>
               {list &&
                 list.map((item: any) => {
                   return (
@@ -60,6 +61,7 @@ const ListSort = ({ skurliste, setList, list }: any) => {
                         breddePost={item.breddePost}
                         xLog={item.xLog}
                         prosent={item.prosent}
+                        darkMode={darkMode}
                       />
                     </div>
                   );
