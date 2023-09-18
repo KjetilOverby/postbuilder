@@ -6,6 +6,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { ContextAppData } from "../data/context/ContextAppData";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [darkModeLocal, setDarkModeLocal] = useState<any>(false);
+  const [darkModeGet, setDarkModeGet] = useState<any>();
   const [darkMode, setDarkMode] = useState<any>(false);
   const [poster, setPoster] = useState();
   const [skurliste, setSkurliste] = useState();
@@ -28,6 +30,34 @@ export default function App({ Component, pageProps }: AppProps) {
   const [savedValuesFromCalc, setSavedValuesFromCalc] = useState({});
   const [getCalcValues, setGetCalcValues] = useState<any>();
   const [parsedCalcValues, setParsedCalcValues] = useState<any>();
+
+  useEffect(() => {
+    if (darkModeLocal && isComponentMounted) {
+      localStorage.setItem("darkMode", "true");
+    } else if (!darkModeLocal && isComponentMounted) {
+      localStorage.setItem("darkMode", "false");
+    }
+  }, [darkModeLocal]);
+
+  useEffect(() => {
+    setDarkModeGet(localStorage.getItem("darkMode"));
+  }, [darkModeLocal]);
+  console.log("dd" + darkModeLocal);
+
+  useEffect(() => {
+    if (darkModeGet === "true") {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  });
+
+  useEffect(() => {
+    if (getCalcValues) {
+      setDarkMode(JSON.parse(darkModeGet));
+    }
+  }, [darkMode]);
+  console.log(darkMode);
 
   useEffect(() => {
     setGetCalcValues(localStorage.getItem("calculations"));
@@ -1064,6 +1094,8 @@ export default function App({ Component, pageProps }: AppProps) {
           setParsedCalcValues,
           setDarkMode,
           darkMode,
+          setDarkModeLocal,
+          darkModeLocal,
         }}>
         <Component
           {...pageProps}

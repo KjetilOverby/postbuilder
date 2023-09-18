@@ -200,10 +200,10 @@ const SkurlisteComponent = ({
           }
           .span-text-date {
             font-size: 0.6rem;
-            color: lightgrey;
+            color: ${darkMode ? darkModeColor.secondary : "grey"};
           }
           .table-text {
-            color: ${darkModeColor.text};
+            color: ${darkMode ? darkModeColor.text : "#2c4363"};
           }
           .table-text-top {
             color: white;

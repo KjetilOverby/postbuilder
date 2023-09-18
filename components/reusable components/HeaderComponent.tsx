@@ -15,8 +15,13 @@ interface HeaderProps {
 }
 
 const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
-  const { setEditRingPanelValue, setDarkMode, darkMode } =
-    useContext(ContextAppData);
+  const {
+    setEditRingPanelValue,
+    setDarkMode,
+    darkMode,
+    setDarkModeLocal,
+    darkModeLocal,
+  } = useContext(ContextAppData);
   const [hidden, setHidden] = useState(false);
   const openPostoppsettHandler = () => {
     setSkurlisteInfo(
@@ -116,7 +121,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
               </Link>
             </AuthWrapper>
           </div>
-          <div onClick={() => setDarkMode(!darkMode)}>
+          <div onClick={() => setDarkModeLocal(!darkModeLocal)}>
             {darkMode ? (
               <BsFillSunFill style={{ color: darkModeColor.text }} />
             ) : (
