@@ -254,9 +254,9 @@ const SkurlisteComponent = ({
               font-size: 0.3rem;
             }
           }
-          @media only screen and (max-width: 600px) {
+          @media only screen and (max-width: 700px) {
             table {
-              width: 100%;
+              width: 100vw;
               font-size: 5px;
             }
           }
