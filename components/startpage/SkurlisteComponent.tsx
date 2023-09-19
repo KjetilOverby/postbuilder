@@ -20,46 +20,74 @@ const SkurlisteComponent = ({
         <table className="table-auto w-auto border-spacing-2 shadow-md styled-table">
           <thead>
             <tr>
-              <th className="border-class table-text-top lg:p-1.5 " scope="col">
+              <th
+                className="border-class table-text-top lg:p-1.5 text-size"
+                scope="col">
                 Treslag
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Kl
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Ant
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 m3
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Status
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Post
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 X-log
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 %
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Anm
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Vs66
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Vs66 bredder
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Mkv bord
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Mkv bredder
               </th>
-              <th className="table-text-top border-class lg:p-1.5" scope="col">
+              <th
+                className="table-text-top border-class lg:p-1.5 text-size"
+                scope="col">
                 Blad
               </th>
             </tr>
@@ -84,7 +112,7 @@ const SkurlisteComponent = ({
                   className={`table-rows cursor-pointer ${item.progress}`}
                   key={item._id}>
                   <td
-                    className={`border-class treslag lg:p-1.5 ${
+                    className={`text-size border-class treslag lg:p-1.5 ${
                       item.treslag === "Furu"
                         ? "text-orange-600"
                         : "text-green-500"
@@ -98,38 +126,38 @@ const SkurlisteComponent = ({
                       </span>
                     </div>
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.klasse}
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.ant}
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.m3}
                   </td>
                   <td
-                    className={`border-class lg:p-1.5 ${
+                    className={`text-size border-class lg:p-1.5 ${
                       item.status == "tøm" ? "text-green-600" : "text-red-400"
                     }`}>
                     {item.status}
                   </td>
-                  <td className="table-text border-class lg:p-1.5 post post">
+                  <td className="text-size table-text border-class lg:p-1.5 post post">
                     {item.post}x{item.breddePost}
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.xLog}
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.prosent}
                   </td>
-                  <td className="table-text border-class lg:p-1.5 text-teal-600 ">
+                  <td className="text-size table-text border-class lg:p-1.5 text-teal-600 ">
                     <div className="two-input">
-                      <div className="anm">{item.anm}</div>
+                      <div className="text-size anm">{item.anm}</div>
 
-                      <div className="anm">{item.anm2}</div>
+                      <div className="text-size anm">{item.anm2}</div>
                     </div>
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     <div>
                       {" "}
                       {item.vs66 ? (
@@ -140,24 +168,24 @@ const SkurlisteComponent = ({
                     </div>
                     <div className="text-red-600">{item.vs66Xtra}</div>
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     <div>
                       {" "}
                       {item.vs66Br ? item.vs66Br : <p className="no-bord"></p>}
                     </div>
                     <div className="text-red-600">{item.vs66XtraBr}</div>
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.mkvBord ? (
                       item.mkvBord
                     ) : (
                       <p className="no-bord">Ingen bord</p>
                     )}
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.mkvBr ? item.mkvBr : <p className="no-bord"></p>}
                   </td>
-                  <td className="table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5">
                     {item.blad}
                   </td>
                 </tbody>
@@ -258,6 +286,9 @@ const SkurlisteComponent = ({
             table {
               width: 100vw;
               font-size: 5px;
+            }
+            .text-size {
+              font-size: 12px;
             }
           }
         `}

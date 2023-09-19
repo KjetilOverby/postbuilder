@@ -1,7 +1,12 @@
 .indexContainer {
   background: rgb(255, 255, 255);
-  height: 100vh;
+  min-height: 140vh;
+  min-width: 100vw;
+  overflow: scroll
 }
 .indexContainerDark {
   background: rgb(51, 51, 51);
+  min-height: 140vh;
+  min-width: 100vw;
+  overflow: scroll
 }

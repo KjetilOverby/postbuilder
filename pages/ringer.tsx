@@ -36,6 +36,11 @@ const Ringer = () => {
           h1 {
             color: rgb(0, 138, 138);
           }
+          @media only screen and (max-width: 1000px) {
+            .container {
+              padding: 5px 5px;
+            }
+          }
         `}
       </style>
     </>

@@ -93,6 +93,7 @@ const RingerStartPage = () => {
           }
           .container {
             display: flex;
+            flex-wrap: wrap;
           }
           .header {
             color: grey;
@@ -140,6 +141,15 @@ const RingerStartPage = () => {
           }
           td {
             color: #009879;
+          }
+          @media only screen and (max-width: 1000px) {
+            .list-container {
+              margin-bottom: 3rem;
+            }
+            .container {
+              display: grid;
+              place-items: center;
+            }
           }
         `}
       </style>
