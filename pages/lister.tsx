@@ -44,11 +44,16 @@ const CreateList = ({
         {`
           .lister-bg {
             min-height: 100vh;
-            min-width: 200%;
+
             background: ${darkMode ? darkModeColor.primary : "white"};
           }
           .lister-text {
             color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
+          }
+          @media only screen and (max-width: 1200px) {
+            .lister-bg {
+              min-width: 200%;
+            }
           }
         `}
       </style>

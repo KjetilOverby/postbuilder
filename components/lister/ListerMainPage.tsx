@@ -537,7 +537,6 @@ const ListerMainPage = ({
             background: ${darkMode ? darkModeColor.hover : "#f5f5f5"};
             padding: 1rem;
             border-radius: 10px;
-            grid-area: m;
           }
           .edit-container {
             background: ${darkMode ? darkModeColor.primary : "#e8e8e8"};
@@ -571,10 +570,13 @@ const ListerMainPage = ({
             background: grey;
           }
 
-          input-component-container {
-            grid-area: t;
-          }
           @media only screen and (max-width: 1000px) {
+            .input-component-container {
+              grid-area: t;
+            }
+            .list-container {
+              grid-area: m;
+            }
             .lister-container {
               grid-template-columns: 1fr;
               grid-template-rows: 1fr 1fr;

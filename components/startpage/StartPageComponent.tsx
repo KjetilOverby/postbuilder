@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeaderComponent from "../reusable components/HeaderComponent";
 import SearchFromListComponent from "../reusable components/SearchFromListComponent";
 import SkurlisteComponent from "./SkurlisteComponent";
 import { SkurlisteProps } from "../../tsmodules/posterModule";
 import Footer from "../reusable components/Footer";
+import darkModeColor from "../../styles/darkMode";
+import dateFormat from "dateformat";
 
 const StartPageComponent = ({
   skurliste,
@@ -16,7 +18,30 @@ const StartPageComponent = ({
   setSearchResultModal,
   setFinalSkurlisteInfo,
   setOpenDot,
+  darkMode,
 }: SkurlisteProps) => {
+  const [antallSum, setAntallSum] = useState();
+  const [kubikkSum, setKubikkSum] = useState();
+  const [dated, setDated] = useState();
+
+  useEffect(() => {
+    if (skurliste) {
+      setAntallSum(skurliste.map((item) => item.ant));
+      setKubikkSum(skurliste.map((item) => item.m3));
+    }
+  }, [skurliste]);
+
+  useEffect(() => {
+    if (skurliste) {
+      const getDates = skurliste.map((item) => item.date);
+      setDated(
+        getDates.reduce(function (a, b) {
+          return a > b ? a : b;
+        })
+      );
+    }
+  }, [skurliste]);
+
   return (
     <>
       <div className="pagelayout-container">
@@ -33,6 +58,30 @@ const StartPageComponent = ({
             setSearchResultModal={setSearchResultModal}
             searchTrigger={true}
           />
+          <div className="calc-container">
+            <p className="text">
+              Antall poster: {skurliste && skurliste.length}
+            </p>
+            <p className="text">
+              Antall m3:{" "}
+              {antallSum &&
+                kubikkSum
+                  .reduce((a, b) => a + b, 0)
+                  .toString()
+                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ")}
+            </p>
+            <p className="text">
+              Antall stokker:{" "}
+              {antallSum &&
+                antallSum
+                  .reduce((a, b) => a + b, 0)
+                  .toString()
+                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ")}
+            </p>
+            <p className="text">
+              Sist oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:MM")}
+            </p>
+          </div>
 
           {searchResultModal && (
             <SearchFromListComponent
@@ -58,9 +107,20 @@ const StartPageComponent = ({
             color: grey;
             margin-top: 7rem;
           }
+          .calc-container {
+            background: ${darkMode
+              ? darkModeColor.almostBlack
+              : "rgb(0, 138, 138)"};
+            padding: 10px;
+            border-radius: 5px;
+            font-style: italic;
+          }
           .content-container {
             grid-area: content;
             padding: 0 15rem;
+          }
+          .text {
+            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
           }
           @media only screen and (max-width: 1800px) {
             .content-container {
