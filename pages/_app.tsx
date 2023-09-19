@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState, useRef, useEffect, createContext } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { ContextAppData } from "../data/context/ContextAppData";
+import darkModeColor from "../styles/darkMode";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [darkModeLocal, setDarkModeLocal] = useState<any>(false);
@@ -84,6 +85,39 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const isComponentMounted = UseComponentDidMount();
 
+  function darkModeStandard() {
+    if (typeof window !== "undefined") {
+      const r: any = document.querySelector(":root");
+      // Get the styles (properties and values) for the root
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      r.style.setProperty("--primary", darkModeColor.primary);
+      r.style.setProperty("--primary-text", darkModeColor.text);
+      r.style.setProperty("--table-bg", darkModeColor.almostBlack);
+      r.style.setProperty("--outer", darkModeColor.almostBlack);
+      r.style.setProperty("--outer-text", darkModeColor.text);
+      r.style.setProperty("--center", darkModeColor.secondary);
+      r.style.setProperty("--center-text", darkModeColor.almostBlack);
+      r.style.setProperty("--text", darkModeColor.hover);
+      r.style.setProperty("--hover", darkModeColor.almostBlack);
+      r.style.setProperty("--running", darkModeColor.running);
+      r.style.setProperty("--finish", darkModeColor.text);
+      r.style.setProperty("--finish-text", darkModeColor.primary);
+      r.style.setProperty(
+        "--outer2",
+        "linear-gradient(#557a95,#bcd9ee, #557a95)"
+      );
+      r.style.setProperty("--outer-text2", darkModeColor.blue);
+      r.style.setProperty("--center2", darkModeColor.hover);
+      r.style.setProperty("--center-text2", darkModeColor.text);
+      r.style.setProperty("--mark", darkModeColor.blue);
+      r.style.setProperty("--text2", darkModeColor.text);
+      r.style.setProperty(
+        "--main-to-right",
+        "linear-gradient(to right, #282729,#557a95 )"
+      );
+    }
+  }
   function purpleTheme() {
     if (typeof window !== "undefined") {
       const r: any = document.querySelector(":root");
@@ -992,6 +1026,8 @@ export default function App({ Component, pageProps }: AppProps) {
       sandTheme();
     } else if (chosenThemeColor === '"Khaki"') {
       khakiTheme();
+    } else if (chosenThemeColor === '"Dark Mode"') {
+      darkModeStandard();
     }
   }, [chosenThemeColor]);
 
@@ -1070,8 +1106,7 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}
-    >
+      redirectUri={typeof window !== "undefined" && window.location.origin}>
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -1095,8 +1130,7 @@ export default function App({ Component, pageProps }: AppProps) {
           darkMode,
           setDarkModeLocal,
           darkModeLocal,
-        }}
-      >
+        }}>
         <Component
           {...pageProps}
           poster={poster}

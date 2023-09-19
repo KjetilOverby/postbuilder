@@ -1,5 +1,5 @@
 const darkModeColor = {
-  primary: " rgb(51, 51, 51)",
+  primary: "rgb(51, 51, 51)",
   secondary: "#7d7d7d",
   headerColor: "#474646",
   text: "#c2c0c0",

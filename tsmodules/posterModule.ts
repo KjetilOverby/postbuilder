@@ -133,6 +133,7 @@ export interface SkurlisteProps {
         editDate: {
           type: Date;
         };
+      
        
       };
       setPostInfo: React.Dispatch<React.SetStateAction<string>>;

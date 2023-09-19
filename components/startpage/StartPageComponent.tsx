@@ -20,9 +20,9 @@ const StartPageComponent = ({
   setOpenDot,
   darkMode,
 }: SkurlisteProps) => {
-  const [antallSum, setAntallSum] = useState();
-  const [kubikkSum, setKubikkSum] = useState();
-  const [dated, setDated] = useState();
+  const [antallSum, setAntallSum] = useState<any>();
+  const [kubikkSum, setKubikkSum] = useState<any>();
+  const [dated, setDated] = useState<any>();
 
   useEffect(() => {
     if (skurliste) {
@@ -33,9 +33,9 @@ const StartPageComponent = ({
 
   useEffect(() => {
     if (skurliste) {
-      const getDates = skurliste.map((item) => item.date);
+      const getDates: any = skurliste.map((item) => item.date);
       setDated(
-        getDates.reduce(function (a, b) {
+        getDates.reduce(function (a: any, b: any) {
           return a > b ? a : b;
         })
       );
@@ -66,7 +66,7 @@ const StartPageComponent = ({
               Antall m3:{" "}
               {antallSum &&
                 kubikkSum
-                  .reduce((a, b) => a + b, 0)
+                  .reduce((a: any, b: any) => a + b, 0)
                   .toString()
                   .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ")}
             </p>
@@ -74,11 +74,11 @@ const StartPageComponent = ({
               Antall stokker:{" "}
               {antallSum &&
                 antallSum
-                  .reduce((a, b) => a + b, 0)
+                  .reduce((a: any, b: any) => a + b, 0)
                   .toString()
                   .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ")}
             </p>
-            <p className="text">
+            <p className="text date">
               Sist oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:MM")}
             </p>
           </div>
@@ -120,7 +120,11 @@ const StartPageComponent = ({
             padding: 0 15rem;
           }
           .text {
-            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
+            color: ${darkMode ? darkModeColor.hover : "rgb(224, 242, 241)"};
+            font-size: 0.9rem;
+          }
+          .date {
+            color: ${darkMode ? darkModeColor.hover : "orange"};
           }
           @media only screen and (max-width: 1800px) {
             .content-container {
