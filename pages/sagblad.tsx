@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ContextAppData } from "../data/context/ContextAppData";
 import darkModeColor from "../styles/darkMode";
 
-const sagblad = () => {
+const Sagblad = () => {
   const { darkMode } = useContext(ContextAppData);
   return (
     <>
@@ -46,4 +46,4 @@ const sagblad = () => {
   );
 };
 
-export default sagblad;
+export default Sagblad;

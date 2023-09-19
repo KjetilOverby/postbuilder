@@ -6,7 +6,7 @@ import { TbArrowBigLeftLine } from "react-icons/tb";
 import { ContextAppData } from "../data/context/ContextAppData";
 import darkModeColor from "../styles/darkMode";
 
-const tabell = () => {
+const Tabell = () => {
   const { darkMode } = useContext(ContextAppData);
   return (
     <>
@@ -40,4 +40,4 @@ const tabell = () => {
   );
 };
 
-export default tabell;
+export default Tabell;

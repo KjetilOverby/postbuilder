@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ContextAppData } from "../data/context/ContextAppData";
 import darkModeColor from "../styles/darkMode";
 
-const ringer = () => {
+const Ringer = () => {
   const { darkMode } = useContext(ContextAppData);
   return (
     <>
@@ -42,4 +42,4 @@ const ringer = () => {
   );
 };
 
-export default ringer;
+export default Ringer;

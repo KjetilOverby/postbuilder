@@ -42,7 +42,6 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setDarkModeGet(localStorage.getItem("darkMode"));
   }, [darkModeLocal]);
-  console.log("dd" + darkModeLocal);
 
   useEffect(() => {
     if (darkModeGet === "true") {
@@ -57,7 +56,6 @@ export default function App({ Component, pageProps }: AppProps) {
       setDarkMode(JSON.parse(darkModeGet));
     }
   }, [darkMode]);
-  console.log(darkMode);
 
   useEffect(() => {
     setGetCalcValues(localStorage.getItem("calculations"));
@@ -1072,7 +1070,8 @@ export default function App({ Component, pageProps }: AppProps) {
       // @ts-ignore
       clientId={clientId}
       // @ts-ignore
-      redirectUri={typeof window !== "undefined" && window.location.origin}>
+      redirectUri={typeof window !== "undefined" && window.location.origin}
+    >
       <ContextAppData.Provider
         value={{
           postInfo,
@@ -1096,7 +1095,8 @@ export default function App({ Component, pageProps }: AppProps) {
           darkMode,
           setDarkModeLocal,
           darkModeLocal,
-        }}>
+        }}
+      >
         <Component
           {...pageProps}
           poster={poster}
