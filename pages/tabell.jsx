@@ -28,6 +28,7 @@ const Tabell = () => {
             padding: 2rem 15rem;
             background: ${darkMode ? darkModeColor.primary : "white"};
             min-width: 100vw;
+            min-height: 100vh;
           }
           @media only screen and (max-width: 756px) {
             .container {
