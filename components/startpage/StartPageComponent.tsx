@@ -59,9 +59,9 @@ const StartPageComponent = ({
             searchTrigger={true}
           />
           <div className="calc-container">
-            <p className="text">
+            {/* <p className="text">
               Antall poster: {skurliste && skurliste.length}
-            </p>
+            </p> */}
             <p className="text">
               Antall m3:{" "}
               {antallSum &&

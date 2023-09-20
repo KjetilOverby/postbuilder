@@ -69,6 +69,7 @@ const Footer = () => {
             display: grid;
             place-items: center;
             padding: 1rem 0;
+            margin-top: 2rem;
           }
           .text {
             color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
