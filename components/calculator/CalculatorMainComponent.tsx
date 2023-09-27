@@ -465,6 +465,19 @@ const CalculatorMainComponent = () => {
               transform: none;
             }
           }
+          @media only screen and (max-width: 756px) {
+            .main-container {
+              display: grid;
+              grid-template-columns: 1fr 100vw;
+              grid-template-areas: "side content";
+              background: var(--primary);
+              color: var(--primary-text);
+              overflow: scroll;
+            }
+            .calc-container {
+              width: 100vw;
+            }
+          }
         `}
       </style>
     </>
