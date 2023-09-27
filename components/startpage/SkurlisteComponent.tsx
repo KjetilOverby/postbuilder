@@ -287,6 +287,7 @@ const SkurlisteComponent = ({
               width: 170vw;
               font-size: 5px;
             }
+
             .text-size {
               font-size: 12px;
             }
