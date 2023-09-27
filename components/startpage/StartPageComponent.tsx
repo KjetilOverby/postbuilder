@@ -58,6 +58,7 @@ const StartPageComponent = ({
             setSearchResultModal={setSearchResultModal}
             searchTrigger={true}
           />
+
           <div className="calc-container">
             {/* <p className="text">
               Antall poster: {skurliste && skurliste.length}
@@ -138,7 +139,7 @@ const StartPageComponent = ({
           }
           @media only screen and (max-width: 1200px) {
             .content-container {
-              padding: 0 0.5rem;
+              padding: 0 0rem;
             }
           }
         `}

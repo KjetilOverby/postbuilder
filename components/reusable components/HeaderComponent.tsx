@@ -146,6 +146,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             padding: 0.5rem 15rem;
             grid-area: header;
             position: absolute;
+            width: 100vw;
           }
           .tab {
             color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};

@@ -17,7 +17,7 @@ const SkurlisteComponent = ({
   return (
     <>
       <div className="skurliste-container mb-10">
-        <table className="table-auto w-auto border-spacing-2 shadow-md styled-table">
+        <table className="table-auto  border-spacing-2 shadow-md styled-table">
           <thead>
             <tr>
               <th
@@ -112,7 +112,7 @@ const SkurlisteComponent = ({
                   className={`table-rows cursor-pointer ${item.progress}`}
                   key={item._id}>
                   <td
-                    className={`text-size border-class treslag lg:p-1.5 ${
+                    className={`date text-size border-class treslag lg:p-1.5 ${
                       item.treslag === "Furu"
                         ? "text-orange-600"
                         : "text-green-500"
@@ -284,12 +284,16 @@ const SkurlisteComponent = ({
           }
           @media only screen and (max-width: 700px) {
             table {
-              width: 170vw;
-              font-size: 5px;
+              width: 100vw;
             }
 
             .text-size {
-              font-size: 12px;
+              font-size: 6px;
+              max-width: 10px;
+            }
+            .styled-table th,
+            .styled-table td {
+              padding: 2px 1px;
             }
           }
         `}
