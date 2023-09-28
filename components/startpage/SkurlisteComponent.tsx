@@ -289,11 +289,14 @@ const SkurlisteComponent = ({
 
             .text-size {
               font-size: 6px;
-              max-width: 10px;
+              max-width: 30px;
+              min-width: 18px;
             }
             .styled-table th,
             .styled-table td {
               padding: 2px 1px;
+              border-bottom: 1px solid
+                ${darkMode ? darkModeColor.grey : "#e8e8e8"};
             }
           }
         `}

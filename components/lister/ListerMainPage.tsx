@@ -569,22 +569,6 @@ const ListerMainPage = ({
           .finish-btn {
             background: grey;
           }
-
-          @media only screen and (max-width: 1000px) {
-            .input-component-container {
-              grid-area: t;
-            }
-            .list-container {
-              grid-area: m;
-            }
-            .lister-container {
-              grid-template-columns: 1fr;
-              grid-template-rows: 1fr 1fr;
-              grid-template-areas:
-                "t"
-                "m";
-            }
-          }
         `}
       </style>
     </>

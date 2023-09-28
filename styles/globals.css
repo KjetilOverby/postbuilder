@@ -39,7 +39,7 @@
     "header"
     "content"
     "footer";
-  height: 100vh;
+    min-height: 95.3vh;
   grid-template-rows: 5rem 1fr 6rem;
 
 }

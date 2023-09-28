@@ -60,7 +60,8 @@ const StartPageComponent = ({
           />
 
           <div className="calc-container">
-            {/* <p className="text">
+            {/*   <p className="text">
+              
               Antall poster: {skurliste && skurliste.length}
             </p> */}
             <p className="text">
@@ -105,13 +106,11 @@ const StartPageComponent = ({
       <style jsx>
         {`
           .sk-header {
-            color: grey;
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
             margin-top: 7rem;
           }
           .calc-container {
-            background: ${darkMode
-              ? darkModeColor.almostBlack
-              : "rgb(0, 138, 138)"};
+            background: ${darkMode ? darkModeColor.grey : "rgb(0, 138, 138)"};
             padding: 10px;
             border-radius: 5px;
             font-style: italic;
@@ -140,6 +139,11 @@ const StartPageComponent = ({
           @media only screen and (max-width: 1200px) {
             .content-container {
               padding: 0 0rem;
+            }
+          }
+          @media only screen and (max-width: 800px) {
+            .content-container {
+              margin-top: 1rem;
             }
           }
         `}
