@@ -39,9 +39,8 @@
     "header"
     "content"
     "footer";
-    min-height: 95.3vh;
+  min-height: 100vh;
   grid-template-rows: 5rem 1fr 6rem;
-
 }
 @media only screen and (max-width: 1000px) {
   .pagelayout-container {
