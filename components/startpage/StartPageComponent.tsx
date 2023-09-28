@@ -120,11 +120,11 @@ const StartPageComponent = ({
             padding: 0 15rem;
           }
           .text {
-            color: ${darkMode ? darkModeColor.hover : "rgb(224, 242, 241)"};
+            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
             font-size: 0.9rem;
           }
           .date {
-            color: ${darkMode ? darkModeColor.hover : "orange"};
+            color: ${darkMode ? darkModeColor.text : "orange"};
           }
           @media only screen and (max-width: 1800px) {
             .content-container {
@@ -141,9 +141,9 @@ const StartPageComponent = ({
               padding: 0 0rem;
             }
           }
-          @media only screen and (max-width: 800px) {
+          @media only screen and (max-width: 1000px) {
             .content-container {
-              margin-top: 1rem;
+              margin: 2rem 0;
             }
           }
         `}

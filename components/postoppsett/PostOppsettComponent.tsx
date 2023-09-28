@@ -701,8 +701,8 @@ const PostOppsettComponent = ({
             }
           }
           @media only screen and (max-width: 756px) {
-            .post-header {
-              margin: 0;
+            .postoppsettHeader {
+              margin-top: 4rem;
             }
 
             .ringcomponent {

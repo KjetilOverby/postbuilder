@@ -213,9 +213,9 @@ const SkurlisteComponent = ({
             background: ${darkMode ? darkModeColor.hover : "#f7f4da"};
           }
           .running {
-            background: ${darkMode
-              ? darkModeColor.headerColor
-              : "rgb(224, 242, 241)"};
+            background: ${
+              darkMode ? darkModeColor.headerColor : "rgb(224, 242, 241)"
+            };
           }
           .finished {
             background: ${darkMode ? darkModeColor.almostBlack : "#e8e8e8"};
@@ -256,6 +256,8 @@ const SkurlisteComponent = ({
           .styled-table th,
           .styled-table td {
             padding: 2px 5px;
+            border-bottom: 1px solid
+              ${darkMode ? darkModeColor.grey : "#e8e8e8"};
           }
           .styled-table tbody tr {
             border-bottom: 1px solid #dddddd;
@@ -295,9 +297,7 @@ const SkurlisteComponent = ({
             .styled-table th,
             .styled-table td {
               padding: 2px 1px;
-              border-bottom: 1px solid
-                ${darkMode ? darkModeColor.grey : "#e8e8e8"};
-            }
+            
           }
         `}
       </style>
