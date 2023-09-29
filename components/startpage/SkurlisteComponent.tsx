@@ -126,7 +126,7 @@ const SkurlisteComponent = ({
                       </span>
                     </div>
                   </td>
-                  <td className="text-size table-text border-class lg:p-1.5">
+                  <td className="text-size table-text border-class lg:p-1.5 kl">
                     {item.klasse}
                   </td>
                   <td className="text-size table-text border-class lg:p-1.5">
@@ -197,7 +197,7 @@ const SkurlisteComponent = ({
         {`
           .anm {
             font-style: italic;
-            color: dodgerblue;
+            color: #417a9e;
           }
           .no-bord {
             font-style: italic;
@@ -269,11 +269,16 @@ const SkurlisteComponent = ({
 
           .styled-table tbody tr.active-row {
             font-weight: bold;
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? darkModeColor.grey : "rgb(0, 138, 138)"} ;
+            
           }
           .post {
             font-weight: bold;
-            color: rgb(0, 138, 138);
+            color: ${darkMode ? "#e66430" : "rgb(0, 138, 138)"}
+          }
+          .kl {
+           color: ${darkMode ? "#e66430" : "rgb(0, 138, 138)"};
+           font-weight: bold
           }
           @media only screen and (max-width: 1000px) {
             table {

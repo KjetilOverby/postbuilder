@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SearchPostoppsett from "./SearchPostoppsett";
 import { SearchProps } from "../../tsmodules/SearchProps";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 const SearchFromListComponent = ({
   setPostInfo,
@@ -14,7 +15,7 @@ const SearchFromListComponent = ({
 }: SearchProps) => {
   const [searchString, setSearchString] = useState<string>();
   const [searchStringResult, setSearchStringResult] = useState();
-
+  const { darkMode } = useContext(ContextAppData);
   const showAllHandler = () => {
     setSearchString(`${skurlisteInfo.post}-${skurlisteInfo.prosent}%-`);
   };

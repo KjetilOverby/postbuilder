@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SearchPostoppsett from "../reusable components/SearchPostoppsett";
 import { SearchProps } from "../../tsmodules/SearchProps";
+import darkModeColor from "../../styles/darkMode";
+import { ContextAppData } from "../../data/context/ContextAppData";
 
 const SearchModal = ({
   setOpenSearchModal,
@@ -16,6 +18,8 @@ const SearchModal = ({
       );
     }
   }, [input, poster]);
+
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <div className="main-container h-screen pt-12 backdrop-blur-sm fixed left-0 top-0 w-screen overflow-scroll z-10">
@@ -50,15 +54,11 @@ const SearchModal = ({
               />
             </div>
           </form>
-          <p className="text-slate-50">
-            {`Antall poster: ${poster && poster.length}`}
-          </p>
-          <p className="text-slate-50">
+          <p className="text">{`Antall poster: ${poster && poster.length}`}</p>
+          <p className="text">
             Antall treff: {searchResult && searchResult.length}
           </p>
-          <button
-            className="text-slate-100 mt-1"
-            onClick={() => setOpenSearchModal(false)}>
+          <button className="text" onClick={() => setOpenSearchModal(false)}>
             Close
           </button>
           <div className="mt-12">
@@ -74,6 +74,9 @@ const SearchModal = ({
           .main-container {
             width: 100vw;
             padding: 5rem 15rem;
+          }
+          .text {
+            color: ${darkMode ? darkModeColor.text : "black"};
           }
           @media only screen and (max-width: 1000px) {
             .main-container {
