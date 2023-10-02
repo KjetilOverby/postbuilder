@@ -607,6 +607,7 @@ const PostOppsettComponent = ({
             top: -30px;
             font-weight: 100;
           }
+
           @keyframes fadeIn {
             0% {
               opacity: 0;
