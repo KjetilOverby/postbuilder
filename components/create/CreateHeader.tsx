@@ -226,6 +226,7 @@ const HeaderComponent = ({
 
                     <hr />
                     <h1 className="theme-header">Light themes</h1>
+
                     <ThemeColorMenu
                       click={() => setChosenTheme("Tomato")}
                       color1="#8e8d8a"

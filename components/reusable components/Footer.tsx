@@ -51,7 +51,9 @@ const Footer = () => {
           chosenThemeColor === '"Green darkness"' ||
           chosenThemeColor === '"Quick silver"' ||
           chosenThemeColor === '"Green pearl"' ||
-          chosenThemeColor === '"Sahara night"'
+          chosenThemeColor === '"Sahara night"' ||
+          chosenThemeColor === '"Khaki"' ||
+          chosenThemeColor === '"Dark Mode"'
             ? chosenThemeColor
             : "Standard"}
         </p>

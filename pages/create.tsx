@@ -11,6 +11,7 @@ import ringList from "../data/ringList";
 import { useAuth0 } from "@auth0/auth0-react";
 import Modal from "../components/reusable components/Modal";
 import HeadComponent from "../components/reusable components/HeadComponent";
+import AuthWrapper from "../components/auth/AuthWrapper";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -571,123 +572,127 @@ const Create = ({ setChosenTheme, setChosenFont }: any) => {
   return (
     <>
       <HeadComponent />
-      <div className="create-container">
-        {openDeleteModal && (
-          <Modal
-            title="SLETT POST"
-            actionBtnTitle="Slett"
-            fn={deletePostHandler}
-            cancelHandler={() => setOpenDeleteModal(false)}
-            description={`Er du sikker på å slette: ${
-              postCopy.rawInput.length
-            }x${postCopy.planker}${postCopy.prosent}${(
-              Number(postCopy.blades.bladStamme) + Number(1.4)
-            ).toFixed(1)}${postCopy.spes === undefined ? "" : postCopy.spes}?`}
-          />
-        )}
+      <AuthWrapper>
+        <div className="create-container">
+          {openDeleteModal && (
+            <Modal
+              title="SLETT POST"
+              actionBtnTitle="Slett"
+              fn={deletePostHandler}
+              cancelHandler={() => setOpenDeleteModal(false)}
+              description={`Er du sikker på å slette: ${
+                postCopy.rawInput.length
+              }x${postCopy.planker}${postCopy.prosent}${(
+                Number(postCopy.blades.bladStamme) + Number(1.4)
+              ).toFixed(1)}${
+                postCopy.spes === undefined ? "" : postCopy.spes
+              }?`}
+            />
+          )}
 
-        {openEditSaveModal && (
-          <Modal
-            title="OPPDATER POSTEN"
-            description="ADVARSEL: Ved og oppdatere overskriver du opprinnelige data for denne posten."
-            actionBtnTitle="OPPDATER"
-            fn={saveEditedPostHandler}
-            cancelHandler={() => setOpenEditSaveModal(false)}
+          {openEditSaveModal && (
+            <Modal
+              title="OPPDATER POSTEN"
+              description="ADVARSEL: Ved og oppdatere overskriver du opprinnelige data for denne posten."
+              actionBtnTitle="OPPDATER"
+              fn={saveEditedPostHandler}
+              cancelHandler={() => setOpenEditSaveModal(false)}
+            />
+          )}
+          <CreateHeader
+            deleteHandler={setOpenDeleteModal}
+            saveCreatedPostHandler={saveCreatedPostHandler}
+            setOpenEditSaveModal={setOpenEditSaveModal}
+            setChosenTheme={setChosenTheme}
+            setChosenFont={setChosenFont}
+            resetPostHandler={resetPostHandler}
+            fjernUtfylling={fjernUtfylling}
           />
-        )}
-        <CreateHeader
-          deleteHandler={setOpenDeleteModal}
-          saveCreatedPostHandler={saveCreatedPostHandler}
-          setOpenEditSaveModal={setOpenEditSaveModal}
-          setChosenTheme={setChosenTheme}
-          setChosenFont={setChosenFont}
-          resetPostHandler={resetPostHandler}
-          fjernUtfylling={fjernUtfylling}
-        />
-        <LeftSidepanelEdit
-          setPostCopy={setPostCopy}
-          postCopy={postCopy}
-          setUpdate={setUpdate}
-          update={update}
-          utfyllingForanOpen={utfyllingForanOpen}
-          setUtfyllingForanOpen={setUtfyllingForanOpen}
-          utfyllingBakOpen={utfyllingBakOpen}
-          setUtfyllingBakOpen={setUtfyllingBakOpen}
-          rawOpen={rawOpen}
-          setRawOpen={setRawOpen}
-          utfyllingForanOpenHandler={utfyllingForanOpenHandler}
-          utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
-          utfyllingBakOpenHandler={utfyllingBakOpenHandler}
-          utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
-          rawOpenHandler={rawOpenHandler}
-          setRingPanelNumber={setRingPanelNumber}
-          setRingPanelNumberBak={setRingPanelNumberBak}
-          setRawPanelValue={setRawPanelValue}
-          detailsOpen={detailsOpen}
-          setDetailsOpen={setDetailsOpen}
-          detailsOpenHandler={detailsOpenHandler}
-          setSawbladeSelect={setSawbladeSelect}
-          sawbladeSelect={sawbladeSelect}
-          setProsentSelect={setProsentSelect}
-          setPlankeInput={setPlankeInput}
-          setSpesInput={setSpesInput}
-          shimsOpen={shimsOpen}
-          setShimsOpen={setShimsOpen}
-          shims1open={shims1open}
-          setShims1open={setShims1open}
-          setShimsValue={setShimsValue}
-          setShimsValue2={setShimsValue2}
-          deleteShimsRing={deleteShimsRing}
-          setRawManuallyInput={setRawManuallyInput}
-          setToManuallyInputHandler={setToManuallyInputHandler}
-          setRawInputMupdate={setRawInputMupdate}
-          utfyllingForanOpen2={utfyllingForanOpen2}
-          setRingPanelNumber2={setRingPanelNumber2}
-          utfyllingBakOpen2={utfyllingBakOpen2}
-          setRingPanelNumberBak2={setRingPanelNumberBak2}
-        />
-        <CreatePostContainer
-          postCopy={postCopy}
-          setPostCopy={setPostCopy}
-          setUpdate={setUpdate}
-          update={update}
-          utfyllingForanOpen={utfyllingForanOpen}
-          setUtfyllingForanOpen={setUtfyllingForanOpen}
-          utfyllingBakOpen={utfyllingBakOpen}
-          setUtfyllingBakOpen={setUtfyllingBakOpen}
-          rawOpen={rawOpen}
-          setRawOpen={setRawOpen}
-          ringType={ringType}
-          editBlink={editBlink}
-          utfyllingForanOpenHandler={utfyllingForanOpenHandler}
-          utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
-          utfyllingBakOpenHandler={utfyllingBakOpenHandler}
-          utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
-          rawOpenHandler={rawOpenHandler}
-          shimsOpenHandler={shimsOpenHandler}
-          setRingType={setRingType}
-          detailsOpen={detailsOpen}
-          startRingsCalc={startRingsCalc}
-          setStartRingsCalc={setStartRingsCalc}
-          utfyllingForan={utfyllingForan}
-          setUtfyllingForan={setUtfyllingForan}
-          utfyllingBak={utfyllingBak}
-          setUtfyllingBak={setUtfyllingBak}
-          endRingsCalc={endRingsCalc}
-          setEndRingsCalc={setEndRingsCalc}
-          setRawRingID={setRawRingID}
-          setRawInputShimsData={setRawInputShimsData}
-          shims1open={shims1open}
-          originStartRings={originStartRings}
-          originEndRings={originEndRings}
-          startRingsCalc2={startRingsCalc2}
-          setStartRingsCalc2={setStartRingsCalc2}
-          utfyllingBakOpen2={utfyllingBakOpen2}
-          utfyllingForanOpen2={utfyllingForanOpen2}
-          endRingsCalc2={endRingsCalc2}
-          setEndRingsCalc2={setEndRingsCalc2}
-        />
-      </div>
+          <LeftSidepanelEdit
+            setPostCopy={setPostCopy}
+            postCopy={postCopy}
+            setUpdate={setUpdate}
+            update={update}
+            utfyllingForanOpen={utfyllingForanOpen}
+            setUtfyllingForanOpen={setUtfyllingForanOpen}
+            utfyllingBakOpen={utfyllingBakOpen}
+            setUtfyllingBakOpen={setUtfyllingBakOpen}
+            rawOpen={rawOpen}
+            setRawOpen={setRawOpen}
+            utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+            utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
+            utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+            utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
+            rawOpenHandler={rawOpenHandler}
+            setRingPanelNumber={setRingPanelNumber}
+            setRingPanelNumberBak={setRingPanelNumberBak}
+            setRawPanelValue={setRawPanelValue}
+            detailsOpen={detailsOpen}
+            setDetailsOpen={setDetailsOpen}
+            detailsOpenHandler={detailsOpenHandler}
+            setSawbladeSelect={setSawbladeSelect}
+            sawbladeSelect={sawbladeSelect}
+            setProsentSelect={setProsentSelect}
+            setPlankeInput={setPlankeInput}
+            setSpesInput={setSpesInput}
+            shimsOpen={shimsOpen}
+            setShimsOpen={setShimsOpen}
+            shims1open={shims1open}
+            setShims1open={setShims1open}
+            setShimsValue={setShimsValue}
+            setShimsValue2={setShimsValue2}
+            deleteShimsRing={deleteShimsRing}
+            setRawManuallyInput={setRawManuallyInput}
+            setToManuallyInputHandler={setToManuallyInputHandler}
+            setRawInputMupdate={setRawInputMupdate}
+            utfyllingForanOpen2={utfyllingForanOpen2}
+            setRingPanelNumber2={setRingPanelNumber2}
+            utfyllingBakOpen2={utfyllingBakOpen2}
+            setRingPanelNumberBak2={setRingPanelNumberBak2}
+          />
+          <CreatePostContainer
+            postCopy={postCopy}
+            setPostCopy={setPostCopy}
+            setUpdate={setUpdate}
+            update={update}
+            utfyllingForanOpen={utfyllingForanOpen}
+            setUtfyllingForanOpen={setUtfyllingForanOpen}
+            utfyllingBakOpen={utfyllingBakOpen}
+            setUtfyllingBakOpen={setUtfyllingBakOpen}
+            rawOpen={rawOpen}
+            setRawOpen={setRawOpen}
+            ringType={ringType}
+            editBlink={editBlink}
+            utfyllingForanOpenHandler={utfyllingForanOpenHandler}
+            utfyllingForanOpenHandler2={utfyllingForanOpenHandler2}
+            utfyllingBakOpenHandler={utfyllingBakOpenHandler}
+            utfyllingBakOpenHandler2={utfyllingBakOpenHandler2}
+            rawOpenHandler={rawOpenHandler}
+            shimsOpenHandler={shimsOpenHandler}
+            setRingType={setRingType}
+            detailsOpen={detailsOpen}
+            startRingsCalc={startRingsCalc}
+            setStartRingsCalc={setStartRingsCalc}
+            utfyllingForan={utfyllingForan}
+            setUtfyllingForan={setUtfyllingForan}
+            utfyllingBak={utfyllingBak}
+            setUtfyllingBak={setUtfyllingBak}
+            endRingsCalc={endRingsCalc}
+            setEndRingsCalc={setEndRingsCalc}
+            setRawRingID={setRawRingID}
+            setRawInputShimsData={setRawInputShimsData}
+            shims1open={shims1open}
+            originStartRings={originStartRings}
+            originEndRings={originEndRings}
+            startRingsCalc2={startRingsCalc2}
+            setStartRingsCalc2={setStartRingsCalc2}
+            utfyllingBakOpen2={utfyllingBakOpen2}
+            utfyllingForanOpen2={utfyllingForanOpen2}
+            endRingsCalc2={endRingsCalc2}
+            setEndRingsCalc2={setEndRingsCalc2}
+          />
+        </div>
+      </AuthWrapper>
       <style jsx>
         {`
           .create-container {

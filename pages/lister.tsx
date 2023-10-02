@@ -18,6 +18,7 @@ const CreateList = ({
   return (
     <>
       <HeadComponent />
+
       <AuthWrapper>
         <div className="p-10 lister-bg">
           <Link href="/">

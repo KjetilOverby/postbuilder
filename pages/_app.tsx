@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect, createContext } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { ContextAppData } from "../data/context/ContextAppData";
 import darkModeColor from "../styles/darkMode";
+import lightModeColor from "../styles/lightMode";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [darkModeLocal, setDarkModeLocal] = useState<any>(false);
@@ -93,12 +94,12 @@ export default function App({ Component, pageProps }: AppProps) {
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", darkModeColor.primary);
       r.style.setProperty("--primary-text", darkModeColor.text);
-      r.style.setProperty("--table-bg", darkModeColor.almostBlack);
+      r.style.setProperty("--table-bg", darkModeColor.grey);
       r.style.setProperty(
         "--outer",
         `linear-gradient(${darkModeColor.almostBlack}, ${darkModeColor.hover}, ${darkModeColor.almostBlack})`
       );
-      r.style.setProperty("--outer-text", darkModeColor.orange);
+      r.style.setProperty("--outer-text", darkModeColor.text);
       r.style.setProperty(
         "--center",
         `linear-gradient(${darkModeColor.hover}, ${darkModeColor.text}, ${darkModeColor.hover})`
@@ -116,7 +117,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--outer-text2", darkModeColor.blue);
       r.style.setProperty("--center2", darkModeColor.hover);
       r.style.setProperty("--center-text2", darkModeColor.text);
-      r.style.setProperty("--mark", darkModeColor.blue);
+      r.style.setProperty("--mark", darkModeColor.text);
       r.style.setProperty("--text2", darkModeColor.text);
       r.style.setProperty(
         "--main-to-right",
@@ -124,6 +125,7 @@ export default function App({ Component, pageProps }: AppProps) {
       );
     }
   }
+
   function purpleTheme() {
     if (typeof window !== "undefined") {
       const r: any = document.querySelector(":root");
@@ -553,7 +555,7 @@ export default function App({ Component, pageProps }: AppProps) {
       var rs = getComputedStyle(r);
       // Alert the value of the --blue variable
       r.style.setProperty("--primary", "linear-gradient(#334d50, #cbcaa5)");
-      r.style.setProperty("--primary-text", "black");
+      r.style.setProperty("--primary-text", "#8f8d6a");
       r.style.setProperty("--table-bg", "#334d50");
       r.style.setProperty(
         "--outer",
