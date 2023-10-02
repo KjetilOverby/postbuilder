@@ -94,10 +94,16 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--primary", darkModeColor.primary);
       r.style.setProperty("--primary-text", darkModeColor.text);
       r.style.setProperty("--table-bg", darkModeColor.almostBlack);
-      r.style.setProperty("--outer", darkModeColor.almostBlack);
-      r.style.setProperty("--outer-text", darkModeColor.text);
-      r.style.setProperty("--center", darkModeColor.secondary);
-      r.style.setProperty("--center-text", darkModeColor.almostBlack);
+      r.style.setProperty(
+        "--outer",
+        `linear-gradient(${darkModeColor.almostBlack}, ${darkModeColor.hover}, ${darkModeColor.almostBlack})`
+      );
+      r.style.setProperty("--outer-text", darkModeColor.orange);
+      r.style.setProperty(
+        "--center",
+        `linear-gradient(${darkModeColor.hover}, ${darkModeColor.text}, ${darkModeColor.hover})`
+      );
+      r.style.setProperty("--center-text", darkModeColor.grey);
       r.style.setProperty("--text", darkModeColor.hover);
       r.style.setProperty("--hover", darkModeColor.almostBlack);
       r.style.setProperty("--running", darkModeColor.running);

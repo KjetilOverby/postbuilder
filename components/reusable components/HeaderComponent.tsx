@@ -6,7 +6,7 @@ import LogoutButton from "../auth/LogoutButton";
 import AuthWrapper from "../auth/AuthWrapper";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import darkModeColor from "../../styles/darkMode";
-import { BsCloudMoonFill } from "react-icons/bs";
+import { BsFillMoonFill } from "react-icons/bs";
 import { BsFillSunFill } from "react-icons/bs";
 
 interface HeaderProps {
@@ -120,16 +120,20 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
                 </Link>
               </AuthWrapper>
             </div>
-            <div
-              className="darkmode-icon"
-              onClick={() => setDarkModeLocal(!darkModeLocal)}>
-              {darkMode ? (
-                <BsFillSunFill style={{ color: darkModeColor.text }} />
-              ) : (
-                <BsCloudMoonFill style={{ color: "rgb(224, 242, 241" }} />
-              )}
-            </div>
             <div className="auth-btn-box">
+              <div
+                className="darkmode-icon"
+                onClick={() => setDarkModeLocal(!darkModeLocal)}>
+                {darkMode ? (
+                  <BsFillSunFill
+                    style={{ color: darkModeColor.text, fontSize: "1rem" }}
+                  />
+                ) : (
+                  <BsFillMoonFill
+                    style={{ color: "white", fontSize: "1rem" }}
+                  />
+                )}
+              </div>
               <LoginButton />
               <LogoutButton />
             </div>
@@ -154,17 +158,26 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
           }
 
           .logo-text {
-            font-size: 3rem;
-            color: ${darkMode ? darkModeColor.hover : "rgb(224, 242, 241)"};
+            font-size: 2rem;
+            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
           }
           .auth-btn-box {
-            margin-left: 1rem;
+            margin-left: auto;
+            display: flex;
           }
           .tab-container {
             display: flex;
+            width: 100%;
+            padding-right: 1rem;
           }
           .darkmode-icon:hover {
             cursor: pointer;
+          }
+          .darkmode-icon {
+            border: 1px solid white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-right: 1rem;
           }
 
           @media only screen and (max-width: 1000px) {

@@ -9,6 +9,7 @@ const darkModeColor = {
   almostBlack: "#212121",
   running: "rgb(0, 138, 138)",
   grey: "#404040",
+  orange: "#e66430",
 };
 
 export default darkModeColor;

@@ -51,6 +51,9 @@
 .logButton {
   color: rgb(130, 85, 57);
   color: var(--mark);
+  border: 1px solid white;
+  padding: 3px;
+  border-radius: 5px
 }
 html,
 body {

@@ -274,10 +274,10 @@ const SkurlisteComponent = ({
           }
           .post {
             font-weight: bold;
-            color: ${darkMode ? "#e66430" : "rgb(0, 138, 138)"}
+            color: ${darkMode ? darkModeColor.orange : "rgb(0, 138, 138)"}
           }
           .kl {
-           color: ${darkMode ? "#e66430" : "rgb(0, 138, 138)"};
+           color: ${darkMode ? darkModeColor.orange : "rgb(0, 138, 138)"};
            font-weight: bold
           }
           @media only screen and (max-width: 1000px) {

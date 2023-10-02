@@ -114,7 +114,7 @@ const RingPanelComponent = ({
             place-items: center;
             width: 3rem;
             font-size: 0.8rem;
-            background: var(--primary);
+            background: var(--main-to-right);
             border-radius: 5px;
           }
           .ringvalue-container:hover {
@@ -127,7 +127,7 @@ const RingPanelComponent = ({
             font-style: italic;
           }
           .ring270 {
-            box-shadow: inset 5px 5px 10px var(--text);
+            border: 1px solid var(--text2);
           }
         `}
       </style>
