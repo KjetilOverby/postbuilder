@@ -44,16 +44,14 @@ const SearchFromListComponent = ({
     <>
       <div className="">
         <div className="main-container top-52 p-5 shadow-xl bounceIn">
-          <button
-            className="border pl-2 pr-2 mb-2 py-1 rounded-md mr-4 text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
-            onClick={closeModal}>
-            Lukk
-          </button>
-          <button
-            className="border pl-2 pr-2 mb-2 py-1 rounded-md text-slate-50 text-xs bg-slate-600 hover:bg-slate-500 transition-all duration-300"
-            onClick={showAllHandler}>
-            Vis alle
-          </button>
+          <div className="btn-container">
+            <button className="btn" onClick={closeModal}>
+              Lukk
+            </button>
+            <button className="btn" onClick={showAllHandler}>
+              Alle bladtykkelser
+            </button>
+          </div>
           <SearchPostoppsett
             setSearchResultModal={setSearchResultModal}
             searchResult={searchStringResult}
@@ -68,6 +66,10 @@ const SearchFromListComponent = ({
       </div>
       <style jsx>
         {`
+          .btn-container {
+            display: flex;
+            flex-direction: column;
+          }
           .main-container {
             background: var(--table-bg);
             overflow: scroll;
@@ -116,6 +118,21 @@ const SearchFromListComponent = ({
               -webkit-transform: none;
               transform: none;
             }
+          }
+          .btn {
+            padding: 5px;
+
+            margin-right: 1rem;
+            width: 100%;
+            border: 1px solid var(--text);
+            border-radius: 5px;
+            color: var(--text);
+            margin-bottom: 1rem;
+            background: var(--main-to-right);
+          }
+          .btn:hover {
+            background: var(--primary);
+            transition: 0.5s;
           }
           @media only screen and (max-width: 1000px) {
             .main-container {

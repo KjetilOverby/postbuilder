@@ -12,7 +12,7 @@ const LoginButton = (): any => {
       <p
         className="logButton text-sm hover:cursor-pointer"
         onClick={loginHandler}>
-        <AiOutlineLogin style={{ fontSize: "1.2rem" }} />
+        <AiOutlineLogin style={{ fontSize: "1.2rem", color: "white" }} />
       </p>
     )
   );

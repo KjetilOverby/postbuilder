@@ -120,7 +120,7 @@ export default function App({ Component, pageProps }: AppProps) {
       r.style.setProperty("--text2", darkModeColor.text);
       r.style.setProperty(
         "--main-to-right",
-        "linear-gradient(to right, #282729,#557a95 )"
+        `linear-gradient(to right, ${darkModeColor.almostBlack}, ${darkModeColor.primary})`
       );
     }
   }

@@ -9,7 +9,7 @@ const Logout = (): any => {
       <p
         className="logButton text-sm hover:cursor-pointer"
         onClick={() => logout()}>
-        <AiOutlineLogout style={{ fontSize: "1.2rem" }} />
+        <AiOutlineLogout style={{ fontSize: "1.2rem", color: "white" }} />
       </p>
     )
   );
