@@ -35,7 +35,7 @@ const TabellMain = ({ darkMode }) => {
           }
           .header {
             font-size: 1.5rem;
-            color: ${darkMode ? darkModeColor.hover : "rgb(0, 138, 138)"};
+            color: ${darkMode ? darkModeColor.text : "rgb(0, 138, 138)"};
           }
           .tabell-container {
             margin-right: 2rem;
