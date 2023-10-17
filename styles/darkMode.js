@@ -3,7 +3,7 @@ const darkModeColor = {
   secondary: "#7d7d7d",
   headerColor: "#474646",
   text: "#c2c0c0",
-  hover: "#696969",
+  hover: "#282828",
   even: "#403f3f",
   blue: "#76b0db",
   almostBlack: "#212121",
