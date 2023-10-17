@@ -1,16 +1,21 @@
-import React from "react";
-import CalculatorMainComponent from "../components/calculator/CalculatorMainComponent";
+import React, { useContext } from "react";
+import TabellMain from "../components/tabell/TabellMain";
 import HeadComponent from "../components/reusable components/HeadComponent";
+import Link from "next/link";
+import { TbArrowBigLeftLine } from "react-icons/tb";
+import { ContextAppData } from "../data/context/ContextAppData";
+import darkModeColor from "../styles/darkMode";
 import HeaderComponent from "../components/reusable components/HeaderComponent";
 import SearchModal from "../components/startpage/SearchModal";
 
-const Calculator = ({
+const Tabell = ({
   setOpenSearchModal,
   setSkurlisteInfo,
   openSearchModal,
   poster,
   setPostInfo,
 }: any) => {
+  const { darkMode } = useContext(ContextAppData);
   return (
     <>
       <HeaderComponent
@@ -38,17 +43,28 @@ const Calculator = ({
           }}
         />
       )}
-      <div className="main-container">
+      <div className="container">
         <HeadComponent />
-        <CalculatorMainComponent />
+
+        <TabellMain darkMode={darkMode} />
       </div>
-      <style jsx>{`
-        .main-container {
-          padding-top: 3.5rem;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .container {
+            padding: 7rem 15rem;
+            background: ${darkMode ? darkModeColor.primary : "white"};
+            min-width: 100vw;
+            min-height: 100vh;
+          }
+          @media only screen and (max-width: 756px) {
+            .container {
+              padding: 2rem 2rem;
+            }
+          }
+        `}
+      </style>
     </>
   );
 };
 
-export default Calculator;
+export default Tabell;

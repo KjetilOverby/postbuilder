@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { ContextAppData } from "../../data/context/ContextAppData";
 import { useAuth0 } from "@auth0/auth0-react";
 import darkModeColor from "../../styles/darkMode";
+import SearchModal from "../startpage/SearchModal";
 
 const Footer = () => {
   const { user, isAuthenticated } = useAuth0<any>();
   const { chosenThemeColor, chosenThemeFont, darkMode } =
     useContext(ContextAppData);
+
+  const currentYear = new Date().getFullYear();
   return (
     <>
       <div className="main-container">
@@ -58,14 +61,14 @@ const Footer = () => {
             : "Standard"}
         </p>
 
-        <p className="text">Copyright © 2016-2023 POSTARKIV</p>
+        <p className="text">Copyright © 2016-{currentYear} POSTARKIV</p>
       </div>
       <style jsx>
         {`
           .main-container {
             height: 6rem;
             background: ${darkMode
-              ? darkModeColor.headerColor
+              ? darkModeColor.almostBlack
               : "rgb(0, 138, 138)"};
             grid-area: footer;
             display: grid;

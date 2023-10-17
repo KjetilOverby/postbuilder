@@ -144,5 +144,6 @@ export interface SkurlisteProps {
       darkMode: {
         type: any
       },
+      openSearchModal: boolean
       
 }

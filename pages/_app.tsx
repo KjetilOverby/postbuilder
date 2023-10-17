@@ -33,6 +33,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [getCalcValues, setGetCalcValues] = useState<any>();
   const [parsedCalcValues, setParsedCalcValues] = useState<any>();
 
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+
   useEffect(() => {
     if (darkModeLocal && isComponentMounted) {
       localStorage.setItem("darkMode", "true");
@@ -1160,6 +1162,8 @@ export default function App({ Component, pageProps }: AppProps) {
           setChosenTheme={setChosenTheme}
           setChosenFont={setChosenFont}
           darkMode={darkMode}
+          setOpenSearchModal={setOpenSearchModal}
+          openSearchModal={openSearchModal}
         />
       </ContextAppData.Provider>
     </Auth0Provider>

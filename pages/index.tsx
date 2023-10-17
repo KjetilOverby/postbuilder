@@ -17,9 +17,9 @@ export default function Home({
   setFinalSkurlisteInfo,
   setOpenDot,
   darkMode,
+  setOpenSearchModal,
+  openSearchModal,
 }: SkurlisteProps) {
-  const [openSearchModal, setOpenSearchModal] = useState(false);
-
   return (
     <div
       className={darkMode ? styles.indexContainerDark : styles.indexContainer}>
@@ -57,6 +57,7 @@ export default function Home({
         setFinalSkurlisteInfo={setFinalSkurlisteInfo}
         setOpenDot={setOpenDot}
         darkMode={darkMode}
+        openSearchModal={false}
       />
     </div>
   );

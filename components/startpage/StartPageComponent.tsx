@@ -110,10 +110,14 @@ const StartPageComponent = ({
             margin-top: 7rem;
           }
           .calc-container {
-            background: ${darkMode ? darkModeColor.grey : "rgb(0, 138, 138)"};
+            background: ${darkMode
+              ? darkModeColor.primary
+              : "rgb(0, 138, 138)"};
             padding: 10px;
             border-radius: 5px;
             font-style: italic;
+            border: 1px solid
+              ${darkMode ? darkModeColor.grey : "rgb(0, 138, 138)"};
           }
           .content-container {
             grid-area: content;

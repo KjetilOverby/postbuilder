@@ -8,6 +8,7 @@ import { ContextAppData } from "../../data/context/ContextAppData";
 import darkModeColor from "../../styles/darkMode";
 import { BsFillMoonFill } from "react-icons/bs";
 import { BsFillSunFill } from "react-icons/bs";
+import { BiSearchAlt } from "react-icons/bi";
 
 interface HeaderProps {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,11 +37,6 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
   return (
     <>
       <nav className="p-5 lg:p-10 header-container">
-        <div className="logo flex items-center flex-shrink-0 mr-6">
-          <span className="logo-text font-semibold tracking-tight">
-            Postarkiv
-          </span>
-        </div>
         <div className="block lg:hidden">
           <button
             onClick={openMenu}
@@ -59,15 +55,13 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             hidden === true ? "" : "hidden"
           } lg-block`}>
           <div className="text-sm tab-container">
-            <div>
-              <a
-                onClick={openPostoppsettHandler}
-                href="#"
-                className="tab block mt-4 lg:inline-block lg:mt-0 mr-4 uppercase">
-                Søk
-              </a>
-            </div>
-
+            <Link href="/">
+              <div className="logo flex items-center flex-shrink-0 mr-6">
+                <span className="logo-text font-semibold tracking-tight">
+                  Postarkiv
+                </span>
+              </div>
+            </Link>
             <div>
               <Link href="/calculator">
                 <p
@@ -121,8 +115,14 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
               </AuthWrapper>
             </div>
             <div className="auth-btn-box">
+              <div className="darkmode-icon hover:bg-gray-500 transition">
+                <BiSearchAlt
+                  onClick={openPostoppsettHandler}
+                  style={{ color: "white", fontSize: "1rem" }}
+                />
+              </div>
               <div
-                className="darkmode-icon"
+                className="darkmode-icon hover:bg-gray-500 transition"
                 onClick={() => setDarkModeLocal(!darkModeLocal)}>
                 {darkMode ? (
                   <BsFillSunFill
@@ -134,8 +134,10 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
                   />
                 )}
               </div>
-              <LoginButton />
-              <LogoutButton />
+              <div className="hover:bg-gray-500 transition">
+                <LoginButton />
+                <LogoutButton />
+              </div>
             </div>
           </div>
         </div>
@@ -145,12 +147,15 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
         {`
           .header-container {
             background: ${darkMode
-              ? darkModeColor.headerColor
+              ? darkModeColor.primary
               : "rgb(0, 138, 138)"};
-            padding: 0.5rem 15rem;
+            padding: 1rem 15rem;
             grid-area: header;
             position: absolute;
             width: 100vw;
+            border-bottom: 1px solid
+              ${darkMode ? darkModeColor.grey : "rgb(0, 138, 138)"};
+            display: flex;
           }
           .tab {
             color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
@@ -158,8 +163,8 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
           }
 
           .logo-text {
-            font-size: 2rem;
-            color: ${darkMode ? darkModeColor.text : "rgb(224, 242, 241)"};
+            font-size: 1.5rem;
+            color: ${darkMode ? darkModeColor.orange : "rgb(224, 242, 241)"};
           }
           .auth-btn-box {
             margin-left: auto;
@@ -169,6 +174,7 @@ const HeaderComponent = ({ open, setSkurlisteInfo }: HeaderProps) => {
             display: flex;
             width: 100%;
             padding-right: 1rem;
+            align-items: center;
           }
           .darkmode-icon:hover {
             cursor: pointer;
