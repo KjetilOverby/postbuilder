@@ -11,8 +11,9 @@ const LoginButton = (): any => {
     !isAuthenticated && (
       <p
         className="logButton text-sm hover:cursor-pointer"
-        onClick={loginHandler}>
-        <AiOutlineLogin style={{ fontSize: "1.2rem", color: "white" }} />
+        onClick={loginHandler}
+      >
+        <AiOutlineLogin style={{ fontSize: "1rem", color: "white" }} />
       </p>
     )
   );

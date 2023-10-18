@@ -60,64 +60,76 @@ const SkurlistePostoppsett = ({
               </th>
               <th
                 className="border border-slate-700  text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Treslag
               </th>
               <th
                 className="border border-slate-700  text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Kl
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Ant
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 m3
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Status
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Post
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 X-log
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 %
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Anm
               </th>
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Vs66
               </th>
 
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Mkv
               </th>
 
               <th
                 className="border border-slate-700 text-xs table-headers"
-                scope="col">
+                scope="col"
+              >
                 Blad
               </th>
             </tr>
@@ -140,19 +152,23 @@ const SkurlistePostoppsett = ({
                 <tbody
                   onClick={skurlisteInfoHandler}
                   className={`lane cursor-pointer ${item.progress}`}
-                  key={item._id}>
+                  key={item._id}
+                >
                   <td className="border border-slate-700 text-xs table-text">
                     {item._id === fieldID && openDot && (
                       <div className="dot-container">
                         <div
                           onClick={updateProgressNeutreal}
-                          className="dot neutral-dot"></div>
+                          className="dot neutral-dot"
+                        ></div>
                         <div
                           onClick={updateProgressRunning}
-                          className="dot running-dot"></div>
+                          className="dot running-dot"
+                        ></div>
                         <div
                           onClick={updateProgressFinished}
-                          className="dot finished-dot"></div>
+                          className="dot finished-dot"
+                        ></div>
                       </div>
                     )}
                   </td>
@@ -161,7 +177,8 @@ const SkurlistePostoppsett = ({
                       item.treslag === "Furu"
                         ? "text-orange-400"
                         : "text-green-500"
-                    }`}>
+                    }`}
+                  >
                     {item.treslag} {item.klType}
                   </td>
 
@@ -177,7 +194,8 @@ const SkurlistePostoppsett = ({
                   <td
                     className={`border border-slate-700 text-xs ${
                       item.status == "tøm" ? "text-green-300" : "text-red-400"
-                    }`}>
+                    }`}
+                  >
                     {item.status}
                   </td>
                   <td className="border border-slate-700 text-xs table-text post">
@@ -247,7 +265,7 @@ const SkurlistePostoppsett = ({
             background: indianred;
           }
           .table-headers {
-            color: var(--text);
+            color: var(--text2);
           }
           .table-text {
             color: var(--text2);

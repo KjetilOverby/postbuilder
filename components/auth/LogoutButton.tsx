@@ -8,8 +8,9 @@ const Logout = (): any => {
     isAuthenticated && (
       <p
         className="logButton text-sm hover:cursor-pointer"
-        onClick={() => logout()}>
-        <AiOutlineLogout style={{ fontSize: "1.2rem", color: "white" }} />
+        onClick={() => logout()}
+      >
+        <AiOutlineLogout style={{ fontSize: "1rem", color: "white" }} />
       </p>
     )
   );
