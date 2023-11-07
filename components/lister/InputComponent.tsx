@@ -312,6 +312,7 @@ const InputComponent = ({
               <option value="135">135</option>
               <option value="140">140</option>
               <option value="142">142</option>
+              <option value="147">147</option>
               <option value="150">150</option>
               <option value="152">152</option>
               <option value="155">155</option>
